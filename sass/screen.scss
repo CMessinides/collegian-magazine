@@ -1,5 +1,8 @@
-body {
-  color: red;
-}
+@import
 
-@import "global/colors";
+'vendor/normalize',
+'variables/colors',
+'mixins/card',
+'classes/post'
+
+;
