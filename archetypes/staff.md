@@ -1,5 +1,5 @@
 ---
-name: ""
+full name: ""
 role: ""
 headshot: ""
 twitter username: ""
