@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <section>
+    {{ $featured := where (where .Site.Pages "Section" "article") "Params.featured" true }}
+    <h2>Featured</h2>
+
+    {{ if $featured }}
+      <ul>
+        {{ range first 1 $featured }}
+          <li>Alpha: {{ .Title }}</li>
+        {{ end }}
+        {{ range first 3 (after 1 $featured) }}
+          <li>Beta: {{ .Title }}</li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </section>
+{{ end }}

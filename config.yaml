@@ -7,3 +7,4 @@ baseurl: "http://example.com"
 languageCode: "en-us"
 
 metaDataFormat: yaml
+theme: colmag
