@@ -10,6 +10,6 @@ facebook username: ''
 instagram username: ''
 class year: '2020'
 bio: ''
-draft: true
+draft: false
 
 ---
