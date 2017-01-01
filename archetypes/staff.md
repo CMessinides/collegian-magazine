@@ -1,10 +1,11 @@
 ---
-full name: ""
-role: ""
+first name: ""
+last name: ""
+roles: []
 headshot: ""
 twitter username: ""
 facebook username: ""
 instagram username: ""
-class year: 0
+class year: ""
 bio: ""
 ---
