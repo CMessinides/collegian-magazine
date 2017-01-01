@@ -12,6 +12,6 @@ facebook username: cameron.messinides
 instagram username: cmessinides
 class year: '2019'
 bio: ''
-draft: true
+draft: false
 
 ---
