@@ -1,8 +1,6 @@
 ---
 teaser: ""
-authors:
-  - first name: ""
-    last name: ""
+authors: []
 tags: []
 categories: []
 featured: false
