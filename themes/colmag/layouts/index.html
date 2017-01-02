@@ -1,17 +1,71 @@
-{{ define "main" }}
-  <section>
-    {{ $featured := where (where .Site.Pages "Section" "article") "Params.featured" true }}
-    <h2>Featured</h2>
+{{ define "hero" }}
 
-    {{ if $featured }}
+  {{ $featured := where (where .Site.Pages "Section" "article") "Params.featured" true }}
+
+  {{ if $featured }}
+
+    <div class="site-hero">
+
+      <h1>Featured</h1>
+
+      {{ $first_featured := index $featured 0 }}
+      {{ $first_featured.Render "card-alpha" }}
+
+      <section>
+        <h2>More Featured</h2>
+        <ul>
+          {{ range first 3 (after 1 $featured) }}
+          <li>{{ .Render "card-gamma" }}</li>
+          {{ end }}
+        </ul>
+      </section>
+
+    </div>
+
+  {{ end }}
+
+{{ end }}
+
+{{ define "content" }}
+
+  <div class="site-content">
+
+    <section>
+      <h1>In the Latest Issue</h1>
       <ul>
-        {{ range first 1 $featured }}
-          <li>Alpha: {{ .Title }}</li>
-        {{ end }}
-        {{ range first 3 (after 1 $featured) }}
-          <li>Beta: {{ .Title }}</li>
+        {{ range first 5 (where .Site.Pages "Section" "article") }}
+        <li>{{ .Render "card-beta" }}</li>
         {{ end }}
       </ul>
+      <a href="{{ "/article/" | absURL }}">All articles</a>
+    </section>
+
+    {{ $first_announce := index (where .Site.Pages "Section" "announcement") 0 }}
+    {{ if $first_announce }}
+    <section>
+      <h1>Announcement</h1>
+      {{ $first_announce.Render "card-beta" }}
+      <a href="{{ "/announcement/" | absURL }}">More announcements</a>
+    </section>
     {{ end }}
-  </section>
+
+    <section>
+      <h1>Categories</h1>
+      <ul>
+        {{ range $name, $category := .Site.Taxonomies.categories }}
+        <li>
+          <h2>{{ $name }}</h2>
+          <ul>
+            {{ range first 3 $category.Pages}}
+            <li>{{ .Render "card-gamma" }}</li>
+            {{ end }}
+          </ul>
+          <a href="{{ $name | urlize | printf "/categories/%s/" | absURL }}">More in {{ $name }}</a>
+        </li>
+        {{ end }}
+      </ul>
+    </section>
+
+  </div>
+
 {{ end }}
