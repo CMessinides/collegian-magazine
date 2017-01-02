@@ -1,0 +1,18 @@
+<p class="post__byline">
+
+  {{ with .Params.authors }}
+    {{ $author_links := apply (apply (sort .) "partial" "staff/link.html" ".") "chomp" "." }}
+    {{ if le (len $author_links) 2 }}
+    {{ delimit $author_links " and " | safeHTML }}
+    {{ else }}
+    {{ delimit $author_links ", " "and " | safeHTML }}
+    {{ end }}
+  {{ else }}
+    by {{ $.Site.Title }}
+  {{ end }}
+
+  &bull;
+
+  <time datetime="{{ .Date | dateFormat "2016-01-02" }}" itemprop="datePublished">{{ .Date | dateFormat "January 2, 2006" }}</time>
+
+</p>
