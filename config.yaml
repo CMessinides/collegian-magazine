@@ -8,3 +8,8 @@ languageCode: "en-us"
 
 metaDataFormat: yaml
 theme: colmag
+
+preserveTaxonomyNames: true
+taxonomies:
+  tag: tags
+  category: categories
