@@ -1,10 +1,10 @@
 ---
 authors: []
-categories: []
+categories: ["Professor's Corner"]
 date: 2017-01-01T01:05:37-05:00
 featured: true
 tags: []
 teaser: ""
-thumbnail: ""
+cover_image: ""
 title: test
 ---

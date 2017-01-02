@@ -1,15 +1,15 @@
 ---
 title: Test Author
 date: '2017-01-01T16:13:14-05:00'
-first name: Test
-last name: Author
+first_name: Test
+last_name: Author
 roles:
 - Writer
 headshot: ''
-twitter username: ''
-facebook username: ''
-instagram username: ''
-class year: '2020'
+twitter_username: ''
+facebook_username: ''
+instagram_username: ''
+class_year: '2020'
 bio: ''
 draft: false
 

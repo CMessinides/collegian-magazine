@@ -4,5 +4,5 @@ authors: []
 tags: []
 categories: []
 featured: false
-thumbnail: ""
+cover_image: ""
 ---
