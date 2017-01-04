@@ -1,0 +1,309 @@
+.grid {
+  display: grid;
+}
+
+.gtrs-1-a {
+  @include gutter(1,a);
+}
+
+.gtrs-1-x {
+  @include gutter(1,x);
+}
+
+.gtrs-1-y {
+  @include gutter(1,y);
+}
+
+.gtrs-2-a {
+  @include gutter(2,a);
+}
+
+.gtrs-2-x {
+  @include gutter(2,x);
+}
+
+.gtrs-2-y {
+  @include gutter(2,y);
+}
+
+.wid-1 {
+  @include width(1);
+}
+
+.wid-2 {
+  @include width(2);
+}
+
+.wid-3 {
+  @include width(3);
+}
+
+.wid-4 {
+  @include width(4);
+}
+
+.wid-5 {
+  @include width(5);
+}
+
+.wid-6 {
+  @include width(6);
+}
+
+.wid-7 {
+  @include width(7);
+}
+
+.wid-8 {
+  @include width(8);
+}
+
+.wid-9 {
+  @include width(9);
+}
+
+.wid-10 {
+  @include width(10);
+}
+
+.wid-11 {
+  @include width(11);
+}
+
+.wid-12 {
+  @include width(12);
+}
+
+@media #{$brkpt-sm} {
+  .ns-grid {
+    display: flex;
+  }
+
+  .ns-gtrs-1-a {
+    @include gutter(1,a);
+  }
+
+  .ns-gtrs-1-x {
+    @include gutter(1,x);
+  }
+
+  .ns-gtrs-1-y {
+    @include gutter(1,y);
+  }
+
+  .ns-gtrs-2-a {
+    @include gutter(2,a);
+  }
+
+  .ns-gtrs-2-x {
+    @include gutter(2,x);
+  }
+
+  .ns-gtrs-2-y {
+    @include gutter(2,y);
+  }
+
+  .ns-wid-1 {
+    @include width(1);
+  }
+
+  .ns-wid-2 {
+    @include width(2);
+  }
+
+  .ns-wid-3 {
+    @include width(3);
+  }
+
+  .ns-wid-4 {
+    @include width(4);
+  }
+
+  .ns-wid-5 {
+    @include width(5);
+  }
+
+  .ns-wid-6 {
+    @include width(6);
+  }
+
+  .ns-wid-7 {
+    @include width(7);
+  }
+
+  .ns-wid-8 {
+    @include width(8);
+  }
+
+  .ns-wid-9 {
+    @include width(9);
+  }
+
+  .ns-wid-10 {
+    @include width(10);
+  }
+
+  .ns-wid-11 {
+    @include width(11);
+  }
+
+  .ns-wid-12 {
+    @include width(12);
+  }
+}
+
+@media #{$brkpt-md} {
+  .md-grid {
+    display: flex;
+  }
+
+  .md-gtrs-1-a {
+    @include gutter(1,a);
+  }
+
+  .md-gtrs-1-x {
+    @include gutter(1,x);
+  }
+
+  .md-gtrs-1-y {
+    @include gutter(1,y);
+  }
+
+  .md-gtrs-2-a {
+    @include gutter(2,a);
+  }
+
+  .md-gtrs-2-x {
+    @include gutter(2,x);
+  }
+
+  .md-gtrs-2-y {
+    @include gutter(2,y);
+  }
+
+  .md-wid-1 {
+    @include width(1);
+  }
+
+  .md-wid-2 {
+    @include width(2);
+  }
+
+  .md-wid-3 {
+    @include width(3);
+  }
+
+  .md-wid-4 {
+    @include width(4);
+  }
+
+  .md-wid-5 {
+    @include width(5);
+  }
+
+  .md-wid-6 {
+    @include width(6);
+  }
+
+  .md-wid-7 {
+    @include width(7);
+  }
+
+  .md-wid-8 {
+    @include width(8);
+  }
+
+  .md-wid-9 {
+    @include width(9);
+  }
+
+  .md-wid-10 {
+    @include width(10);
+  }
+
+  .md-wid-11 {
+    @include width(11);
+  }
+
+  .md-wid-12 {
+    @include width(12);
+  }
+}
+
+@media #{$brkpt-lg} {
+  .lg-grid {
+    display: flex;
+  }
+
+  .lg-gtrs-1-a {
+    @include gutter(1,a);
+  }
+
+  .lg-gtrs-1-x {
+    @include gutter(1,x);
+  }
+
+  .lg-gtrs-1-y {
+    @include gutter(1,y);
+  }
+
+  .lg-gtrs-2-a {
+    @include gutter(2,a);
+  }
+
+  .lg-gtrs-2-x {
+    @include gutter(2,x);
+  }
+
+  .lg-gtrs-2-y {
+    @include gutter(2,y);
+  }
+
+  .lg-wid-1 {
+    @include width(1);
+  }
+
+  .lg-wid-2 {
+    @include width(2);
+  }
+
+  .lg-wid-3 {
+    @include width(3);
+  }
+
+  .lg-wid-4 {
+    @include width(4);
+  }
+
+  .lg-wid-5 {
+    @include width(5);
+  }
+
+  .lg-wid-6 {
+    @include width(6);
+  }
+
+  .lg-wid-7 {
+    @include width(7);
+  }
+
+  .lg-wid-8 {
+    @include width(8);
+  }
+
+  .lg-wid-9 {
+    @include width(9);
+  }
+
+  .lg-wid-10 {
+    @include width(10);
+  }
+
+  .lg-wid-11 {
+    @include width(11);
+  }
+
+  .lg-wid-12 {
+    @include width(12);
+  }
+}

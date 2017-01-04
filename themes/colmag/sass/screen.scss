@@ -1,8 +1,7 @@
-@import
-
-'vendor/normalize',
-'variables/colors',
-'mixins/card',
-'classes/article'
-
-;
+@import "vendor/normalize";
+@import "variables/breakpoints";
+@import "variables/grid";
+@import "variables/spacing";
+@import "mixins/gutter";
+@import "mixins/width";
+@import "classes/layout";
