@@ -1,10 +1,10 @@
 ---
 authors: ["Cameron Messinides", "Foo Bar"]
-categories: ["Out of Reach"]
-date: 2017-01-01T15:45:37-05:00
+categories: ["History"]
+date: 2017-01-06T07:45:37-05:00
 featured: true
 tags: []
 teaser: "This is a teaser. Keep it short and sweet."
-cover_image: "/assets/img/mtns.jpg"
-title: New Heights on the Hill
+cover_image: "/assets/img/supplies.jpg"
+title: The Longest Line
 ---
