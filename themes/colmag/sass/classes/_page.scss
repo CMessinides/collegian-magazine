@@ -1,0 +1,7 @@
+.page {
+  background: $c-grey-5;
+}
+
+.page__content {
+  @include global-max-width;
+}

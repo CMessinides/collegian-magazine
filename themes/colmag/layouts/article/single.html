@@ -1,0 +1,21 @@
+{{ define "title" }}
+  {{ .Title }} &ndash; {{ .Site.Title }}
+{{ end }}
+{{ define "hero" }}
+
+{{ end }}
+{{ define "content" }}
+  <article class="article no-gtrs-1-x md-gtrs-2-a">
+    <header>
+
+    </header>
+    <section class="article__body">
+      <div class="markdown">
+        {{ .Content | markdownify }}
+      </div>
+    </section>
+    <footer>
+
+    </footer>
+  </article>
+{{ end }}

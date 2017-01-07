@@ -1,24 +1,37 @@
-{{ define "hero" }}
 
-  {{ $featured := where (where .Site.Pages "Section" "article") "Params.featured" true }}
+{{ define "hero" }}
+  {{ $featured := first 4 (where (where .Site.Pages "Section" "article") "Params.featured" true) }}
 
   {{ if $featured }}
+    {{ $first := index $featured 0 }}
 
-    <div class="site-hero">
+    <div class="hero">
+      <div class="hero__banner" >
+        <div class="hero__fade"></div>
+        <div class="hero__image" {{ with $first.Params.cover_image }}style="background-image:url({{ . | safeCSS }});"{{ end }}>
+        </div>
+      </div>
+      <div class="hero__inner lg-grid">
 
-      <h1>Featured</h1>
+        <h1 class="hide">Featured</h1>
+        {{ range first 1 $featured }}
+          {{ .Render "hero-insert" }}
+        {{ end }}
 
-      {{ $first_featured := index $featured 0 }}
-      {{ $first_featured.Render "card-alpha" }}
+        {{ with (after 1 $featured) }}
+        <section class="hero__featured lg-wid-4">
+          <h2 class="h4 hero__label">More Featured</h2>
+          <ul class="list card-stack ns-grid lg-grid--vert">
+            {{ range . }}
+            <li class="grid__block ns-wid-4 lg-wid-12 card-stack__item">
+              {{ .Render "card-gamma" }}
+            </li>
+            {{ end }}
+          </ul>
+        </section>
+        {{ end }}
 
-      <section>
-        <h2>More Featured</h2>
-        <ul>
-          {{ range first 3 (after 1 $featured) }}
-          <li>{{ .Render "card-gamma" }}</li>
-          {{ end }}
-        </ul>
-      </section>
+      </div>
 
     </div>
 
@@ -27,12 +40,9 @@
 {{ end }}
 
 {{ define "content" }}
-
-  <div class="site-content">
-
-    <section>
-      <h1>In the Latest Issue</h1>
-      <ul>
+    <section class="gtrs-1-a md-gtrs-2-a">
+      <h1 class="h4">In the Latest Issue</h1>
+      <ul class="list">
         {{ range first 5 (where .Site.Pages "Section" "article") }}
         <li>{{ .Render "card-beta" }}</li>
         {{ end }}
@@ -42,20 +52,20 @@
 
     {{ $first_announce := index (where .Site.Pages "Section" "announcement") 0 }}
     {{ if $first_announce }}
-    <section>
-      <h1>Announcement</h1>
+    <section class="gtrs-1-a md-gtrs-2-a section--bold">
+      <h1 class="h4">Announcement</h1>
       {{ $first_announce.Render "card-beta" }}
       <a href="{{ "/announcement/" | absURL }}">More announcements</a>
     </section>
     {{ end }}
 
-    <section>
-      <h1>Categories</h1>
-      <ul>
+    <section class="gtrs-1-a md-gtrs-2-a">
+      <h1 class="h4">Categories</h1>
+      <ul class="list">
         {{ range $name, $category := .Site.Taxonomies.categories }}
-        <li>
-          <h2>{{ $name }}</h2>
-          <ul>
+        <li class="wid-6">
+          <h2 class="h2">{{ $name }}</h2>
+          <ul class="list">
             {{ range first 3 $category.Pages}}
             <li>{{ .Render "card-gamma" }}</li>
             {{ end }}
@@ -65,7 +75,4 @@
         {{ end }}
       </ul>
     </section>
-
-  </div>
-
 {{ end }}

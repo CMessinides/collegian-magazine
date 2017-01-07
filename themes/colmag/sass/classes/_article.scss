@@ -1,0 +1,11 @@
+.article {
+  @include card;
+}
+
+.article__body {
+  padding: $gutter-1 * 1.25;
+
+  @media #{$brkpt-md} {
+    padding: 0;
+  }
+}

@@ -7,3 +7,25 @@
   margin-right: auto;
   max-width: $site-max-width;
 }
+
+@mixin global-padding($axis: x) {
+  @if $axis == x or $axis == a {
+    padding-left: $gutter-1;
+    padding-right: $gutter-1;
+
+    @media #{$brkpt-md} {
+      padding-left: $gutter-2;
+      padding-right: $gutter-2;
+    }
+  }
+
+  @if $axis == y or $axis == a {
+    padding-bottom: $gutter-1;
+    padding-top: $gutter-1;
+
+    @media #{$brkpt-md} {
+      padding-bottom: $gutter-2;
+      padding-top: $gutter-2;
+    }
+  }
+}

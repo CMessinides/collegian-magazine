@@ -1,0 +1,25 @@
+<article class="card--alpha">
+  <header class="card__thumb wid-12">
+    {{ with .Params.cover_image }}
+    <div class="media--blur" style="background-image:url({{ . | safeCSS }})"></div>
+    <img class="media" src="{{ . }}" alt="">
+    {{ end }}
+  </header>
+  <section class="card__insert">
+    <h2 class="h2">{{ .Title }}</h2>
+    {{ partial "byline.html" . }}
+    {{ with .Params.categories }}
+      {{ $category := index . 0 }}
+      {{ partial "category-link.html" $category }}
+    {{ end }}
+    <p class="card__category"></p>
+    <p class="card__teaser">
+      {{ with .Params.teaser }}
+      {{ . }}
+      {{ else }}
+      {{ .Summary }}
+      {{ end }}
+    </p>
+
+  </section>
+</article>

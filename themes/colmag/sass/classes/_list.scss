@@ -1,0 +1,29 @@
+%list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list {
+  @extend %list;
+}
+
+.list--cards {
+  @extend %list;
+  padding: $gtr-micro / 2;
+
+  > li {
+    padding: $gtr-micro / 2;
+  }
+}
+
+.list--flex {
+  @extend %list;
+  display: flex;
+  flex-wrap: true;
+  padding: $gtr-micro / 2;
+
+  > li {
+    padding: $gtr-micro / 2;
+  }
+}

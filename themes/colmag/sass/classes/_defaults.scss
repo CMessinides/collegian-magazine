@@ -1,0 +1,105 @@
+%heading {
+  font-family: $ff-heading;
+  font-weight: bold;
+  margin-bottom: 0;
+  color: inherit;
+}
+
+.title {
+  @extend %heading;
+  @include typescale(title);
+  line-height: $lh-tight;
+  margin-top: $sp-md;
+}
+
+.subtitle {
+  @include typescale(h2);
+  color: $c-grey-60;
+  font-family: $ff-heading;
+  font-weight: normal;
+  line-height: $lh;
+  margin-top: $sp-base;
+}
+
+.h1,
+.markdown h1 {
+  @extend %heading;
+  @include typescale(h1);
+  line-height: $lh-tight;
+  margin-top: $sp-lg;
+}
+
+.h2,
+.markdown h2 {
+  @extend %heading;
+  @include typescale(h2);
+  border-bottom: 1px $c-brand solid;
+  line-height: $lh-tight;
+  margin-top: $sp-lg;
+  padding-bottom: $sp-sm;
+}
+
+.h3,
+.markdown h3 {
+  @extend %heading;
+  @include typescale(h3);
+  line-height: $lh;
+  margin-top: $sp-md;
+}
+
+.h4,
+.markdown h4 {
+  @extend %heading;
+  @include typescale(h4);
+  border-bottom: 1px currentColor solid;
+  padding-bottom: $sp-sm;
+  line-height: $lh;
+  margin-top: $sp-md;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.h5,
+.markdown h5 {
+  @extend %heading;
+  @include typescale(h5);
+  line-height: $lh;
+  margin-top: $sp-base;
+}
+
+.h6,
+.markdown h6 {
+  @extend %heading;
+  @include typescale(h6);
+  line-height: $lh;
+  margin-top: $sp-base;
+}
+
+%body {
+  font-family: $ff-base;
+  color: inherit;
+}
+
+.p,
+.markdown,
+.markdown p {
+  @extend %body;
+  @include typescale(body);
+  line-height: $lh;
+}
+
+/* At least in Hugo 0.17, the markdown renderer will produce an empty paragraph tag */
+.markdown {
+
+  max-width: 48rem;
+  margin: 0 auto;
+
+  > p:first-child,
+  > em + p,
+  > strong + p,
+  > code + p,
+  > a + p,
+  > img + p {
+    display: none;
+  }
+}

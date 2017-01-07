@@ -1,0 +1,40 @@
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  overflow: hidden;
+  &::before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: percentage($height / $width);
+  }
+  > .media,
+  > .card__media {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 2;
+  }
+
+  > .media--blur {
+    height: 100%;
+    width: 100%;
+    background-size: 110%;
+    filter: blur(15px) brightness(0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+}
+
+@mixin change-aspect-ratio($width, $height) {
+  &::before {
+    padding-top: percentage($height / $width);
+  }
+}

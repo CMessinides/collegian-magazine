@@ -1,0 +1,128 @@
+.card {
+  @include card;
+}
+
+.card--alpha {
+  position: relative;
+}
+
+.card--beta {
+
+  .card__thumb {
+    @include aspect-ratio(16,9);
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .card__media {
+    height: auto;
+    width: 100%;
+  }
+}
+
+.card--gamma {
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+
+  .card__thumb {
+    @include aspect-ratio(1,1);
+    margin: 0;
+    flex: 0 auto;
+    height: 100%;
+
+
+    .card__media {
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  .card__header {
+    flex: 1;
+    padding: $gutter-1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    .card__title, .card__byline {
+      margin: 0;
+    }
+  }
+
+  .icon {
+    align-items: center;
+    align-content: flex-start;
+    flex-flow: row-reverse;
+    background: linear-gradient(to right, rgba(255,255,255,0), $c-white 25%);
+    padding-right: 8px;
+    flex: 0 auto;
+    height: 64px;
+    width: 96px;
+    z-index: 2;
+
+    a {
+      line-height: 1;
+      display: block;
+      width: 48px;
+      height: 100%;
+    }
+
+    svg {
+      width: 48px;
+      height: 100%;
+    }
+  }
+}
+
+// .card__thumb {
+//   @include aspect-ratio(16, 9);
+//   background: url("../img/rough_diagonal.png"), $c-acc1-tint;
+//   background-blend-mode: color-burn;
+//   .media {
+//     height: 100%;
+//     width: auto;
+//   }
+//
+//   @media #{$brkpt-lg} {
+//     @include change-aspect-ratio(2.414, 1);
+//
+//     .media {
+//       height: auto;
+//       width: 100%;
+//     }
+//   }
+// }
+
+.card__insert {
+  border-top: 8px $c-acc1 solid;
+  border-top-right-radius: 2px;
+  padding: $gutter-1;
+  background-color: $c-white;
+
+  @media #{$brkpt-lg} {
+    //bottom: 0;
+    //left: 0;
+    //max-width: 480px;
+    padding: $gutter-2;
+    //position: absolute;
+  }
+}
+
+.card-stack {
+  flex-wrap: wrap;
+  .card-stack__item:first-of-type .card__thumb{
+    @media #{$brkpt-lg} {
+      @include change-aspect-ratio(16,9);
+      flex: 1 100%;
+      height: auto;
+      padding-bottom: $gutter-1;
+      margin: 0;
+
+      .card__media {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

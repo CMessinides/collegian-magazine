@@ -1,0 +1,7 @@
+@mixin card {
+  border: 1px $c-grey-10 solid;
+  border-radius: 2px;
+  // box-shadow: 0 2px 4px 1px $c-shad;
+  display: block;
+  background-color: $c-white;
+}

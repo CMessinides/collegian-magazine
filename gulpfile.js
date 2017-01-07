@@ -12,7 +12,7 @@ gulp.task('sass', function() {
     .pipe(autoprefix({
       browsers: ['last 2 versions', '> 5% in US']
     }))
-    .pipe(gulp.dest('./themes/colmag/static/css'));
+    .pipe(gulp.dest('./themes/colmag/static/assets/css'));
 });
 
 gulp.task('watch', ['sass'], function() {

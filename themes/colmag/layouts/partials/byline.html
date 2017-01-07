@@ -1,11 +1,11 @@
-<p class="post__byline">
+<p class="card__byline">
 
   {{ with .Params.authors }}
     {{ $author_links := apply (apply (sort .) "partial" "staff/link.html" ".") "chomp" "." }}
     {{ if le (len $author_links) 2 }}
-    {{ delimit $author_links " and " | safeHTML }}
+    by {{ delimit $author_links " and " | safeHTML }}
     {{ else }}
-    {{ delimit $author_links ", " "and " | safeHTML }}
+    by {{ delimit $author_links ", " "and " | safeHTML }}
     {{ end }}
   {{ else }}
     by {{ $.Site.Title }}
@@ -13,6 +13,6 @@
 
   &bull;
 
-  <time datetime="{{ .Date | dateFormat "2016-01-02" }}" itemprop="datePublished">{{ .Date | dateFormat "January 2, 2006" }}</time>
+  <time datetime="{{ .Date | dateFormat "2016-01-02" }}" itemprop="datePublished">{{ .Date | dateFormat "Jan 2, 2006" }}</time>
 
 </p>
