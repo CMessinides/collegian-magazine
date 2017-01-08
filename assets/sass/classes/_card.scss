@@ -75,25 +75,6 @@
   }
 }
 
-// .card__thumb {
-//   @include aspect-ratio(16, 9);
-//   background: url("../img/rough_diagonal.png"), $c-acc1-tint;
-//   background-blend-mode: color-burn;
-//   .media {
-//     height: 100%;
-//     width: auto;
-//   }
-//
-//   @media #{$brkpt-lg} {
-//     @include change-aspect-ratio(2.414, 1);
-//
-//     .media {
-//       height: auto;
-//       width: 100%;
-//     }
-//   }
-// }
-
 .card__insert {
   border-top: 8px $c-acc1 solid;
   border-top-right-radius: 2px;
@@ -101,28 +82,22 @@
   background-color: $c-white;
 
   @media #{$brkpt-lg} {
-    //bottom: 0;
-    //left: 0;
-    //max-width: 480px;
+    max-width: 480px;
     padding: $gutter-2;
-    //position: absolute;
   }
 }
 
 .card-stack {
-  flex-wrap: wrap;
-  .card-stack__item:first-of-type .card__thumb{
-    @media #{$brkpt-lg} {
-      @include change-aspect-ratio(16,9);
-      flex: 1 100%;
-      height: auto;
-      padding-bottom: $gutter-1;
-      margin: 0;
+  .card-stack__item:first-of-type .card__thumb {
+    @include change-aspect-ratio(16,9);
+    flex: 1 100%;
+    height: auto;
+    padding-bottom: $gutter-1;
+    margin: 0;
 
-      .card__media {
-        width: 100%;
-        height: auto;
-      }
+    .card__media {
+      width: 100%;
+      height: auto;
     }
   }
 }

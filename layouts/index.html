@@ -11,7 +11,7 @@
         <div class="hero__image" {{ with $first.Params.cover_image }}style="background-image:url({{ . | safeCSS }});"{{ end }}>
         </div>
       </div>
-      <div class="hero__inner lg-grid">
+      <div class="hero__inner md-grid">
 
         <h1 class="hide">Featured</h1>
         {{ range first 1 $featured }}
@@ -19,11 +19,11 @@
         {{ end }}
 
         {{ with (after 1 $featured) }}
-        <section class="hero__featured lg-wid-4">
+        <section class="hero__featured md-wid-6 lg-wid-4">
           <h2 class="h4 hero__label">More Featured</h2>
-          <ul class="list card-stack ns-grid lg-grid--vert">
+          <ul class="list card-stack">
             {{ range . }}
-            <li class="grid__block ns-wid-4 lg-wid-12 card-stack__item">
+            <li class="card-stack__item">
               {{ .Render "card-gamma" }}
             </li>
             {{ end }}
