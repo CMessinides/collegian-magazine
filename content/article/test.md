@@ -7,6 +7,6 @@ categories:
 featured: true
 tags: []
 teaser: ''
-cover_image: "/assets/img/road.jpg"
+cover_image: "/assets/img/3jzew3rtg6e-chris-brignola.jpg"
 
 ---
