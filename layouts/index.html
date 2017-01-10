@@ -5,13 +5,13 @@
   {{ if $featured }}
     {{ $first := index $featured 0 }}
 
-    <div class="hero">
-      <div class="hero__banner" >
+    <div class="hero {{ if gt (len $featured) 1 }}hero--has-aside{{ end }}">
+      <div class="hero__banner">
         <div class="hero__fade"></div>
         <div class="hero__image" {{ with $first.Params.cover_image }}style="background-image:url({{ . | safeCSS }});"{{ end }}>
         </div>
       </div>
-      <div class="hero__inner md-grid">
+      <div class="hero__inner lg-grid">
 
         <h1 class="hide">Featured</h1>
         {{ range first 1 $featured }}
@@ -19,16 +19,11 @@
         {{ end }}
 
         {{ with (after 1 $featured) }}
-        <section class="hero__featured md-wid-6 lg-wid-4">
+        <aside class="hero__featured lg-wid-5">
           <h2 class="h4 hero__label">More Featured</h2>
-          <ul class="list card-stack">
-            {{ range . }}
-            <li class="card-stack__item">
-              {{ .Render "card-gamma" }}
-            </li>
-            {{ end }}
+          {{ partial "card-stack.html" . }}
           </ul>
-        </section>
+        </aside>
         {{ end }}
 
       </div>
@@ -43,7 +38,7 @@
     <section class="gtrs-1-a md-gtrs-2-a">
       <h1 class="h4">In the Latest Issue</h1>
       <ul class="list">
-        {{ range first 5 (where .Site.Pages "Section" "article") }}
+        {{ range first 5 (where (where .Site.Pages "Section" "article") "Params.featured" "ne" "true") }}
         <li>{{ .Render "card-beta" }}</li>
         {{ end }}
       </ul>

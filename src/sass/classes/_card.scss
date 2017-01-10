@@ -75,29 +75,21 @@
   }
 }
 
-.card__insert {
-  border-top: 8px $c-acc1 solid;
-  border-top-right-radius: 2px;
-  padding: $gutter-1;
-  background-color: $c-white;
+.card-stack {
 
-  @media #{$brkpt-lg} {
-    max-width: 480px;
-    padding: $gutter-2;
-  }
 }
 
-.card-stack {
-  .card-stack__item:first-of-type .card__thumb {
+.card-stack__item:first-of-type {
+  .card__thumb {
     @include change-aspect-ratio(16,9);
     flex: 1 100%;
     height: auto;
     padding-bottom: $gutter-1;
     margin: 0;
+  }
 
-    .card__media {
-      width: 100%;
-      height: auto;
-    }
+  .card__media {
+    width: 100%;
+    height: auto;
   }
 }

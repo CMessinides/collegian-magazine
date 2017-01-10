@@ -10,7 +10,7 @@ const changed = require('gulp-changed');
 
 // compiling, autoprefixing, and minifying sass
 gulp.task('sass', function() {
-  return gulp.src('assets/sass/**/*.scss')
+  return gulp.src('src/sass/**/*.scss')
     .pipe(sass({
       outputStyle: 'compressed'
     }).on('error', sass.logError))
@@ -22,7 +22,7 @@ gulp.task('sass', function() {
 
 // Resizing images
 
-const imageSrc = 'assets/img/**/*.{jpg,jpeg,png,tiff}';
+const imageSrc = 'src/img/**/*.{jpg,jpeg,png,tiff}';
 var imageResizeTasks = [];
 
 [100,300,500,800,1000].forEach(function(size) {
@@ -60,5 +60,5 @@ imageResizeTasks.push('original_images');
 gulp.task('images', imageResizeTasks);
 
 gulp.task('watch', ['sass'], function() {
-  gulp.watch('assets/sass/**/*.scss', ['sass'])
+  gulp.watch('src/sass/**/*.scss', ['sass'])
 });

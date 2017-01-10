@@ -1,7 +1,19 @@
 <ul class="list card-stack">
-  {{ range . }}
-  <li class="card-stack__item">
-    {{ .Render "card-gamma" }}
+  {{ range first 1 . }}
+  <li class="card--stacked">
+    {{ if .Params.cover_image }}
+    <figure class="card__thumb">
+      <img class="card__media" src="{{ .Params.cover_image }}" alt="{{ .Title }}">
+    </figure>
+    {{ end }}
+    <header>
+
+    </header>
   </li>
+  {{ end }}
+  {{ range after 1 . }}
+    <li class="card--stacked">
+      {{ .Render card-gamma }}
+    </li>
   {{ end }}
 </ul>

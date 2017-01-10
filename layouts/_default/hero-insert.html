@@ -1,9 +1,8 @@
 <article class="hero__insert">
   <h2 class="article__title">{{ .Title }}</h2>
   {{ partial "byline.html" . }}
-  {{ with .Params.categories }}
-    {{ $category := index . 0 }}
-    {{ partial "category-link.html" $category }}
+  {{ if .Params.categories }}
+    {{ partial "category-link.html" . }}
   {{ end }}
   <p class="card__category"></p>
   <p class="card__teaser">

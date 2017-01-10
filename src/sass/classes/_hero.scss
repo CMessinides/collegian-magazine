@@ -3,6 +3,9 @@ $md-hero-ht: 512px;
 
 .hero {
   background: $c-grey-10;
+}
+
+.hero--has-aside {
   padding-bottom: $gutter-1;
 
   @media #{$brkpt-md} {
@@ -66,13 +69,10 @@ $md-hero-ht: 512px;
   @include global-padding(a);
   background-color: $c-white;
   border-top: 8px $c-acc1 solid;
-  flex: 1 auto;
 
-  @media #{$brkpt-lg} {
+  @media #{$brkpt-md} {
     position: absolute;
-    // transform: translateY(-100%);
-    bottom: 0;
-    flex: 0;
+    bottom: 100%;
   }
 
   .article__title {
@@ -83,7 +83,6 @@ $md-hero-ht: 512px;
 
 .hero__featured {
   @include global-padding;
-  flex: 0 auto;
 
   .card-stack__item:first-of-type .card__thumb {
     display: none;
@@ -92,7 +91,7 @@ $md-hero-ht: 512px;
   @media #{$brkpt-lg} {
     position: absolute;
     right: 0;
-    bottom: -96px;
+    bottom: -32px;
 
     .card-stack__item:first-of-type .card__thumb {
       display: inherit;
@@ -101,7 +100,8 @@ $md-hero-ht: 512px;
 }
 
 .hero__label {
-  margin-top: 1rem;
+  padding-top: 1rem;
+  margin-top: 0;
   margin-bottom: 1rem;
 
   @media #{$brkpt-lg} {
