@@ -1,15 +1,19 @@
 ---
+title: Test Featured
+date: '2017-01-01T15:45:22-05:00'
 authors: []
-categories: ["Out of Reach"]
-date: 2017-01-01T15:45:22-05:00
+categories:
+- Out of Reach
 featured: true
-tags: []
-teaser: ""
+tags:
+- test
+- road
+- nature
+teaser: ''
 cover_image: "/assets/img/road.jpg"
-title: test featured
----
 
-![Here's](http://www.google.com/) an intro paragraph. Will this work?
+---
+Here's an intro paragraph. Will this work?
 
 And all this fluff.
 
