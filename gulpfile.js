@@ -49,9 +49,11 @@ gulp.task('original_images', function() {
   return gulp.src(imageSrc)
     .pipe(changed(dest, {extension: '.jpg'}))
     .pipe(imageResize({
+      filter: 'Catrom',
       format: 'jpg',
       noProfile: true,
-      quality: 0.9
+      quality: 0.9,
+      width: 2560
     }))
     .pipe(gulp.dest(dest));
 });
@@ -59,6 +61,10 @@ imageResizeTasks.push('original_images');
 
 gulp.task('images', imageResizeTasks);
 
+gulp.task('build', ['sass', 'images']);
+
 gulp.task('watch', ['sass'], function() {
   gulp.watch('src/sass/**/*.scss', ['sass'])
 });
+
+gulp.task('default', ['build']);
