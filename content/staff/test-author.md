@@ -5,7 +5,7 @@ first_name: Test
 last_name: Author
 roles:
 - Writer
-headshot: "/src/img/avatar-placeholder.png"
+headshot: ""
 twitter_username: ''
 facebook_username: ''
 instagram_username: ''

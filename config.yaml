@@ -11,3 +11,5 @@ preserveTaxonomyNames: true
 taxonomies:
   tag: tags
   category: categories
+  author: authors
+  issue: issues
