@@ -8,6 +8,9 @@ languageCode: "en-us"
 
 metaDataFormat: yaml
 preserveTaxonomyNames: true
+permalinks:
+  article: /magazine/:year/:month/:slug/
+  announcement: /announcements/:year/:month/:day/:slug/
 taxonomies:
   tag: tags
   category: categories
