@@ -1,88 +1,89 @@
--
-  season: Spring 2016
-  volume: 2
-  number: 2
-  cover_image: ''
-  description: ''
-  issuu_link: ''
-  masthead:
-    -
-      name: Timmy Broderick
-      role: Editor-in-Chief
-    -
-      name: Julia Waldow
-      role: Editor-in-Chief
-    -
-      name: Amy Schatz
-      role: Chief Copy Editor
-    -
-      name: Devon Musgrave-Johnson
-      role: Assistant Copy Editor
-    -
-      name: Dani Gorton
-      role: Design Editor
-    -
-      name: Jess Kusher
-      role: Photography Editor
-    -
-      name: Zoe Chrissos
-      role: Designer
-    -
-      name: Cameron Messinides
-      role: Designer
-    -
-      name: Mary Lauren Miller
-      role: Designer
-    -
-      name: Yoobin Han
-      role: Illustrator
-    -
-      name: Henry Uhrik
-      role: Illustrator
-    -
-      name: Payton Cuddy
-      role: Business Manager
--
-  season: Fall 2016
-  volume: 3
-  number: 1
-  cover_image: ''
-  description: ''
-  issuu_link: ''
-  masthead:
-    -
-      name: Julia Waldow
-      role: Editor-in-Chief
-    -
-      name: Amy Schatz
-      role: Chief Copy Editor
-    -
-      name: Devon Musgrave-Johnson
-      role: Associate Copy Editor
-    -
-      name: Frances Saux
-      role: Assistant Copy Editor
-    -
-      name: Dani Gorton
-      role: Design Editor
-    -
-      name: Jess Kusher
-      role: Photography Editor
-    -
-      name: Jack Zellweger
-      role: Photography Editor
-    -
-      name: Mary Lauren Miller
-      role: Designer
-    -
-      name: Camila Wise
-      role: Designer
-    -
-      name: Anna Zinanti
-      role: Designer
-    -
-      name: Anna Zinanti
-      role: Illustrator
-    -
-      name: Mary Lauren Miller
-      role: Business Manager
+issues:
+  -
+    season: Spring 2016
+    volume: 2
+    number: 2
+    cover_image: ''
+    description: ''
+    issuu_link: ''
+    masthead:
+      -
+        name: Timmy Broderick
+        role: Editor-in-Chief
+      -
+        name: Julia Waldow
+        role: Editor-in-Chief
+      -
+        name: Amy Schatz
+        role: Chief Copy Editor
+      -
+        name: Devon Musgrave-Johnson
+        role: Assistant Copy Editor
+      -
+        name: Dani Gorton
+        role: Design Editor
+      -
+        name: Jess Kusher
+        role: Photography Editor
+      -
+        name: Zoe Chrissos
+        role: Designer
+      -
+        name: Cameron Messinides
+        role: Designer
+      -
+        name: Mary Lauren Miller
+        role: Designer
+      -
+        name: Yoobin Han
+        role: Illustrator
+      -
+        name: Henry Uhrik
+        role: Illustrator
+      -
+        name: Payton Cuddy
+        role: Business Manager
+  -
+    season: Fall 2016
+    volume: 3
+    number: 1
+    cover_image: ''
+    description: ''
+    issuu_link: ''
+    masthead:
+      -
+        name: Julia Waldow
+        role: Editor-in-Chief
+      -
+        name: Amy Schatz
+        role: Chief Copy Editor
+      -
+        name: Devon Musgrave-Johnson
+        role: Associate Copy Editor
+      -
+        name: Frances Saux
+        role: Assistant Copy Editor
+      -
+        name: Dani Gorton
+        role: Design Editor
+      -
+        name: Jess Kusher
+        role: Photography Editor
+      -
+        name: Jack Zellweger
+        role: Photography Editor
+      -
+        name: Mary Lauren Miller
+        role: Designer
+      -
+        name: Camila Wise
+        role: Designer
+      -
+        name: Anna Zinanti
+        role: Designer
+      -
+        name: Anna Zinanti
+        role: Illustrator
+      -
+        name: Mary Lauren Miller
+        role: Business Manager
