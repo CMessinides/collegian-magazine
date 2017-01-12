@@ -1,31 +1,18 @@
 
 {{ define "hero" }}
-  {{ $featured := first 4 (where (where .Site.Pages "Section" "article") "Params.featured" true) }}
+  {{ $featured := index (where (where .Site.Pages "Section" "article") "Params.featured" true) 0 }}
 
   {{ if $featured }}
-    {{ $first := index $featured 0 }}
 
-    <div class="hero {{ if gt (len $featured) 1 }}hero--has-aside{{ end }}">
+    <div class="hero">
       <div class="hero__banner">
         <div class="hero__fade"></div>
-        <div class="hero__image" {{ with $first.Params.cover_image }}style="background-image:url({{ . | safeCSS }});"{{ end }}>
+        <div class="hero__image" {{ with $featured.Params.cover_image }}style="background-image:url({{ . | safeCSS }});"{{ end }}>
         </div>
       </div>
       <div class="hero__inner lg-grid">
-
         <h1 class="hide">Featured</h1>
-        {{ range first 1 $featured }}
-          {{ .Render "hero-insert" }}
-        {{ end }}
-
-        {{ with (after 1 $featured) }}
-        <aside class="hero__featured lg-wid-5">
-          <h2 class="h4 hero__label">More Featured</h2>
-          {{ partial "card-stack.html" . }}
-          </ul>
-        </aside>
-        {{ end }}
-
+        {{ $featured.Render "hero-insert" }}
       </div>
 
     </div>

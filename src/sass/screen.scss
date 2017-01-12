@@ -15,7 +15,7 @@
 @import "mixins/typescale";
 @import "mixins/width";
 /* 1. Ensure defaults are imported first from `classes` dir */
-@import "classes/defaults"; /* 1 */
+//@import "classes/defaults"; /* 1 */
 @import "classes/article";
 @import "classes/card";
 @import "classes/hero";
