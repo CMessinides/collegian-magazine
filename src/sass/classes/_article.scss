@@ -1,11 +1,18 @@
 .article {
   @include card;
+
+  margin-left: -$sp-md;
+  margin-right: -$sp-md;
+
+  @media #{$brkpt-sm} {
+    margin: 0;
+  }
 }
 
 .article__body {
-  padding: $gutter-1 * 1.25;
+  padding: $sp-inset-md;
 
-  @media #{$brkpt-md} {
-    padding: 0;
+  @media #{$brkpt-sm} {
+    padding: $sp-inset-lg;
   }
 }

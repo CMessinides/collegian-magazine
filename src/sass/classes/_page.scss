@@ -4,5 +4,14 @@
 
 .page__content {
   @include global-max-width;
-  @include global-padding;
+}
+
+.page__content,
+.page__main,
+.page__sidebar {
+  padding: $sp-gutters-sm;
+
+  @media #{$brkpt-sm} {
+    padding: $sp-gutters-md;
+  }
 }

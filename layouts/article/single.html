@@ -5,15 +5,13 @@
 
 {{ end }}
 {{ define "content" }}
-  <article class="article no-gtrs-1-x md-gtrs-2-a">
+  <article class="article">
     <header>
 
     </header>
-    <section class="article__body">
-      <div class="markdown">
-        {{ .Content | markdownify }}
-      </div>
-    </section>
+    <div class="markdown article__body">
+      {{ .Content | markdownify }}
+    </div>
     <footer>
 
     </footer>
