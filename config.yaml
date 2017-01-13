@@ -16,3 +16,6 @@ taxonomies:
   category: categories
   author: authors
   issue: issues
+
+params:
+  logo: '/logos/masthead.svg'
