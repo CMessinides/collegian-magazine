@@ -1,3 +1,12 @@
+{{ define "head-title" }}
+{{ end }}
+
+{{ define "head-description" }}
+{{ end }}
+
+{{ define "head-social" }}
+
+{{ end }}
 
 {{ define "hero" }}
   {{ $featured := index (where (where .Site.Pages "Section" "article") "Params.featured" true) 0 }}
