@@ -1,8 +1,6 @@
-{{ define "head-title" }}
-{{ end }}
+{{ define "head-title" }}{{ .Site.Data.branding.site_name | default .Site.Title }}{{ end }}
 
-{{ define "head-description" }}
-{{ end }}
+{{ define "head-description" }}{{ .Site.Data.branding.description | printf "%.150s" }}{{ end }}
 
 {{ define "head-social" }}
 

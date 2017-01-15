@@ -2,7 +2,33 @@
 <html>
   <head>
 
-    {{ partial "head.html" . }}
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- @block head-title: defaults to the sitewide title and page title if it exists -->
+    <title>{{- block "head-title" . -}}
+      {{ with .Title }}{{ . }} &mdash; {{ end }}{{ .Site.Data.branding.site_name | default .Site.Title }}
+    {{- end -}}</title>
+
+    <!-- @block head-description: defaults to the sitewide description -->
+    <!--     - should be limited to 150 characters through printf "%.150s" -->
+    <meta name="description" content="{{- block "head-description" . -}}
+      {{ .Site.Data.branding.description | default .Site.Params.description | printf "%.150s" }}
+    {{- end -}}">
+
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700i" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/screen.css">
+    {{ with .Params.authors }}
+      <link rel="author" href="{{ index . 0 | urlize | printf "/authors/%s/" | absURL }}">
+    {{ end }}
+
+
+    <!-- Social -->
+    {{- block "head-social" . -}}
+    {{- end -}}
+
 
   </head>
   <body class="page">
