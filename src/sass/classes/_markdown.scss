@@ -1,91 +1,61 @@
-%heading {
-  font-family: $ff-heading;
-  font-weight: bold;
-  margin-bottom: 0;
-  color: inherit;
-}
-
-.title {
-  @extend %heading;
-  @include typescale(title);
-  line-height: $lh-tight;
-  margin-top: $sp-md;
-}
-
-.subtitle {
-  @include typescale(h2);
-  color: $c-grey-60;
-  font-family: $ff-heading;
-  font-weight: normal;
-  line-height: $lh;
-  margin-top: $sp-base;
-}
-
-.h1,
-.markdown h1 {
-  @extend %heading;
-  @include typescale(h1);
-  line-height: $lh-tight;
-  margin-top: $sp-lg;
-}
-
-.h2,
-.markdown h2 {
-  @extend %heading;
-  @include typescale(h2);
-  border-bottom: 1px $c-brand solid;
-  line-height: $lh-tight;
-  margin-top: $sp-lg;
-  padding-bottom: $sp-sm;
-}
-
-.h3,
-.markdown h3 {
-  @extend %heading;
-  @include typescale(h3);
-  line-height: $lh;
-  margin-top: $sp-md;
-}
-
-.h4,
-.markdown h4 {
-  @extend %heading;
-  @include typescale(h4);
-  border-bottom: 1px currentColor solid;
-  padding-bottom: $sp-sm;
-  line-height: $lh;
-  margin-top: $sp-md;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.h5,
-.markdown h5 {
-  @extend %heading;
-  @include typescale(h5);
-  line-height: $lh;
-  margin-top: $sp-base;
-}
-
-.h6,
+%h1,
+%h2,
+%h3,
+%h4,
+%h5,
+%h6,
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
 .markdown h6 {
-  @extend %heading;
-  @include typescale(h6);
-  line-height: $lh;
-  margin-top: $sp-base;
+  color: $c-black;
+  font-family: $ff-sans;
 }
 
-%body {
-  font-family: $ff-base;
-  color: inherit;
+%p,
+.markdown > p {
+  color: $c-grey-75;
+  font-family: $ff-serif;
 }
 
-.p,
-.markdown,
-.markdown p {
-  @extend %body;
-  @include typescale(body);
-  line-height: $lh;
+%bq,
+.markdown > blockquote {
+  color: $c-grey-60;
+  font-family: $ff-disp;
+  font-style: italic;
+  margin: $sp-lg 0;
+}
+
+.markdown > blockquote {
+  p {
+    margin: 0;
+  }
+
+  &::before {
+    border-top: $sp-sm $c-brand-tint solid;
+    content: '';
+    display: block;
+    margin-bottom: $sp-md;
+    width: $sp-xl;
+  }
+}
+
+.markdown img {
+  width: 100%;
+  display: block;
+
+  @supports (width: calc(100% + 2 * 16px)) {
+    width: calc(100% + 2 * 16px);
+    margin: $sp-lg (-$sp-md);
+
+    @media #{$brkpt-sm} {
+      width: calc(100% + 2 * 32px);
+      margin-left: -$sp-lg;
+      margin-right: -$sp-lg;
+    }
+  }
 }
 
 /* At least in Hugo 0.17, the markdown renderer will produce an empty paragraph tag */
