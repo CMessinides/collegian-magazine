@@ -3,7 +3,7 @@ title: "The Collegian Magazine"
 
 # Deploy settings
 # TODO: add the real domain
-baseurl: "http://example.com"
+baseurl: "http://dev-colmag.netlify.com"
 languageCode: "en-us"
 
 metaDataFormat: yaml
