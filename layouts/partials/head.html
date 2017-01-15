@@ -2,11 +2,14 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>{{ with .Title }}{{ . }} &mdash; {{ end }}{{ .Site.Data.branding.site_name | default .Site.Title }}</title>
+<!-- @block head-title: defaults to the sitewide title and page title if it exists -->
+<title>{{- block "head-title" . -}}
+  {{ with .Title }}{{ . }} &mdash; {{ end }}{{ .Site.Data.branding.site_name | default .Site.Title }}
+{{- end -}}</title>
 
-<!-- @block description: defaults to the sitewide description -->
+<!-- @block head-description: defaults to the sitewide description -->
 <!--     - should be limited to 150 characters through printf "%.150s" -->
-<meta name="description" content="{{- block "description" . -}}
+<meta name="description" content="{{- block "head-description" . -}}
   {{ .Site.Data.branding.description | default .Site.Params.description | printf "%.150s" }}
 {{- end -}}">
 
@@ -14,5 +17,61 @@
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700i" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/screen.css">
 {{ with .Params.authors }}
-<link rel="author" href="{{ index . 0 | urlize | printf "/authors/%s/" | absURL }}">
+  <link rel="author" href="{{ index . 0 | urlize | printf "/authors/%s/" | absURL }}">
 {{ end }}
+
+
+<!-- Social -->
+{{- block "head-social" . -}}
+
+{{ $title := .Title }}
+{{ $description := .Description | default .Summary }}
+{{ $image := .Params.cover_image | default .Params.profile_picture }}
+{{ $site_name := .Site.Data.branding.site_name | default .Site.Title }}
+
+<!-- Google -->
+{{ with $title }}
+  <meta itemprop="name" content="{{ . }}">
+{{ end }}
+{{ with $description }}
+  <meta itemprop="description" content="{{ . }}">
+{{ end }}
+{{ with $image }}
+  <meta itemprop="image" content="{{ . | absURL }}">
+{{ end }}
+
+<!-- Facebook -->
+{{ with $title }}
+  <meta property="og:title" content="{{ . }}" />
+{{ end }}
+<meta property="og:type" content="article" />
+<meta property="og:url" content="{{ .Permalink | absURL }}" />
+{{ with $image }}
+  <meta property="og:image" content="{{ . | absURL }}" />
+{{ end }}
+{{ with $description }}
+  <meta property="og:description" content="{{ . }}" />
+{{ end }}
+<meta property="og:site_name" content="{{ $site_name }}" />
+{{ with .PublishDate }}
+  <meta property="og:published_time" content="{{ . }}" />
+{{ end }}
+{{ with .Lastmod }}
+  <meta property="og:modified_time" content="{{ . }}" />
+{{ end }}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="{{ if .Params.cover_image }}summary_large_image{{ else }}summary{{ end }}">
+{{ with $title }}
+  <meta name="twitter:title" content="{{ . }}">
+{{ end }}
+{{ with $description }}
+  <meta name="twitter:description" content="{{ . | printf "%.200s" }}">
+{{ end }}
+{{ with $image }}
+  <meta name="twitter:image:src" content="{{ . | absURL }}">
+{{ else }}
+  <meta name="twitter:image:src" content="{{ "/logos/square@2x.png" | absURL }}">
+{{ end }}
+
+{{- end -}}
