@@ -3,12 +3,12 @@ $family-serif: Georgia, Times, serif;
 $family-disp: "Playfair Display", $family-serif;
 
 // overriding colors
-$brand:        hsl(203, 59%, 38%);
-$primary:      $brand;
-$blue:         hsl(216, 84%, 39%);
-$blue-dark:    hsl(216, 81%, 21%);
+$turquoise:    hsl(203, 59%, 38%);
 $yellow:       hsl(50, 88%, 69%);
 $purple:       hsl(288, 48%, 34%);
+$primary:      $yellow;
+$blue:         hsl(216, 84%, 39%);
+$blue-dark:    hsl(216, 81%, 21%);
 
 $white-bis:    hsl(240, 19%, 98%);
 $white-ter:    darken($white-bis, 3);
