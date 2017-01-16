@@ -11,10 +11,10 @@
 
   {{ if $featured }}
 
-    <div class="hero">
-      <div class="hero__banner">
-        <div class="hero__fade"></div>
-        <div class="hero__image" {{ with $featured.Params.cover_image }}style="background-image:url({{ . | safeCSS }});"{{ end }}>
+    <div class="hero is-light">
+      <div class="hero-head">
+        <div class="container hero__banner" {{ with $featured.Params.cover_image }}style="background-image:url({{ . | safeCSS }});"{{ end }}>
+          <div class="hero__fade is-overlay"></div>
         </div>
       </div>
       <div class="hero__inner lg-grid">
