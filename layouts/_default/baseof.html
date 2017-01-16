@@ -27,6 +27,55 @@
 
     <!-- Social -->
     {{- block "head-social" . -}}
+      {{ $title := .Title }}
+      {{ $description := .Description | default .Summary }}
+      {{ $image := .Params.cover_image | default .Params.profile_picture }}
+      {{ $site_name := .Site.Data.branding.site_name | default .Site.Title }}
+
+      <!-- Google -->
+      {{ with $title }}
+      <meta itemprop="name" content="{{ . }}">
+      {{ end }}
+      {{ with $description }}
+      <meta itemprop="description" content="{{ . }}">
+      {{ end }}
+      {{ with $image }}
+      <meta itemprop="image" content="{{ . | absURL }}">
+      {{ end }}
+
+      <!-- Facebook -->
+      {{ with $title }}
+      <meta property="og:title" content="{{ . }}" />
+      {{ end }}
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="{{ .Permalink | absURL }}" />
+      {{ with $image }}
+      <meta property="og:image" content="{{ . | absURL }}" />
+      {{ end }}
+      {{ with $description }}
+      <meta property="og:description" content="{{ . }}" />
+      {{ end }}
+      <meta property="og:site_name" content="{{ $site_name }}" />
+      {{ with .PublishDate }}
+      <meta property="og:published_time" content="{{ . }}" />
+      {{ end }}
+      {{ with .Lastmod }}
+      <meta property="og:modified_time" content="{{ . }}" />
+      {{ end }}
+
+      <!-- Twitter -->
+      <meta name="twitter:card" content="{{ if .Params.cover_image }}summary_large_image{{ else }}summary{{ end }}">
+      {{ with $title }}
+      <meta name="twitter:title" content="{{ . }}">
+      {{ end }}
+      {{ with $description }}
+      <meta name="twitter:description" content="{{ . | printf "%.200s" }}">
+      {{ end }}
+      {{ with $image }}
+      <meta name="twitter:image:src" content="{{ . | absURL }}">
+      {{ else }}
+      <meta name="twitter:image:src" content="{{ "/logos/square@2x.png" | absURL }}">
+      {{ end }}
     {{- end -}}
 
 

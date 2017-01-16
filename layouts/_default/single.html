@@ -1,9 +1,7 @@
-{{ define "title" }}
-  {{ .Title }} &ndash; {{ .Site.Title }}
-{{ end }}
-{{ define "main" }}
+{{ define "content" }}
 <h1>{{ .Title }}</h1>
 <div class="markdown">
   {{ .Content | markdownify }}
 </div>
+<p>{{ with .Description}}{{ . }}{{ end }}</p>
 {{ end }}
