@@ -7,9 +7,10 @@ baseurl: "http://dev-colmag.netlify.com"
 languageCode: "en-us"
 
 metaDataFormat: yaml
+preserveTaxonomyNames: true
 permalinks:
-  article: /article/:year/:month/:slug/
-  announcement: /announcement/:year/:month/:day/:slug/
+  article: /magazine/:year/:month/:slug/
+  announcement: /announcements/:year/:month/:day/:slug/
 taxonomies:
   tag: tags
   category: categories
