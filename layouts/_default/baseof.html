@@ -28,7 +28,8 @@
     <!-- Social -->
     {{- block "head-social" . -}}
       {{ $title := .Title }}
-      {{ $description := .Description | default .Summary }}
+      <!-- TODO: Figure out how to default to .Summary without erroring -->
+      {{ $description := .Description }}
       {{ $image := .Params.cover_image | default .Params.profile_picture }}
       {{ $site_name := .Site.Data.branding.site_name | default .Site.Title }}
 
