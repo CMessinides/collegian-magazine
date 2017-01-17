@@ -26,7 +26,7 @@ Three years ago, children's voices filled the halls of Bladensburg Elementary Sc
 
 While East Knox's fiscal emergency embodies "the last and most severe stage of a school district's financial solvency problems," according to Ohio Auditor Dave Yost....
 
-Ohio has attempted to find a solution to the crisis by appointing a five-member fiscal district commission. According to Busenberg, the commission has found that "it's not a spending problem &ndash; it's a funding problem."
+Ohio has attempted to find a solution to the crisis by appointing a five-member fiscal district commission. According to Busenberg, the commission has found that "it's not a spending problem &mdash; it's a funding problem."
 
 > Governor Kasich may have balanced the budget, but he did so on the backs of teachers, firefighters, and policemen.
 
