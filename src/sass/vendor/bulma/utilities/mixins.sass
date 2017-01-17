@@ -183,11 +183,11 @@ $widescreen: 1192px !default // 1152px container + 40
     @content
 
 =until($device)
-  @media screen and (max-width: $device - 1px)
+  @media screen and (max-width: $device)
     @content
 
 =mobile
-  @media screen and (max-width: $tablet - 1px)
+  @media screen and (max-width: $tablet)
     @content
 
 =tablet
@@ -195,11 +195,11 @@ $widescreen: 1192px !default // 1152px container + 40
     @content
 
 =tablet-only
-  @media screen and (min-width: $tablet) and (max-width: $desktop - 1px)
+  @media screen and (min-width: $tablet) and (max-width: $desktop)
     @content
 
 =touch
-  @media screen and (max-width: $desktop - 1px)
+  @media screen and (max-width: $desktop)
     @content
 
 =desktop
@@ -207,7 +207,7 @@ $widescreen: 1192px !default // 1152px container + 40
     @content
 
 =desktop-only
-  @media screen and (min-width: $desktop) and (max-width: $widescreen - 1px)
+  @media screen and (min-width: $desktop) and (max-width: $widescreen)
     @content
 
 =widescreen
