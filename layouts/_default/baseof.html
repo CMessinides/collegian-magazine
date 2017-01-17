@@ -56,12 +56,13 @@
       <meta property="og:description" content="{{ . }}" />
       {{ end }}
       <meta property="og:site_name" content="{{ $site_name }}" />
-      {{ with .PublishDate }}
+      <!-- TODO: Figure out how to add these without erroring -->
+      <!-- {{ with .PublishDate }}
       <meta property="og:published_time" content="{{ . }}" />
       {{ end }}
       {{ with .Lastmod }}
       <meta property="og:modified_time" content="{{ . }}" />
-      {{ end }}
+      {{ end }} -->
 
       <!-- Twitter -->
       <meta name="twitter:card" content="{{ if .Params.cover_image }}summary_large_image{{ else }}summary{{ end }}">
