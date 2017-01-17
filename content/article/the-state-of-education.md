@@ -11,7 +11,11 @@ teaser: Six years ago, Ohio's education system was ranked fifth in the country. 
   it's 23rd. Here's what happened and how it's affected Knox County.
 categories:
 - Analysis
-tags: []
+tags:
+- education
+- knox county
+- kasich
+- schools
 issues:
 - Spring 2016
 featured: false
