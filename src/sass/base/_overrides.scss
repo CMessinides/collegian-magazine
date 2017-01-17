@@ -1,42 +1,61 @@
-// adding font stackss
-$family-serif: Georgia, Times, serif;
-$family-disp: "Playfair Display", $family-serif;
+html {
+  @include tablet {
+    font-size: 112.5%;
+  };
 
-// overriding colors
-$turquoise:    hsl(203, 59%, 38%);
-$yellow:       hsl(50, 88%, 69%);
-$purple:       hsl(288, 48%, 34%);
-$primary:      $yellow;
-$blue:         hsl(216, 84%, 39%);
-$blue-dark:    hsl(216, 81%, 21%);
+  @include desktop {
+    font-size: 125%;
+  };
+}
 
-$white-bis:    hsl(240, 19%, 98%);
-$white-ter:    darken($white-bis, 3);
+.card {
+  background: $white;
+}
 
-$grey-lighter: darken($white-bis, 5);
-$grey-light:   darken($white-bis, 15);
-$grey:         darken($white-bis, 45);
-$grey-dark:    darken($white-bis, 60);
-$grey-darker:  darken($white-bis, 75);
+.content {
+  font-family: $family-serif;
 
-$black-ter:    darken($white-bis, 88);
-$black-bis:    darken($white-bis, 90);
-$black:        darken($white-bis, 95);
+  h1, h2, h3, h4, h5, h6, blockquote {
+    font-family: $family-disp;
+  }
 
-// overriding the base font-size (100% will allow the user to adjust the text size in their browser preferences)
-$size-6: 100%;
+  h3, h4, h5, h6 {
+    font-weight: bold;
+  }
 
-$text: $grey-darker;
-$text-light: $grey-dark;
-$text-strong: $black-ter;
+  h1, h2 {
+    border-bottom: 1px $grey-light solid;
+    padding-bottom: 0.25em;
+    letter-spacing: -0.01em;
+  }
 
-$code-background: $grey-lighter;
-$pre-background: $grey-light;
+  h3, h5, h6, blockquote {
+    font-style: italic;
+    letter-spacing: 0.02em;
+  }
 
-// link styling
-$link: $blue;
+  h4 {
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
 
-$link-hover: $blue-dark;
-$link-focus: $blue-dark;
-$link-focus-border: $blue;
-$link-active: $blue-dark;
+  blockquote {
+    border: 0;
+    color: $grey-dark;
+    background: none;
+    font-size: $size-4;
+    line-height: 1.25;
+    position: relative;
+    padding: 0.5em 0 0 0;
+
+    &::before {
+      border-bottom: 0.25em $primary solid;
+      content: '';
+      display: block;
+      position: absolute;
+      width: 2em;
+      top: 0;
+      left: 0;
+    }
+  }
+}
