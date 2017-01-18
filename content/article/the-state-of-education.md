@@ -22,6 +22,7 @@ featured: false
 cover_image: ''
 
 ---
+
 Three years ago, children's voices filled the halls of Bladensburg Elementary School. Now, the site is silent, the buildings unkempt, the lot abandoned. Used notebooks pile high in dusty classrooms, whiteboards reveal traces of old math problems, and empty school buses sit in the parking lot, waiting for kids who will never come. Closed in 2013 due to funding problems, the school stands as a testament to the economic crisis plaguing the East Knox Local School District.
 
 ...
