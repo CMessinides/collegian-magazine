@@ -1,0 +1,136 @@
+// # Breakpoints
+$brkpt-xs: screen and (min-width: 24em);
+$brkpt-sm: screen and (min-width: 36em);
+$brkpt-md: screen and (min-width: 48em);
+$brkpt-lg: screen and (min-width: 60em);
+$brkpt-xl: screen and (min-width: 80em);
+
+// # Spacing
+$sp-xxs: 2px;
+$sp-xs: 4px;
+$sp-sm: 8px;
+$sp-md: 16px;
+$sp-lg: 32px;
+$sp-xl: 64px;
+
+// -inset-: Sets an equal amount of space on all sides of a box
+
+// For grids, it is recommended that inset spacing be set on the parent grid as
+// well as its children items to ensure equal spacing between all items and
+// between items and the edges of the grid.
+$sp-inset-xs: 4px;
+$sp-inset-sm: 8px;
+$sp-inset-md: 16px;
+$sp-inset-lg: 32px;
+$sp-inset-xl: 64px;
+
+// -stacl-: Sets space on the top of the box and removes it from all other sides
+$sp-stack-xxs: 2px 0 0 0;
+$sp-stack-xs: 4px 0 0 0;
+$sp-stack-sm: 8px 0 0 0;
+$sp-stack-md: 16px 0 0 0;
+$sp-stack-lg: 32px 0 0 0;
+$sp-stack-xl: 64px 0 0 0;
+
+// -gutters-: Sets space on the left and right of the box and removes it from the top and
+// bottom
+
+// For grids, it is recommended that gutter spacing be set on the parent grid as
+// well as its children columns to ensure equal spacing between all columns and
+// between columns and the edges of the grid.
+$sp-gutters-xxs: 0 2px;
+$sp-gutters-xs: 0 4px;
+$sp-gutters-sm: 0 8px;
+$sp-gutters-md: 0 16px;
+$sp-gutters-lg: 0 32px;
+$sp-gutters-xl: 0 64px;
+
+// -inline-: Sets space to the right side of the box and removes it from all other sides
+$sp-inline-xxs: 0 2px 0 0;
+$sp-inline-xs: 0 4px 0 0;
+$sp-inline-sm: 0 8px 0 0;
+$sp-inline-md: 0 16px 0 0;
+$sp-inline-lg: 0 32px 0 0;
+$sp-inline-xl: 0 64px 0 0;
+
+// -stretch-: Sets an equal amount of space on the left and right sides of a box and a
+// larger amount on the top and bottom
+$sp-stretch-sm: 8px 4px;
+$sp-stretch-md: 16px 8px;
+$sp-stretch-lg: 32px 16px;
+
+// -squish-: Sets an equal amount of space on the top and bottom sides of a box and a
+// larger amount on the right and left
+$sp-squish-sm: 8px 12px;
+$sp-squish-md: 16px 24px;
+
+// # Layout
+$columns: 12;
+$site-max-width: 72rem;
+
+// # Color
+$c-brand:       rgb(16, 122, 166);
+$c-brand-shade2: adjust-hue(darken($c-brand, 20), 7%);
+$c-brand-shade: adjust-hue(darken($c-brand, 10), 7%);
+$c-brand-tint:  adjust-hue(lighten($c-brand, 10), -3%);
+$c-brand-tint2:  adjust-hue(lighten($c-brand, 45), -3%);
+$c-brand-tint3: adjust-hue(lighten($c-brand, 55), -3%);
+
+$c-acc1:       rgb(246, 224, 110);
+$c-acc1-shade: adjust-hue(darken($c-acc1, 20), -4%);
+$c-acc1-tint:  adjust-hue(lighten($c-acc1, 20), -2%);
+
+$c-acc2:       rgb(114, 45, 131);
+$c-acc2-shade: adjust-hue(darken($c-acc2, 10), 5%);
+$c-acc2-tint:  adjust-hue(lighten($c-acc2, 15), -5%);
+
+$c-white: rgb(255, 255, 255);
+$c-off-white: rgb(251, 251, 252);
+$c-grey-5: darken($c-off-white, 5);
+$c-grey-10: darken($c-off-white, 10);
+$c-grey-60: darken($c-off-white, 60);
+$c-grey-75: darken($c-off-white, 75);
+$c-black: darken($c-off-white, 95);
+
+$c-shad: transparentize($c-black, 0.85);
+$c-shad-wk: transparentize($c-black, 0.92);
+
+// # Typography
+$ff-base: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+
+$ff-heading: Montserrat, $ff-base;
+
+$ff-sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+$ff-serif: Georgia, Times, serif;
+$ff-mono: Inconsolata, "Courier New", Courier, monospace;
+$ff-disp: "Playfair Display", $ff-sans;
+
+
+$fs-base: 1rem;
+
+$fs: (
+  title: 2 * $fs-base,
+  h1: 2 * $fs-base,
+  h2: 1.75 * $fs-base,
+  h3: 1.5 * $fs-base,
+  h4: 1.25 * $fs-base,
+  h5: 1.125 * $fs-base,
+  h6: 1.125 * $fs-base,
+  body: 1.125 * $fs-base,
+  small: $fs-base
+);
+
+$ns-fs: (
+  title: 3.5 * $fs-base,
+  h1: 3 * $fs-base,
+  h2: 2 * $fs-base,
+  h3: 1.75 * $fs-base,
+  h4: 1.375 * $fs-base,
+  h5: 1.125 * $fs-base,
+  h6: $fs-base,
+  body: 1.375 * $fs-base,
+  small: 0.875 * $fs-base
+);
+
+$lh: 1.375;
+$lh-tight: 1.125;

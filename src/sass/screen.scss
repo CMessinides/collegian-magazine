@@ -1,21 +1,19 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+html {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 }
 
 @import "vendor/normalize";
-@import "variables/breakpoints";
-@import "variables/colors";
-@import "variables/grid";
-@import "variables/spacing";
-@import "variables/typography";
+@import "base/variables";
+@import "base/typescale";
+@import "base/markdown";
 @import "mixins/aspect_ratio";
 @import "mixins/card";
 @import "mixins/typescale";
 @import "mixins/width";
-/* 1. Ensure defaults are imported first from `classes` dir */
-//@import "classes/defaults"; /* 1 */
 @import "classes/article";
 @import "classes/card";
 @import "classes/hero";
