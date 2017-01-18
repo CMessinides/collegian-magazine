@@ -6,10 +6,10 @@ $md-hero-ht: 512px;
 }
 
 .hero--has-aside {
-  padding-bottom: $gutter-1;
+  padding-bottom: $sp-md;
 
   @media #{$brkpt-md} {
-    padding-bottom: $gutter-2;
+    padding-bottom: $sp-lg;
   }
 
   @media #{$brkpt-lg} {
@@ -65,7 +65,6 @@ $md-hero-ht: 512px;
 }
 
 .hero__insert {
-  @include global-padding(a);
   background-color: $c-white;
   border-top: 8px $c-acc1 solid;
 
@@ -81,7 +80,6 @@ $md-hero-ht: 512px;
 
 
 .hero__featured {
-  @include global-padding;
 
   .card-stack__item:first-of-type .card__thumb {
     display: none;

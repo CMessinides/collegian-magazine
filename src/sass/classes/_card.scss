@@ -40,7 +40,7 @@
 
   .card__header {
     flex: 1;
-    padding: $gutter-1;
+    padding: $sp-md;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -84,7 +84,7 @@
     @include change-aspect-ratio(16,9);
     flex: 1 100%;
     height: auto;
-    padding-bottom: $gutter-1;
+    padding-bottom: $sp-md;
     margin: 0;
   }
 
