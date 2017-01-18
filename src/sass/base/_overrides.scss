@@ -1,0 +1,68 @@
+html {
+  font-kerning: normal;
+  font-feature-settings: "kern", "liga", "clig", "calt";
+
+  @include tablet {
+    font-size: 112.5%;
+  };
+
+  @include desktop {
+    font-size: 125%;
+  };
+
+  @include widescreen {
+    font-size: 137.5%;
+  };
+}
+
+.card {
+  background: $white;
+}
+
+.content {
+  font-family: $family-serif;
+
+  h1, h2, h3, h4, h5, h6, blockquote {
+    font-family: $family-disp;
+  }
+
+  h3, h4, h5, h6 {
+    font-weight: bold;
+  }
+
+  h1, h2 {
+    border-bottom: 1px $grey-light solid;
+    padding-bottom: 0.25em;
+    letter-spacing: -0.01em;
+  }
+
+  h3, h5, h6, blockquote {
+    font-style: italic;
+    letter-spacing: 0.02em;
+  }
+
+  h4 {
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  blockquote {
+    border: 0;
+    color: $grey-dark;
+    background: none;
+    font-size: $size-4;
+    line-height: 1.25;
+    position: relative;
+    padding: 0.5em 0 0 0;
+
+    &::before {
+      border-bottom: 0.25em $primary solid;
+      content: '';
+      display: block;
+      position: absolute;
+      width: 2em;
+      top: 0;
+      left: 0;
+    }
+  }
+}

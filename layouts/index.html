@@ -7,20 +7,37 @@
 {{ end }}
 
 {{ define "hero" }}
-  {{ $featured := index (where (where .Site.Pages "Section" "article") "Params.featured" true) 0 }}
+  {{ $featured := first 4 (where (where .Site.Pages "Section" "article") "Params.featured" true) }}
 
   {{ if $featured }}
+    {{ $first := index $featured 0 }}
 
-    <div class="hero">
-      <div class="hero__banner">
-        <div class="hero__fade"></div>
-        <div class="hero__image" {{ with $featured.Params.cover_image }}style="background-image:url({{ . | safeCSS }});"{{ end }}>
+    <div class="hero is-light">
+        <div class="hero-head">
+          <div class="hero__banner container" {{ with $first.Params.cover_image }}style="background-image:url({{ . | safeCSS }});"{{ end }}>
+            <div class="hero__fade is-overlay is-hidden-touch"></div>
+            <h1 class="is-hidden">Featured</h1>
+            {{ $first.Render "hero-insert" }}
+          </div>
         </div>
-      </div>
-      <div class="hero__inner lg-grid">
-        <h1 class="hide">Featured</h1>
-        {{ $featured.Render "hero-insert" }}
-      </div>
+        {{ if gt (len $featured) 1 }}
+        <aside class="hero-foot">
+            <h2 class="is-hidden">More Featured</h2>
+            <ul class="container level">
+              {{ range (after 1 $featured) }}
+              <li class="level-item has-text-centered">
+                <article class="tile is-vertical">
+                  <h3 class="title is-5 is-disp">{{ .Title }}</h3>
+                  <p>{{ .Date | dateFormat "Jan 2, 2006" }}</p>
+                  {{ with .Params.categories }}
+                  <p>{{ index . 0 }}</p>
+                  {{ end }}
+                </article>
+              </li>
+              {{ end }}
+            </ul>
+        </aside>
+        {{ end }}
 
     </div>
 
