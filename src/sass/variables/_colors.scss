@@ -1,20 +1,20 @@
-$c-brand:       hsl(212, 51%, 39%);
+$c-brand:       rgb(16, 122, 166);
 $c-brand-shade2: adjust-hue(darken($c-brand, 20), 7%);
 $c-brand-shade: adjust-hue(darken($c-brand, 10), 7%);
 $c-brand-tint:  adjust-hue(lighten($c-brand, 10), -3%);
 $c-brand-tint2:  adjust-hue(lighten($c-brand, 45), -3%);
 $c-brand-tint3: adjust-hue(lighten($c-brand, 55), -3%);
 
-$c-acc1:       hsl(50, 88%, 69%);
+$c-acc1:       rgb(246, 224, 110);
 $c-acc1-shade: adjust-hue(darken($c-acc1, 20), -4%);
 $c-acc1-tint:  adjust-hue(lighten($c-acc1, 20), -2%);
 
-$c-acc2:       hsl(288, 48%, 34%);
+$c-acc2:       rgb(114, 45, 131);
 $c-acc2-shade: adjust-hue(darken($c-acc2, 10), 5%);
 $c-acc2-tint:  adjust-hue(lighten($c-acc2, 15), -5%);
 
 $c-white: rgb(255, 255, 255);
-$c-off-white: hsl(240, 19%, 98%);
+$c-off-white: rgb(251, 251, 252);
 $c-grey-5: darken($c-off-white, 5);
 $c-grey-10: darken($c-off-white, 10);
 $c-grey-60: darken($c-off-white, 60);

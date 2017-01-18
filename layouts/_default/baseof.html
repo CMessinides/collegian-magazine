@@ -18,7 +18,7 @@
     {{- end -}}">
 
     <!-- Stylesheets -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700i" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/screen.css">
     {{ with .Params.authors }}
       <link rel="author" href="{{ index . 0 | urlize | printf "/authors/%s/" | absURL }}">
@@ -28,7 +28,6 @@
     <!-- Social -->
     {{- block "head-social" . -}}
       {{ $title := .Title }}
-      <!-- TODO: Figure out how to default to .Summary without erroring -->
       {{ $description := .Description }}
       {{ $image := .Params.cover_image | default .Params.profile_picture }}
       {{ $site_name := .Site.Data.branding.site_name | default .Site.Title }}
@@ -83,15 +82,13 @@
 
     {{ block "hero" . }}{{ end }}
 
-    <div class="section">
-      <div class="container columns">
-        <main class="column is-two-thirds">
-          {{ block "content" . }}{{ end }}
-        </main>
-        <aside class="column">
-          {{ partial "site/sidebar.html" . }}
-        </aside>
-      </div>
+    <div class="page__content lg-grid">
+      <main class="page__main lg-grid__block lg-wid-8">
+        {{ block "content" . }}{{ end }}
+      </main>
+      <aside class="page__sidebar ns-grid lg-grid--vert grid__block lg-wid-4">
+        {{ partial "site/sidebar.html" . }}
+      </aside>
     </div>
 
     {{ partial "site/footer.html" . }}
