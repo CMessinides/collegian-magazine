@@ -1,5 +1,26 @@
-@charset "UTF-8";
-@import "base/variables";
-@import "vendor/bulma";
-@import "base/overrides";
-@import "base/addons";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@import "vendor/normalize";
+@import "variables/breakpoints";
+@import "variables/colors";
+@import "variables/grid";
+@import "variables/spacing";
+@import "variables/typography";
+@import "mixins/aspect_ratio";
+@import "mixins/card";
+@import "mixins/typescale";
+@import "mixins/width";
+/* 1. Ensure defaults are imported first from `classes` dir */
+//@import "classes/defaults"; /* 1 */
+@import "classes/article";
+@import "classes/card";
+@import "classes/hero";
+@import "classes/layout";
+@import "classes/list";
+@import "classes/page";
+@import "classes/section";
+@import "classes/util";
