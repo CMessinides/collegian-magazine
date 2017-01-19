@@ -1,0 +1,32 @@
+.header {
+  background: $c-off-white;
+}
+
+.header__wrap {
+  @include global-max-width;
+  display: flex;
+  flex-flow: wrap;
+}
+
+.header__title {
+  flex: 1 auto;
+  margin: 0;
+}
+
+.header__logo-link,
+.header__logo-link:visited,
+.header__logo-link:hover,
+.header__logo-link:active {
+  text-decoration: none;
+  color: $c-black;
+}
+
+.header__logo {
+  display: block;
+  width: 100%;
+  padding: $sp-stretch-md;
+
+  @media #{$brkpt-sm} {
+    padding: $sp-stretch-lg;
+  }
+}
