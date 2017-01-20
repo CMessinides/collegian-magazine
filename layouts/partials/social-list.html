@@ -2,15 +2,13 @@
 
 <ul class="list list--social">
   {{ range .Site.Data.social_links.social_links }}
-    <li class="list__item list__item--social">
-      <a class="icon icon--social" href="" target="_blank" title="{{ $.Site.Data.branding.site_name | default $.Site.Title }} on {{ .name }}">
-        {{ if in $icon_safe ( lower .name ) }}
-          {{ $icon := printf "icon/%s.svg" ( lower .name ) }}
-          {{ partial $icon . }}
-        {{ else }}
-          <span class="badge">{{ .name }}</span>
-        {{ end }}
-      </a>
-    </li>
+    {{ if in $icon_safe ( lower .name ) }}
+      {{ $icon := printf "icon/%s.svg" ( lower .name ) }}
+      <li class="list__item list__item--social">
+        <a class="icon icon--social" href="" target="_blank" title="{{ $.Site.Data.branding.site_name | default $.Site.Title }} on {{ .name }}">
+            {{ partial $icon . }}
+        </a>
+      </li>
+    {{ end }}
   {{ end }}
 </ul>

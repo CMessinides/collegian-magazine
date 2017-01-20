@@ -3,10 +3,15 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  svg {
+  svg,
+  .badge {
     align-self: center;
+  }
+
+  svg {
     fill: $c-grey-60;
-    height: 24px;
-    width: 24px;
+    height: 16px;
+    width: 16px;
+    margin: $sp-inset-xs;
   }
 }
