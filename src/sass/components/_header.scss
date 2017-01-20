@@ -6,6 +6,11 @@
   @include global-max-width;
   display: flex;
   flex-flow: wrap;
+  padding: $sp-gutters-sm;
+
+  @media #{$brkpt-md} {
+    padding: $sp-gutters-md;
+  }
 }
 
 .header__title {
@@ -22,11 +27,42 @@
 }
 
 .header__logo {
+  border-bottom: 1px $c-grey-10 solid;
   display: block;
   width: 100%;
-  padding: $sp-stretch-md;
+  padding: $sp-md 0;
 
-  @media #{$brkpt-sm} {
-    padding: $sp-stretch-lg;
+  @media #{$brkpt-md} {
+    padding: $sp-lg 0;
+  }
+}
+
+.header .list--social,
+.header__nav {
+  padding: $sp-sm 0;
+
+  @media #{$brkpt-md} {
+    padding: $sp-md 0;
+  }
+}
+
+.header__nav {
+  flex: 1 auto;
+}
+
+.header__nav-toggle {
+  &::before {
+    background: $c-grey-75;
+    content: "";
+
+  }
+}
+
+.header__nav-list {
+  display: none;
+
+  @media #{$brkpt-md} {
+    display: flex;
+    justify-content: flex-end;
   }
 }

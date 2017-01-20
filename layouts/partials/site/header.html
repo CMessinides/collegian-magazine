@@ -10,12 +10,15 @@
         {{ end }}
       </a>
     </h1>
-    <ul class="header__social">
-    </ul>
+    {{ partial "social-list" . }}
     <nav class="header__nav">
-      <button type="button" name="nav-toggle">Menu</button>
-      <ul class="header__nav-list">
-
+      <span class="header__nav-toggle"></span>
+      <ul class="list header__nav-list">
+        {{ range .Site.Menus.main }}
+          <li class="header__nav-item">
+            <a class="header__nav-link" href="{{ .URL | absURL }}">{{ .Name }}</a>
+          </li>
+        {{ end }}
       </ul>
     </nav>
   </div>
