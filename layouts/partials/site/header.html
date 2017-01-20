@@ -10,16 +10,18 @@
         {{ end }}
       </a>
     </h1>
-    {{ partial "social-list" . }}
-    <nav class="header__nav">
-      <span class="header__nav-toggle"></span>
-      <ul class="list header__nav-list">
-        {{ range .Site.Menus.main }}
+    <span class="header__toggle"></span>
+    <div class="header__menu">
+      {{ partial "social-list" . }}
+      <nav class="header__nav">
+        <ul class="list header__nav-list">
+          {{ range .Site.Menus.main }}
           <li class="header__nav-item">
             <a class="header__nav-link" href="{{ .URL | absURL }}">{{ .Name }}</a>
           </li>
-        {{ end }}
-      </ul>
-    </nav>
+          {{ end }}
+        </ul>
+      </nav>
+    </div>
   </div>
 </header>

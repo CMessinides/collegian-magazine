@@ -4,8 +4,6 @@
 
 .header__wrap {
   @include global-max-width;
-  display: flex;
-  flex-flow: wrap;
   padding: $sp-gutters-sm;
 
   @media #{$brkpt-md} {
@@ -37,8 +35,8 @@
   }
 }
 
-.header .list--social,
-.header__nav {
+.header__menu {
+  display: flex;
   padding: $sp-sm 0;
 
   @media #{$brkpt-md} {
