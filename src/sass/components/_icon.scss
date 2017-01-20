@@ -1,0 +1,12 @@
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  svg {
+    align-self: center;
+    fill: $c-grey-60;
+    height: 24px;
+    width: 24px;
+  }
+}

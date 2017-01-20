@@ -17,3 +17,11 @@
   display: flex;
   flex-wrap: true;
 }
+
+.list--social {
+  display: flex;
+}
+
+.list__item--social {
+  padding: $sp-inline-sm;
+}

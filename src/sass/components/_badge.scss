@@ -1,0 +1,10 @@
+.badge {
+  background: $c-grey-60;
+  border-radius: 3px;
+  line-height: 1;
+  color: $c-white;
+  display: inline-block;
+  padding: $sp-xs $sp-sm;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
