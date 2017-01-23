@@ -111,10 +111,12 @@
 }
 
 .header__category {
+  border-radius: 2px;
   font-family: $ff-disp;
   font-style: italic;
   display: inline-block;
   padding: $sp-squish-sm;
+  transition: 0.45s background ease-out;
 
   &:hover {
     background: $c-acc1;
