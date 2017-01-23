@@ -36,10 +36,12 @@
 }
 
 .header__menu {
-  display: flex;
+  display: none;
+  flex: 1 auto;
   padding: $sp-sm 0;
 
   @media #{$brkpt-md} {
+    display: flex;
     padding: $sp-md 0;
   }
 }
