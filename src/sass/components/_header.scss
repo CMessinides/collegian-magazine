@@ -60,18 +60,14 @@
 .header__toggle {
   cursor: pointer;
   flex: 0 auto;
+  background: $c-grey-75;
+  background-clip: content-box;
   border-top: 2px $c-grey-75 solid;
   border-bottom: 2px $c-grey-75 solid;
   height: 16px;
+  padding: 5px 0;
   margin: $sp-md 0;
   width: 24px;
-  &::before {
-    content: "";
-    display: block;
-    border-top: 1px $c-grey-75 solid;
-    border-bottom: 1px $c-grey-75 solid;
-    margin-top: 5px;
-  }
 
   @media #{$brkpt-md} {
     display: none;
