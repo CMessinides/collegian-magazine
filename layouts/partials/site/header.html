@@ -25,4 +25,11 @@
       </nav>
     </div>
   </div>
+  <div class="header__sub">
+    <ul class="list header__categories">
+      {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+      <li class="header__category"><a href="{{ "/categories/" | absURL }}{{ $name | urlize }}">{{ $name }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
 </header>

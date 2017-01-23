@@ -78,6 +78,7 @@ $c-brand-tint3: adjust-hue(lighten($c-brand, 55), -3%);
 
 $c-acc1:       rgb(246, 224, 110);
 $c-acc1-shade: adjust-hue(darken($c-acc1, 20), -4%);
+$c-acc1-shade2: scale-color($c-acc1, $lightness: -60%, $saturation: 30%);
 $c-acc1-tint:  adjust-hue(lighten($c-acc1, 20), -2%);
 
 $c-acc2:       rgb(114, 45, 131);
