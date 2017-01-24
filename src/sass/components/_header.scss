@@ -106,8 +106,16 @@
   }
 }
 
+/*
+    1: Flex-shrink must be explicitly set to 0 and flex-basis to auto to prevent
+    flex items from shrinking to less than their min-content width (i.e. the
+    length of the longest word inside the item) on Safari.
+    See more: https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored
+*/
 .header__category {
   border-radius: 2px;
+  flex-shrink: 0; /* 1 */
+  flex-basis: auto; /* 1 */
   font-family: $ff-disp;
   font-style: italic;
   display: inline-block;
