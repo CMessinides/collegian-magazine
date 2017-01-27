@@ -4,7 +4,7 @@
     <h1 class="header__title wid-12">
       <a class="header__logo-link" href="{{ .Site.BaseURL }}">
         {{ with .Site.Params.logo }}
-        <img class="header__logo" src="{{ . | absURL }}" alt="{{ $site_title }} &mdash; Home">
+        <img class="header__logo" src="{{ . | absURL }}" alt="{{ $site_title }}">
         {{ else }}
         {{ $site_title }}
         {{ end }}
@@ -12,13 +12,13 @@
     </h1>
 
     {{ partial "social-list" . }}
-    <span class="header__toggle" tabindex="0">
+    <span class="header__toggle js-menu-toggle" tabindex="0">
       <noscript>
-        <a href="#footer-nav"><span class="hidden">Go to Footer Menu</span></a>
+        <a href="#footer-nav"><span class="hidden">Go to Menu</span></a>
       </noscript>
     </span>
-    <nav class="header__nav active" role="navigation">
-      <ul class="list header__nav-list">
+    <nav id="header-nav" class="header__nav" role="navigation">
+      <ul id="header-menu" class="list header__nav-list">
         {{ range .Site.Menus.main }}
         <li class="header__nav-item">
           <a class="header__nav-link" href="{{ .URL | absURL }}">{{ .Name }}</a>
