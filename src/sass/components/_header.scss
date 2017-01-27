@@ -13,9 +13,11 @@
 }
 
 .header__wrap {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: space-between;
+  position: relative;
 }
 
 .header__title {
@@ -42,19 +44,15 @@
   }
 }
 
-.header__menu {
-  display: none;
+.header__nav {
+  z-index: 3;
   flex: 1 auto;
-  padding: $sp-sm 0;
+  position: relative;
 
   @media #{$brkpt-md} {
-    display: flex;
+    display: block;
     padding: $sp-md 0;
   }
-}
-
-.header__nav {
-  flex: 1 auto;
 }
 
 .header__toggle {
@@ -65,76 +63,61 @@
   border-top: 2px $c-grey-75 solid;
   border-bottom: 2px $c-grey-75 solid;
   height: 16px;
+  order: 4;
   padding: 5px 0;
+  position: relative;
   margin: $sp-md 0;
   width: 24px;
 
   @media #{$brkpt-md} {
     display: none;
   }
+
+  a {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
 }
 
 .header__nav-list {
   height: 100%;
   align-items: center;
-  display: flex;
+  display: none;
   justify-content: flex-end;
+
+  &.active {
+
+  }
+
+  @media #{$brkpt-md} {
+    display: flex;
+  }
 }
 
 .header__nav-item {
+  color: $c-grey-75;
   padding-left: $sp-lg;
   text-transform: uppercase;
-}
-
-.header__sub {
-  background: $c-acc1-tint;
-  flex: 1 auto;
+  letter-spacing: 0.07em;
+  font-family: $ff-sans;
   font-size: 0.875rem;
+  line-height: 1;
+  font-weight: bold;
 }
 
-.header__categories {
-  @include global-max-width;
-  overflow-x: scroll;
-  padding-bottom: $sp-sm;
-  padding-top: $sp-sm;
-  white-space: nowrap;
-
-  @media #{$brkpt-md} {
-    overflow-x: hidden;
-    display: flex;
-    justify-content: space-around;
-  }
-}
-
-/*
-    1: Flex-shrink must be explicitly set to 0 and flex-basis to auto to prevent
-    flex items from shrinking to less than their min-content width (i.e. the
-    length of the longest word inside the item) on Safari.
-    See more: https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored
-*/
-.header__category {
-  border-radius: 2px;
-  flex-shrink: 0; /* 1 */
-  flex-basis: auto; /* 1 */
-  font-family: $ff-disp;
-  font-style: italic;
-  display: inline-block;
-  padding: $sp-squish-sm;
-  transition: 0.45s background ease-out;
+.header__nav-link {
+  border-bottom: 2px $c-brand-tint2 solid;
+  color: inherit;
+  position: relative;
+  text-decoration: none;
+  transition: 0.45s border-color ease;
 
   &:hover {
-    background: $c-acc1;
-  }
-
-  a {
-    color: $c-acc1-shade2;
-    text-decoration: none;
-  }
-
-  @media #{$brkpt-md} {
-    flex: 0;
-    &:nth-child(n+7) {
-      display: none;
-    }
+    border-color: $c-brand;
   }
 }
