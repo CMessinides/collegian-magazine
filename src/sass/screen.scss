@@ -10,6 +10,7 @@ html {
 @import "base/variables";
 @import "base/typescale";
 @import "base/markdown";
+@import "base/util";
 @import "mixins/aspect_ratio";
 @import "mixins/card";
 @import "mixins/typescale";
@@ -21,7 +22,6 @@ html {
 @import "classes/list";
 @import "classes/page";
 @import "classes/section";
-@import "classes/util";
 @import "components/badge";
 @import "components/header";
 @import "components/icon";
