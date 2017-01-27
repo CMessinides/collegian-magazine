@@ -69,7 +69,7 @@ $columns: 12;
 $site-max-width: 72rem;
 
 // # Color
-$c-brand:       rgb(16, 122, 166);
+$c-brand:       rgb(31, 136, 187);
 $c-brand-shade2: adjust-hue(darken($c-brand, 20), 7%);
 $c-brand-shade: adjust-hue(darken($c-brand, 10), 7%);
 $c-brand-tint:  adjust-hue(lighten($c-brand, 10), -3%);
