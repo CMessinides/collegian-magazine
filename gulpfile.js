@@ -4,6 +4,8 @@ const gulp = require('gulp');
 // pre-processing stylesheets
 const sass = require('gulp-sass');
 const autoprefix = require('gulp-autoprefixer');
+// uglifying and minifying scripts
+const uglify = require('gulp-uglify');
 // resizing images
 const imageResize = require('gulp-image-resize');
 const changed = require('gulp-changed');
@@ -18,6 +20,13 @@ gulp.task('sass', function() {
       browsers: ['last 2 versions', '> 5% in US']
     }))
     .pipe(gulp.dest('static/assets/css'));
+});
+
+// uglifying scripts
+gulp.task('js', function() {
+  return gulp.src('src/js/**/*.js')
+    .pipe(uglify())
+    .pipe(gulp.dest('static/assets/js'));
 });
 
 // Resizing images
@@ -61,10 +70,11 @@ imageResizeTasks.push('original_images');
 
 gulp.task('images', imageResizeTasks);
 
-gulp.task('build', ['sass', 'images']);
+gulp.task('build', ['sass', 'js', 'images']);
 
-gulp.task('watch', ['sass'], function() {
-  gulp.watch('src/sass/**/*.scss', ['sass'])
+gulp.task('watch', ['sass', 'js'], function() {
+  gulp.watch('src/sass/**/*.scss', ['sass']);
+  gulp.watch('src/js/**/*.js', ['js']);
 });
 
 gulp.task('default', ['build']);
