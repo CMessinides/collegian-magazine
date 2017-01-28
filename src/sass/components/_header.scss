@@ -22,14 +22,44 @@
 .header__title {
   flex: 1 auto;
   margin: 0;
+  font-family: $ff-disp;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
 }
 
 .header__logo-link,
-.header__logo-link:visited,
-.header__logo-link:hover,
-.header__logo-link:active {
+.header__logo-link:visited {
+  display: block;
+  margin: 0 auto;
   text-decoration: none;
   color: $c-black;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 30%;
+    top: 35%;
+    right: 0;
+    width: 100%;
+    background: transparentize($c-acc1, 1);
+    transition: 175ms background ease-in;
+    z-index: 1;
+  }
+}
+
+.header__logo-link:focus,
+.header__logo-link:hover {
+  &::before {
+    background: $c-acc1;
+  }
+}
+
+.header__logo-link:active {
+  &::before {
+    background: $c-acc1-shade;
+  }
 }
 
 .header__logo {
@@ -37,6 +67,9 @@
   display: block;
   width: 100%;
   padding: $sp-md 0;
+  position: relative;
+  text-align: center;
+  z-index: 2;
 
   @media #{$brkpt-md} {
     padding: $sp-lg 0;
