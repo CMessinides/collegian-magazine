@@ -1,25 +1,21 @@
 var menu = document.getElementById('header-menu');
 var toggle = document.getElementById('menu-toggle');
-var menuLinks = document.getElementsByClassName('header__nav-link');
 
 var toggleMenu = function() {
   menu.classList.toggle('active');
   toggle.classList.toggle('active');
 };
 
-var toggleMenuOnFocus = function() {
-  if (document.activeElement.classList.contains('header__nav-link')) {
-    menu.classList.add('active');
-    toggle.classList.add('active');
-  } else {
-    menu.classList.remove('active');
-    toggle.classList.remove('active');
-  }
+var keepMenuOpen = function(e) {
+  menu.classList.add('active');
+  toggle.classList.add('active');
 };
 
-toggle.addEventListener('click', toggleMenu);
+var closeMenu = function(e) {
+  menu.classList.remove('active');
+  toggle.classList.remove('active');
+}
 
-[].forEach.call(menuLinks, function(menuLink) {
-  menuLink.addEventListener('focus', toggleMenuOnFocus);
-  menuLink.addEventListener('blur', toggleMenuOnFocus);
-});
+toggle.addEventListener('click', toggleMenu);
+menu.addEventListener('focus', keepMenuOpen, true);
+menu.addEventListener('blur', closeMenu, true);
