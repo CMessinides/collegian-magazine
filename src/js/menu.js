@@ -1,5 +1,10 @@
 var menu = document.getElementById('header-menu');
 var toggle = document.getElementById('menu-toggle');
+var menuLinks = document.getElementsByClassName('header__nav-link');
+
+[].forEach.call(menuLinks, function(link) {
+  link.setAttribute('tabindex', '0');
+});
 
 var toggleMenu = function() {
   menu.classList.toggle('active');

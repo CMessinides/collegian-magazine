@@ -12,7 +12,7 @@
     </h1>
 
     {{ partial "social-list" . }}
-    <span id="menu-toggle" class="header__toggle" tabindex="0">
+    <span id="menu-toggle" class="header__toggle">
       <noscript>
         <a href="#footer-nav"><span class="hidden">Go to Menu</span></a>
       </noscript>
@@ -21,7 +21,7 @@
       <ul id="header-menu" class="list header__nav-list">
         {{ range .Site.Menus.main }}
         <li class="header__nav-item">
-          <a class="header__nav-link" href="{{ .URL | absURL }}">{{ .Name }}</a>
+          <a class="header__nav-link" href="{{ .URL | absURL }}" tabindex="-1">{{ .Name }}</a>
         </li>
         {{ end }}
       </ul>
