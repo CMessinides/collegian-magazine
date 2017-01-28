@@ -170,7 +170,9 @@
   text-decoration: none;
   transition: 0.45s border-color ease;
 
-  &:hover {
+  &:focus,
+  &:hover,
+  &:active {
     border-color: $c-brand;
   }
 }
