@@ -90,8 +90,7 @@
     transform: translateY(7px);
   }
 
-  &:focus,
-  &.active {
+  &.open {
     background: rgba(0,0,0,0);
 
     &::before {
@@ -141,8 +140,7 @@
       }
     }
 
-    &.active,
-    .header__toggle:focus + .header__nav & {
+    &.open {
       border-color: $c-grey-10;
       transform: translateY(0);
     }

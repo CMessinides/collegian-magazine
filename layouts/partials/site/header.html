@@ -21,7 +21,7 @@
       <ul id="header-menu" class="list header__nav-list">
         {{ range .Site.Menus.main }}
         <li class="header__nav-item">
-          <a class="header__nav-link" href="{{ .URL | absURL }}" tabindex="-1">{{ .Name }}</a>
+          <a class="header__nav-link" href="{{ .URL | absURL }}">{{ .Name }}</a>
         </li>
         {{ end }}
       </ul>
