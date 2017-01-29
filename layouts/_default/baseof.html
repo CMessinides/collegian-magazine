@@ -75,23 +75,23 @@
 
 
   </head>
-  <body class="page">
+  <body class="page" id="top">
+    <div class="page__wrap">
+      {{ partial "site/header.html" . }}
 
-    {{ partial "site/header.html" . }}
+      {{ block "hero" . }}{{ end }}
 
+      <div class="page__content lg-grid">
+        <main class="page__main lg-grid__block lg-wid-8">
+          {{ block "content" . }}{{ end }}
+        </main>
+        <aside class="page__sidebar ns-grid lg-grid--vert grid__block lg-wid-4">
+          {{ partial "site/sidebar.html" . }}
+        </aside>
+      </div>
 
-    {{ block "hero" . }}{{ end }}
-
-    <div class="page__content lg-grid">
-      <main class="page__main lg-grid__block lg-wid-8">
-        {{ block "content" . }}{{ end }}
-      </main>
-      <aside class="page__sidebar ns-grid lg-grid--vert grid__block lg-wid-4">
-        {{ partial "site/sidebar.html" . }}
-      </aside>
+      {{ partial "site/footer.html" . }}
     </div>
-
-    {{ partial "site/footer.html" . }}
     <script src="{{ "/assets/js/menu.js" | absURL }}"></script>
   </body>
 </html>
