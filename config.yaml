@@ -9,8 +9,9 @@ languageCode: "en-us"
 metaDataFormat: yaml
 preserveTaxonomyNames: true
 permalinks:
-  article: /magazine/:year/:month/:slug/
-  announcement: /announcements/:year/:month/:day/:slug/
+  article: /article/:year/:month/:slug/
+  announcement: /announcement/:year/:month/:day/:slug/
+  page: /:slug/
 taxonomies:
   tag: tags
   category: categories
