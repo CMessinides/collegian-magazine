@@ -31,6 +31,19 @@ menu:
       name: "Blog"
       weight: 30
       url: "/announcement/"
+  footer:
+    -
+      name: "Articles"
+      weight: 10
+      url: "/article/"
+    -
+      name: "Staff"
+      weight: 20
+      url: "/staff/"
+    -
+      name: "Blog"
+      weight: 30
+      url: "/announcement/"
 
 
 params:
