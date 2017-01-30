@@ -24,58 +24,13 @@
 .header__title {
   border-bottom: 1px $c-grey-10 solid;
   flex: 1 auto;
-  margin: 0;
-  font-family: $ff-disp;
-  font-weight: 400;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
 }
 
 .header__logo-link,
 .header__logo-link:visited {
   display: block;
   margin: 0 auto;
-  text-decoration: none;
   color: $c-black;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    height: 30%;
-    top: 35%;
-    right: 0;
-    width: 100%;
-    background: transparentize($c-acc1, 1);
-    transition: 175ms background ease-in;
-    z-index: 1;
-  }
-}
-
-.header__logo-link:focus,
-.header__logo-link:hover {
-  &::before {
-    background: $c-acc1;
-  }
-}
-
-.header__logo-link:active {
-  &::before {
-    background: $c-acc1-shade;
-  }
-}
-
-.header__logo {
-  display: block;
-  width: 100%;
-  padding: $sp-md 0;
-  position: relative;
-  text-align: center;
-  z-index: 2;
-
-  @media #{$brkpt-md} {
-    padding: $sp-lg 0;
-  }
 }
 
 .header__nav {
@@ -157,7 +112,6 @@
   align-items: center;
   justify-content: flex-end;
 
-
   @media #{$brkpt-under-md} {
     border-color: rgba(255, 255, 255, 0);
     border-style: solid;
@@ -167,15 +121,6 @@
     text-align: right;
     background: $c-off-white;
     transition: 300ms transform ease, 230ms border-color ease 300ms;
-
-    .header__nav-item {
-      font-size: 1.125rem;
-      margin-bottom: $sp-md;
-
-      &:last-child {
-        margin: 0;
-      }
-    }
 
     &.open {
       border-color: $c-grey-10;
@@ -189,25 +134,15 @@
 }
 
 .header__nav-item {
-  color: $c-grey-75;
   padding-left: $sp-lg;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  font-family: $ff-sans;
-  font-size: 0.875rem;
   line-height: 1;
-  font-weight: bold;
-}
 
-.header__nav-link {
-  border-bottom: 2px $c-brand-tint2 solid;
-  color: inherit;
-  text-decoration: none;
-  transition: 0.45s border-color ease;
+  @media #{$brkpt-under-md} {
+    font-size: 1.125rem;
+    margin-bottom: $sp-md;
 
-  &:focus,
-  &:hover,
-  &:active {
-    border-color: $c-brand;
+    &:last-child {
+      margin: 0;
+    }
   }
 }

@@ -1,0 +1,37 @@
+.logo {
+  margin: 0;
+  font-family: $ff-disp;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.logo__link {
+  display: block;
+  text-decoration: none;
+  color: $c-black;
+}
+
+.logo__img {
+  display: block;
+  width: 100%;
+}
+
+.logo__img--masthead {
+  padding: $sp-md 0;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+
+  @media #{$brkpt-md} {
+    padding: $sp-lg 0;
+  }
+}
+
+.logo__img--md {
+  max-width: 360px;
+
+  @media #{$brkpt-sm} {
+    max-width: 480px;
+  }
+}

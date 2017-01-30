@@ -1,0 +1,84 @@
+.link {
+  transition: 180ms color ease, 180s border-color ease;
+}
+
+.link--body {
+  @extend %a;
+}
+
+.link--muted {
+  color: $c-grey-60;
+
+  &:focus,
+  &:hover,
+  &:active {
+    color: $c-black;
+  }
+}
+
+.link--ui-alpha,
+.link--ui-beta,
+.link--ui-light {
+  text-decoration: none;
+  font-family: $ff-sans;
+  font-weight: bold;
+}
+
+.link--ui-alpha {
+  border-bottom: 2px $c-brand-tint2 solid;
+  color: $c-grey-75;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+
+  &:focus,
+  &:hover,
+  &:active {
+    border-color: $c-brand;
+    color: $c-black;
+  }
+}
+
+.link--ui-beta {
+  color: $c-grey-60;
+
+  &:focus,
+  &:hover,
+  &:active {
+    color: $c-black;
+  }
+}
+
+.link--ui-light {
+  color: $c-off-white;
+
+  &:focus,
+  &:hover,
+  &:active {
+    color: $c-acc1;
+  }
+}
+
+.link--highlight {
+  text-decoration: none;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 30%;
+    top: 35%;
+    right: 0;
+    width: 100%;
+    transition: 175ms background ease-in;
+    z-index: 1;
+  }
+
+  &:focus::before,
+  &:hover::before {
+    background: $c-acc1;
+  }
+
+  &:active::before {
+    background: $c-acc1-shade;
+  }
+}

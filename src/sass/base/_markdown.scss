@@ -33,6 +33,21 @@
   margin: $sp-lg 0;
 }
 
+%a,
+.markdown a {
+  color: $c-brand;
+
+  &:visited {
+    color: $c-acc2;
+  }
+
+  &:focus,
+  &:hover,
+  &:active {
+    color: $c-brand-shade2;
+  }
+}
+
 .markdown > blockquote {
   p {
     margin: 0;
@@ -62,5 +77,3 @@
     }
   }
 }
-
-/* At least in Hugo 0.17, the markdown renderer will produce an empty paragraph tag */
