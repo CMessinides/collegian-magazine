@@ -63,3 +63,12 @@ html {
 .markdown small {
   font-size: 0.875em;
 }
+
+%fs-ui {
+  font-size: 1.125rem;
+  line-height: 1.5;
+
+  @media #{$brkpt-md} {
+    font-size: 1rem;
+  }
+}

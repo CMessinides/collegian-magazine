@@ -99,40 +99,7 @@ $c-shad-wk: transparentize($c-black, 0.92);
 
 // # Typography
 $ff-base: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-
-$ff-heading: Montserrat, $ff-base;
-
 $ff-sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 $ff-serif: Georgia, Times, serif;
 $ff-mono: Inconsolata, "Courier New", Courier, monospace;
 $ff-disp: "Playfair Display", $ff-sans;
-
-
-$fs-base: 1rem;
-
-$fs: (
-  title: 2 * $fs-base,
-  h1: 2 * $fs-base,
-  h2: 1.75 * $fs-base,
-  h3: 1.5 * $fs-base,
-  h4: 1.25 * $fs-base,
-  h5: 1.125 * $fs-base,
-  h6: 1.125 * $fs-base,
-  body: 1.125 * $fs-base,
-  small: $fs-base
-);
-
-$ns-fs: (
-  title: 3.5 * $fs-base,
-  h1: 3 * $fs-base,
-  h2: 2 * $fs-base,
-  h3: 1.75 * $fs-base,
-  h4: 1.375 * $fs-base,
-  h5: 1.125 * $fs-base,
-  h6: $fs-base,
-  body: 1.375 * $fs-base,
-  small: 0.875 * $fs-base
-);
-
-$lh: 1.375;
-$lh-tight: 1.125;

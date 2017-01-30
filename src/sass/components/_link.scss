@@ -19,6 +19,7 @@
 .link--ui-alpha,
 .link--ui-beta,
 .link--ui-light {
+  @extend %fs-ui;
   text-decoration: none;
   font-family: $ff-sans;
   font-weight: bold;
