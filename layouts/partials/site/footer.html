@@ -1,11 +1,11 @@
 {{ $site_title := .Site.Data.branding.site_name | default .Site.Title }}
 <footer class="footer" role="contentinfo">
   <div class="footer__wrap">
-    <section class="footer__section footer__section--about lg-wid-3 ns-wid-6">
-      <h1 class="logo logo--md">
+    <section class="footer__section footer__section--about wid-12">
+      <h1 class="logo footer__logo">
         <a class="logo__link" href="{{ "/" | absURL }}">
           {{ with .Site.Params.logo }}
-            <img class="logo__img" src="{{ . | absURL }}" alt="{{ $site_title }}">
+            <img class="logo__img logo__img--md" src="{{ . | absURL }}" alt="{{ $site_title }}">
           {{ else }}
             {{ $site_title }}
           {{ end }}
@@ -15,26 +15,33 @@
       <p class="footer__description">{{ . }}</p>
       {{ end }}
     </section>
-    <section class="footer__section footer__section--contact lg-wid-3 ns-wid-6">
+    <section class="footer__section footer__section--contact lg-wid-4 md-wid-6">
       <h2 class="footer__header">Contact Us</h2>
-      {{ partial "social-list" . }}
+      <nav class="footer__social" role="navigation" aria-label="Social links">
+        {{ partial "social-list" . }}
+      </nav>
       {{ with .Site.Data.branding.email }}
-        <a href="mailto:{{ . }}" class="footer__email">{{ . }}</a>
+      <a href="mailto:{{ . }}" class="footer__email link--ui-beta">
+        <span class="hidden">Send email to </span>
+        {{ . }}
+      </a>
       {{ end }}
     </section>
-    <section class="footer__section footer__section--sitemap lg-wid-6 sm-wid-12">
+    <section class="footer__section footer__section--sitemap lg-wid-8 md-wid-6 wid-12">
       <nav id="footer-nav" class="footer__nav" tabindex="-1">
         <h2 class="footer__header">Sitemap</h2>
         <ul class="list footer__nav-list">
           {{ range .Site.Menus.footer }}
             <li class="footer__nav-item">
-              <a class="footer__nav-link" href="{{ .URL | absURL }}">{{ .Name }}</a>
+              <a class="link--ui-alpha" href="{{ .URL | absURL }}">{{ .Name }}</a>
             </li>
           {{ end }}
         </ul>
       </nav>
     </section>
-    <p class="footer__section md-wid-6 sm-wid-12 footer__copyright">&copy; {{ .Site.LastChange | dateFormat "2006" }} {{ $site_title }}. All Rights Reserved.</p>
-    <a class="footer__section md-wid-6 sm-wid-12 footer__back-to-top" href="#top">Back to top</a>
+    <p class="footer__section md-wid-6 wid-12 footer__copyright">&copy; {{ .Site.LastChange | dateFormat "2006" }} {{ $site_title }}. All Rights Reserved.</p>
+    <p class="footer__section md-wid-6 wid-12 footer__back-to-top">
+      <a class="link--ui-beta" href="#top">Back to top &uarr;</a>
+    </p>
   </div>
 </footer>

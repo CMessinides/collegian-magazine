@@ -1,24 +1,17 @@
 .footer {
   flex: none;
-  background: $c-grey-10;
+  background: $c-off-white;
+  box-shadow: 0px 2px 4px 4px $c-shad-wk;
   margin: $sp-stack-lg;
-
-  h1,
-  h2 {
-    margin-top: 0;
-  }
 }
 
 .footer__wrap {
   @include global-max-width;
   padding: $sp-inset-sm;
 
-  @media #{$brkpt-sm} {
+  @media #{$brkpt-md} {
     display: flex;
     flex-wrap: wrap;
-  }
-
-  @media #{$brkpt-md} {
     padding: $sp-inset-md;
   }
 }
@@ -28,31 +21,85 @@
 }
 
 .footer__section {
-  padding: $sp-stretch-md;
+  line-height: 1.25;
+  padding: $sp-inset-sm;
   flex: 0 1 auto;
-  margin: 0;
+  margin: 0 0 $sp-lg 0;
 
   @media #{$brkpt-md} {
     padding: $sp-inset-md;
+    margin-bottom: 0;
   }
 }
 
 .footer__section--about {
   flex-grow: 1;
+  margin-top: $sp-md;
+
+  @media #{$brkpt-lg} {
+    margin-top: 0;
+  }
+}
+
+.footer__logo {
+  margin-bottom: $sp-sm;
+  padding-top: $sp-lg;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 104px;
+    border-bottom: $sp-sm $c-acc1 solid;
+    top: 0;
+    left: 0;
+  }
+}
+
+.footer__description {
+  margin: 0;
+  font-size: 1.25rem;
+  font-family: $ff-serif;
+  font-style: italic;
+  color: $c-grey-60;
+}
+
+.footer__header {
+  font-family: $ff-disp;
+  font-style: italic;
+  font-weight: normal;
+  margin: 0 0 $sp-md 0;
+}
+
+.footer__social {
+  margin-bottom: $sp-sm;
 }
 
 .footer__nav-item {
   display: inline-block;
-  padding: 0 $sp-sm $sp-sm 0;
+  margin: 0 $sp-md $sp-sm 0;
+}
+
+.footer__email,
+.footer__nav-link {
+  line-height: 1.5;
+}
+
+.footer__nav-link {
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.footer__copyright {
+  color: $c-grey-60;
+  font-family: $ff-serif;
+  font-style: italic;
 }
 
 .footer__back-to-top {
   display: block;
   text-align: center;
-  margin-top: $sp-md;
-  &::after {
-    content: ' \02191';
-  }
+
   @media #{$brkpt-md} {
     text-align: right;
   }
@@ -61,7 +108,6 @@
 .footer__copyright,
 .footer__back-to-top {
   @media #{$brkpt-md} {
-    border-top: 1px $c-grey-60 solid;
     margin-top: $sp-lg;
   }
 }
