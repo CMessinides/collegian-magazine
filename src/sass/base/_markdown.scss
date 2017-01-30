@@ -1,7 +1,8 @@
+%p,
 .markdown {
+  color: $c-grey-75;
   font-family: $ff-serif;
 }
-
 
 %h1,
 %h2,
@@ -19,18 +20,21 @@
   font-family: $ff-disp;
 }
 
-%p,
-.markdown > p {
-  color: $c-grey-75;
-  font-family: $ff-serif;
+%h2,
+.markdown h2 {
+
 }
 
-%bq,
-.markdown > blockquote {
-  color: $c-grey-60;
-  font-family: $ff-disp;
+%h3,
+.markdown h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 400;
+}
+
+%h5,
+.markdown h4 {
   font-style: italic;
-  margin: $sp-lg 0;
 }
 
 %a,
@@ -48,13 +52,20 @@
   }
 }
 
+%bq,
 .markdown > blockquote {
+  color: $c-black;
+  font-family: $ff-disp;
+  font-style: italic;
+  font-weight: 700;
+  margin: $sp-lg 0;
+
   p {
     margin: 0;
   }
 
   &::before {
-    border-top: $sp-sm $c-brand-tint solid;
+    border-top: $sp-sm $c-acc1 solid;
     content: '';
     display: block;
     margin-bottom: $sp-md;
