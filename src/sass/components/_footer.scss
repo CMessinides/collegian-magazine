@@ -69,10 +69,11 @@
   font-style: italic;
   font-weight: normal;
   margin: 0 0 $sp-md 0;
+  color: $c-black;
 }
 
 .footer__social {
-  margin-bottom: $sp-sm;
+  margin-top: $sp-sm;
 }
 
 .footer__nav-item {
@@ -81,13 +82,8 @@
 }
 
 .footer__email,
-.footer__nav-link {
+.footer__nav-item {
   line-height: 1.5;
-}
-
-.footer__nav-link {
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
 }
 
 .footer__copyright {

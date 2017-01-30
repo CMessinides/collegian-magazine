@@ -17,15 +17,15 @@
     </section>
     <section class="footer__section footer__section--contact lg-wid-4 md-wid-6">
       <h2 class="footer__header">Contact Us</h2>
-      <nav class="footer__social" role="navigation" aria-label="Social links">
-        {{ partial "social-list" . }}
-      </nav>
       {{ with .Site.Data.branding.email }}
       <a href="mailto:{{ . }}" class="footer__email link--ui-beta">
         <span class="hidden">Send email to </span>
         {{ . }}
       </a>
       {{ end }}
+      <nav class="footer__social" role="navigation" aria-label="Social links">
+        {{ partial "social-list" . }}
+      </nav>
     </section>
     <section class="footer__section footer__section--sitemap lg-wid-8 md-wid-6 wid-12">
       <nav id="footer-nav" class="footer__nav" tabindex="-1">
@@ -33,7 +33,7 @@
         <ul class="list footer__nav-list">
           {{ range .Site.Menus.footer }}
             <li class="footer__nav-item">
-              <a class="link--ui-alpha" href="{{ .URL | absURL }}">{{ .Name }}</a>
+              <a class="link--ui-beta" href="{{ .URL | absURL }}">{{ .Name }}</a>
             </li>
           {{ end }}
         </ul>
