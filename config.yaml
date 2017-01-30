@@ -34,6 +34,10 @@ menu:
       url: "/announcement/"
   footer:
     -
+      name: "Home"
+      weight: -10
+      url: "/"
+    -
       name: "Articles"
       weight: 10
       url: "/article/"
