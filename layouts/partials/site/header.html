@@ -2,7 +2,7 @@
 <header class="header" role="banner">
   <div class="header__wrap">
     <h1 class="header__title logo wid-12">
-      <a class="header__logo-link link--highlight" href="{{ .Site.BaseURL }}">
+      <a class="header__logo-link link link--highlight" href="{{ .Site.BaseURL }}">
         {{ with .Site.Params.logo }}
         <img class="logo__img logo__img--masthead" src="{{ . | absURL }}" alt="{{ $site_title }}">
         {{ else }}
@@ -21,7 +21,7 @@
       <ul id="header-menu" class="list header__nav-list">
         {{ range .Site.Menus.main }}
         <li class="header__nav-item">
-          <a class="link--ui-alpha" href="{{ .URL | absURL }}">{{ .Name }}</a>
+          <a class="link link--ui-alpha" href="{{ .URL | absURL }}">{{ .Name }}</a>
         </li>
         {{ end }}
       </ul>

@@ -18,7 +18,7 @@
     <section class="footer__section footer__section--contact lg-wid-4 md-wid-6">
       <h2 class="footer__header">Contact Us</h2>
       {{ with .Site.Data.branding.email }}
-      <a href="mailto:{{ . }}" class="footer__email link--ui-beta">
+      <a href="mailto:{{ . }}" class="footer__email link link--ui-beta">
         <span class="hidden">Send email to </span>
         {{ . }}
       </a>
@@ -33,7 +33,7 @@
         <ul class="list footer__nav-list">
           {{ range .Site.Menus.footer }}
             <li class="footer__nav-item">
-              <a class="link--ui-beta" href="{{ .URL | absURL }}">{{ .Name }}</a>
+              <a class="link link--ui-beta" href="{{ .URL | absURL }}">{{ .Name }}</a>
             </li>
           {{ end }}
         </ul>
@@ -41,7 +41,7 @@
     </section>
     <p class="footer__section md-wid-6 wid-12 footer__copyright">&copy; {{ .Site.LastChange | dateFormat "2006" }} {{ $site_title }}. All Rights Reserved.</p>
     <p class="footer__section md-wid-6 wid-12 footer__back-to-top">
-      <a class="link--ui-beta" href="#top">Back to top &uarr;</a>
+      <a class="link link--ui-beta" href="#top">Back to top &uarr;</a>
     </p>
   </div>
 </footer>
