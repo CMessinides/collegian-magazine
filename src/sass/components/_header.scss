@@ -2,6 +2,7 @@
   background: $c-off-white;
   box-shadow: 0px 0px 4px 4px $c-shad-wk;
   flex: none;
+  z-index: 4;
 }
 
 .header__wrap {
@@ -52,6 +53,7 @@
 }
 
 .header__toggle {
+  cursor: pointer;
   flex: 0 auto;
   background: $c-grey-75;
   background-clip: content-box;
