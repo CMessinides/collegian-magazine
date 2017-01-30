@@ -1,7 +1,0 @@
-@mixin typescale($level) {
-  font-size: map-get($fs, $level);
-
-  @media #{$brkpt-xs} {
-    font-size: map-get($ns-fs, $level);
-  }
-}

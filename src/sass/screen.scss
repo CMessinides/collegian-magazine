@@ -13,11 +13,7 @@ html {
 @import "base/util";
 @import "mixins/aspect_ratio";
 @import "mixins/card";
-@import "mixins/typescale";
-@import "mixins/width";
 @import "classes/article";
-@import "classes/card";
-@import "classes/hero";
 @import "classes/layout";
 @import "classes/list";
 @import "classes/section";
@@ -26,5 +22,8 @@ html {
 @import "components/badge";
 @import "components/icon";
 @import "components/logo";
+@import "components/card";
+@import "components/hero";
 @import "components/header";
 @import "components/footer";
+@import "components/sidebar";
