@@ -42,22 +42,6 @@
   }
 }
 
-.footer__logo {
-  @extend %fs-0;
-  margin-bottom: $sp-sm;
-  padding-top: $sp-lg;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 104px;
-    border-bottom: $sp-sm $c-acc1 solid;
-    top: 0;
-    left: 0;
-  }
-}
-
 .footer__description {
   @extend %fs-5;
   margin: 0;

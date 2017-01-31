@@ -23,19 +23,6 @@
   position: relative;
 }
 
-.header__title {
-  @extend %fs-0;
-  border-bottom: 1px $c-grey-10 solid;
-  flex: 1 auto;
-}
-
-.header__logo-link,
-.header__logo-link:visited {
-  display: block;
-  margin: 0 auto;
-  color: $c-black;
-}
-
 .header__nav {
   z-index: 3;
   flex: 1 auto;

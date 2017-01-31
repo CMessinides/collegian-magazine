@@ -1,15 +1,33 @@
 .logo {
-  margin: 0;
+  display: block;
+  color: $c-black;
   font-family: $ff-disp;
   font-weight: 400;
   letter-spacing: 0.07em;
   text-transform: uppercase;
+  text-decoration: none;
 }
 
-.logo__link {
-  display: block;
-  text-decoration: none;
-  color: $c-black;
+.logo--header {
+  @extend %fs-0;
+  border-bottom: 1px $c-grey-10 solid;
+  margin: 0 auto;
+}
+
+.logo--footer {
+  @extend %fs-1;
+  margin-bottom: $sp-sm;
+  padding-top: $sp-lg;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 104px;
+    border-bottom: $sp-sm $c-acc1 solid;
+    top: 0;
+    left: 0;
+  }
 }
 
 .logo__img {
