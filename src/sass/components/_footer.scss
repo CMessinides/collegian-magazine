@@ -67,11 +67,10 @@
 }
 
 .footer__header {
-  @extend %fs-5;
+  @extend %fs-3;
   font-family: $ff-disp;
   font-style: italic;
-  font-weight: normal;
-  margin: 0 0 $sp-md 0;
+  margin: 0 0 $sp-sm 0;
   color: $c-black;
 }
 

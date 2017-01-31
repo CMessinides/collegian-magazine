@@ -22,10 +22,10 @@
   @extend %fs-ui;
   text-decoration: none;
   font-family: $ff-sans;
-  font-weight: bold;
 }
 
 .link--ui-alpha {
+  font-weight: bold;
   border-bottom: 2px $c-brand-tint2 solid;
   color: $c-grey-75;
   text-transform: uppercase;
