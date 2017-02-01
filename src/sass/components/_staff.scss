@@ -35,11 +35,10 @@
   border-radius: 50%;
   height: auto;
   width: auto;
-  margin-bottom: $sp-md;
+  margin: $sp-lg;
 
   @media #{$brkpt-sm} {
-    margin-bottom: 0;
-    margin-right: $sp-lg;
+    margin: 0 $sp-lg 0 0;
   }
 }
 
