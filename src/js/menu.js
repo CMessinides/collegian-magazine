@@ -1,23 +1,28 @@
-var menu = document.getElementById('header-menu');
-var toggle = document.getElementById('menu-toggle');
+var nav = document.getElementById('header-nav');
+var firstNavItem = document.getElementsByClassName('js-nav-link')[0];
+var toggle = document.getElementById('nav-toggle');
 
-/*
-This handles an edge case in which the user a) has JS disabled and b) is using only the keyboard.
-By programmatically setting tabindex, only users with JS will be able to focus on the menu toggle since the toggle depends on JS.
-Users without JS enabled will have access to an anchor tag that jumps to the menu in the footer.
-*/
-toggle.setAttribute('tabindex', '0');
-
-var toggleMenu = function() {
-  menu.classList.toggle('open');
-  toggle.classList.toggle('open');
+var focusNav = function(e) {
+  e.preventDefault();
+  firstNavItem.focus();
 };
 
-var toggleMenuOnKeypress = function(e) {
+var focusNavOnKeypress = function(e) {
+  /* Code 13 = Enter/Return */
   if (e.which == 13) {
-    toggleMenu();
+    focusNav(e);
   }
 };
 
-toggle.addEventListener('click', toggleMenu);
-toggle.addEventListener('keydown', toggleMenuOnKeypress, true);
+var openNav = function(e) {
+  nav.classList.add('open');
+}
+
+var closeNav = function(e) {
+  nav.classList.remove('open');
+}
+
+toggle.addEventListener('click', focusNav, true);
+toggle.addEventListener('keydown', focusNavOnKeypress, true);
+nav.addEventListener('focus', openNav, true);
+nav.addEventListener('blur', closeNav, true);

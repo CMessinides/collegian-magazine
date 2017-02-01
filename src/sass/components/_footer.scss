@@ -58,6 +58,10 @@
 
 .footer__social {
   margin-top: $sp-sm;
+
+  .list__item--social:first-child {
+    margin: 0;
+  }
 }
 
 .footer__nav-item {

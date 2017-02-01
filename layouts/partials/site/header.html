@@ -5,24 +5,20 @@
       {{ with .Site.Params.logo }}
       <img class="logo__img logo__img--masthead" src="{{ . | absURL }}" alt="{{ $site_title }}">
       {{ else }}
-      {{ $site_title }}
+        {{ $site_title }}
       {{ end }}
     </a>
-
-    {{ partial "social-list" . }}
-    <span id="menu-toggle" class="header__toggle">
-      <noscript>
-        <a href="#footer-nav"><span class="hidden">Go to Menu</span></a>
-      </noscript>
-    </span>
-    <nav id="header-nav" class="header__nav" role="navigation">
+    <a aria-hidden="true" class="header__toggle" href="#footer-nav" id="nav-toggle"></a>
+    <nav id="header-nav" tabindex="-1" class="header__nav" role="navigation">
       <ul id="header-menu" class="list header__nav-list">
         {{ range .Site.Menus.main }}
         <li class="header__nav-item">
-          <a class="link link--ui-alpha" href="{{ .URL | absURL }}">{{ .Name }}</a>
+          <a class="link link--ui-alpha js-nav-link" href="{{ .URL | absURL }}">{{ .Name }}</a>
         </li>
         {{ end }}
       </ul>
+      {{ partial "social-list" . }}
     </nav>
+    <div aria-hidden="true" class="header__nav-shadow"></div>
   </div>
 </header>
