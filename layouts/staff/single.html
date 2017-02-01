@@ -1,7 +1,7 @@
 {{ define "content" }}
   <article class="staff">
-    <header class="staff__header">
-      <img class="staff__avatar" src="{{ with .Params.profile_picture }}{{ printf "assets/img/100/%s" . | absURL }}{{ else }}{{ "avatar.svg" | absURL }}{{ end }}" alt="Picture of {{ .Title }}">
+    <header class="staff__header card">
+      <img class="staff__avatar" src="{{ with .Params.profile_picture }}{{ printf "assets/img/96/%s" . | absURL }}{{ else }}{{ "avatar.svg" | absURL }}{{ end }}" alt="Picture of {{ .Title }}">
       <div class="staff__meta">
         <h1 class="staff__name" data-class-year="{{- with .Params.class_year -}}{{ if eq (len .) 2 }}{{ . }}{{ else if eq (len .) 4 }}{{ substr . 2 }}{{ end }}{{ end }}">{{ .Title }}</h1>
         <h2 class="hidden">Roles:</h2>
