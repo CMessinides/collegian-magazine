@@ -1,0 +1,13 @@
+@mixin comma-separated {
+  &:last-child:not(:first-child) {
+    &::before {
+      content: 'and ';
+    }
+  }
+
+  &:nth-last-child(n+3), :nth-last-child(n+3) ~ &:not(:last-child) {
+    &::after {
+      content: ', ';
+    }
+  }
+}
