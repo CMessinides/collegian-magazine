@@ -6,12 +6,12 @@ last_name: Messinides
 roles:
 - Web Developer
 - Design Editor
-headshot: ""
+profile_picture: "messinides.jpg"
 twitter_username: cmessinides
 facebook_username: cameron.messinides
 instagram_username: cmessinides
 class_year: '2019'
-bio: ''
+bio: 'This is just a short bio. Cameron is from South Carolina and he likes jellybeans. A lot.'
 draft: false
 
 ---
