@@ -95,15 +95,16 @@
   </head>
   <body class="page" id="top">
     <div class="page__wrap">
+      <a class="page__skip-to-content" href="#main">Skip to Content</a>
       {{ partial "site/header.html" . }}
 
       {{ block "hero" . }}{{ end }}
 
-      <div class="page__content lg-grid">
-        <main class="page__main lg-grid__block lg-wid-8">
+      <div class="page__content">
+        <main id="main" role="main" class="page__mainlg-wid-8">
           {{ block "content" . }}{{ end }}
         </main>
-        <aside class="page__sidebar ns-grid lg-grid--vert grid__block lg-wid-4">
+        <aside class="sidebar lg-wid-4">
           {{ partial "site/sidebar.html" . }}
         </aside>
       </div>

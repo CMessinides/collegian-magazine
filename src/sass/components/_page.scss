@@ -2,6 +2,34 @@
   background: $c-grey-5;
 }
 
+.page__skip-to-content {
+  @extend %fs-ui;
+  position: absolute;
+  background: $c-acc1;
+  box-shadow: 0 2px 6px 3px $c-shad;
+  color: $c-black;
+  font-family: $ff-sans;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  padding: $sp-md $sp-lg;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+  transform: translateY(-110%);
+  transition: 180ms transform ease;
+  z-index: 10;
+
+  &::after {
+    content: ' \2192';
+  }
+
+  &:focus {
+    transform: none;
+    outline: none;
+  }
+}
+
 .page__wrap {
   display: flex;
   flex-direction: column;
@@ -18,7 +46,7 @@
 
 .page__content,
 .page__main,
-.page__sidebar {
+.sidebar {
   padding: $sp-gutters-sm;
 
   @media #{$brkpt-sm} {
