@@ -42,14 +42,25 @@
   flex: 1 0 auto;
   width: 100%;
   margin: $sp-xl auto;
+  @media #{$brkpt-md} {
+    padding: 0 $sp-md;
+  }
 }
 
-.page__content,
-.page__main,
-.sidebar {
-  padding: $sp-gutters-sm;
+.page__main {
+  flex: 1 0 auto;
+  padding: 0 $sp-md;
+}
 
-  @media #{$brkpt-sm} {
-    padding: $sp-gutters-md;
+.page__sidebar {
+  flex: 1 0 auto;
+  flex-wrap: wrap;
+  margin-top: $sp-xl;
+  padding: $sp-sm;
+
+
+  @media #{$brkpt-lg} {
+    padding: 0 $sp-md;
+    margin-top: 0;
   }
 }

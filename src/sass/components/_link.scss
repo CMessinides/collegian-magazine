@@ -1,5 +1,5 @@
 .link {
-  transition: 180ms color ease, 180ms border-color ease;
+  transition: 180ms color ease;
 }
 
 .link--body {
@@ -26,7 +26,6 @@
 
 .link--ui-alpha {
   font-weight: bold;
-  border-bottom: 2px $c-brand-tint2 solid;
   color: $c-grey-75;
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -34,8 +33,7 @@
   &:focus,
   &:hover,
   &:active {
-    border-color: $c-brand;
-    color: $c-black;
+    color: $c-brand-tint;
   }
 }
 

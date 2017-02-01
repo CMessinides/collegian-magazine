@@ -10,11 +10,11 @@ html {
 @import "base/variables";
 @import "base/typescale";
 @import "base/markdown";
+@import "base/layout";
 @import "base/util";
 @import "mixins/aspect_ratio";
 @import "mixins/comma-separated";
 @import "classes/article";
-@import "classes/layout";
 @import "classes/list";
 @import "classes/section";
 @import "components/page";
@@ -24,6 +24,7 @@ html {
 @import "components/icon";
 @import "components/logo";
 @import "components/card";
+@import "components/search";
 @import "components/hero";
 @import "components/header";
 @import "components/footer";

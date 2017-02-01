@@ -34,7 +34,8 @@
   top: 0;
   left: 0;
   height: 100%;
-  width: 260px;
+  width: 100%;
+  max-width: 260px;
   z-index: 100;
   padding: $sp-lg $sp-md;
   transform: translateX(-100%);
@@ -65,7 +66,7 @@
     justify-content: space-between;
     position: static;
     transform: none;
-    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -114,5 +115,15 @@
     padding-right: $sp-lg;
     line-height: 1;
     display: inline-block;
+  }
+}
+
+.header__nav {
+  .list--social {
+    justify-content: flex-end;
+  }
+
+  .list__item--social:last-child {
+    margin-right: 0;
   }
 }

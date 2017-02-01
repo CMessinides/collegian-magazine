@@ -1,2 +1,35 @@
-.sidebar {
+.sidebar__section {
+  padding: $sp-sm;
+  margin-bottom: $sp-md;
+
+  @media #{$brkpt-md} {
+    padding: $sp-md;
+  }
+}
+
+.sidebar__section--about {
+  align-items: stretch;
+  @media #{$brkpt-md-only} {
+    display: flex;
+  }
+}
+
+.sidebar__label {
+  @extend %fs-5;
+  font-family: $ff-disp;
+  font-style: italic;
+  font-weight: 400;
+  color: $c-black;
+  margin-bottom: $sp-md;
+}
+
+.sidebar__description {
+  @extend %fs-ui;
+  font-family: $ff-serif;
+  color: $c-grey-75;
+  margin: 0;
+}
+
+.sidebar__social {
+
 }

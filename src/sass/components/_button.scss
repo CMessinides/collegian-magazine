@@ -1,0 +1,22 @@
+.button {
+  @extend %fs-ui;
+  font-family: $ff-sans;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 1px $c-shad;
+  padding: $sp-md $sp-lg;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  transition: 200ms background ease, 200ms box-shadow;
+}
+
+.button--info {
+  color: $c-white;
+  background: $c-brand;
+
+  &:hover,
+  &:focus {
+    background: $c-brand-shade;
+  }
+}

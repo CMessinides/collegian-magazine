@@ -1,3 +1,22 @@
+<section class="sidebar__section sidebar__section--about md-wid-8 lg-wid-auto">
+  <h1 class="hidden">About {{ .Site.Data.branding.site_name | default .Site.Title }}</h1>
+  <img class="logo logo--square logo--sidebar wid-12" src="{{ "/logos/icon.svg" | absURL }}" alt="{{ .Site.Params.site_name | default .Site.Title }}">
+  <p class="sidebar__description">{{ .Site.Params.description }} <a href="{{ "/about" | absURL }}" class="link link--muted">Read&nbsp;More <span class="hidden">about {{ .Site.Params.site_name | default .Site.Title }}</span></a></p>
+</section>
 <section class="sidebar__section">
-  <h1>About</h1>
+  <h1 class="sidebar__label">Follow the Magazine</h1>
+  <nav class="sidebar__social">
+    {{ partial "social-list" . }}
+  </nav>
+</section>
+<section class="sidebar__section md-wid-12">
+  <h1 class="sidebar__label">Search</h1>
+  <form class="search card" action="{{ "/search/" | absURL }}">
+    <label class="hidden" for="sidebar-search">Search</label>
+    <input id="sidebar-search" class="search__field wid-6" type="text" name="q" placeholder="Search" value="">
+    <button class="search__btn">
+      <span class="hidden">Submit</span>
+      {{ partial "icon/magnify.svg" . }}
+    </button>
+  </form>
 </section>

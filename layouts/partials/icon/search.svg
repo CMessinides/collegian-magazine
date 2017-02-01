@@ -1,0 +1,28 @@
+<svg width="24" height="24" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma/ns">
+<title>Submit Search</title>
+<desc>A simplified magnifying glass: Use this button to submit a search.</desc>
+<g id="Canvas" transform="translate(-10 31)" figma:type="canvas">
+<mask id="mask0_alpha" mask-type="alpha">
+<path d="M 10 -31L 26 -31L 26 -15L 10 -15L 10 -31Z" fill="#FFFFFF"/>
+</mask>
+<g id="Search" style="mix-blend-mode:normal;" mask="url(#mask0_alpha)" figma:type="frame">
+<g id="Ellipse" style="mix-blend-mode:normal;" figma:type="ellipse">
+<mask id="mask1_outline_out">
+<rect id="mask1_outline_inv" fill="white" x="-2" y="-2" width="11" height="11" transform="translate(17 -29)"/>
+<use xlink:href="#path0_fill" fill="black" transform="translate(17 -29)"/>
+</mask>
+<g mask="url(#mask1_outline_out)">
+<use xlink:href="#path1_stroke_2x" transform="translate(17 -29)" fill="#F2F2F2" style="mix-blend-mode:normal;"/>
+</g>
+</g>
+<g id="Line" style="mix-blend-mode:normal;" figma:type="vector">
+<use xlink:href="#path2_stroke" transform="matrix(-0.6 0.8 -0.8 -0.6 15 -20)" fill="#F2F2F2" style="mix-blend-mode:normal;"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 7 3.5C 7 5.433 5.433 7 3.5 7C 1.567 7 0 5.433 0 3.5C 0 1.567 1.567 0 3.5 0C 5.433 0 7 1.567 7 3.5Z"/>
+<path id="path1_stroke_2x" d="M 5 3.5C 5 4.32843 4.32843 5 3.5 5L 3.5 9C 6.53757 9 9 6.53757 9 3.5L 5 3.5ZM 3.5 5C 2.67157 5 2 4.32843 2 3.5L -2 3.5C -2 6.53757 0.462434 9 3.5 9L 3.5 5ZM 2 3.5C 2 2.67157 2.67157 2 3.5 2L 3.5 -2C 0.462434 -2 -2 0.462434 -2 3.5L 2 3.5ZM 3.5 2C 4.32843 2 5 2.67157 5 3.5L 9 3.5C 9 0.462434 6.53757 -2 3.5 -2L 3.5 2Z"/>
+<path id="path2_stroke" d="M 0.141421 -0.98995C -0.405313 -1.06805 -0.911845 -0.688155 -0.98995 -0.141421C -1.06805 0.405313 -0.688155 0.911845 -0.141421 0.98995L 0.141421 -0.98995ZM 5.45858 1.78995C 6.00531 1.86805 6.51185 1.48815 6.58995 0.941418C 6.66806 0.394684 6.28816 -0.111848 5.74142 -0.189952L 5.45858 1.78995ZM -0.141421 0.98995L 5.45858 1.78995L 5.74142 -0.189952L 0.141421 -0.98995L -0.141421 0.98995Z"/>
+</defs>
+</svg>

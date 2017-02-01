@@ -31,6 +31,18 @@
   }
 }
 
+.logo--sidebar {
+  display: block;
+  width: 80px;
+  margin-bottom: $sp-md;
+  flex: 0 auto;
+
+  @media #{$brkpt-md-only} {
+    margin-bottom: 0;
+    margin-right: $sp-md;
+  }
+}
+
 .logo--md {
   max-width: 360px;
 

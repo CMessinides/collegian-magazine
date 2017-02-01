@@ -1,0 +1,37 @@
+.search {
+  @extend %fs-ui;
+  font-family: $ff-sans;
+  display: flex;
+  align-items: stretch;
+}
+
+.search__field {
+  appearance: none;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  font-family: inherit;
+  flex: 1 0 auto;
+  outline: none;
+  border: none;
+  padding: $sp-md;
+}
+
+.search__btn {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  font-family: inherit;
+  background: $c-brand-shade2;
+  border: none;
+  padding: $sp-sm $sp-md;
+  color: $c-brand-tint2;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: $c-brand;
+  }
+}

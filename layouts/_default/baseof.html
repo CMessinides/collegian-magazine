@@ -100,11 +100,11 @@
 
       {{ block "hero" . }}{{ end }}
 
-      <div class="page__content">
-        <main id="main" role="main" class="page__mainlg-wid-8">
+      <div class="page__content lg-grid">
+        <main id="main" role="main" class="page__main lg-wid-9">
           {{ block "content" . }}{{ end }}
         </main>
-        <aside class="sidebar lg-wid-4">
+        <aside class="page__sidebar ns-grid lg-no-grid lg-wid-3">
           {{ partial "site/sidebar.html" . }}
         </aside>
       </div>
