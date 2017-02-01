@@ -1,0 +1,5 @@
+{{ define "content" }}
+  {{ range (where .Site.Pages "Section" "staff") }}
+    <h2><a href="{{ .Permalink | absURL }}">{{ .Title }}</a></h2>
+  {{ end }}
+{{ end }}

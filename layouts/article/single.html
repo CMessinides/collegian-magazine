@@ -7,7 +7,12 @@
 {{ define "content" }}
   <article class="article">
     <header>
-
+      <h1>{{ .Title | default "Untitled" }}</h1>
+      {{ with .Description }}
+        <p>
+          {{ . }}
+        </p>
+      {{ end }}
     </header>
     <div class="markdown article__body">
       {{ .Content | markdownify }}
