@@ -31,6 +31,14 @@
   }
 }
 
+.logo--md {
+  max-width: 360px;
+
+  @media #{$brkpt-sm} {
+    max-width: 480px;
+  }
+}
+
 .logo__img {
   display: block;
   width: 100%;
@@ -44,13 +52,5 @@
 
   @media #{$brkpt-md} {
     padding: $sp-lg 0;
-  }
-}
-
-.logo__img--md {
-  max-width: 360px;
-
-  @media #{$brkpt-sm} {
-    max-width: 480px;
   }
 }

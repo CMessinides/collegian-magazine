@@ -3,9 +3,9 @@
   <div class="footer__wrap">
     <section class="footer__section footer__section--about wid-12">
       <h1 class="logo--footer">
-        <a class="logo" href="{{ "/" | absURL }}">
+        <a class="logo logo--md" href="{{ "/" | absURL }}">
           {{ with .Site.Params.logo }}
-            <img class="logo__img logo__img--md" src="{{ . | absURL }}" alt="{{ $site_title }}">
+            <img class="logo__img" src="{{ . | absURL }}" alt="{{ $site_title }}">
           {{ else }}
             {{ $site_title }}
           {{ end }}
