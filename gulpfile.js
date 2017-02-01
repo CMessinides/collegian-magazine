@@ -34,7 +34,7 @@ gulp.task('js', function() {
 const imageSrc = 'src/img/**/*.{jpg,jpeg,png,tiff}';
 var imageResizeTasks = [];
 
-[100,300,500,800,1000].forEach(function(size) {
+[96,128,320,540,800,1200].forEach(function(size) {
   let imageResizeTask = 'resize_' + size;
   gulp.task(imageResizeTask, function() {
     let dest = `static/assets/img/${size}`
@@ -44,7 +44,7 @@ var imageResizeTasks = [];
         filter: 'Catrom',
         format: 'jpg',
         noProfile: true,
-        quality: 0.9,
+        quality: 1,
         width: size
       }))
       .pipe(gulp.dest(dest));
@@ -61,7 +61,7 @@ gulp.task('original_images', function() {
       filter: 'Catrom',
       format: 'jpg',
       noProfile: true,
-      quality: 0.9,
+      quality: 1,
       width: 2560
     }))
     .pipe(gulp.dest(dest));
