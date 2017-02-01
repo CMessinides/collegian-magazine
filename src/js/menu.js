@@ -22,7 +22,9 @@ var closeNav = function(e) {
   nav.classList.remove('open');
 }
 
-toggle.addEventListener('click', focusNav, true);
-toggle.addEventListener('keydown', focusNavOnKeypress, true);
-nav.addEventListener('focus', openNav, true);
-nav.addEventListener('blur', closeNav, true);
+document.addEventListener('DOMContentLoaded', function() {
+  toggle.addEventListener('click', focusNav, true);
+  toggle.addEventListener('keydown', focusNavOnKeypress, true);
+  nav.addEventListener('focus', openNav, true);
+  nav.addEventListener('blur', closeNav, true);
+});
