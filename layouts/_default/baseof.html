@@ -8,13 +8,13 @@
 
     <!-- @block head-title: defaults to the sitewide title and page title if it exists -->
     <title>{{- block "head-title" . -}}
-      {{ with .Title }}{{ . }} &mdash; {{ end }}{{ .Site.Data.branding.site_name | default .Site.Title }}
+      {{ with .Title }}{{ . }} &mdash; {{ end }}{{ .Site.Params.site_name | default .Site.Title }}
     {{- end -}}</title>
 
     <!-- @block head-description: defaults to the sitewide description -->
     <!--     - should be limited to 150 characters through printf "%.150s" -->
     <meta name="description" content="{{- block "head-description" . -}}
-      {{ .Site.Data.branding.description | default .Site.Params.description | printf "%.150s" }}
+      {{ .Site.Params.description | printf "%.150s" }}
     {{- end -}}">
 
     <!-- Stylesheets -->
@@ -30,7 +30,7 @@
       {{ $title := .Title }}
       {{ $description := .Description }}
       {{ $image := .Params.cover_image | default .Params.profile_picture }}
-      {{ $site_name := .Site.Data.branding.site_name | default .Site.Title }}
+      {{ $site_name := .Site.Params.site_name | default .Site.Title }}
 
       <!-- Google -->
       {{ with $title }}
