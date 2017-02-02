@@ -1,5 +1,5 @@
 ---
-authors: ["Foo Bar"]
+authors: ["Foo Bar", "Test Author"]
 categories: ["Test"]
 cover_image: "/assets/img/mtns.jpg"
 date: 2017-01-11T22:59:04-05:00
