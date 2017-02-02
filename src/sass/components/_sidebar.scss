@@ -5,13 +5,25 @@
   @media #{$brkpt-md} {
     padding: $sp-md;
   }
+
+  @media #{$brkpt-lg} {
+    padding: 0 0 $sp-lg 0;
+  }
 }
 
 .sidebar__section--about {
-  align-items: stretch;
+  align-items: flex-start;
   @media #{$brkpt-md-only} {
     display: flex;
   }
+}
+
+.sidebar__section--social {
+  flex: 1 0 auto;
+}
+
+.sidebar__section--search {
+  flex: 1 auto;
 }
 
 .sidebar__label {

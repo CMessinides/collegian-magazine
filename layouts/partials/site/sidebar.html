@@ -3,7 +3,7 @@
   <img class="logo logo--square logo--sidebar wid-12" src="{{ "/logos/icon.svg" | absURL }}" alt="{{ .Site.Params.site_name | default .Site.Title }}">
   <p class="sidebar__description">{{ .Site.Params.description }} <a href="{{ "/about" | absURL }}" class="link link--muted">Read&nbsp;More <span class="hidden">about {{ .Site.Params.site_name | default .Site.Title }}</span></a></p>
 </section>
-<section class="sidebar__section">
+<section class="sidebar__section sidebar__section--social md-wid-auto ns-wid-4">
   <h1 class="sidebar__label">Follow the Magazine</h1>
   <nav class="sidebar__social">
     {{ partial "social-list" . }}
