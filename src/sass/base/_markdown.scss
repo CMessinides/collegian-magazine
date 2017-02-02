@@ -32,9 +32,10 @@
   font-weight: 400;
 }
 
-%h5,
+%h4,
 .markdown h4 {
   font-style: italic;
+  font-weight: 400;
 }
 
 %a,
@@ -54,11 +55,10 @@
 
 %bq,
 .markdown > blockquote {
-  color: $c-black;
+  color: $c-grey-60;
   font-family: $ff-disp;
   font-style: italic;
-  font-weight: 700;
-  margin: $sp-lg 0;
+  margin: $sp-xl 0;
 
   p {
     margin: 0;

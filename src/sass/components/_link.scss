@@ -33,7 +33,12 @@
   &:focus,
   &:hover,
   &:active {
-    color: $c-brand-tint;
+    color: $c-brand;
+  }
+
+  &:focus,
+  &:active {
+    text-decoration: underline;
   }
 }
 
@@ -44,6 +49,7 @@
   &:hover,
   &:active {
     color: $c-black;
+    text-decoration: underline;
   }
 }
 
@@ -54,6 +60,7 @@
   &:hover,
   &:active {
     color: $c-acc1;
+    text-decoration: underline;
   }
 }
 
