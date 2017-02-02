@@ -1,15 +1,6 @@
 [
   {{- range $index, $page := ( where .Site.Pages "Section" "announcement" ) -}}
   {{ if $index }},{{ end }}
-  {
-    "id": {{ $index }},
-    "url": "{{ $page.Permalink | absURL }}",
-    "title": "{{ $page.Title }}",
-    "date": "{{ dateFormat "Jan. 2, 2006" $page.Date }}",
-    "teaser": "{{ $page.Params.teaser }}",
-    "description": "{{ $page.Description }}",
-    "content": "{{ $page.Plain }}",
-    "tags": [{{ range $tindex, $tag := $page.Params.tags }}{{ if $tindex }}, {{ end }}"{{ $tag }}"{{ end }}]
-  }
+  {{ (dict "id" $index "url" ($page.Permalink | absURL) "title" $page.Title "date" $page.Date "teaser" $page.Params.teaser "description" $page.Description "content" $page.Plain "tags" $page.Params.tags ) | jsonify }}
   {{- end -}}
 ]
