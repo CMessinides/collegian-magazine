@@ -112,5 +112,6 @@
       {{ partial "site/footer.html" . }}
     </div>
     <script src="{{ "/assets/js/menu.js" | absURL }}"></script>
+    {{ block "scripts" . }}{{ end }}
   </body>
 </html>

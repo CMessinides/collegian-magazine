@@ -9,14 +9,16 @@
     {{ partial "social-list" . }}
   </nav>
 </section>
-<section class="sidebar__section md-wid-12">
+{{ if ne .Title "Search" }}
+<section class="sidebar__section sidebar__section--search md-wid-12 ns-wid-8">
   <h1 class="sidebar__label">Search</h1>
   <form class="search card" action="{{ "/search/" | absURL }}">
     <label class="hidden" for="sidebar-search">Search</label>
     <input id="sidebar-search" class="search__field wid-6" type="text" name="q" placeholder="Search" value="">
     <button class="search__btn">
-      <span class="hidden">Submit</span>
+      <span class="hidden">Search</span>
       {{ partial "icon/magnify.svg" . }}
     </button>
   </form>
 </section>
+{{ end }}

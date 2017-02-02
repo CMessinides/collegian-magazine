@@ -1,0 +1,6 @@
+[
+  {{- range $index, $page := ( where .Site.Pages "Section" "article") -}}
+  {{ if $index }},{{ end }}
+  {{ (dict "id" $index "url" ($page.Permalink | absURL) "title" $page.Title "date" $page.Date "teaser" $page.Params.teaser "coverImage" $page.Params.cover_image "description" $page.Description "content" $page.Plain "issue" (index $page.Params.issues 0) "tags" $page.Params.tags "categories" $page.Params.categories "authors" $page.Params.authors ) | jsonify }}
+  {{- end -}}
+]
