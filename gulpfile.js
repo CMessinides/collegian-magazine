@@ -26,6 +26,9 @@ gulp.task('sass', function() {
 gulp.task('js', function() {
   return gulp.src('src/js/**/*.js')
     .pipe(uglify())
+    .on('error', function(err) {
+      console.log(err.toString());
+    })
     .pipe(gulp.dest('static/assets/js'));
 });
 
