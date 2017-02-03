@@ -2,6 +2,10 @@
   <form class="search card" action="{{ "/search/" | absURL }}">
     <label class="hidden" for="sidebar-search">Search</label>
     <input id="main-search" class="search__field wid-6" type="text" name="q" placeholder="Search">
+    <button class="search__btn">
+      <span class="hidden">Search</span>
+      {{ partial "icon/magnify.svg" . }}
+    </button>
   </form>
   <div id="search-results" class="md-grid">
 
