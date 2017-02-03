@@ -141,10 +141,11 @@ var ColMagSearchAgent;
       if (search) {
         search.slice(1).split('&').forEach(function(param) {
           var pair = param.split('=');
-          params[pair[0]] = pair[1].match(',') ? pair[1].split(',') : pair[1];
+          var decoded = decodeURIComponent(pair[1]).split('+').join(' ').trim();
+          params[pair[0]] = decoded.search(',') > -1 ? decoded.split(',') : decoded;
         })
       }
-      console.log(params)
+      console.log(params);
       this.currentParams = params;
       this.currentQuery = params.q;
       this.currentExclude = params.exclude;
