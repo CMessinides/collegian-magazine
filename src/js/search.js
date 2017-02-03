@@ -56,6 +56,11 @@ var ColMagSearchAgent;
     this.dataLists = {};
     this.indices = {};
     this.templates = {};
+    this.currentParams;
+    this.currentQuery;
+    this.currentExclude;
+
+    this.searchBar = document.getElementById('main-search');
 
     this.getResource = function(uri, type, success, error) {
       var req = new XMLHttpRequest();
@@ -130,10 +135,40 @@ var ColMagSearchAgent;
       this.templates[type.name] = response;
     }
 
+    this.initializeFromURLParams = function(callbacks) {
+      var search = window.location.search;
+      var params = {};
+      if (search) {
+        search.slice(1).split('&').forEach(function(param) {
+          var pair = param.split('=');
+          params[pair[0]] = pair[1].match(',') ? pair[1].split(',') : pair[1];
+        })
+      }
+      console.log(params)
+      this.currentParams = params;
+      this.currentQuery = params.q;
+      this.currentExclude = params.exclude;
+
+      if (callbacks instanceof Array) {
+        callbacks.forEach(function(callback) {
+          if (typeof callback === 'function') { callback(params) };
+        })
+      }
+    }
+
+    this.setFormValues = function(params) {
+      this.searchBar.value = this.currentQuery;
+    }
+
+    var initializeHistory = function(params) {
+      window.history.state = this.currentParams;
+    }
+
     this.build = function() {
-      searchAgent.buildIndices();
-      searchAgent.loadDataLists();
-      searchAgent.loadTemplates();
+      this.buildIndices();
+      this.loadDataLists();
+      this.loadTemplates();
+      this.initializeFromURLParams([initializeHistory, this.setFormValues]);
     }
 
     // TODO: Add render methods

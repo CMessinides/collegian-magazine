@@ -5,6 +5,11 @@
   align-items: stretch;
 }
 
+.search__group {
+  display: flex;
+  margin: 0;
+}
+
 .search__field {
   appearance: none;
   border-top-left-radius: 2px;
