@@ -11,13 +11,15 @@
 </section>
 {{ if ne .Title "Search" }}
 <section class="sidebar__section sidebar__section--search md-wid-12 ns-wid-8">
-  <form class="search card" action="{{ "/search/" | absURL }}">
+  <form class="form card" action="{{ "/search/" | absURL }}">
     <label class="hidden" for="sidebar-search">Search</label>
-    <input id="sidebar-search" class="search__field wid-6" type="text" name="q" placeholder="Search" value="">
-    <button class="search__btn">
-      <span class="hidden">Search</span>
-      {{ partial "icon/magnify.svg" . }}
-    </button>
+    <div class="form__group">
+      <input id="sidebar-search" class="search__field wid-12" type="text" name="q" placeholder="Search" value="">
+      <button class="search__btn">
+        <span class="hidden">Search</span>
+        {{ partial "icon/magnify.svg" . }}
+      </button>
+    </div>
   </form>
 </section>
 {{ end }}

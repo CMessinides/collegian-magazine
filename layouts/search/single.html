@@ -1,11 +1,34 @@
 {{ define "content" }}
-  <form class="search card" action="{{ "/search/" | absURL }}">
-    <label class="hidden" for="sidebar-search">Search</label>
-    <input id="main-search" class="search__field wid-6" type="text" name="q" placeholder="Search">
-    <button class="search__btn">
-      <span class="hidden">Search</span>
-      {{ partial "icon/magnify.svg" . }}
-    </button>
+  <form class="form form--disabled card" action="{{ "/search/" | absURL }}">
+    <label class="hidden" for="main-search">Search</label>
+    <p class="form__group">
+      <input id="main-search" disabled class="search__field search__field--main wid-12" type="text" name="q" placeholder="Search">
+      <button disabled id="main-search-submit" class="search__btn" type="submit">
+        <span class="hidden">Search</span>
+        {{ partial "icon/magnify.svg" . }}
+      </button>
+    </p>
+    <fieldset disabled class="form__fieldset" id="search-filter">
+      <legend class="form__legend">Include:</legend>
+      <ul class="form__group form__group--list">
+        <li class="form__list-item">
+          <input id="filter-articles" class="form__checkbox" type="checkbox" name="articles" checked value="true">
+          <label for="filter-articles">Articles</label>
+        </li>
+        <li class="form__list-item">
+          <input id="filter-announcements" class="form__checkbox" type="checkbox" name="announcements" checked value="true">
+          <label for="filter-announcements">Announcements</label>
+        </li>
+        <li class="form__list-item">
+          <input id="filter-pages" class="form__checkbox" type="checkbox" name="pages" checked value="true">
+          <label for="filter-pages">Pages</label>
+        </li>
+        <li class="form__list-item">
+          <input id="filter-staff" class="form__checkbox" type="checkbox" name="staff" checked value="true">
+          <label for="filter-staff">Staff</label>
+        </li>
+      </ul>
+    </fieldset>
   </form>
   <div id="search-results" class="md-grid">
 

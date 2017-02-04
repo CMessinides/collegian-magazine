@@ -15,7 +15,7 @@
 .list--flex {
   @extend %list;
   display: flex;
-  flex-wrap: true;
+  flex-wrap: wrap;
 }
 
 .list--social {

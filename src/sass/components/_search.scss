@@ -1,29 +1,26 @@
-.search {
-  @extend %fs-ui;
-  font-family: $ff-sans;
-  display: flex;
-  align-items: stretch;
-  overflow: hidden;
-}
-
-.search__group {
-  display: flex;
-  margin: 0;
-}
-
 .search__field {
   appearance: none;
   font-family: inherit;
-  flex: 1 0 auto;
+  flex: 1 auto;
   outline: none;
   border: none;
   padding: $sp-md;
+
+  &:disabled {
+    background-color: $c-grey-10;
+  }
+}
+
+.search__field--main {
+  border-bottom: 1px $c-grey-10 solid;
 }
 
 .search__btn {
   appearance: none;
   display: flex;
+  flex: 0 auto;
   align-items: center;
+  align-self: stretch;
   cursor: pointer;
   font-family: inherit;
   background: $c-brand-shade2;
@@ -35,5 +32,10 @@
   &:focus,
   &:active {
     background: $c-brand;
+  }
+
+  &:disabled {
+    background: $c-grey-10;
+    color: $c-grey-60;
   }
 }
