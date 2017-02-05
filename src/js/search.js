@@ -10,6 +10,63 @@ var ColMagSearchAgent;
 
     instance = this;
 
+    function BuildError(message, callbacks) {
+      this.message = message || "An error occurred during the search agent's build process. Search agent is shutting down...";
+      this.callbacks = callbacks || [];
+    }
+
+    this.config = {
+      elementIds: {
+        searchForm: 'search',
+        searchField: 'search-field',
+        searchSubmit: 'search-submit',
+        searchFilters: 'search-filters',
+        searchResults: 'search-results',
+        errorMsg: 'search-error'
+      },
+      dataMethod: 'xhr',
+      templateMethod: 'xhr',
+      xhr: {
+        protocol: window.location.protocol,
+        hostname: window.location.hostname,
+        basePath: '/',
+        dataPath: '',
+        templatePath: ''
+      }
+    };
+
+    this.getElements = function() {
+      Object.keys(this.config.elementIds).forEach(function(key) {
+        try {
+
+        } catch (e) {
+
+        } finally {
+
+        }
+      })
+    }
+
+    this.models = {};
+
+    this.insertModels = function(models) {
+      Object.keys(models).forEach(this.insertModel(name, models[name]));
+    }
+
+    this.insertModel = function(name, model) {
+      var requiredProps = {
+        indexCallback: 'function'
+      };
+      Object.keys(requiredProps).forEach(function(prop) {
+        if (typeof model[prop] === requiredProps[prop]) {
+          return;
+        } else {
+          throw new BuildError();
+        }
+      })
+      this.models[name] = model;
+    }
+
     var contentTypes = [
       {
         name: 'announcements',
@@ -158,7 +215,7 @@ var ColMagSearchAgent;
     }
 
     this.setFormValues = function(params) {
-      this.searchBar.value = this.currentQuery;
+      this.searchField.value = this.currentQuery || "";
     }
 
     var initializeHistory = function(params) {
@@ -178,6 +235,48 @@ var ColMagSearchAgent;
     return instance;
   }
 }());
+
+var searchModels = {
+  announcements: {
+    indexCallback: function() {
+      this.field('title', {boost: 20});
+      this.field('description');
+      this.field('content');
+      this.field('tags', {boost: 30});
+      this.ref('id');
+    }
+  },
+
+  articles: {
+    indexCallback: function() {
+      this.field('title', {boost: 20});
+      this.field('description');
+      this.field('content');
+      this.field('tags', {boost: 30});
+      this.field('categories', {boost: 20});
+      this.field('authors');
+      this.ref('id');
+    }
+  },
+
+  pages: {
+    indexCallback: function() {
+      this.field('title', {boost: 20});
+      this.field('description');
+      this.field('content');
+      this.ref('id');
+    }
+  },
+
+  staff: {
+    indexCallback: function() {
+      this.field('title', {boost: 20});
+      this.field('roles', {boost: 10});
+      this.field('bio');
+      this.ref('id');
+    }
+  }
+};
 
 var searchAgent = ColMagSearchAgent();
 searchAgent.build();
