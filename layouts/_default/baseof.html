@@ -17,6 +17,11 @@
       {{ .Site.Params.description | printf "%.150s" }}
     {{- end -}}">
 
+    <!-- Dev dependencies -->
+    {{ if eq (getenv "HUGO_ENV" ) "test" }}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.min.css">
+    {{ end }}
+
     <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/screen.css">
@@ -90,7 +95,6 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#f6d46e">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#f6d46e">
 
   </head>
   <body class="page" id="top">
@@ -111,7 +115,22 @@
 
       {{ partial "site/footer.html" . }}
     </div>
+    {{ if eq (getenv "HUGO_ENV") "test" }}
+      <div id="mocha"></div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.min.js" charset="utf-8"></script>
+    {{ end }}
     <script src="{{ "/assets/js/menu.js" | absURL }}"></script>
     {{ block "scripts" . }}{{ end }}
+    {{ if eq (getenv "HUGO_ENV") "test" }}
+      <script>mocha.setup('tdd')</script>
+      {{ range (readDir "src/spec/") }}
+      <script src="{{ printf "/spec/%s" .Name | absURL }}" charset="utf-8"></script>
+      {{ end }}
+      <script>
+        mocha.checkLeaks();
+        mocha.globals('*');
+        mocha.run();
+      </script>
+    {{ end }}
   </body>
 </html>

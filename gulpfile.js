@@ -9,6 +9,10 @@ const uglify = require('gulp-uglify');
 // resizing images
 const imageResize = require('gulp-image-resize');
 const changed = require('gulp-changed');
+// deleting unnecessary files
+const del = require('del');
+
+const hugo_env = process.env.HUGO_ENV;
 
 // compiling, autoprefixing, and minifying sass
 gulp.task('sass', function() {
@@ -31,6 +35,18 @@ gulp.task('js', function() {
     })
     .pipe(gulp.dest('static/assets/js'));
 });
+
+// move spec into Hugo's static folder BUT only if not in production
+gulp.task('spec', function() {
+  if (hugo_env === 'development' || hugo_env === 'test') {
+    return gulp.src('src/spec/*.js')
+      .pipe(gulp.dest('static/spec'));
+  } else {
+    return del([
+      'static/spec/'
+    ])
+  }
+})
 
 // Resizing images
 
@@ -73,11 +89,12 @@ imageResizeTasks.push('original_images');
 
 gulp.task('images', imageResizeTasks);
 
-gulp.task('build', ['sass', 'js', 'images']);
+gulp.task('build', ['sass', 'js', 'images', 'spec']);
 
-gulp.task('watch', ['sass', 'js'], function() {
+gulp.task('watch', ['sass', 'js', 'spec'], function() {
   gulp.watch('src/sass/**/*.scss', ['sass']);
   gulp.watch('src/js/**/*.js', ['js']);
+  gulp.watch('src/spec/*.js', ['spec']);
 });
 
 gulp.task('default', ['build']);
