@@ -28,12 +28,17 @@ gulp.task('sass', function() {
 
 // uglifying scripts
 gulp.task('js', function() {
+  if (hugo_env === 'development' || hugo_env === 'test') {
+    return gulp.src('src/js/**/*.js')
+      .pipe(gulp.dest('static/assets/js'));
+  } else {
   return gulp.src('src/js/**/*.js')
     .pipe(uglify())
     .on('error', function(err) {
       console.log(err.toString());
     })
     .pipe(gulp.dest('static/assets/js'));
+  }
 });
 
 // move spec into Hugo's static folder BUT only if not in production
