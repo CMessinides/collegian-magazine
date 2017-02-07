@@ -1,5 +1,5 @@
 {{ define "content" }}
-  <form id="search" disabled class="form card" action="{{ "/search/" | absURL }}" role="search">
+  <form id="search" class="form card" action="" role="search">
     <div class="form__group">
       <label class="hidden" for="main-search">Search</label>
       <input aria-controls="search-results" id="search-field" class="search__field search__field--main wid-12" type="text" name="q" placeholder="Search">
@@ -14,19 +14,19 @@
       <legend class="form__legend">Include:</legend>
       <ul class="form__group form__group--list">
         <li class="form__list-item">
-          <input aria-controls="search-results" id="filter-articles" class="form__checkbox" type="checkbox" name="only" checked value="articles">
+          <input aria-controls="search-results" id="filter-articles" class="form__checkbox" type="checkbox" name="include" checked value="articles">
           <label for="search-articles">Articles</label>
         </li>
         <li class="form__list-item">
-          <input aria-controls="search-results" id="filter-announcements" class="form__checkbox" type="checkbox" name="only" checked value="announcements">
+          <input aria-controls="search-results" id="filter-announcements" class="form__checkbox" type="checkbox" name="include" checked value="announcements">
           <label for="search-announcements">Announcements</label>
         </li>
         <li class="form__list-item">
-          <input aria-controls="search-results" id="filter-pages" class="form__checkbox" type="checkbox" name="only" checked value="pages">
+          <input aria-controls="search-results" id="filter-pages" class="form__checkbox" type="checkbox" name="include" checked value="pages">
           <label for="search-pages">Pages</label>
         </li>
         <li class="form__list-item">
-          <input aria-controls="search-results" id="filter-staff" class="form__checkbox" type="checkbox" name="only" checked value="staff">
+          <input aria-controls="search-results" id="filter-staff" class="form__checkbox" type="checkbox" name="include" checked value="staff">
           <label for="search-staff">Staff</label>
         </li>
       </ul>
