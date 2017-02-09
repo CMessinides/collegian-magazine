@@ -4,8 +4,9 @@ const gulp = require('gulp');
 // pre-processing stylesheets
 const sass = require('gulp-sass');
 const autoprefix = require('gulp-autoprefixer');
-// uglifying and minifying scripts
+// uglifying and concatting scripts
 const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
 // resizing images
 const imageResize = require('gulp-image-resize');
 const changed = require('gulp-changed');
@@ -26,20 +27,27 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('static/assets/css'));
 });
 
-// uglifying scripts
-gulp.task('js', function() {
-  if (hugo_env === 'development' || hugo_env === 'test') {
-    return gulp.src('src/js/**/*.js')
+const searchSrc = ['vendor/handlebars-v4.0.5.js', 'vendor/lunr.js', 'main.js'].map(function(f) { return 'src/js/search/' + f });
+
+// compiling the search script
+gulp.task('compile-search', function() {
+    return gulp.src(searchSrc)
+      .pipe(uglify())
+      .on('error', function(err) {
+        console.log(err.toString());
+      })
+      .pipe(concat('search.js'))
       .pipe(gulp.dest('static/assets/js'));
-  } else {
-  return gulp.src('src/js/**/*.js')
+});
+
+gulp.task('js', ['compile-search'], function() {
+  return gulp.src('src/js/*.js')
     .pipe(uglify())
     .on('error', function(err) {
       console.log(err.toString());
     })
-    .pipe(gulp.dest('static/assets/js'));
-  }
-});
+    .pipe(gulp.dest('static/assets/js'))
+})
 
 // move spec into Hugo's static folder BUT only if not in production
 gulp.task('spec', function() {

@@ -35,9 +35,20 @@
   <div id="search-results" class="md-grid" role="region" aria-labelledby="results-header" aria-live="polite">
     <!-- TODO: Add the results header -->
     <noscript>
+      <p class="search__status search__status--nojs show">
 
+      </p>
     </noscript>
-    <div id="search-loading" class="search__loader"><span class="hidden">Searching...</span></div>
+    <p id="search-loading" class="search__status search__status--loading">
+      <span class="hidden">Searching...</span>Searching!
+    </p>
+    <p id="search-no-results" class="search__status search__status--no-results">
+      No results!
+    </p>
+    <p id="search-error" class="search__status search__status--error">
+      Error!
+    </p>
+    <ul id="results-list" class="search__results"></ul>
   </div>
 {{ end }}
 

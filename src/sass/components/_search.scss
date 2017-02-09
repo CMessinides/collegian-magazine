@@ -39,3 +39,12 @@
     color: $c-grey-60;
   }
 }
+
+.search__status,
+.search__results {
+  display: none;
+
+  &.show {
+    display: block;
+  }
+}
