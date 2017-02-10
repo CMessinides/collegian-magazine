@@ -42,8 +42,8 @@
       }
     },
     models = {},
-    router = createRouter(),
-    handler = createErrorHandler();
+    form = new Form('search'),
+    results = new Results('search-results');
 
     // initialize the models with the given schemas
     for (var label in schemas) {
@@ -57,6 +57,7 @@
     // ==============
 
     function Model(label, schema) {
+      this.label = label;
       this.indexCallback = schema.indexCallback;
       this.index;
       this.dataURI = '/data/' +
@@ -64,7 +65,7 @@
           '.json';
       this.templateURI = '/views/' +
           encodeURIComponent(label) +
-          '.hbs';
+          '.dot';
       this.data;
       this.render;
     }
@@ -79,15 +80,15 @@
       } catch (e) {
         if (e instanceof SyntaxError) {
           this.data = null;
-          handler.register('bad JSON')
+          shutdown('bad JSON')
         } else {
           throw e
         }
       }
     }
 
-    Model.prototype.storeTemplate = function(hbs) {
-      this.render = Handlebars.compile(hbs)
+    Model.prototype.storeTemplate = function(dot) {
+      this.render = doT.template(dot);
     }
 
     Model.prototype.fillIndex = function(ignore) {
@@ -96,8 +97,8 @@
       var ref = this.index._ref;
       var entry;
 
-      for (var index in this.data) {
-        var item = this.data[index];
+      for (var i = 0; i < this.data.length; i++) {
+        var item = this.data[i];
         entry = {};
         for (var f in fields) {
           var field = fields[f];
@@ -107,7 +108,7 @@
             entry[field] = item[field] || "";
           }
         }
-        entry[ref] = parseInt(index);
+        entry[ref] = parseInt(i);
         this.index.add(entry);
       }
     }
@@ -123,12 +124,12 @@
             callbacks[i].call(target, this.response)
           }
         } else {
-          handler.register('bad response');
+          shutdown('bad response');
         }
       }
 
       req.onerror = function() {
-        handler.register('bad response');
+        shutdown('bad response');
       }
 
       req.send();
@@ -149,10 +150,17 @@
     }
 
     Model.prototype.results = function(term) {
-      var results = this.index.search(term).map(function(r) {
-
-      });
-      return results.length ? results : null
+      var data = this.data;
+      var results = this.index.search(term);
+      var toRender = {};
+      if (results.length) {
+        toRender[this.label] = results.map(function(r) {
+          return data[r.ref];
+        });
+        return this.render(toRender)
+      } else {
+        return null;
+      }
     }
 
 
@@ -163,7 +171,7 @@
     function ViewElement(id) {
       this.el = document.getElementById(id);
       if (!this.el) {
-        handler.register('element missing');
+        shutdown('element missing');
       }
     }
 
@@ -171,17 +179,16 @@
       ViewElement.call(this, id)
       var searchField = this.el.querySelector('input[type="text"]');
       var filters = this.el.querySelectorAll('input[type="checkbox"][name="include"]');
-      var disableable = this.el.querySelectorAll('input, fieldset, button');
 
       this.enable = function() {
-        for (var d in disableable) {
-          disableable[d].disabled = false;
+        for (var i = 0; i < this.el.length; i++) {
+          this.el[i].disabled = false;
         }
       }
 
       this.disable = function() {
-        for (var d in disableable) {
-          disableable[d].disabled = true;
+        for (var i = 0; i < this.el.length; i++) {
+          this.el[i].disabled = true;
         }
       }
 
@@ -216,22 +223,22 @@
         loading: document.getElementById('search-loading'),
         noResults: document.getElementById('search-no-results')
       }
+
+      this.clear = function(replaceWith, arg) {
+        this.resultsList.classList.remove('show');
+        while (this.resultsList.firstChild) {
+          this.resultsList.removeChild(this.resultsList.firstChild);
+        }
+        for (var msg in this.statusMsgs) {
+          this.statusMsgs[msg].classList.remove('show');
+        }
+        if (typeof replaceWith === 'function') {
+          replaceWith.call(this, arg);
+        }
+      }
     }
 
     Results.prototype = Object.create(ViewElement.prototype);
-
-    Results.prototype.clearOut = function (replaceWith, arg) {
-      this.resultsList.classList.remove('show');
-      while (this.resultsList.firstChild) {
-        this.resultsList.removeChild(this.resultsList.firstChild);
-      }
-      for (var msg in this.statusMsgs) {
-        this.statusMsgs[msg].classList.remove('show');
-      }
-      if (typeof replaceWith === 'function') {
-        replaceWith.call(this, arg);
-      }
-    };
 
 
     Results.prototype.showStatus = function (key) {
@@ -242,9 +249,8 @@
     };
 
     Results.prototype.appendRenders = function(renders) {
-      for (var r = 0; r < renders.length; r++) {
-        this.el.appendChild(renders[r]);
-      }
+      this.resultsList.classList.add('show');
+      this.resultsList.innerHTML = renders.join();
     }
 
 
@@ -252,104 +258,102 @@
     // ## ROUTER LOGIC
     // ===============
 
-    function createRouter() {
-      return {
-        form: new Form('search'),
-        results: new Results('search-results'),
-
-        parseURLParams: function() {
-          var state = {};
-          var search = window.location.search;
-          if (search.length > 1) {
-            window.location.search.slice(1).split('&').forEach(function(p){
-              var param = p.split('=').map(function(comp) { return decodeURIComponent(comp.replace('+',' ')) });
-              state[param[0]] = param[1].search(',') > -1 ? param[1].split(',') : param[1];
-            })
-          }
-          if (!(state.include instanceof Array)) {
-            state.include = Object.keys(models);
-          }
-          return state;
-        },
-
-        encodeURLParams: function(state) {
-          var value;
-          var params = Object.keys(state).map(function(p) {
-            if (state[p] instanceof Array && state[p].length === Object.keys(models).length) { return null }
-            value = state[p] instanceof Array ? state[p].join(',') : state[p];
-            return [p, value].map(function(comp) { return encodeURIComponent(comp.replace(' ', '+')) }).join('=');
-          }).filter(function(i) { return i !== null });
-
-          return params.length ? '?' + params.join('&') : "";
-        },
-
-        blockDefault: function(event) {
-          event.preventDefault();
-          this.diffState(history.state, this.form.getState);
-        },
-
-        diffState: function(oldState, newState) {
-          if (oldState !== newState) {
-            this.changeState(newState);
-          }
-        },
-
-        changeState: function(newState) {
-          this.form.setState(newState);
-          this.search(newState);
-        },
-
-        search: function(state) {
-          this.results.clearOut(Results.prototype.showStatus, 'loading');
-          var include = state.include || ['articles','announcements','pages','staff'];
-          var renders = include.map(function(label) {
-            return models[label] ? models[label].results(state.q) : null
-          }).filter(function(r) {return r !== null });
-          if (renders.length > 0) {
-            this.results.clear(Results.prototype.appendRenders, renders);
-          } else {
-            this.results.clear(Results.prototype.showStatus, 'noResults');
-          }
-        },
-
-        init: function() {
-          history.replaceState(this.parseURLParams(), null, null);
-          console.log(this.form);
-          this.form.enable();
-          this.form.setState(history.state);
-        },
-
-        start: function() {
-          this.search(history.state);
-          this.form.el.addEventListener('submit', this.blockDefault, true);
-        }
-      }
+    function getURLParam(name) {
+      var name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+      var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '))
     }
 
-
-    // ## ERROR HANDLING
-    // ==============
-
-    function createErrorHandler() {
-      return {
-        shutdown: function(error) {
-          console.log(error);
-        }
+    function parseURLParams() {
+      var state = {};
+      state.q = getURLParam('q');
+      var include = getURLParam('include');
+      if (include.length) {
+        state.include = include.split(',');
+      } else {
+        state.include = Object.keys(models);
       }
-    }
+      return state;
+    };
+
+    function encodeURLParams(state) {
+      var prep = [];
+      prep[0] = 'q=' + encodeURIComponent(state.q || "");
+      if (state.include.length !== Object.keys(models).length) {
+        prep[1] = 'include=' + state.include.map(function(x) {
+          return encodeURIComponent(x)
+        }).join(',');
+      }
+      return '?' + prep.join('&');
+    };
+
+    function blockDefault(event) {
+      event.preventDefault();
+      diffState(history.state, form.getState());
+    };
+
+    function handleKeyboard(event) {
+
+    };
+
+    function handleTouch(event) {
+
+    };
+
+    function diffState(oldState, newState) {
+      if (oldState.q !== newState.q) {
+        changeState(newState);
+      }
+    };
+
+    function changeState(newState) {
+      history.pushState(newState, null, window.location.pathname + encodeURLParams(newState));
+      form.setState(history.state);
+      search(history.state);
+    };
+
+    function search(state) {
+      results.clear(Results.prototype.showStatus, 'loading');
+      var renders = state.include.map(function(label) {
+        return models[label].results(state.q)
+      }).filter(function(r) {return r !== null });
+      if (renders.length > 0) {
+        results.clear(Results.prototype.appendRenders, renders);
+      } else {
+        results.clear(Results.prototype.showStatus, 'noResults');
+      }
+    };
 
     function init() {
-      router.init();
+      history.replaceState(parseURLParams(), null, null);
+      form.enable();
+      form.setState(history.state);
       for (var m in models) {
         if (models[m] instanceof Model) {
           models[m].assemble();
         }
       }
-      console.log(models);
-      router.start();
+      window.setTimeout(search, 1000, history.state);
+      watch();
+    };
+
+    function watch() {
+      form.el.addEventListener('submit', blockDefault, true);
+      form.el.addEventListener('keyup', handleKeyboard, true);
+      form.el.addEventListener('click', handleTouch, true);
+      window.addEventListener('popstate', changeState);
+    };
+
+
+    // ## ERROR HANDLING
+    // ==============
+
+    function shutdown(error) {
+      console.log(error);
     }
 
-    window.addEventListener('error', handler.shutdown, true);
+    window.addEventListener('error', shutdown, true);
     document.addEventListener('DOMContentLoaded', init, false);
 
 })();

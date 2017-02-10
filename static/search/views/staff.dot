@@ -1,0 +1,12 @@
+<li>
+  <h2>Staff <span>{{=it.staff.length}}</span></h2>
+  <ul>
+    {{~it.staff :value:index}}
+      <li>
+        <article class="card">
+          {{? value.title }}<h3 class="title">{{=value.title}}</h3>{{?}}
+        </article>
+      </li>
+    {{~}}
+  </ul>
+</li>

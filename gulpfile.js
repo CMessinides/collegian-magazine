@@ -27,7 +27,7 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('static/assets/css'));
 });
 
-const searchSrc = ['vendor/handlebars-v4.0.5.js', 'vendor/lunr.js', 'main.js'].map(function(f) { return 'src/js/search/' + f });
+const searchSrc = ['vendor/*', 'main.js'].map(function(f) { return 'src/js/search/' + f });
 
 // compiling the search script
 gulp.task('compile-search', function() {

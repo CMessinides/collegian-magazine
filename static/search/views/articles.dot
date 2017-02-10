@@ -1,0 +1,12 @@
+<li>
+  <h2>Articles <span>{{=it.articles.length}}</span></h2>
+  <ul>
+    {{~it.articles :value:index}}
+      <li>
+        <article class="card">
+          {{? value.title }}<h3 class="title">{{=value.title}}</h3>{{?}}
+        </article>
+      </li>
+    {{~}}
+  </ul>
+</li>
