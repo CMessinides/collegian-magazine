@@ -303,12 +303,12 @@
 
     function diffState(oldState, newState) {
       if (oldState.q !== newState.q) {
-        changeState(newState);
+        history.pushState(newState, null, window.location.pathname + encodeURLParams(newState));
+        changeState();
       }
     };
 
-    function changeState(newState) {
-      history.pushState(newState, null, window.location.pathname + encodeURLParams(newState));
+    function changeState() {
       form.setState(history.state);
       search(history.state);
     };
