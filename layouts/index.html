@@ -14,7 +14,7 @@
     <div class="hero">
       <div class="hero__banner">
         <div class="hero__fade"></div>
-        <div class="hero__image" {{ with $featured.Params.cover_image }}style="background-image:url({{ . | safeCSS }});"{{ end }}>
+        <div class="hero__image" {{ with $featured.Params.cover_image }}style="background-image:url({{ . | absURL | safeCSS }});"{{ end }}>
         </div>
       </div>
       <div class="hero__inner lg-grid">
@@ -41,14 +41,14 @@
 
     {{ $first_announce := index (where .Site.Pages "Section" "announcement") 0 }}
     {{ if $first_announce }}
-    <section class="gtrs-1-a md-gtrs-2-a section--bold">
+    <section class="section--bold">
       <h1 class="h4">Announcement</h1>
       {{ $first_announce.Render "card-beta" }}
       <a href="{{ "/announcement/" | absURL }}">More announcements</a>
     </section>
     {{ end }}
 
-    <section class="gtrs-1-a md-gtrs-2-a">
+    <section class="">
       <h1 class="h4">Categories</h1>
       <ul class="list">
         {{ range $name, $category := .Site.Taxonomies.categories }}

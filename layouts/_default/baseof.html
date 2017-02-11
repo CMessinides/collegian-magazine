@@ -115,22 +115,7 @@
 
       {{ partial "site/footer.html" . }}
     </div>
-    {{ if eq (getenv "HUGO_ENV") "test" }}
-      <div id="mocha"></div>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.min.js" charset="utf-8"></script>
-    {{ end }}
     <script src="{{ "/assets/js/menu.js" | absURL }}"></script>
     {{ block "scripts" . }}{{ end }}
-    {{ if eq (getenv "HUGO_ENV") "test" }}
-      <script>mocha.setup('tdd')</script>
-      {{ range (readDir "src/spec/") }}
-      <script src="{{ printf "/spec/%s" .Name | absURL }}" charset="utf-8"></script>
-      {{ end }}
-      <script>
-        mocha.checkLeaks();
-        mocha.globals('*');
-        mocha.run();
-      </script>
-    {{ end }}
   </body>
 </html>
