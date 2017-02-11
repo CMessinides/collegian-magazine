@@ -258,6 +258,12 @@
     // ## ROUTER LOGIC
     // ===============
 
+    function arraysEql(array1, array2) {
+      return (array1.length == array2.length) && array1.every(function(element, index) {
+        return element === array2[index];
+      });
+    }
+
     function getURLParam(name) {
       var name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
       var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
@@ -288,21 +294,25 @@
       return '?' + prep.join('&');
     };
 
-    function blockDefault(event) {
+    function handleSubmit(event) {
       event.preventDefault();
       diffState(history.state, form.getState());
     };
 
     function handleKeyboard(event) {
-
+      if (event.which != 13) {
+        diffState(history.state, form.getState())
+      }
     };
 
     function handleTouch(event) {
-
+      if (event.target.type == 'checkbox') {
+        diffState(history.state, form.getState())
+      }
     };
 
     function diffState(oldState, newState) {
-      if (oldState.q !== newState.q) {
+      if (oldState.q !== newState.q || !arraysEql(oldState.include.sort(), newState.include.sort())) {
         history.pushState(newState, null, window.location.pathname + encodeURLParams(newState));
         changeState();
       }
@@ -326,6 +336,7 @@
     };
 
     function init() {
+      results.clear(Results.prototype.showStatus, 'loading');
       history.replaceState(parseURLParams(), null, null);
       form.enable();
       form.setState(history.state);
@@ -334,12 +345,15 @@
           models[m].assemble();
         }
       }
-      window.setTimeout(search, 1000, history.state);
+      results.clear();
+      if (history.state.q.length) {
+        window.setTimeout(search, 1000, history.state);
+      }
       watch();
     };
 
     function watch() {
-      form.el.addEventListener('submit', blockDefault, true);
+      form.el.addEventListener('submit', handleSubmit, true);
       form.el.addEventListener('keyup', handleKeyboard, true);
       form.el.addEventListener('click', handleTouch, true);
       window.addEventListener('popstate', changeState);

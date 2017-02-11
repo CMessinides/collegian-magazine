@@ -1,5 +1,5 @@
-<li>
-  <h2>Staff <span>{{=it.staff.length}}</span></h2>
+<li class="search__results-section">
+  <h2>Staff <span class="search__results-count">{{=it.staff.length}}</span></h2>
   <ul>
     {{~it.staff :value:index}}
       <li>
