@@ -7,10 +7,11 @@
   }
 }
 
-.article__body {
-  padding: $sp-inset-md;
-
-  @media #{$brkpt-sm} {
-    padding: $sp-inset-lg;
-  }
+.article__title {
+  @extend %fs-0;
+  font-family: $ff-disp;
+  font-style: italic;
+  color: $c-black;
+  margin: $sp-md 0 $sp-sm;
+  order: 3;
 }

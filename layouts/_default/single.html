@@ -1,7 +1,36 @@
+{{ define "title" }}
+  {{ .Title }} &ndash; {{ .Site.Title }}
+{{ end }}
+{{ define "hero" }}
+  {{ if .Params.cover_image }}
+  <div class="hero">
+      {{ partial "hero-image" . }}
+      {{ with .Params.caption }}
+      <div class="hero__inner">
+        <p class="hero__caption">
+          {{ . }}
+        </p>
+      </div>
+      {{ end }}
+  </div>
+  {{ end }}
+{{ end }}
 {{ define "content" }}
-<h1>{{ .Title }}</h1>
-<div class="markdown">
-  {{ .Content | markdownify }}
-</div>
-<p>{{ with .Description}}{{ . }}{{ end }}</p>
+  <article class="card article">
+    <header class="card__header card__region card__region--wide">
+      <h1 class="article__title">{{ .Title | default "Untitled" }}</h1>
+      {{ if .Params.authors }}
+      {{ partial "byline" . }}
+      {{ end }}
+      {{ if .Params.categories }}
+      {{ partial "category-link" . }}
+      {{ end  }}
+    </header>
+    <div class="markdown card__region card__region--wide">
+      {{ .Content | markdownify }}
+    </div>
+    <footer>
+
+    </footer>
+  </article>
 {{ end }}

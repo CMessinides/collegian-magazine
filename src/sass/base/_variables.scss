@@ -70,7 +70,7 @@ $columns: 12;
 $site-max-width: 72rem;
 
 // # Color
-$c-brand:        rgb(15, 97, 184);
+$c-brand:        rgb(25, 86, 190);
 $c-brand-shade2: adjust-color($c-brand, $lightness: -25%, $saturation: 30%, $hue: -3deg);
 $c-brand-shade:  adjust-color($c-brand, $lightness: -17%, $saturation: 15%, $hue: -2deg);
 $c-brand-tint:   adjust-color($c-brand, $lightness: 20%, $saturation: -13%, $hue: 1deg);
@@ -90,6 +90,7 @@ $c-white: rgb(255, 255, 255);
 $c-off-white: rgb(251, 251, 252);
 $c-grey-5: darken($c-off-white, 5);
 $c-grey-10: darken($c-off-white, 10);
+$c-grey-20: darken($c-off-white, 20);
 $c-grey-60: darken($c-off-white, 60);
 $c-grey-75: darken($c-off-white, 75);
 $c-black: darken($c-off-white, 95);

@@ -2,6 +2,22 @@
   transition: 180ms color ease;
 }
 
+.card__title .link {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $c-brand;
+  }
+
+  &:focus,
+  &:active {
+    text-decoration: underline;
+  }
+}
+
 .link--body {
   @extend %a;
 }

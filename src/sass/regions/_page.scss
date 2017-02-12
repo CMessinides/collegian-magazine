@@ -41,9 +41,17 @@
   @include global-max-width;
   flex: 1 0 auto;
   width: 100%;
-  margin: $sp-xl auto;
+  margin: $sp-lg auto $sp-xl;
   @media #{$brkpt-md} {
     padding: 0 $sp-md;
+  }
+}
+
+.hero + .page__content {
+  margin-top: $sp-md;
+
+  @media #{$brkpt-sm} {
+    margin-top: $sp-lg
   }
 }
 
@@ -56,7 +64,7 @@
   flex: 1 0 auto;
   flex-wrap: wrap;
   margin-top: $sp-xl;
-  padding: $sp-sm;
+  // padding: $sp-sm;
 
 
   @media #{$brkpt-lg} {

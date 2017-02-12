@@ -3,4 +3,153 @@
   box-shadow: 0 2px 4px 1px $c-shad;
   display: block;
   background-color: $c-white;
+  overflow: hidden;
+}
+
+.card--stacked {
+  border-radius: 0;
+
+  &:first-of-type {
+    border-radius: 2px 2px 0 0;
+  }
+
+  &:last-of-type {
+    border-radius: 0 0 2px 2px;
+  }
+}
+
+.card__inner {
+  position: relative;
+}
+
+.card__header {
+  display: flex;
+  flex-direction: column;
+}
+
+.article .card__header {
+  border-bottom: 1px $c-grey-10 solid;
+  margin-bottom: $sp-xl;
+}
+
+.card__link {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  z-index: 2;
+  top: 0;
+  right: 0;
+}
+
+.card__title,
+.card__category,
+.card__teaser,
+.card__byline {
+  margin: 0;
+  padding: 0;
+  z-index: 3;
+  align-self: flex-start;
+}
+
+.card__region {
+  padding: $sp-md;
+}
+
+.card__region--wide {
+  @media #{$brkpt-sm} {
+    padding: $sp-lg;
+  }
+}
+
+.card__thumb {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 auto;
+  max-height: 10rem;
+  overflow: hidden;
+}
+
+.card__image {
+  width: 100%;
+}
+
+.card__title {
+  @extend %fs-2;
+  font-family: $ff-disp;
+  color: $c-black;
+  order: 2;
+}
+
+.card__byline {
+  @extend %fs-6;
+  font-family: $ff-serif;
+  font-style: italic;
+  color: $c-grey-60;
+  margin-top: $sp-xs;
+  order: 3;
+
+  &::before {
+    content: 'by '
+  }
+}
+
+.card__author {
+  display: inline;
+}
+
+.card__category {
+  @extend %fs-6;
+  align-self: flex-start;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  order: 1;
+}
+
+.card__teaser {
+  color: $c-grey-75;
+  font-family: $ff-serif;
+  order: 4;
+}
+
+.card__region + .card__region {
+  padding-top: 0;
+}
+
+.card--beta {
+  .card__thumb {
+    align-self: stretch;
+  }
+
+  .card__header {
+    flex: 1 auto;
+  }
+  .card__title {
+    @extend %fs-3;
+  }
+}
+
+.card--gamma {
+  .card__thumb {
+    margin-bottom: $sp-sm;
+  }
+
+  .card__category {
+    @extend %fs-small;
+  }
+
+  .card__title {
+    @extend %fs-5;
+  }
+
+  .card__byline {
+    @extend %fs-ui;
+  }
+}
+
+.hero__insert .card__teaser {
+  max-width: 38em;
 }

@@ -8,6 +8,10 @@ tags: []
 issues: ["Fall 2016"]
 featured: true
 cover_image: "/assets/img/road.jpg"
+focal_point:
+  x_axis: right
+  y_axis: center
+caption: "A test caption"
 
 ---
 Here's an intro paragraph. Will this work?

@@ -30,6 +30,8 @@
   text-transform: uppercase;
   letter-spacing: 0.07em;
   font-weight: 400;
+  padding-bottom: $sp-sm;
+  border-bottom: 1px $c-grey-20 solid;
 }
 
 %h4,

@@ -1,18 +1,11 @@
-<p class="card__byline">
-
-  {{ with .Params.authors }}
-    {{ $author_links := apply (apply (sort .) "partial" "staff/link.html" ".") "chomp" "." }}
-    {{ if le (len $author_links) 2 }}
-    by {{ delimit $author_links " and " | safeHTML }}
-    {{ else }}
-    by {{ delimit $author_links ", " "and " | safeHTML }}
-    {{ end }}
-  {{ else }}
-    by {{ $.Site.Title }}
+<span class="hidden">Authors:</span>
+<ul class="card__byline">
+  {{ $len := len .Params.authors }}
+  {{ range $index, $author := .Params.authors }}
+  <li class="card__author">
+    {{ if and (gt $len 1) (eq $index (sub $len 1))}}and {{ end }}
+    <a href="{{ $author | urlize | printf "/authors/%s" | absURL }}" class="link link--muted">{{ . }}</a>
+    {{ if and (gt $len 2) (ne $index (sub $len 1))}},{{ end }}
+  </li>
   {{ end }}
-
-  &bull;
-
-  <time datetime="{{ .Date | dateFormat "2016-01-02" }}" itemprop="datePublished">{{ .Date | dateFormat "Jan 2, 2006" }}</time>
-
-</p>
+</ul>

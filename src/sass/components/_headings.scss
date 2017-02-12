@@ -1,0 +1,11 @@
+.h3 {
+  @extend %fs-3;
+  @extend %h3;
+  margin-bottom: $sp-md;
+}
+
+.h4 {
+  @extend %fs-4;
+  @extend %h4;
+  margin-bottom: $sp-md;
+}

@@ -1,0 +1,2 @@
+{{ $fp := .Params.focal_point }}
+<div class="hero__image hero__image--full" style="background-image:url({{ .Params.cover_image | absURL | safeCSS }});{{ if $fp }}background-position: {{ index $fp "x_axis" }} {{ index $fp "y_axis" }}{{ end }}"></div>

@@ -7,21 +7,32 @@
 {{ end }}
 
 {{ define "hero" }}
-  {{ $featured := index (where (where .Site.Pages "Section" "article") "Params.featured" true) 0 }}
+  <h1 class="hidden">Home</h1>
+  {{ $featured := index (where (where (where .Site.Pages "Section" "article") "Params.featured" true) "Params.cover_image" "ne" nil) 0 }}
 
   {{ if $featured }}
-
     <div class="hero">
-      <div class="hero__banner">
-        <div class="hero__fade"></div>
-        <div class="hero__image" {{ with $featured.Params.cover_image }}style="background-image:url({{ . | absURL | safeCSS }});"{{ end }}>
-        </div>
+    {{ partial "hero-image" $featured }}
+      <h2 class="hidden">Featured Article</h2>
+      <div class="hero__inner">
+        <article class="hero__insert card__inner">
+          <header class="card__header card__region">
+            <h3 class="card__title"><a href="{{ $featured.Permalink | absURL }}" class="link">{{ $featured.Title }}</a></h3>
+            {{ partial "byline" $featured }}
+            {{ partial "category-link" $featured }}
+          </header>
+          <p class="card__region card__teaser">
+            {{ with $featured.Params.teaser }}
+            {{ . }}
+            {{ else }}
+            {{ $featured.Summary }}
+            {{ end }}
+          </p>
+          <a href="{{ $featured.Permalink | absURL }}" class="card__link">
+            <span class="hidden">Read More from {{ $featured.Title }}</span>
+          </a>
+        </article>
       </div>
-      <div class="hero__inner lg-grid">
-        <h1 class="hidden">Featured</h1>
-        {{ $featured.Render "hero-insert" }}
-      </div>
-
     </div>
 
   {{ end }}
@@ -30,10 +41,30 @@
 
 {{ define "content" }}
     <section class="">
-      <h1 class="h4">In the Latest Issue</h1>
+      <h2 class="h3">In the Latest Issue</h1>
       <ul class="list">
-        {{ range first 5 (where (where .Site.Pages "Section" "article") "Params.featured" "ne" "true") }}
-        <li>{{ .Render "card-beta" }}</li>
+        {{ range first 5 (where (where .Site.Pages "Section" "article") "Params.featured" false) }}
+          <li class="card card--beta wid-12 sm-wid-6 md-wid-12">
+          <article class="card__inner md-grid">
+            <figure class="card__thumb wid-5">
+              <img class="card__image" src="{{ .Params.cover_image | absURL }}" alt="{{ .Title }}">
+            </figure>
+            <header class="card__region card__header wid-7">
+              <h3 class="card__title"><a class="link" href="{{ .Permalink | absURL }}">{{ .Title }}</a></h3>
+              {{ partial "byline" . }}
+              {{ partial "category-link" . }}
+              {{ with .Params.teaser }}
+                <p class="card__teaser">{{ . }}</p>
+              {{ else }}
+                <p class="card__teaser">{{ .Summary }}</p>
+              {{ end }}
+            </header>
+
+            <a href="{{ .Permalink | absURL }}" class="card__link">
+              <span class="hidden">Read more from {{ .Title }}</span>
+            </a>
+          </article>
+        </li>
         {{ end }}
       </ul>
       <a href="{{ "/article/" | absURL }}">All articles</a>
@@ -42,18 +73,18 @@
     {{ $first_announce := index (where .Site.Pages "Section" "announcement") 0 }}
     {{ if $first_announce }}
     <section class="section--bold">
-      <h1 class="h4">Announcement</h1>
+      <h2 class="h3">Announcement</h1>
       {{ $first_announce.Render "card-beta" }}
       <a href="{{ "/announcement/" | absURL }}">More announcements</a>
     </section>
     {{ end }}
 
     <section class="">
-      <h1 class="h4">Categories</h1>
+      <h2 class="h3">Categories</h1>
       <ul class="list">
         {{ range $name, $category := .Site.Taxonomies.categories }}
         <li class="wid-6">
-          <h2 class="h2">{{ $name }}</h2>
+          <h2 class="h4">{{ $name }}</h2>
           <ul class="list">
             {{ range first 3 $category.Pages}}
             <li>{{ .Render "card-gamma" }}</li>

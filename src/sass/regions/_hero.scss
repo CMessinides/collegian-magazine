@@ -1,107 +1,52 @@
-$hero-ht: 256px;
-$md-hero-ht: 512px;
-
 .hero {
-  background: $c-grey-10;
-}
-
-.hero--has-aside {
-  padding-bottom: $sp-md;
-
-  @media #{$brkpt-md} {
-    padding-bottom: $sp-lg;
-  }
-
-  @media #{$brkpt-lg} {
-  }
-}
-
-.hero,
-.hero__banner {
   position: relative;
-  width: 100%;
-}
-
-.hero__banner {
-  background: $c-grey-75;
-  height: $hero-ht;
-  overflow-x: hidden;
-
-  @media #{$brkpt-md} {
-    height: $md-hero-ht;
-  }
-}
-
-.hero__fade,
-.hero__image {
-  @include global-max-width;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 100%;
-}
-
-.hero__fade {
-  z-index: 2;
-
-  @media #{$brkpt-lg} {
-    background-image: radial-gradient(60% 170%, transparent, $c-grey-75 80%);
-  }
+  min-height: 220px;
 }
 
 .hero__image {
+  box-shadow: inset 0px -2px 8px -2px $c-shad;
+  height: 240px;
+  height: 32vw;
   background-size: cover;
   background-position: center;
-  width: 100%;
-  z-index: 1;
+  min-height: 220px;
+
+  @media #{$brkpt-md} {
+    height: 560px;
+    height: 40vw;
+    max-height: 560px;
+  }
 }
 
 .hero__inner {
   @include global-max-width;
-  position: relative;
-  z-index: 3;
 }
 
 .hero__insert {
+  @extend %fs-ui;
   background-color: $c-white;
   border-top: 8px $c-acc1 solid;
+  width: 100%;
 
   @media #{$brkpt-md} {
-    position: absolute;
-    bottom: 100%;
-  }
-
-  .article__title {
-    margin: 0;
-  }
-}
-
-
-.hero__featured {
-
-  .card-stack__item:first-of-type .card__thumb {
-    display: none;
+    padding: $sp-md;
   }
 
   @media #{$brkpt-lg} {
+    max-width: 40rem;
     position: absolute;
-    right: 0;
-    bottom: -32px;
-
-    .card-stack__item:first-of-type .card__thumb {
-      display: inherit;
-    }
+    bottom: 0;
   }
 }
 
-.hero__label {
-  padding-top: 1rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
+.hero__caption {
+  padding: $sp-md $sp-md 0;
+  font-family: $ff-serif;
+  font-style: italic;
+  color: $c-grey-60;
+  margin: 0;
 
-  @media #{$brkpt-lg} {
-    color: $c-white;
+  @media #{$brkpt-md} {
+    padding: $sp-md $sp-lg 0;
   }
 }

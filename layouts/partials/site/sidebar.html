@@ -1,10 +1,10 @@
 <section class="sidebar__section sidebar__section--about md-wid-8 lg-wid-auto">
-  <h1 class="hidden">About {{ .Site.Data.branding.site_name | default .Site.Title }}</h1>
+  <h2 class="hidden">About {{ .Site.Data.branding.site_name | default .Site.Title }}</h2>
   <img class="logo logo--square logo--sidebar wid-12" src="{{ "/logos/icon.svg" | absURL }}" alt="{{ .Site.Params.site_name | default .Site.Title }}">
   <p class="sidebar__description">{{ .Site.Params.description }} <a href="{{ "/about" | absURL }}" class="link link--muted">Read&nbsp;More <span class="hidden">about {{ .Site.Params.site_name | default .Site.Title }}</span></a></p>
 </section>
 <section class="sidebar__section sidebar__section--social md-wid-auto ns-wid-4">
-  <h1 class="sidebar__label">Follow the Magazine</h1>
+  <h2 class="h4">Follow the Magazine</h2>
   <nav class="sidebar__social">
     {{ partial "social-list" . }}
   </nav>
@@ -21,5 +21,89 @@
       </button>
     </div>
   </form>
+</section>
+{{ end }}
+{{ $featured := first 4 (where (where (where .Site.Pages "Section" "article" ) "Params.featured" true) "Permalink" "ne" .Permalink) }}
+{{ if $featured }}
+<section class="sidebar__section wid-12">
+  <h3 class="h4">Featured</h3>
+  <ul class="list--cards">
+  {{ range $index, $article := $featured }}
+  <li class="card card--gamma card--stacked">
+    <article class="card__inner">
+      {{ if and (eq $index 0) (isset $article.Params "cover_image") }}
+      <figure class="card__thumb">
+        <img class="card__image" src="{{ $article.Params.cover_image | absURL }}" alt="{{ $article.Title }}">
+        <figcaption class="hidden">{{ $article.Params.caption | default $article.Title }}</figcaption>
+      </figure>
+      {{ end }}
+      <header class="card__region card__header">
+        <h3 class="card__title"><a class="link" href="{{ .Permalink | absURL }}">{{ $article.Title }}</a></h3>
+        {{ partial "byline" $article }}
+        {{ partial "category-link" $article }}
+      </header>
+
+      <a href="{{ $article.Permalink | absURL }}" class="card__link">
+        <span class="hidden">Read more from {{ $article.Title }}</span>
+      </a>
+    </article>
+  </li>
+  {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+
+
+{{ $related_by_category := first 2 (where (where .Site.Pages "Section" "article") "Params.categories" "intersect" .Params.categories) }}
+{{ $related_by_tag := first 2 (where (where .Site.Pages "Section" "article") "Params.tags" "intersect" .Params.tags) }}
+{{ if and (or (gt (len $related_by_tag) 1) (gt (len $related_by_category) 1)) (eq .Section "article") }}
+<section class="sidebar__section">
+  <h3 class="h4">Related</h3>
+  <ul class="list--cards">
+    {{ range $index, $article := $related_by_category }}
+    {{ if ne $article.Permalink $.Permalink }}
+    <li class="card card--gamma card--stacked">
+      <article class="card__inner">
+        <header class="card__region card__header">
+          <h3 class="card__title">{{ $article.Title }}</h3>
+          <p class="card__category">{{ index $article.Params.categories 0 }}</p>
+          {{ if and (eq $index 0) (isset $article.Params "cover_image") }}
+          <figure class="card__thumb">
+            <img class="card__image" src="{{ $article.Params.cover_image | absURL }}" alt="{{ $article.Title }}">
+          </figure>
+          {{ end }}
+        </header>
+
+        <a href="{{ $article.Permalink | absURL }}" class="card__link">
+          <span class="hidden">Read more from {{ $article.Title }}</span>
+        </a>
+      </article>
+    </li>
+    {{ end }}
+    {{ end }}
+
+    {{ range $index, $article := $related_by_tag }}
+    {{ if ne $article.Permalink $.Permalink }}
+    <li class="card card--gamma card--stacked">
+      <article class="card__inner">
+        <header class="card__region card__header">
+          <h3 class="card__title">{{ $article.Title }}</h3>
+          <p class="card__category">{{ index $article.Params.categories 0 }}</p>
+          {{ if and (eq (len $related_by_category) 0) (eq $index 0) (isset $article.Params "cover_image") }}
+          <figure class="card__thumb">
+            <img class="card__image" src="{{ $article.Params.cover_image | absURL }}" alt="{{ $article.Title }}">
+          </figure>
+          {{ end }}
+        </header>
+
+        <a href="{{ $article.Permalink | absURL }}" class="card__link">
+          <span class="hidden">Read more from {{ $article.Title }}</span>
+        </a>
+      </article>
+    </li>
+    {{ end }}
+    {{ end }}
+  </ul>
 </section>
 {{ end }}

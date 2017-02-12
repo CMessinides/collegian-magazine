@@ -1,10 +1,6 @@
 .sidebar__section {
-  padding: $sp-sm;
+  padding: $sp-md;
   margin-bottom: $sp-md;
-
-  @media #{$brkpt-md} {
-    padding: $sp-md;
-  }
 
   @media #{$brkpt-lg} {
     padding: 0 0 $sp-lg 0;
