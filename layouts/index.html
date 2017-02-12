@@ -20,14 +20,14 @@
             <h3 class="card__title"><a href="{{ $featured.Permalink | absURL }}" class="link">{{ $featured.Title }}</a></h3>
             {{ partial "byline" $featured }}
             {{ partial "category-link" $featured }}
+            <p class="card__teaser">
+              {{ with $featured.Params.teaser }}
+              {{ . }}
+              {{ else }}
+              {{ $featured.Summary }}
+              {{ end }}
+            </p>
           </header>
-          <p class="card__region card__teaser">
-            {{ with $featured.Params.teaser }}
-            {{ . }}
-            {{ else }}
-            {{ $featured.Summary }}
-            {{ end }}
-          </p>
           <a href="{{ $featured.Permalink | absURL }}" class="card__link">
             <span class="hidden">Read More from {{ $featured.Title }}</span>
           </a>
@@ -40,16 +40,18 @@
 {{ end }}
 
 {{ define "content" }}
-    <section class="">
+    <section class="page__section">
       <h2 class="h3">In the Latest Issue</h1>
       <ul class="list">
         {{ range first 5 (where (where .Site.Pages "Section" "article") "Params.featured" false) }}
           <li class="card card--beta wid-12 sm-wid-6 md-wid-12">
           <article class="card__inner md-grid">
-            <figure class="card__thumb wid-5">
+            {{ if .Params.cover_image }}
+            <figure class="card__thumb wid-12 md-wid-5">
               <img class="card__image" src="{{ .Params.cover_image | absURL }}" alt="{{ .Title }}">
             </figure>
-            <header class="card__region card__header wid-7">
+            {{ end }}
+            <header class="card__region card__header md-wid-7">
               <h3 class="card__title"><a class="link" href="{{ .Permalink | absURL }}">{{ .Title }}</a></h3>
               {{ partial "byline" . }}
               {{ partial "category-link" . }}
@@ -67,19 +69,19 @@
         </li>
         {{ end }}
       </ul>
-      <a href="{{ "/article/" | absURL }}">All articles</a>
+      <a class="link--ui-alpha" href="{{ "/article/" | absURL }}">All articles &rarr;</a>
     </section>
 
     {{ $first_announce := index (where .Site.Pages "Section" "announcement") 0 }}
     {{ if $first_announce }}
-    <section class="section--bold">
+    <section class="page__section section--bold">
       <h2 class="h3">Announcement</h1>
       {{ $first_announce.Render "card-beta" }}
       <a href="{{ "/announcement/" | absURL }}">More announcements</a>
     </section>
     {{ end }}
 
-    <section class="">
+    <section class="page__section">
       <h2 class="h3">Categories</h1>
       <ul class="list">
         {{ range $name, $category := .Site.Taxonomies.categories }}

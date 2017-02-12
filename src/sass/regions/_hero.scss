@@ -40,13 +40,14 @@
 }
 
 .hero__caption {
-  padding: $sp-md $sp-md 0;
+  @extend %fs-small;
+  padding: $sp-sm $sp-md 0;
   font-family: $ff-serif;
   font-style: italic;
   color: $c-grey-60;
   margin: 0;
 
   @media #{$brkpt-md} {
-    padding: $sp-md $sp-lg 0;
+    padding: $sp-sm $sp-lg 0;
   }
 }

@@ -112,6 +112,7 @@
 .card__teaser {
   color: $c-grey-75;
   font-family: $ff-serif;
+  margin-top: $sp-md;
   order: 4;
 }
 
@@ -120,13 +121,26 @@
 }
 
 .card--beta {
+  margin-bottom: $sp-md;
+
   .card__thumb {
     align-self: stretch;
+    max-height: none;
   }
 
   .card__header {
+    padding: $sp-lg;
     flex: 1 auto;
+
+    @media #{$brkpt-md} {
+      margin-left: percentage(5 / 12);
+    }
   }
+
+  .card__thumb + .card__header {
+    margin-left: 0;
+  }
+
   .card__title {
     @extend %fs-3;
   }
