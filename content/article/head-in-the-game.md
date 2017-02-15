@@ -1,15 +1,20 @@
 ---
 title: Head in the Game
 date: '2016-11-28T15:45:22-05:00'
-authors: ["Ben Hunkler", "Julia Waldow"]
-teaser: "On campus and across the U.S., more students suffer from concussions. Here's why, and what we can do."
-categories: ["Analysis"]
+authors:
+- Ben Hunkler
+- Julia Waldow
+teaser: On campus and across the U.S., more students suffer from concussions. Here's
+  why, and what we can do.
+categories:
+- Analysis
 tags: []
-issues: ["Fall 2016"]
+issues:
+- Fall 2016
 featured: true
 cover_image: "/assets/img/road.jpg"
 focal_point: Center Right
-caption: "A test caption"
+caption: A test caption
 
 ---
 Here's an intro paragraph. Will this work?

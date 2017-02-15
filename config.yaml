@@ -1,59 +1,46 @@
-
-title: "The Collegian Magazine"
-
-# Deploy settings
-# TODO: add the real domain
-baseurl: "http://dev-colmag.netlify.com"
-languageCode: "en-us"
-
+---
+title: The Collegian Magazine
+baseurl: http://dev-colmag.netlify.com
+languageCode: en-us
 metaDataFormat: yaml
 preserveTaxonomyNames: true
+menu:
+  footer:
+  - name: Staff
+    url: "/staff/"
+    weight: 3
+  - name: Home
+    url: "/"
+    weight: 0
+  - name: Blog
+    url: "/announcement/"
+    weight: 4
+  - name: Articles
+    url: "/article/"
+    weight: 2
+  main:
+  - name: Blog
+    url: "/announcement/"
+    weight: 3
+  - name: Articles
+    url: "/article/"
+    weight: 1
+  - name: Staff
+    url: "/staff/"
+    weight: 2
 permalinks:
-  article: /article/:year/:month/:slug/
-  announcement: /announcement/:year/:month/:day/:slug/
-  page: /:slug/
+  article: "/article/:year/:month/:slug/"
+  announcement: "/announcement/:year/:month/:day/:slug/"
+  page: "/:slug/"
 taxonomies:
   tag: tags
   category: categories
   author: authors
   issue: issues
-
-menu:
-  main:
-    -
-      name: "Articles"
-      weight: 10
-      url: "/article/"
-    -
-      name: "Staff"
-      weight: 20
-      url: "/staff/"
-    -
-      name: "Blog"
-      weight: 30
-      url: "/announcement/"
-  footer:
-    -
-      name: "Home"
-      weight: -10
-      url: "/"
-    -
-      name: "Articles"
-      weight: 10
-      url: "/article/"
-    -
-      name: "Staff"
-      weight: 20
-      url: "/staff/"
-    -
-      name: "Blog"
-      weight: 30
-      url: "/announcement/"
-
-
 params:
   site_name: The Collegian Magazine
-  description: The Collegian Magazine combines long-form investigative journalism and a sleek aesthetic in creating a biannual, award-winning, student-led publication.
+  description: The Collegian Magazine combines long-form investigative journalism
+    and a sleek aesthetic in creating a biannual, award-winning, student-led publication.
   tagline: Documenting the curious in Gambier, Ohio.
-  logo: '/logos/banner.svg'
-  email: 'thecollegianmagazine@kenyon.edu'
+  logo: "/logos/banner.svg"
+  email: thecollegianmagazine@kenyon.edu

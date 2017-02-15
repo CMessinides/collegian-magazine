@@ -5,12 +5,11 @@ first_name: Test
 last_name: Author
 roles:
 - Writer
-profile_picture: ""
+profile_picture: ''
 twitter_username: ''
 facebook_username: ''
 instagram_username: ''
 class_year: '2020'
 bio: ''
-draft: false
 
 ---
