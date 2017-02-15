@@ -1,6 +1,6 @@
 .card {
   border-radius: 2px;
-  box-shadow: 0 2px 4px 1px $c-shad;
+  box-shadow: 0 2px 4px 1px $c-shad-wk;
   background-color: $c-white;
   overflow: hidden;
 }
@@ -67,15 +67,16 @@
 .card__thumb {
   background-color: $c-black;
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
   flex: 0 auto;
   max-height: 200px;
   overflow: hidden;
 }
 
 .card__image {
+  display: block;
   width: 100%;
 
   @supports (object-fit: cover) {
@@ -92,7 +93,7 @@
 }
 
 .card__byline {
-  @extend %fs-6;
+  @extend %fs-ui;
   font-family: $ff-serif;
   font-style: italic;
   color: $c-grey-60;
@@ -100,7 +101,7 @@
 }
 
 .card__category {
-  @extend %fs-6;
+  @extend %fs-ui;
   align-self: flex-start;
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -120,9 +121,37 @@
   padding-top: 0;
 }
 
+.card--alpha {
+  margin: $sp-lg 0;
+
+  .card__inner {
+    display: block;
+  }
+
+  .card__header {
+    padding: $sp-lg;
+    border-top: 16px $c-acc1 solid;
+    width: 100%;
+  }
+
+  .card__teaser {
+    @extend %fs-5;
+  }
+
+  .card__thumb {
+    width: 100%;
+    max-height: 360px;
+  }
+}
+
 .card--beta {
-  margin-bottom: $sp-md;
-  flex: 1 0 auto;
+  margin-bottom: $sp-lg;
+
+  &:nth-of-type(2n) {
+    .card__inner {
+      flex-direction: row-reverse;
+    }
+  }
 
   .card__thumb {
     margin: 0;
@@ -140,13 +169,6 @@
 
   .card__title {
     @extend %fs-3;
-  }
-}
-
-.card--beta.no-image:nth-of-type(2n) + .card--beta.no-image {
-  @media #{$brkpt-md} {
-    margin-left: $sp-md;
-    flex-grow: 0;
   }
 }
 

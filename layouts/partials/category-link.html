@@ -1,1 +1,3 @@
-<a href="{{ index .Params.categories 0 | urlize | printf "/categories/%s" | absURL }}" class="card__category link link--ui-beta"><span class="hidden">Category: </span>{{ index .Params.categories 0 }}</a>
+<a href="{{ index .Params.categories 0 | urlize | printf "/categories/%s" | absURL }}" class="card__category link link--ui-beta">
+  <span class="hidden">Category: </span>{{ index .Params.categories 0 }}
+</a>

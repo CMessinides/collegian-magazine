@@ -42,9 +42,9 @@
 {{ define "content" }}
     <section class="page__section">
       <h2 class="h3">In the Latest Issue</h2>
-      <ul class="list list--cards ns-grid">
+      <ul class="list">
         {{ range first 5 (where (where .Site.Pages "Section" "article") "Params.featured" false) }}
-        <li class="card card--beta wid-12 {{ if eq 0 (len .Params.cover_image) }}md-wid-5 no-image{{ end }}">
+        <li class="card card--beta wid-12">
           <article class="card__inner ns-grid">
             {{ if .Params.cover_image }}
             <figure class="card__thumb">
@@ -61,7 +61,6 @@
                 <p class="card__teaser">{{ .Summary }}</p>
               {{ end }}
             </header>
-
             <a href="{{ .Permalink | absURL }}" class="card__link">
               <span class="hidden">Read more from {{ .Title }}</span>
             </a>

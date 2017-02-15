@@ -9,9 +9,9 @@
 {{ end }}
 
 {{ define "content" }}
-  <ul class="list list--cards md-grid">
+  <ul class="list">
     {{ range .Data.Pages }}
-    <li class="card card--beta wid-12 {{ if .Params.cover_image }}{{ else }}md-wid-5 no-image{{ end }}">
+    <li class="card {{ if .Params.featured }}card--alpha{{ else }}card--beta{{ end }} wid-12">
       <article class="card__inner ns-grid">
         {{ if .Params.cover_image }}
         <figure class="card__thumb">
