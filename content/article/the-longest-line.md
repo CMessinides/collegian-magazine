@@ -8,4 +8,5 @@ tags: []
 issues: ["Fall 2016"]
 featured: false
 cover_image: "/assets/img/supplies.jpg"
+focal_point: Center
 ---

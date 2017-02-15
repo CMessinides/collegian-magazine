@@ -63,6 +63,11 @@
 .footer__nav-item {
   display: inline-block;
   margin: 0 $sp-md $sp-sm 0;
+
+  &::before {
+    content: '\2022\2009';
+    color: $c-grey-20;
+  }
 }
 
 .footer__copyright {
@@ -70,7 +75,6 @@
   color: $c-grey-60;
   font-family: $ff-serif;
   font-style: italic;
-  border-top: 1px $c-grey-10 solid;
 }
 
 .footer__back-to-top {

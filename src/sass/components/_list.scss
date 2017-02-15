@@ -1,20 +1,10 @@
-%list {
+.list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.list {
-  @extend %list;
-}
-
 .list--cards {
-  @extend %list;
-}
-
-.list--flex {
-  @extend %list;
-  display: flex;
   flex-wrap: wrap;
 }
 

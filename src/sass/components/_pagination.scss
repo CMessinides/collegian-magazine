@@ -1,0 +1,58 @@
+.paginator {
+  display: block;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+
+  @media #{$brkpt-sm} {
+    display: flex;
+  }
+}
+
+.paginator__link {
+  @include width(12, $from-sm: 5);
+  @extend %fs-2;
+  flex: 0 1 auto;
+  font-weight: bold;
+  font-style: italic;
+  color: $c-grey-60;
+  display: block;
+  border-top: 1px $c-grey-20 solid;
+  padding-top: $sp-md;
+  margin: $sp-lg 0;
+  font-family: $ff-disp;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $c-brand;
+  }
+}
+
+.paginator__link--back {
+  text-align: right;
+  margin-right: auto;
+
+  .paginator__sub::before {
+    content: '\2190';
+  }
+}
+
+.paginator__link--more {
+  margin-left: auto;
+
+  .paginator__sub::after {
+    content: '\2192';
+  }
+}
+
+.paginator__sub {
+  @extend %fs-small;
+  font-family: $ff-serif;
+  font-style: normal;
+  font-weight: 400;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}

@@ -1,0 +1,1 @@
+<img class="card__image" src="{{ .Params.cover_image | replaceRE "(png|jpeg|gif|tiff|bmp)$" "jpg" | absURL }}" alt="{{ .Params.caption }}" {{ with .Params.focal_point }}style="object-position: {{ lower . }}"{{ end }}>

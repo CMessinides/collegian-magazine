@@ -1,11 +1,8 @@
-<span class="hidden">Authors:</span>
-<ul class="card__byline">
+<p class="card__byline">
+  by
   {{ $len := len .Params.authors }}
-  {{ range $index, $author := .Params.authors }}
-  <li class="card__author">
-    {{ if and (gt $len 1) (eq $index (sub $len 1))}}and {{ end }}
-    <a href="{{ $author | urlize | printf "/authors/%s" | absURL }}" class="link link--muted">{{ . }}</a>
-    {{ if and (gt $len 2) (ne $index (sub $len 1))}},{{ end }}
-  </li>
-  {{ end }}
-</ul>
+  {{- range $index, $author := .Params.authors -}}
+    {{ if and (gt $len 1) (eq $index (sub $len 1))}} and{{ end }}
+    <a href="{{ $author | urlize | printf "/authors/%s" | absURL }}" class="link link--muted">{{ . }}</a>{{ if and (gt $len 2) (ne $index (sub $len 1))}},{{ end }}
+  {{- end -}}
+</p>

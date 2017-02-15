@@ -1,10 +1,23 @@
 .badge {
-  background: $c-grey-60;
-  border-radius: 3px;
-  line-height: 1;
-  color: $c-white;
+  background-color: $c-brand-shade2;
+  border-radius: 2px;
+  font-family: $ff-sans;
   display: inline-block;
   padding: $sp-xs $sp-sm;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+  margin-bottom: $sp-sm;
+  margin-right: $sp-sm;
+
+  &:hover {
+    background-color: $c-brand;
+  }
+}
+
+.badge__link {
+  color: $c-brand-tint2;
+  text-decoration: none;
+
+  &:focus,
+  &:active {
+    text-decoration: underline;
+  }
 }

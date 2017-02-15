@@ -1,13 +1,13 @@
 .card {
   border-radius: 2px;
   box-shadow: 0 2px 4px 1px $c-shad;
-  display: block;
   background-color: $c-white;
   overflow: hidden;
 }
 
 .card--stacked {
   border-radius: 0;
+  border-bottom: 1px $c-grey-5 solid;
 
   &:first-of-type {
     border-radius: 2px 2px 0 0;
@@ -15,6 +15,7 @@
 
   &:last-of-type {
     border-radius: 0 0 2px 2px;
+    border: 0;
   }
 }
 
@@ -64,17 +65,23 @@
 }
 
 .card__thumb {
+  background-color: $c-black;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 0 auto;
-  max-height: 10rem;
+  max-height: 200px;
   overflow: hidden;
 }
 
 .card__image {
   width: 100%;
+
+  @supports (object-fit: cover) {
+    object-fit: cover;
+    height: 100%;
+  }
 }
 
 .card__title {
@@ -89,16 +96,7 @@
   font-family: $ff-serif;
   font-style: italic;
   color: $c-grey-60;
-  margin-top: $sp-xs;
   order: 3;
-
-  &::before {
-    content: 'by '
-  }
-}
-
-.card__author {
-  display: inline;
 }
 
 .card__category {
@@ -107,12 +105,14 @@
   text-transform: uppercase;
   letter-spacing: 0.07em;
   order: 1;
+  margin-bottom: $sp-xs;
 }
 
 .card__teaser {
   color: $c-grey-75;
   font-family: $ff-serif;
   margin-top: $sp-md;
+  max-width: 38em;
   order: 4;
 }
 
@@ -122,23 +122,20 @@
 
 .card--beta {
   margin-bottom: $sp-md;
+  flex: 1 0 auto;
 
   .card__thumb {
+    margin: 0;
     align-self: stretch;
-    max-height: none;
+
+    @media #{$brkpt-sm} {
+      max-height: none;
+    }
   }
 
   .card__header {
     padding: $sp-lg;
     flex: 1 auto;
-
-    @media #{$brkpt-md} {
-      margin-left: percentage(5 / 12);
-    }
-  }
-
-  .card__thumb + .card__header {
-    margin-left: 0;
   }
 
   .card__title {
@@ -146,14 +143,14 @@
   }
 }
 
-.card--gamma {
-  .card__thumb {
-    margin-bottom: $sp-sm;
+.card--beta.no-image:nth-of-type(2n) + .card--beta.no-image {
+  @media #{$brkpt-md} {
+    margin-left: $sp-md;
+    flex-grow: 0;
   }
+}
 
-  .card__category {
-    @extend %fs-small;
-  }
+.card--gamma {
 
   .card__title {
     @extend %fs-5;
@@ -162,8 +159,4 @@
   .card__byline {
     @extend %fs-ui;
   }
-}
-
-.hero__insert .card__teaser {
-  max-width: 38em;
 }

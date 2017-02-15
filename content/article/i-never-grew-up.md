@@ -9,9 +9,7 @@ tags: []
 issues: ["Fall 2016"]
 featured: true
 cover_image: "/assets/img/3jzew3rtg6e-chris-brignola-1.jpg"
-focal_point:
-  x_axis: center
-  y_axis: top
+focal_point: Top Center
 caption: Can skateboarders fly?
 
 ---

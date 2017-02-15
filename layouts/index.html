@@ -41,17 +41,17 @@
 
 {{ define "content" }}
     <section class="page__section">
-      <h2 class="h3">In the Latest Issue</h1>
-      <ul class="list">
+      <h2 class="h3">In the Latest Issue</h2>
+      <ul class="list list--cards ns-grid">
         {{ range first 5 (where (where .Site.Pages "Section" "article") "Params.featured" false) }}
-          <li class="card card--beta wid-12 sm-wid-6 md-wid-12">
-          <article class="card__inner md-grid">
+        <li class="card card--beta wid-12 {{ if eq 0 (len .Params.cover_image) }}md-wid-5 no-image{{ end }}">
+          <article class="card__inner ns-grid">
             {{ if .Params.cover_image }}
-            <figure class="card__thumb wid-12 md-wid-5">
-              <img class="card__image" src="{{ .Params.cover_image | absURL }}" alt="{{ .Title }}">
+            <figure class="card__thumb">
+              {{ partial "card-image" . }}
             </figure>
             {{ end }}
-            <header class="card__region card__header md-wid-7">
+            <header class="card__region card__header ns-wid-7">
               <h3 class="card__title"><a class="link" href="{{ .Permalink | absURL }}">{{ .Title }}</a></h3>
               {{ partial "byline" . }}
               {{ partial "category-link" . }}
@@ -69,32 +69,25 @@
         </li>
         {{ end }}
       </ul>
-      <a class="link--ui-alpha" href="{{ "/article/" | absURL }}">All articles &rarr;</a>
+      <div class="paginator">
+        <a href="{{ "/article/" | absURL }}" class="paginator__link paginator__link--more">
+          <span class="paginator__sub">More</span>
+          Articles
+        </a>
+      </div>
     </section>
 
     {{ $first_announce := index (where .Site.Pages "Section" "announcement") 0 }}
     {{ if $first_announce }}
     <section class="page__section section--bold">
-      <h2 class="h3">Announcement</h1>
-      {{ $first_announce.Render "card-beta" }}
-      <a href="{{ "/announcement/" | absURL }}">More announcements</a>
+      <h2 class="h3">From the Blog</h2>
+      <div class="paginator">
+        <a href="{{ "/announcement/" | absURL }}" class="paginator__link paginator__link--more">
+          <span class="paginator__sub">More</span>
+          Announcements
+        </a>
+      </div>
     </section>
     {{ end }}
 
-    <section class="page__section">
-      <h2 class="h3">Categories</h1>
-      <ul class="list">
-        {{ range $name, $category := .Site.Taxonomies.categories }}
-        <li class="wid-6">
-          <h2 class="h4">{{ $name }}</h2>
-          <ul class="list">
-            {{ range first 3 $category.Pages}}
-            <li>{{ .Render "card-gamma" }}</li>
-            {{ end }}
-          </ul>
-          <a href="{{ $name | urlize | printf "/categories/%s/" | absURL }}">More in {{ $name }}</a>
-        </li>
-        {{ end }}
-      </ul>
-    </section>
 {{ end }}

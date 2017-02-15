@@ -1,2 +1,45 @@
+{{ define "hero" }}
+<div class="hero hero--bold">
+  <div class="hero__inner">
+    <h1 class="hero__title">
+      {{ .Title }}
+    </h1>
+  </div>
+</div>
+{{ end }}
+
 {{ define "content" }}
+  <ul class="list list--cards md-grid">
+    {{ range .Data.Pages }}
+    <li class="card card--beta wid-12 {{ if .Params.cover_image }}{{ else }}md-wid-5 no-image{{ end }}">
+      <article class="card__inner ns-grid">
+        {{ if .Params.cover_image }}
+        <figure class="card__thumb">
+          {{ partial "card-image" . }}
+        </figure>
+        {{ end }}
+        <header class="card__region card__header ns-wid-7">
+          <h2 class="card__title"><a class="link" href="{{ .Permalink | absURL }}">{{ .Title }}</a></h2>
+          {{ if .Params.authors }}
+            {{ partial "byline" . }}
+          {{ else }}
+            <p class="card__byline">{{ .Date | dateFormat "Jan. 2, 2006" }}</p>
+          {{ end }}
+          {{ if .Params.categories }}
+            {{ partial "category-link" . }}
+          {{ end }}
+          {{ with .Params.teaser }}
+            <p class="card__teaser">{{ . }}</p>
+          {{ else }}
+            <p class="card__teaser">{{ .Summary }}</p>
+          {{ end }}
+        </header>
+
+        <a href="{{ .Permalink | absURL }}" class="card__link">
+          <span class="hidden">Read more from {{ .Title }}</span>
+        </a>
+      </article>
+    </li>
+    {{ end }}
+  </ul>
 {{ end }}

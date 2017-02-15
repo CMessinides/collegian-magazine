@@ -1,6 +1,14 @@
 .hero {
   position: relative;
-  min-height: 220px;
+}
+
+.hero__title {
+  @extend %bq;
+  padding: 0 $sp-md;
+
+  @media #{$brkpt-md} {
+    padding: 0 $sp-lg;
+  }
 }
 
 .hero__image {

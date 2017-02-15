@@ -1,5 +1,23 @@
+{{ if eq .Section "article" }}
+{{ with (index .Params.issues 0) }}
+<section class="sidebar__section">
+  <h2 class="h4">Issue</h2>
+  <p class="sidebar__description"><a class="badge badge__link" href="{{ . | urlize | printf "issues/%s" | absURL }}">{{ . }}</a></p>
+</section>
+{{ end }}
+{{ with .Params.tags }}
+<section class="sidebar__section">
+  <h2 class="h4">Tags</h2>
+  <ul class="list sidebar__description">
+    {{ range . }}
+    <li class="badge"><a class="badge__link" href="{{ . | urlize | printf "/tags/%s" | absURL }}">{{ . }}</a></li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+{{ end }}
 <section class="sidebar__section sidebar__section--about md-wid-8 lg-wid-auto">
-  <h2 class="hidden">About {{ .Site.Data.branding.site_name | default .Site.Title }}</h2>
+  <h2 class="hidden">About {{ .Site.Params.site_name | default .Site.Title }}</h2>
   <img class="logo logo--square logo--sidebar wid-12" src="{{ "/logos/icon.svg" | absURL }}" alt="{{ .Site.Params.site_name | default .Site.Title }}">
   <p class="sidebar__description">{{ .Site.Params.description }} <a href="{{ "/about" | absURL }}" class="link link--muted">Read&nbsp;More <span class="hidden">about {{ .Site.Params.site_name | default .Site.Title }}</span></a></p>
 </section>
@@ -23,24 +41,58 @@
   </form>
 </section>
 {{ end }}
+
+<section class="sidebar__section">
+  <h3 class="h4">The Staff</h3>
+  <ul class="list">
+    {{ $eic := index (where (where .Site.Pages "Section" "staff") "Params.roles" "in" "Editor-in-Chief") 0 }}
+    {{ if $eic }}
+    <li class="card card--gamma card--stacked">
+      <article class="card__inner">
+        <heder class="card__region card__header">
+          <h4 class="card__title"><a class="link" href="{{ $eic.Permalink | absURL }}">{{ $eic.Title }}</a></h4>
+          <p class="card__byline">{{ index $eic.Params.roles 0 }}</p>
+        </heder>
+      </article>
+
+      <a href="{{ .Permalink | absURL }}" class="card__link">
+        <span class="hidden">Read more about {{ .Title }}</span>
+      </a>
+    </li>
+    {{ end }}
+    {{ range first 3 (where .Site.Pages "Section" "staff") }}
+    <li class="card card--gamma card--stacked">
+      <article class="card__inner">
+        <header class="card__region card__header">
+          <h4 class="card__title"><a class="link" href="{{ .Permalink | absURL }}">{{ .Title }}</a></h4>
+          <p class="card__byline">{{ index .Params.roles 0 }}</p>
+        </header>
+
+        <a href="{{ .Permalink | absURL }}" class="card__link">
+          <span class="hidden">Read more about {{ .Title }}</span>
+        </a>
+      </article>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+
 {{ $featured := first 4 (where (where (where .Site.Pages "Section" "article" ) "Params.featured" true) "Permalink" "ne" .Permalink) }}
 {{ if $featured }}
 <section class="sidebar__section wid-12">
   <h3 class="h4">Featured</h3>
-  <ul class="list--cards">
+  <ul class="list">
   {{ range $index, $article := $featured }}
   <li class="card card--gamma card--stacked">
     <article class="card__inner">
       {{ if and (eq $index 0) (isset $article.Params "cover_image") }}
-      <figure class="card__thumb">
-        <img class="card__image" src="{{ $article.Params.cover_image | absURL }}" alt="{{ $article.Title }}">
-        <figcaption class="hidden">{{ $article.Params.caption | default $article.Title }}</figcaption>
-      </figure>
+      <div class="card__thumb">
+        <img class="card__image" src="{{ $article.Params.cover_image | replaceRE "(png|jpeg|gif|tiff|bmp)$" "jpg" | absURL }}" alt="{{ $article.Params.caption }}">
+      </div>
       {{ end }}
       <header class="card__region card__header">
         <h3 class="card__title"><a class="link" href="{{ .Permalink | absURL }}">{{ $article.Title }}</a></h3>
         {{ partial "byline" $article }}
-        {{ partial "category-link" $article }}
       </header>
 
       <a href="{{ $article.Permalink | absURL }}" class="card__link">

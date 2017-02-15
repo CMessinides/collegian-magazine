@@ -34,7 +34,8 @@
 
 .link--ui-alpha,
 .link--ui-beta,
-.link--ui-light {
+.link--ui-light,
+.link--banner {
   @extend %fs-ui;
   text-decoration: none;
   font-family: $ff-sans;
@@ -77,6 +78,24 @@
   &:active {
     color: $c-acc1;
     text-decoration: underline;
+  }
+}
+
+.link--badge {
+  background-color: $c-brand-shade2;
+  border-radius: 2px;
+  color: $c-brand-tint2;
+  font-family: $ff-sans;
+  display: inline-block;
+  padding: $sp-xs $sp-sm;
+  margin-bottom: $sp-sm;
+  margin-right: $sp-sm;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $c-brand;
   }
 }
 

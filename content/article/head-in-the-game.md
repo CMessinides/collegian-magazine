@@ -8,9 +8,7 @@ tags: []
 issues: ["Fall 2016"]
 featured: true
 cover_image: "/assets/img/road.jpg"
-focal_point:
-  x_axis: right
-  y_axis: center
+focal_point: Center Right
 caption: "A test caption"
 
 ---

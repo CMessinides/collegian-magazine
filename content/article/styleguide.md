@@ -2,6 +2,7 @@
 authors: ["Foo Bar", "Test Author"]
 categories: ["Test"]
 cover_image: "/assets/img/mtns.jpg"
+focal_point: Center Left
 date: 2017-01-11T22:59:04-05:00
 featured: false
 issues: ["Spring 2017"]
