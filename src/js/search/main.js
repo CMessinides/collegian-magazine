@@ -307,7 +307,14 @@
 
     function handleTouch(event) {
       if (event.target.type == 'checkbox') {
-        diffState(history.state, form.getState())
+        var targetedResults = document.getElementById(event.target.value + '-results');
+        if (targetedResults) {
+          var newState = form.getState();
+          results.resultsList.removeChild(targetedResults);
+          history.pushState(newState, null, window.location.pathname + encodeURLParams(newState))
+        } else {
+          diffState(history.state, form.getState())
+        }
       }
     };
 
