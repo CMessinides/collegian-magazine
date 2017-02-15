@@ -115,7 +115,7 @@
 
     Model.prototype.getResource = function(path, target, callbacks) {
       var req = new XMLHttpRequest();
-      var uri = '/search' + path;
+      var uri = '/search/' + path;
       req.open('GET', uri, true);
 
       req.onload = function() {
@@ -241,7 +241,7 @@
     Results.prototype = Object.create(ViewElement.prototype);
 
 
-    Results.prototype.showStatus = function (key) {
+    Results.prototype.showStatus = function(key) {
       var msg = this.statusMsgs[key]
       if (msg) {
         msg.classList.add('show');
@@ -299,9 +299,12 @@
       diffState(history.state, form.getState());
     };
 
+    var prevTimeout;
     function handleKeyboard(event) {
       if (event.which != 13) {
-        diffState(history.state, form.getState())
+        results.clear(Results.prototype.showStatus, 'loading');
+        window.clearTimeout(prevTimeout);
+        prevTimeout = window.setTimeout(diffState, 400, history.state, form.getState());
       }
     };
 
@@ -342,6 +345,7 @@
       }
     };
 
+    var searchTimeout;
     function init() {
       results.clear(Results.prototype.showStatus, 'loading');
       history.replaceState(parseURLParams(), null, null);
@@ -354,7 +358,8 @@
       }
       results.clear();
       if (history.state.q.length) {
-        window.setTimeout(search, 1000, history.state);
+        results.clear(Results.prototype.showStatus, 'loading');
+        searchTimeout = window.setTimeout(search, 700, history.state);
       }
       watch();
     };
@@ -371,7 +376,13 @@
     // ==============
 
     function shutdown(error) {
-      console.log(error);
+      window.clearTimeout(searchTimeout);
+      form.disable();
+      form.el.removeEventListener('submit', handleSubmit, true);
+      form.el.removeEventListener('keyup', handleKeyboard, true);
+      form.el.removeEventListener('click', handleTouch, true);
+      window.removeEventListener('popstate', changeState);
+      results.clear(Results.prototype.showStatus, 'error');
     }
 
     window.addEventListener('error', shutdown, true);
