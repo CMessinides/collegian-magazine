@@ -1,10 +1,13 @@
-<li>
-  <h2>Pages <span>{{=it.pages.length}}</span></h2>
-  <ul>
+<li class="search__section" id="pages-results">
+  <h3 class="h4">Pages <span>{{=it.pages.length}}</span></h3>
+  <ul class="list grid">
     {{~it.pages :value:index}}
-      <li>
-        <article class="card">
-          {{? value.title }}<h3 class="title">{{=value.title}}</h3>{{?}}
+      <li class="card card--gamma wid-6 ns-wid-4">
+        <article class="card__inner">
+          <header class="card__region card__header">
+            <h4 class="card__title"><a class="link" href="{{=value.url}}">{{=value.title}}</a></h4>
+          </header>
+          <a class="card__link" href="{{=value.url}}"><span class="hidden">Read more from the {{=value.title}} page.</span></a>
         </article>
       </li>
     {{~}}

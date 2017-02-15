@@ -1,10 +1,19 @@
-<li>
-  <h2>Announcements <span>{{=it.announcements.length}}</span></h2>
-  <ul>
+<li class="search__section" id="announcements-results">
+  <h3 class="h4">Announcements <span>{{=it.announcements.length}}</span></h3>
+  <ul class="list">
     {{~it.announcements :value:index}}
-      <li>
-        <article class="card">
-          {{? value.title }}<h3 class="title">{{=value.title}}</h3>{{?}}
+      <li class="card card--beta">
+        <article class="card__inner">
+          <header class="card__region card__header">
+            <h4 class="card__title"><a href="{{=value.url}}" class="link">{{=value.title}}</a></h4>
+            <p class="card__byline">{{=value.date}}</p>
+            {{? value.teaser }}
+            <p class="card__teaser">
+              {{=value.teaser}}
+            </p>
+            {{?}}
+          </header>
+          <a href="{{=value.url}}" class="card__link"><span class="hidden">Read more from {{=value.title}}</span></a>
         </article>
       </li>
     {{~}}

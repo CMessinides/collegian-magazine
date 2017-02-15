@@ -1,5 +1,5 @@
 {{ define "content" }}
-  <form id="search" class="form card" action="" role="search">
+  <form id="search" class="form card page__section" action="" role="search">
     <div class="form__group">
       <label class="hidden" for="main-search">Search</label>
       <input aria-controls="search-results" id="search-field" class="search__field search__field--main wid-12" type="text" name="q" placeholder="Search">
@@ -32,7 +32,8 @@
       </ul>
     </fieldset>
   </form>
-  <div id="search-results" class="search__results-cont" role="region" aria-labelledby="results-header" aria-live="polite">
+
+  <div id="search-results" class="page__section grid" role="region" aria-labelledby="results-header" aria-live="polite">
     <!-- TODO: Add the results header -->
     <noscript>
       <p class="search__status search__status--nojs show">
@@ -48,7 +49,7 @@
     <p id="search-error" class="search__status search__status--error">
       Error!
     </p>
-    <ul id="results-list" class="search__results"></ul>
+    <ul id="results-list" class="list search__results wid-12"></ul>
   </div>
 {{ end }}
 

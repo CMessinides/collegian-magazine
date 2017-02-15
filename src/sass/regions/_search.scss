@@ -43,8 +43,36 @@
 .search__status,
 .search__results {
   display: none;
+}
 
-  &.show {
-    display: block;
+.search__status {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  align-self: stretch;
+  margin: 0;
+}
+
+.search__status.show {
+  display: flex;
+}
+
+.search__results.show {
+  display: block;
+}
+
+.search__section {
+  animation: fadeup 700ms ease-in;
+}
+
+@keyframes fadeup {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: 0;
   }
 }
