@@ -11,6 +11,5 @@ facebook_username: ''
 instagram_username: ''
 class_year: '2017'
 bio: ''
-draft: true
 
 ---
