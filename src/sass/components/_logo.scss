@@ -33,7 +33,7 @@
 
 .logo--sidebar {
   display: block;
-  margin-bottom: $sp-md;
+  margin-bottom: $vsp-md;
   width: 64px;
   flex: 1 0 auto;
 
@@ -43,7 +43,7 @@
 
   @media #{$brkpt-md-only} {
     margin-bottom: 0;
-    margin-right: $sp-md;
+    margin-right: $hsp-md;
   }
 }
 
@@ -60,13 +60,7 @@
   width: 100%;
 }
 
-.logo__img--masthead {
-  padding: $sp-md 0;
-  position: relative;
-  text-align: center;
-  z-index: 2;
-
-  @media #{$brkpt-md} {
-    padding: $sp-lg 0;
-  }
+.logo--header .logo__img {
+  height: $vsp-xl;
+  width: $vsp-xl;
 }

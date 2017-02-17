@@ -6,10 +6,10 @@
 
 .footer__wrap {
   @include global-max-width;
-  padding: $sp-inset-sm;
+  padding: $vsp-xs $hsp-xs;
 
   @media #{$brkpt-md} {
-    padding: $sp-inset-md;
+    padding: $vsp-sm $hsp-sm;
     display: flex;
     flex-wrap: wrap;
   }
@@ -21,19 +21,19 @@
 
 .footer__section {
   line-height: 1.25;
-  padding: $sp-inset-sm;
+  padding: $vsp-xs $hsp-xs;
   flex: 0 1 auto;
-  margin: 0 0 $sp-lg 0;
+  margin: 0 0 $vsp-lg 0;
 
   @media #{$brkpt-md} {
-    padding: $sp-inset-md;
+    padding: $vsp-sm $hsp-sm;
     margin-bottom: 0;
   }
 }
 
 .footer__section--about {
   flex-grow: 1;
-  margin-top: $sp-md;
+  margin-top: $vsp-md;
 
   @media #{$brkpt-lg} {
     margin-top: 0;
@@ -52,17 +52,17 @@
   @extend %fs-3;
   font-family: $ff-disp;
   font-style: italic;
-  margin: 0 0 $sp-sm 0;
+  margin: 0 0 $vsp-sm 0;
   color: $c-black;
 }
 
 .footer__social {
-  margin-top: $sp-sm;
+  margin-top: $vsp-sm;
 }
 
 .footer__nav-item {
   display: inline-block;
-  margin: 0 $sp-md $sp-sm 0;
+  margin: 0 $hsp-md $vsp-sm 0;
 
   &::before {
     content: '\2022\2009';
@@ -94,6 +94,6 @@
 .footer__back-to-top {
   @media #{$brkpt-md} {
     align-self: baseline;
-    margin-top: $sp-lg;
+    margin-top: $vsp-lg;
   }
 }

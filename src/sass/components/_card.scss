@@ -30,7 +30,7 @@
 
 .article .card__header {
   border-bottom: 1px $c-grey-10 solid;
-  margin-bottom: $sp-xl;
+  margin-bottom: $vsp-xl;
 }
 
 .card__link {
@@ -55,12 +55,12 @@
 }
 
 .card__region {
-  padding: $sp-md;
+  padding: $vsp-md $hsp-md;
 }
 
 .card__region--wide {
   @media #{$brkpt-sm} {
-    padding: $sp-lg;
+    padding: $vsp-lg $hsp-lg;
   }
 }
 
@@ -106,13 +106,13 @@
   text-transform: uppercase;
   letter-spacing: 0.07em;
   order: 1;
-  margin-bottom: $sp-xs;
+  margin-bottom: $vsp-xs;
 }
 
 .card__teaser {
   color: $c-grey-75;
   font-family: $ff-serif;
-  margin-top: $sp-md;
+  margin-top: $vsp-md;
   max-width: 38em;
   order: 4;
 }
@@ -122,14 +122,14 @@
 }
 
 .card--alpha {
-  margin: $sp-lg 0;
+  margin: $vsp-lg 0;
 
   .card__inner {
     display: block;
   }
 
   .card__header {
-    padding: $sp-lg;
+    padding: $vsp-lg $hsp-lg;
     border-top: 16px $c-acc1 solid;
     width: 100%;
   }
@@ -145,7 +145,7 @@
 }
 
 .card--beta {
-  margin-bottom: $sp-lg;
+  margin-bottom: $vsp-lg;
 
   &:nth-of-type(2n) {
     .card__inner {
@@ -163,7 +163,7 @@
   }
 
   .card__header {
-    padding: $sp-lg;
+    padding: $vsp-lg $hsp-lg;
     flex: 1 auto;
   }
 

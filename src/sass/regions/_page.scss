@@ -11,7 +11,7 @@
   font-family: $ff-sans;
   font-weight: 700;
   letter-spacing: 0.07em;
-  padding: $sp-md $sp-lg;
+  padding: $vsp-md $hsp-lg;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -41,38 +41,37 @@
   @include global-max-width;
   flex: 1 0 auto;
   width: 100%;
-  margin: $sp-lg auto $sp-xl;
+  margin: $vsp-lg auto $vsp-xl;
   @media #{$brkpt-md} {
-    padding: 0 $sp-md;
+    padding: 0 $hsp-md;
   }
 }
 
 .hero + .page__content {
-  margin-top: $sp-md;
+  margin-top: $vsp-md;
 
   @media #{$brkpt-sm} {
-    margin-top: $sp-lg
+    margin-top: $vsp-lg
   }
 }
 
 .page__main {
   flex: 1 0 auto;
-  padding: 0 $sp-md;
+  padding: 0 $hsp-md;
 }
 
 .page__sidebar {
   flex: 1 0 auto;
   flex-wrap: wrap;
-  margin-top: $sp-xl;
-  // padding: $sp-sm;
+  margin-top: $vsp-xl;
 
 
   @media #{$brkpt-lg} {
-    padding: 0 $sp-md;
+    padding: 0 $hsp-md;
     margin-top: 0;
   }
 }
 
 .page__section:not(:last-child) {
-  margin-bottom: $sp-xl;
+  margin-bottom: $vsp-xl;
 }

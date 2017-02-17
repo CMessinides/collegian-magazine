@@ -87,9 +87,9 @@
   color: $c-brand-tint2;
   font-family: $ff-sans;
   display: inline-block;
-  padding: $sp-xs $sp-sm;
-  margin-bottom: $sp-sm;
-  margin-right: $sp-sm;
+  padding: $vsp-xs $hsp-sm;
+  margin-bottom: $vsp-sm;
+  margin-right: $hsp-sm;
   text-decoration: none;
 
   &:hover,

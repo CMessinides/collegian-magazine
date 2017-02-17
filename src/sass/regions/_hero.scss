@@ -4,10 +4,10 @@
 
 .hero__title {
   @extend %bq;
-  padding: 0 $sp-md;
+  padding: 0 $hsp-sm;
 
   @media #{$brkpt-md} {
-    padding: 0 $sp-lg;
+    padding: 0 $hsp-md;
   }
 }
 
@@ -37,7 +37,7 @@
   width: 100%;
 
   @media #{$brkpt-md} {
-    padding: $sp-md;
+    padding: $vsp-sm $hsp-sm;
   }
 
   @media #{$brkpt-lg} {
@@ -49,13 +49,13 @@
 
 .hero__caption {
   @extend %fs-small;
-  padding: $sp-sm $sp-md 0;
+  padding: $vsp-sm $hsp-md 0;
   font-family: $ff-serif;
   font-style: italic;
   color: $c-grey-60;
   margin: 0;
 
   @media #{$brkpt-md} {
-    padding: $sp-sm $sp-lg 0;
+    padding: $vsp-sm $hsp-lg 0;
   }
 }

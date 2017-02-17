@@ -1,6 +1,6 @@
 .article {
-  margin-left: -$sp-md;
-  margin-right: -$sp-md;
+  margin-left: -$hsp-md;
+  margin-right: -$hsp-md;
 
   @media #{$brkpt-sm} {
     margin: 0;
@@ -12,6 +12,6 @@
   font-family: $ff-disp;
   font-style: italic;
   color: $c-black;
-  margin: $sp-md 0 $sp-sm;
+  margin: $vsp-md 0 $vsp-sm;
   order: 3;
 }

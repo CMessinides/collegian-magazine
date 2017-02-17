@@ -3,9 +3,9 @@
   border-radius: 2px;
   font-family: $ff-sans;
   display: inline-block;
-  padding: $sp-xs $sp-sm;
-  margin-bottom: $sp-sm;
-  margin-right: $sp-sm;
+  padding: $vsp-xs $hsp-sm;
+  margin-bottom: $vsp-sm;
+  margin-right: $hsp-sm;
 
   &:hover {
     background-color: $c-brand;

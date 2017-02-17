@@ -7,63 +7,19 @@ $brkpt-lg: screen and (min-width: 64em);
 $brkpt-xl: screen and (min-width: 80em);
 
 // # Spacing
-$sp-xxs: 2px;
-$sp-xs: 4px;
-$sp-sm: 8px;
-$sp-md: 16px;
-$sp-lg: 32px;
-$sp-xl: 64px;
+$hsp-xxs: 4px;
+$hsp-xs: 8px;
+$hsp-sm: 16px;
+$hsp-md: 24px;
+$hsp-lg: 48px;
+$hsp-xl: 64px;
 
-// -inset-: Sets an equal amount of space on all sides of a box
-
-// For grids, it is recommended that inset spacing be set on the parent grid as
-// well as its children items to ensure equal spacing between all items and
-// between items and the edges of the grid.
-$sp-inset-xs: 4px;
-$sp-inset-sm: 8px;
-$sp-inset-md: 16px;
-$sp-inset-lg: 32px;
-$sp-inset-xl: 64px;
-
-// -stacl-: Sets space on the top of the box and removes it from all other sides
-$sp-stack-xxs: 2px 0 0 0;
-$sp-stack-xs: 4px 0 0 0;
-$sp-stack-sm: 8px 0 0 0;
-$sp-stack-md: 16px 0 0 0;
-$sp-stack-lg: 32px 0 0 0;
-$sp-stack-xl: 64px 0 0 0;
-
-// -gutters-: Sets space on the left and right of the box and removes it from the top and
-// bottom
-
-// For grids, it is recommended that gutter spacing be set on the parent grid as
-// well as its children columns to ensure equal spacing between all columns and
-// between columns and the edges of the grid.
-$sp-gutters-xxs: 0 2px;
-$sp-gutters-xs: 0 4px;
-$sp-gutters-sm: 0 8px;
-$sp-gutters-md: 0 16px;
-$sp-gutters-lg: 0 32px;
-$sp-gutters-xl: 0 64px;
-
-// -inline-: Sets space to the right side of the box and removes it from all other sides
-$sp-inline-xxs: 0 2px 0 0;
-$sp-inline-xs: 0 4px 0 0;
-$sp-inline-sm: 0 8px 0 0;
-$sp-inline-md: 0 16px 0 0;
-$sp-inline-lg: 0 32px 0 0;
-$sp-inline-xl: 0 64px 0 0;
-
-// -stretch-: Sets an equal amount of space on the left and right sides of a box and a
-// larger amount on the top and bottom
-$sp-stretch-sm: 8px 4px;
-$sp-stretch-md: 16px 8px;
-$sp-stretch-lg: 32px 16px;
-
-// -squish-: Sets an equal amount of space on the top and bottom sides of a box and a
-// larger amount on the right and left
-$sp-squish-sm: 8px 12px;
-$sp-squish-md: 16px 24px;
+$vsp-xxs: 0.25rem;
+$vsp-xs: 0.5rem;
+$vsp-sm: 1rem;
+$vsp-md: 1.5rem;
+$vsp-lg: 3rem;
+$vsp-xl: 4rem;
 
 // # Layout
 $columns: 12;

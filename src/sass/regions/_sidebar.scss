@@ -1,9 +1,9 @@
 .sidebar__section {
-  padding: $sp-md;
-  margin-bottom: $sp-md;
+  padding: $vsp-md $hsp-md;
+  margin-bottom: $vsp-md;
 
   @media #{$brkpt-lg} {
-    padding: 0 0 $sp-lg 0;
+    padding: 0 0 $vsp-lg 0;
   }
 }
 
@@ -28,7 +28,7 @@
   font-style: italic;
   font-weight: 400;
   color: $c-black;
-  margin-bottom: $sp-md;
+  margin-bottom: $vsp-md;
 }
 
 .sidebar__description {

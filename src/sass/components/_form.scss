@@ -25,37 +25,37 @@
 
 .form__label {
   flex: 0 auto;
-  margin-bottom: $sp-sm;
+  margin-bottom: $vsp-sm;
 }
 
 .form__fieldset {
   align-items: center;
-  padding: $sp-md;
+  padding: $vsp-md $hsp-md;
   flex-wrap: nowrap;
 }
 
 .form__legend {
   @extend %fs-small;
-  padding-top: $sp-md;
+  padding-top: $vsp-md;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  margin-bottom: -$sp-sm;
+  margin-bottom: -$vsp-sm;
 }
 
 .form__list-item {
   &:not(:last-child) {
-    margin-right: $sp-md;
+    margin-right: $hsp-md;
   }
 }
 
 .form__checkbox {
   appearance: none;
-  border-radius: $sp-xs;
+  border-radius: 2px;
   border: 2px $c-brand-tint solid;
-  height: 1rem;
-  width: 1rem;
-  margin-right: $sp-sm;
+  height: $vsp-sm;
+  width: $vsp-sm;
+  margin-right: $hsp-sm;
 
   &:checked {
     background: $c-brand-shade2 url('/check.svg');
