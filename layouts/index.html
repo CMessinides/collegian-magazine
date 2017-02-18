@@ -11,28 +11,29 @@
   {{ $featured := index (where (where (where .Site.Pages "Section" "article") "Params.featured" true) "Params.cover_image" "ne" nil) 0 }}
 
   {{ if $featured }}
-    <div class="hero">
+  <div class="hero">
     {{ partial "hero-image" $featured }}
-      <h2 class="hidden">Featured Article</h2>
-        <article class="hero__insert card card__inner">
-          <header class="card__header card__region">
-            <h3 class="card__title"><a href="{{ $featured.Permalink | absURL }}" class="link">{{ $featured.Title }}</a></h3>
-            {{ partial "byline" $featured }}
-            {{ partial "category-link" $featured }}
-            <p class="card__teaser">
-              {{ with $featured.Params.teaser }}
-              {{ . }}
-              {{ else }}
-              {{ $featured.Summary }}
-              {{ end }}
-            </p>
-          </header>
-          <a href="{{ $featured.Permalink | absURL }}" class="card__link">
-            <span class="hidden">Read More from {{ $featured.Title }}</span>
-          </a>
-        </article>
+    <div class="hero__inner">
+      <h2 class="hidden">Featured</h2>
+      <article class="hero__insert">
+        <header class="card__header card__region">
+          {{ partial "category-link" $featured }}
+          <h3 class="summary__title"><a href="{{ $featured.Permalink | absURL }}" class="link">{{ $featured.Title }}</a></h3>
+          {{ partial "byline" $featured }}
+          <p class="summary__body">
+            {{ with $featured.Params.teaser }}
+            {{ . }}
+            {{ else }}
+            {{ $featured.Summary }}{{ if $featured.Truncated }}&hellip;{{ end }}
+            {{ end }}
+          </p>
+        </header>
+        <a href="{{ $featured.Permalink | absURL }}" class="card__link">
+          <span class="hidden">Read More from {{ $featured.Title }}</span>
+        </a>
+      </article>
     </div>
-
+  </div>
   {{ end }}
 
 {{ end }}

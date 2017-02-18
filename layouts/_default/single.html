@@ -16,17 +16,17 @@
   {{ end }}
 {{ end }}
 {{ define "content" }}
-  <article class="card article">
-    <header class="card__header card__region card__region--wide">
-      <h1 class="article__title">{{ .Title | default "Untitled" }}</h1>
-      {{ if .Params.authors }}
-      {{ partial "byline" . }}
-      {{ end }}
+  <article class="card card--full-length">
+    <header class="card__header card__region">
       {{ if .Params.categories }}
       {{ partial "category-link" . }}
       {{ end  }}
+      <h1 class="summary__title">{{ .Title | default "Untitled" }}</h1>
+      {{ if .Params.authors }}
+      {{ partial "byline" . }}
+      {{ end }}
     </header>
-    <div class="markdown card__region card__region--wide">
+    <div class="markdown card__region">
       {{ .Content | markdownify }}
     </div>
     <footer>

@@ -8,11 +8,11 @@
 {{ with .Params.tags }}
 <section class="sidebar__section">
   <h2 class="h4">Tags</h2>
-  <ul class="list sidebar__description">
+  <ul class="list sidebar__description"><!--
     {{ range . }}
-    <li class="badge"><a class="badge__link" href="{{ . | urlize | printf "/tags/%s" | absURL }}">{{ . }}</a></li>
+  --><li class="badge"><a class="badge__link" href="{{ . | urlize | printf "/tags/%s" | absURL }}">{{ . }}</a></li><!--
     {{ end }}
-  </ul>
+  --></ul>
 </section>
 {{ end }}
 {{ end }}

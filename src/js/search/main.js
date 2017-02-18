@@ -300,11 +300,10 @@
     };
 
     var prevTimeout;
-    function handleKeyboard(event) {
-      if (event.which != 13) {
-        window.clearTimeout(prevTimeout);
-        prevTimeout = window.setTimeout(diffState, 400, history.state, form.getState());
-      }
+    function handleInput(event) {
+      results.clear(Results.prototype.showStatus, 'loading')
+      window.clearTimeout(prevTimeout);
+      prevTimeout = window.setTimeout(diffState, 500, history.state, form.getState());
     };
 
     function handleTouch(event) {
@@ -365,7 +364,7 @@
 
     function watch() {
       form.el.addEventListener('submit', handleSubmit, true);
-      form.el.addEventListener('keyup', handleKeyboard, true);
+      form.el.addEventListener('input', handleInput, true);
       form.el.addEventListener('click', handleTouch, true);
       window.addEventListener('popstate', changeState);
     };

@@ -22,14 +22,12 @@
 }
 
 .hero__insert {
-  @extend %fs-ui;
-  @include global-max-width;
   background-color: $c-white;
   border-top: 8px $c-acc1 solid;
-  width: 100%;
+  margin: 0 (-$hsp-sm);
 
   @media #{$brkpt-md} {
-    padding: $vsp-sm $hsp-sm;
+    margin: 0 (-$hsp-md);
   }
 
   @media #{$brkpt-lg} {
@@ -37,17 +35,30 @@
     position: absolute;
     bottom: 0;
   }
+
+  .summary__title {
+    @extend %fs-0;
+    margin-bottom: $vsp-xxs;
+  }
+
+  .summary__subtitle {
+    @extend %fs-ui;
+  }
+
+  .summary__body {
+    @extend %fs-base;
+  }
 }
 
 .hero__caption {
   @extend %fs-small;
-  padding: $vsp-sm $hsp-md 0;
+  padding: $vsp-xs 0 $vsp-sm;
   font-family: $ff-serif;
   font-style: italic;
   color: $c-grey-60;
   margin: 0;
 
   @media #{$brkpt-md} {
-    padding: $vsp-sm $hsp-lg 0;
+    padding: $vsp-sm $hsp-md 0;
   }
 }

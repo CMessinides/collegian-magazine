@@ -1,1 +1,4 @@
-<div class="hero__image hero__image--full" style="background-image:url({{ .Params.cover_image | replaceRE "(png|jpeg|gif|tiff|bmp)$" "jpg" |absURL | safeCSS }});{{ with .Params.focal_point }}background-position: {{ lower . }}{{ end }}"></div>
+{{ $src := .Params.cover_image | replaceRE "(png|jpeg|gif|tiff|bmp)$" "jpg" | absURL }}
+
+
+<div class="hero__image hero__image--full" style="background-image:url({{ $src }});{{ with .Params.focal_point }}background-position: {{ lower . }}{{ end }}" {{ if .Params.caption }}aria-labelledby="hero-caption"><span class="hidden" id="hero-caption">{{ .Params.caption }}</span>{{ else }}>{{ end }}</div>

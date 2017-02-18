@@ -4,7 +4,9 @@
   box-shadow: 0px 0px 4px 4px $c-shad-wk;
   flex: none;
   z-index: 4;
+  width: 100%;
 }
+
 
 .header__wrap {
   @include global-max-width;

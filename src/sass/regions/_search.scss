@@ -58,12 +58,51 @@
   display: flex;
 }
 
+.search__loader {
+  margin: 64px auto;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+}
+
+.loader__dot {
+  display: inline-block;
+  width: $hsp-sm;
+  height: $hsp-sm;
+  background-color: $c-grey-60;
+  border-radius: 50%;
+  margin: 4px;
+  animation: 1s cubic-bezier(.31,0,.27,1) infinite alternate bounce;
+
+  &:nth-child(2) {
+    animation-delay: 150ms;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 300ms;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-32px);
+  }
+}
+
 .search__results.show {
   display: block;
 }
 
 .search__section {
-  animation: fadeup 466ms ease-in;
+  animation: 466ms ease-in fadeup;
 }
 
 @keyframes fadeup {
