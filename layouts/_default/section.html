@@ -11,35 +11,11 @@
 {{ define "content" }}
   <ul class="list">
     {{ range .Data.Pages }}
-    <li class="card {{ if .Params.featured }}card--alpha{{ else }}card--beta{{ end }} wid-12">
-      <article class="card__inner ns-grid">
-        {{ if .Params.cover_image }}
-        <figure class="card__thumb">
-          {{ partial "card-image" . }}
-        </figure>
-        {{ end }}
-        <header class="card__region card__header ns-wid-7">
-          <h2 class="card__title"><a class="link" href="{{ .Permalink | absURL }}">{{ .Title }}</a></h2>
-          {{ if .Params.authors }}
-            {{ partial "byline" . }}
-          {{ else }}
-            <p class="card__byline">{{ .Date | dateFormat "Jan. 2, 2006" }}</p>
-          {{ end }}
-          {{ if .Params.categories }}
-            {{ partial "category-link" . }}
-          {{ end }}
-          {{ with .Params.teaser }}
-            <p class="card__teaser">{{ . }}</p>
-          {{ else }}
-            <p class="card__teaser">{{ .Summary }}</p>
-          {{ end }}
-        </header>
-
-        <a href="{{ .Permalink | absURL }}" class="card__link">
-          <span class="hidden">Read more from {{ .Title }}</span>
-        </a>
-      </article>
-    </li>
+    {{ if .Params.featured }}
+      {{ .Render "card-large" }}
+    {{ else }}
+      {{ .Render "card" }}
+    {{ end }}
     {{ end }}
   </ul>
 {{ end }}

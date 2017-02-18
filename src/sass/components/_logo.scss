@@ -2,7 +2,7 @@
   display: block;
   color: $c-black;
   font-family: $ff-disp;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
   text-decoration: none;
@@ -10,25 +10,7 @@
 }
 
 .logo--header {
-  @extend %fs-0;
-  border-bottom: 1px $c-grey-10 solid;
-  margin: 0 auto;
-}
-
-.logo--footer {
-  @extend %fs-1;
-  margin-bottom: $sp-sm;
-  padding-top: $sp-lg;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 104px;
-    border-bottom: $sp-sm $c-acc1 solid;
-    top: 0;
-    left: 0;
-  }
+  @extend %fs-4;
 }
 
 .logo--sidebar {
@@ -47,20 +29,12 @@
   }
 }
 
-.logo--md {
-  max-width: 360px;
-
-  @media #{$brkpt-sm} {
-    max-width: 480px;
-  }
-}
-
 .logo__img {
   display: block;
-  width: 100%;
+  flex: 0 auto;
 }
 
 .logo--header .logo__img {
-  height: $vsp-xl;
-  width: $vsp-xl;
+  height: $hsp-xl;
+  width: $hsp-xl;
 }

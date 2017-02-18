@@ -14,8 +14,7 @@
     <div class="hero">
     {{ partial "hero-image" $featured }}
       <h2 class="hidden">Featured Article</h2>
-      <div class="hero__inner">
-        <article class="hero__insert card__inner">
+        <article class="hero__insert card card__inner">
           <header class="card__header card__region">
             <h3 class="card__title"><a href="{{ $featured.Permalink | absURL }}" class="link">{{ $featured.Title }}</a></h3>
             {{ partial "byline" $featured }}
@@ -32,7 +31,6 @@
             <span class="hidden">Read More from {{ $featured.Title }}</span>
           </a>
         </article>
-      </div>
     </div>
 
   {{ end }}
@@ -44,28 +42,7 @@
       <h2 class="h3">In the Latest Issue</h2>
       <ul class="list">
         {{ range first 5 (where (where .Site.Pages "Section" "article") "Params.featured" false) }}
-        <li class="card card--beta wid-12">
-          <article class="card__inner ns-grid">
-            {{ if .Params.cover_image }}
-            <figure class="card__thumb">
-              {{ partial "card-image" . }}
-            </figure>
-            {{ end }}
-            <header class="card__region card__header ns-wid-7">
-              <h3 class="card__title"><a class="link" href="{{ .Permalink | absURL }}">{{ .Title }}</a></h3>
-              {{ partial "byline" . }}
-              {{ partial "category-link" . }}
-              {{ with .Params.teaser }}
-                <p class="card__teaser">{{ . }}</p>
-              {{ else }}
-                <p class="card__teaser">{{ .Summary }}</p>
-              {{ end }}
-            </header>
-            <a href="{{ .Permalink | absURL }}" class="card__link">
-              <span class="hidden">Read more from {{ .Title }}</span>
-            </a>
-          </article>
-        </li>
+          {{ .Render "card" }}
         {{ end }}
       </ul>
       <div class="paginator">
@@ -76,10 +53,19 @@
       </div>
     </section>
 
-    {{ $first_announce := index (where .Site.Pages "Section" "announcement") 0 }}
-    {{ if $first_announce }}
     <section class="page__section section--bold">
+      {{ $announcements := where .Site.Pages "Section" "announcement" }}
       <h2 class="h3">From the Blog</h2>
+      <ul class="list">
+        {{ range (first 1 $announcements) }}
+        {{ .Render "card-large" }}
+        {{ end }}
+        {{ if gt (len $announcements) 1 }}
+        {{ range (first 2 (after 1 $announcements)) }}
+        {{ .Render "card" }}
+        {{ end }}
+        {{ end }}
+      </ul>
       <div class="paginator">
         <a href="{{ "/announcement/" | absURL }}" class="paginator__link paginator__link--more">
           <span class="paginator__sub">More</span>
@@ -87,6 +73,5 @@
         </a>
       </div>
     </section>
-    {{ end }}
 
 {{ end }}

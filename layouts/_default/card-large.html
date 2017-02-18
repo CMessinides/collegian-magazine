@@ -1,0 +1,32 @@
+<li class="card card--alpha">
+  <article class="card__inner">
+    {{ with .Params.featured }}
+      <span class="summary__meta summary__meta--featured">Featured</span>
+    {{ end }}
+    {{ if .Params.cover_image }}
+    <div class="card__thumb" role="presentation">
+      <a href="{{ .Permalink | absURL }}" class="card__image-link">
+        <span class="hidden">Read more about {{ .Title }}</span>
+      </a>
+      {{ partial "card-image" . }}
+    </div>
+    {{ end }}
+    <header class="card__header card__region">
+      {{ if .Params.categories }}
+        {{ partial "category-link" . }}
+      {{ end }}
+      <h3 class="summary__title"><a href="{{ .Permalink | absURL }}" class="link">{{ .Title }}</a></h3>
+      {{ if .Params.authors }}
+        {{ partial "byline" . }}
+      {{ end }}
+      {{ with .Params.teaser }}
+        <p class="summary__body">{{ . }}</p>
+      {{ else }}
+        <p class="summary__body">{{ .Summary }}{{ if .Truncated }}&hellip;{{ end }}</p>
+      {{ end }}
+      <p class="card__read-more">
+        <a href="{{ .Permalink | absURL }}" class="link link--ui-beta">Read More<span class="hidden">from {{ .Title }}</span>&hellip;</a>
+      </p>
+    </header>
+  </article>
+</li>

@@ -1,0 +1,17 @@
+@mixin grid() {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -$hsp-sm;
+  margin-bottom: $hsp-sm;
+
+  > .grid__cell {
+    display: flex;
+    align-items: stretch;
+    flex: 1 auto;
+    padding: $hsp-sm;
+
+    > * {
+      width: 100%;
+    }
+  }
+}

@@ -302,7 +302,6 @@
     var prevTimeout;
     function handleKeyboard(event) {
       if (event.which != 13) {
-        results.clear(Results.prototype.showStatus, 'loading');
         window.clearTimeout(prevTimeout);
         prevTimeout = window.setTimeout(diffState, 400, history.state, form.getState());
       }

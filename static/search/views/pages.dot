@@ -5,9 +5,8 @@
       <li class="card card--gamma wid-6 ns-wid-4">
         <article class="card__inner">
           <header class="card__region card__header">
-            <h4 class="card__title"><a class="link" href="{{=value.url}}">{{=value.title}}</a></h4>
+            <h4 class="title"><a class="link" href="{{=value.url}}">{{=value.title}}</a></h4>
           </header>
-          <a class="card__link" href="{{=value.url}}"><span class="hidden">Read more from the {{=value.title}} page.</span></a>
         </article>
       </li>
     {{~}}

@@ -1,6 +1,6 @@
 .header {
   @extend %fs-base;
-  background: $c-off-white;
+  background: $c-white;
   box-shadow: 0px 0px 4px 4px $c-shad-wk;
   flex: none;
   z-index: 4;
@@ -8,122 +8,15 @@
 
 .header__wrap {
   @include global-max-width;
-  padding: $sp-gutters-md;
-
+  padding: 0 $hsp-sm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   @media #{$brkpt-md} {
-    padding: $sp-gutters-lg;
+    padding: 0 $hsp-md;
   }
 }
 
-.header__nav-shadow {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  z-index: 90;
-  background: transparentize($c-black, 0.5);
-  top: 0;
-  transition: 200ms opacity ease;
-}
-
-.header__nav {
-  position: fixed;
-  background: $c-off-white;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  max-width: 260px;
-  z-index: 100;
-  padding: $sp-xl $sp-lg;
-  transform: translateX(-100%);
-  transition: 300ms transform cubic-bezier(0.110, 0.005, 0.420, 0.995);
-
-  &.open {
-    transform: translateX(0);
-
-    & + .header__nav-shadow {
-      display: block;
-      visibility: visible;
-      opacity: 1;
-
-      @media #{$brkpt-md} {
-        display: none;
-      }
-    }
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  @media #{$brkpt-md} {
-    display: flex;
-    padding: $sp-md 0;
-    align-items: center;
-    justify-content: space-between;
-    position: static;
-    transform: none;
-    max-width: 100%;
-  }
-}
-
-.header__toggle {
-  display: block;
-  background: $c-grey-75;
-  background-clip: content-box;
-  height: 16px;
-  padding: 7px 0;
-  position: relative;
-  margin: $sp-md 0;
-  width: 24px;
-
-  &::before,
-  &::after {
-    background: $c-grey-75;
-    content: '';
-    position: absolute;
-    right: 0;
-    height: 2px;
-    width: 100%;
-  }
-
-  &::before {
-    top: 0;
-  }
-
-  &::after {
-    bottom: 0;
-  }
-
-  @media #{$brkpt-md} {
-    display: none;
-    visibility: hidden;
-  }
-}
-
-.header__nav-list {
-  height: 100%;
-}
-
-.header__nav-item {
-  user-select: none;
-
-  @media #{$brkpt-md} {
-    padding-right: $sp-lg;
-    line-height: 1;
-    display: inline-block;
-  }
-}
-
-.header__nav {
-  .list--social {
-    justify-content: flex-end;
-  }
-
-  .list__item--social:last-child {
-    margin-right: 0;
-  }
+.header .list__item--social:last-child {
+  padding-right: 0;
 }

@@ -58,7 +58,7 @@
   margin-right: $hsp-sm;
 
   &:checked {
-    background: $c-brand-shade2 url('/check.svg');
+    background: $c-brand-shade2 url('/design/check.svg');
     background-size: contain;
     border-color: $c-brand-shade2;
   }
@@ -70,7 +70,7 @@
   }
 
   &:disabled {
-    background: $c-grey-10 url('/check-disabled.svg');
+    background: $c-grey-10 url('/design/check-disabled.svg');
     border-color: $c-grey-10;
   }
 

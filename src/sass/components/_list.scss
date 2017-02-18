@@ -5,7 +5,7 @@
 }
 
 .list--cards {
-  flex-wrap: wrap;
+  @include grid;
 }
 
 .list--social {
@@ -13,5 +13,20 @@
 }
 
 .list__item--social {
-  margin-right: $hsp-sm;
+  padding: 0 $hsp-xs;
+}
+
+.list__item--summary {
+  display: flex;
+  align-items: center;
+  border-top: 1px $c-grey-20 solid;
+  padding: $vsp-sm 0;
+
+  &:last-of-type {
+    border-bottom: 1px $c-grey-20 solid;
+  }
+
+  .summary__title {
+    @extend %fs-6;
+  }
 }

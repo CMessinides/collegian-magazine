@@ -15,7 +15,7 @@ tags:
 - test
 - styling
 - to be deleted
-teaser: This is a teaser, short and sweet.
+teaser: ''
 
 ---
 # Four drunk quails gather blue vats lazily

@@ -1,36 +1,9 @@
 {{ $site_title := .Site.Data.branding.site_name | default .Site.Title }}
 <footer class="footer" role="contentinfo">
   <div class="footer__wrap">
-    <section class="footer__section footer__section--about wid-12">
-      <h2 class="logo--footer">
-        <a class="logo logo--md" href="{{ "/" | absURL }}">
-          {{ with .Site.Params.logo }}
-            <img class="logo__img" src="{{ . | absURL }}" alt="{{ $site_title }}">
-          {{ else }}
-            {{ $site_title }}
-          {{ end }}
-        </a>
-      </h2>
-      {{ with .Site.Data.branding.description }}
-      <p class="footer__description">{{ . }}</p>
-      {{ end }}
-    </section>
-    <section class="footer__section footer__section--contact lg-wid-4 md-wid-6">
-      <h3 class="h3">Contact Us</h3>
-      {{ with .Site.Data.branding.email }}
-      <a href="mailto:{{ . }}" class="footer__email link link--ui-beta">
-        <span class="hidden">Send email to </span>
-        {{ . }}
-      </a>
-      {{ end }}
-      <nav class="footer__social" role="navigation" aria-label="Social links">
-        {{ partial "social-list" . }}
-      </nav>
-    </section>
-    <section class="footer__section footer__section--sitemap lg-wid-8 md-wid-6 wid-12">
-      <nav id="footer-nav" class="footer__nav" tabindex="-1">
-        <h3 class="h3">Sitemap</h3>
-        <ul class="list footer__nav-list">
+    <div class="footer__section footer__section--sitemap">
+      <nav id="footer-nav" class="footer__nav" role="navigation" aria-label="Footer Menu">
+        <ul class="list footer__nav-list wid-12">
           {{ range .Site.Menus.footer }}
             <li class="footer__nav-item">
               <a class="link link--ui-beta" href="{{ .URL | absURL }}">{{ .Name }}</a>
@@ -38,10 +11,7 @@
           {{ end }}
         </ul>
       </nav>
-    </section>
-    <p class="footer__section md-wid-6 wid-12 footer__copyright">&copy; {{ .Site.LastChange | dateFormat "2006" }} {{ $site_title }}. All Rights Reserved.</p>
-    <p class="footer__section md-wid-6 wid-12 footer__back-to-top">
-      <a class="link link--ui-alpha" href="#top">Back to top</a>
-    </p>
+    </div>
+    <p class="footer__section footer__copyright">&copy; {{ .Site.LastChange | dateFormat "2006" }} {{ $site_title }}. All Rights Reserved.</p>
   </div>
 </footer>

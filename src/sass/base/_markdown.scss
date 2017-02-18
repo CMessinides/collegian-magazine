@@ -17,7 +17,7 @@
 .markdown h5,
 .markdown h6 {
   color: $c-black;
-  font-family: $ff-disp;
+  font-family: $ff-sans;
 }
 
 %h2,
@@ -30,13 +30,12 @@
   text-transform: uppercase;
   letter-spacing: 0.07em;
   font-weight: 400;
-  padding-bottom: $vsp-sm;
+  padding-bottom: $vsp-xs;
   border-bottom: 1px $c-grey-20 solid;
 }
 
 %h4,
 .markdown h4 {
-  font-style: italic;
   font-weight: 400;
 }
 

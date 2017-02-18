@@ -4,16 +4,16 @@
     {{~it.announcements :value:index}}
       <li class="card card--beta">
         <article class="card__inner">
+          <a href="{{=value.url}}" class="card__link"><span class="hidden">Read more from {{=value.title}}</span></a>
           <header class="card__region card__header">
-            <h4 class="card__title"><a href="{{=value.url}}" class="link">{{=value.title}}</a></h4>
-            <p class="card__byline">{{=value.date}}</p>
+            <h4 class="title"><a href="{{=value.url}}" class="link">{{=value.title}}</a></h4>
+            <p class="subtitle">{{=value.date}}</p>
             {{? value.teaser }}
-            <p class="card__teaser">
+            <p class="body">
               {{=value.teaser}}
             </p>
             {{?}}
           </header>
-          <a href="{{=value.url}}" class="card__link"><span class="hidden">Read more from {{=value.title}}</span></a>
         </article>
       </li>
     {{~}}

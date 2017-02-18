@@ -4,13 +4,19 @@
     {{~it.articles :value:index}}
       <li class="card card--beta">
         <article class="card__inner">
+          <a href="{{=value.url}}" class="card__link"><span class="hidden">Read more from {{=value.title}}</span></a>
+          {{? value.coverImage }}
+          <figure class="card__thumb">
+            <img src="{{=value.coverImage}}" alt="{{? value.caption }}{{=value.caption}}{{?}}" class="card__image">
+            <figcaption class="hidden">{{? value.caption }}{{=value.caption}}{{?}}</figcaption>
+          </figure>
+          {{?}}
           <header class="card__header card__region">
-            <h4 class="card__title"><a href="{{=value.url}}" class="link">{{=value.title}}</a></h4>
+            <h4 class="title"><a href="{{=value.url}}" class="link">{{=value.title}}</a></h4>
             {{? value.teaser }}
-            <p class="card__teaser">{{=value.teaser}}</p>
+            <p class="body">{{=value.teaser}}</p>
             {{?}}
           </header>
-          <a href="{{=value.url}}" class="card__link"><span class="hidden">Read more from {{=value.title}}</span></a>
         </article>
       </li>
     {{~}}

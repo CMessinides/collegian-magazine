@@ -2,15 +2,6 @@
   position: relative;
 }
 
-.hero__title {
-  @extend %bq;
-  padding: 0 $hsp-sm;
-
-  @media #{$brkpt-md} {
-    padding: 0 $hsp-md;
-  }
-}
-
 .hero__image {
   box-shadow: inset 0px -2px 8px -2px $c-shad;
   height: 240px;
@@ -32,6 +23,7 @@
 
 .hero__insert {
   @extend %fs-ui;
+  @include global-max-width;
   background-color: $c-white;
   border-top: 8px $c-acc1 solid;
   width: 100%;

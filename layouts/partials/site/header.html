@@ -1,11 +1,9 @@
 {{ $site_title := .Site.Data.branding.site_name | default .Site.Title }}
 <header class="header" role="banner">
   <div class="header__wrap">
-    <a class="logo logo--header link link--highlight wid-12" href="{{ .Site.BaseURL }}">
+    <a class="logo logo--header link" href="{{ .Site.BaseURL }}">
       {{ with .Site.Params.logo }}
-      <img class="logo__img logo__img--masthead" src="{{ . | absURL }}" alt="{{ $site_title }}">
-      {{ else }}
-        {{ $site_title }}
+      <img class="logo__img" srcset="{{ "logos/icon-light.png" | absURL }} 1x, {{ "logos/icon-light@2x.png" | absURL }} 2x" src="{{ "/logos/icon-light.png" | absURL }}" alt="{{ $site_title }}">
       {{ end }}
     </a>
     <a aria-hidden="true" class="header__toggle" href="#footer-nav" id="nav-toggle"></a>
@@ -13,7 +11,7 @@
       <ul id="header-menu" class="list header__nav-list">
         {{ range .Site.Menus.main }}
         <li class="header__nav-item">
-          <a class="link link--ui-alpha js-nav-link" href="{{ .URL | absURL }}">{{ .Name }}</a>
+          <a class="link link--ui-beta nav__link js-nav-link" href="{{ .URL | absURL }}">{{ .Name }}</a>
         </li>
         {{ end }}
       </ul>

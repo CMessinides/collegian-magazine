@@ -1,18 +1,12 @@
 .footer {
   flex: none;
-  background: $c-off-white;
+  background: $c-white;
   box-shadow: 0px 2px 4px 4px $c-shad-wk;
+  padding: $hsp-md 0;
 }
 
 .footer__wrap {
   @include global-max-width;
-  padding: $vsp-xs $hsp-xs;
-
-  @media #{$brkpt-md} {
-    padding: $vsp-sm $hsp-sm;
-    display: flex;
-    flex-wrap: wrap;
-  }
 }
 
 .footer__email {
@@ -20,80 +14,60 @@
 }
 
 .footer__section {
+  text-align: center;
   line-height: 1.25;
-  padding: $vsp-xs $hsp-xs;
+  padding: $vsp-xs 0;
   flex: 0 1 auto;
-  margin: 0 0 $vsp-lg 0;
+  margin: 0;
+  margin-bottom: $vsp-md;
 
   @media #{$brkpt-md} {
-    padding: $vsp-sm $hsp-sm;
-    margin-bottom: 0;
+    padding: $vsp-sm 0;
   }
 }
 
-.footer__section--about {
-  flex-grow: 1;
-  margin-top: $vsp-md;
+.footer__nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
 
-  @media #{$brkpt-lg} {
-    margin-top: 0;
+  @media #{$brkpt-sm} {
+    display: block;
+    text-align: center;
   }
-}
-
-.footer__description {
-  @extend %fs-5;
-  margin: 0;
-  font-family: $ff-serif;
-  font-style: italic;
-  color: $c-grey-60;
-}
-
-.footer__header {
-  @extend %fs-3;
-  font-family: $ff-disp;
-  font-style: italic;
-  margin: 0 0 $vsp-sm 0;
-  color: $c-black;
-}
-
-.footer__social {
-  margin-top: $vsp-sm;
 }
 
 .footer__nav-item {
-  display: inline-block;
-  margin: 0 $hsp-md $vsp-sm 0;
+  border-top: 1px $c-grey-10 solid;
+  display: block;
+  flex: 1 0 50%;
+  padding: $vsp-xs $hsp-md;
+  background-image: url('/design/Bullet.png');
+  background-repeat: no-repeat;
+  background-size: 16px;
+  background-position: center left;
 
-  &::before {
-    content: '\2022\2009';
-    color: $c-grey-20;
+  @media #{$brkpt-sm} {
+    border: none;
+    display: inline-block;
+    padding: 0 $hsp-xs 0 $hsp-md;
+    margin-bottom: $vsp-xs;
+
+    &:first-child {
+      background-image: none;
+    }
   }
 }
 
 .footer__copyright {
   @extend %fs-small;
   color: $c-grey-60;
-  font-family: $ff-serif;
-  font-style: italic;
+  font-family: $ff-sans;
+  margin-bottom: 0;
 }
 
 .footer__back-to-top {
-  display: block;
-  text-align: center;
-
-  @media #{$brkpt-md} {
-    text-align: right;
-  }
-
   & .link::after {
     content: ' \2191';
-  }
-}
-
-.footer__copyright,
-.footer__back-to-top {
-  @media #{$brkpt-md} {
-    align-self: baseline;
-    margin-top: $vsp-lg;
   }
 }

@@ -42,13 +42,10 @@
   flex: 1 0 auto;
   width: 100%;
   margin: $vsp-lg auto $vsp-xl;
-  @media #{$brkpt-md} {
-    padding: 0 $hsp-md;
-  }
 }
 
 .hero + .page__content {
-  margin-top: $vsp-md;
+  margin-top: 0;
 
   @media #{$brkpt-sm} {
     margin-top: $vsp-lg
@@ -57,7 +54,6 @@
 
 .page__main {
   flex: 1 0 auto;
-  padding: 0 $hsp-md;
 }
 
 .page__sidebar {
@@ -67,7 +63,7 @@
 
 
   @media #{$brkpt-lg} {
-    padding: 0 $hsp-md;
+    padding-left: $hsp-lg;
     margin-top: 0;
   }
 }

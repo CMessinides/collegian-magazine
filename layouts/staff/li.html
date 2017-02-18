@@ -1,0 +1,9 @@
+<li class="list__item list__item--summary">
+  <a href="{{ .Permalink | absURL }}" class="link staff__avatar staff__avatar--small"><span class="hidden">Read more about {{ .Title }}</span>
+    {{ partial "staff-image" . }}
+  </a>
+  <article class="summary">
+    <h3 class="summary__title"><a href="{{ .Permalink | absURL }}" class="link">{{ .Title }}</a></h3>
+    <p class="summary__subtitle">{{ index .Params.roles 0 | default "Contributor" }}</p>
+  </article>
+</li>

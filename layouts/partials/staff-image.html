@@ -1,0 +1,7 @@
+{{ with .Params.profile_picture }}
+{{ $size1x := . | replaceRE "(/img)" "$1/128" | replaceRE "(png|jpeg|gif|tiff|bmp)$" "jpg" | absURL }}
+{{ $size2x := . | replaceRE "(/img)" "$1/320" | replaceRE "(png|jpeg|gif|tiff|bmp)$" "jpg" | absURL }}
+<img srcset="{{ $size1x }} 1x, {{ $size2x }} 2x" src="{{ $size2x }}" alt="Picture of {{ $.Title }}" class="staff__image">
+{{ else }}
+<img class="staff__image" src="{{ "design/avatar.svg" | absURL }}" alt="Placeholder profile picture">
+{{ end }}

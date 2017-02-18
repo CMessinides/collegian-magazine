@@ -6,7 +6,7 @@ last_name: Messinides
 roles:
 - Web Developer
 - Design Editor
-profile_picture: messinides.jpg
+profile_picture: "assets/img/messinides.jpg"
 twitter_username: cmessinides
 facebook_username: cameron.messinides
 instagram_username: cmessinides
