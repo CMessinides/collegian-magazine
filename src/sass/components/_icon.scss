@@ -15,3 +15,18 @@
     margin: 0.25rem;
   }
 }
+
+.icon--large {
+  svg {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
+
+.icon--facebook {
+  color: rgb(59,89,152);
+}
+
+.icon--twitter {
+  color: rgb(29, 161, 242);
+}

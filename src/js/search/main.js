@@ -1,4 +1,5 @@
 (function() {
+    window.addEventListener('error', shutdown, true);
 
     var schemas = {
       announcements: {
@@ -377,13 +378,12 @@
       window.clearTimeout(searchTimeout);
       form.disable();
       form.el.removeEventListener('submit', handleSubmit, true);
-      form.el.removeEventListener('keyup', handleKeyboard, true);
+      form.el.removeEventListener('input', handleInput, true);
       form.el.removeEventListener('click', handleTouch, true);
       window.removeEventListener('popstate', changeState);
       results.clear(Results.prototype.showStatus, 'error');
     }
 
-    window.addEventListener('error', shutdown, true);
     document.addEventListener('DOMContentLoaded', init, false);
 
 })();

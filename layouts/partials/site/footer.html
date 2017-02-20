@@ -3,13 +3,13 @@
   <div class="footer__wrap">
     <div class="footer__section footer__section--sitemap">
       <nav id="footer-nav" class="footer__nav" role="navigation" aria-label="Footer Menu">
-        <ul class="list footer__nav-list wid-12">
+        <ul class="list footer__nav-list wid-12"><!--
           {{ range .Site.Menus.footer }}
-            <li class="footer__nav-item">
+        --><li class="footer__nav-item">
               <a class="link link--ui-beta" href="{{ .URL | absURL }}">{{ .Name }}</a>
-            </li>
+            </li><!--
           {{ end }}
-        </ul>
+        --></ul>
       </nav>
     </div>
     <p class="footer__section footer__copyright">&copy; {{ .Site.LastChange | dateFormat "2006" }} {{ $site_title }}. All Rights Reserved.</p>

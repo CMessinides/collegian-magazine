@@ -1,32 +1,34 @@
-{{ if eq .Section "article" }}
-{{ with (index .Params.issues 0) }}
+{{ if or (eq .Section "article") (eq .Section "post") }}
 <section class="sidebar__section">
-  <h2 class="h4">Issue</h2>
-  <p class="sidebar__description"><a class="badge badge__link" href="{{ . | urlize | printf "issues/%s" | absURL }}">{{ . }}</a></p>
+  <div class="card">
+    <div class="card__region">
+      <h2 class="h6">Share</h2>
+      <ul class="list list--social list--social-left">
+        <li class="list__item--social">
+          <a href="https://facebook.com/sharer.php?u={{ .Permalink | absURL }}" rel="nofollow" target="_blank" title="Share on Facebook" class="icon icon--large icon--facebook link link--ui-beta ">
+            {{ partial (printf "icon/%s.svg" "facebook") . }}
+            <span class="hidden">Share on Facebook</span>
+          </a>
+        </li>
+        <li class="list__item--social">
+          <a href="https://twitter.com/intent/tweet?text={{ .Title }}&url={{ .Permalink | absURL }}" rel="nofollow" target="_blank" title="Share on Twitter" class="icon icon--large icon--twitter link link--ui-beta">
+            {{ partial (printf "icon/%s.svg" "twitter") . }}
+            <span class="hidden">Share on Twitter</span>
+          </a>
+        </li>
+        <li class="list__item--social"></li>
+      </ul>
+    </div>
+  </div>
 </section>
 {{ end }}
-{{ with .Params.tags }}
-<section class="sidebar__section">
-  <h2 class="h4">Tags</h2>
-  <ul class="list sidebar__description"><!--
-    {{ range . }}
-  --><li class="badge"><a class="badge__link" href="{{ . | urlize | printf "/tags/%s" | absURL }}">{{ . }}</a></li><!--
-    {{ end }}
-  --></ul>
-</section>
-{{ end }}
-{{ end }}
+{{ if .IsHome }}
 <section class="sidebar__section sidebar__section--about md-wid-8 lg-wid-auto">
   <h2 class="hidden">About {{ .Site.Params.site_name | default .Site.Title }}</h2>
   <img class="logo logo--square logo--sidebar wid-12" src="{{ "/logos/icon.svg" | absURL }}" alt="{{ .Site.Params.site_name | default .Site.Title }}">
   <p class="sidebar__description">{{ .Site.Params.description }} <a href="{{ "/about" | absURL }}" class="link link--muted">Read&nbsp;More <span class="hidden">about {{ .Site.Params.site_name | default .Site.Title }}</span></a></p>
 </section>
-<section class="sidebar__section sidebar__section--social md-wid-auto ns-wid-4">
-  <h2 class="h4">Follow the Magazine</h2>
-  <nav class="sidebar__social">
-    {{ partial "social-list" . }}
-  </nav>
-</section>
+{{ end }}
 {{ if ne .Title "Search" }}
 <section class="sidebar__section sidebar__section--search md-wid-12 ns-wid-8">
   <form class="form card" action="{{ "/search/" | absURL }}">
@@ -41,10 +43,19 @@
   </form>
 </section>
 {{ end }}
+<section class="sidebar__section sidebar__section--social md-wid-auto ns-wid-4">
+  <h2 class="h6">Follow the Magazine</h2>
+  <nav class="sidebar__social" role="navigation" aria-label="Social Links">
+    <ul class="list list--social list--social-left">
+      {{ partial "social-list" . }}
+    </ul>
+  </nav>
+</section>
+
 
 <section class="sidebar__section">
-  <h3 class="h4">The Staff</h3>
-  <ul class="list">
+  <h2 class="h6">The Staff</h2>
+  <ul class="list list--stack">
     {{ range first 3 (where .Site.Pages "Section" "staff") }}
     {{ .Render "li" }}
     {{ end }}
@@ -54,8 +65,8 @@
 {{ $featured := first 4 (where (where (where .Site.Pages "Section" "article" ) "Params.featured" true) "Permalink" "ne" .Permalink) }}
 {{ if $featured }}
 <section class="sidebar__section wid-12">
-  <h3 class="h4">Featured</h3>
-  <ul class="list">
+  <h2 class="h6">Featured</h2>
+  <ul class="list list--stack">
   {{ range $featured }}
     {{ .Render "li" }}
   {{ end }}

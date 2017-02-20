@@ -27,6 +27,9 @@
             {{ $featured.Summary }}{{ if $featured.Truncated }}&hellip;{{ end }}
             {{ end }}
           </p>
+          <p class="card__read-more">
+            <a href="{{ $featured.Permalink | absURL }}" class="link link--ui-beta">Read More<span class="hidden">from{{ $featured.Title }}</span>&hellip;</a>
+          </p>
         </header>
         <a href="{{ $featured.Permalink | absURL }}" class="card__link">
           <span class="hidden">Read More from {{ $featured.Title }}</span>
@@ -40,39 +43,65 @@
 
 {{ define "content" }}
     <section class="page__section">
-      <h2 class="h3">In the Latest Issue</h2>
+      <h2 class="h2">In the Latest Issue</h2>
       <ul class="list">
-        {{ range first 5 (where (where .Site.Pages "Section" "article") "Params.featured" false) }}
+        {{ range first 3 (where (where .Site.Pages "Section" "article") "Params.featured" false) }}
           {{ .Render "card" }}
         {{ end }}
       </ul>
       <div class="paginator">
         <a href="{{ "/article/" | absURL }}" class="paginator__link paginator__link--more">
-          <span class="paginator__sub">More</span>
+          <span class="sub">More</span>
           Articles
         </a>
       </div>
     </section>
 
-    <section class="page__section section--bold">
-      {{ $announcements := where .Site.Pages "Section" "announcement" }}
-      <h2 class="h3">From the Blog</h2>
+    <section class="page__section">
+      {{ $posts := where .Site.Pages "Section" "post" }}
+      <h2 class="h2">From the Blog</h2>
       <ul class="list">
-        {{ range (first 1 $announcements) }}
+        {{ range (first 1 $posts) }}
         {{ .Render "card-large" }}
         {{ end }}
-        {{ if gt (len $announcements) 1 }}
-        {{ range (first 2 (after 1 $announcements)) }}
+        {{ if gt (len $posts) 1 }}
+        {{ range (first 2 (after 1 $posts)) }}
         {{ .Render "card" }}
         {{ end }}
         {{ end }}
       </ul>
       <div class="paginator">
-        <a href="{{ "/announcement/" | absURL }}" class="paginator__link paginator__link--more">
-          <span class="paginator__sub">More</span>
-          Announcements
+        <a href="{{ "/post/" | absURL }}" class="paginator__link paginator__link--more">
+          <span class="sub">More</span>
+          Posts
         </a>
       </div>
+    </section>
+
+    <section class="page__section">
+      <h2 class="h2">Browse by Category</h2>
+      <ul class="list grid--wrap ns-grid">
+        {{ range $key, $category := .Site.Taxonomies.categories }}
+        <li class="list__item--summary md-wid-4 ns-wid-6">
+          <article class="summary">
+            <h3 class="summary__title"><a href="{{ $key | urlize | printf "/categories/%s" | absURL }}" class="link">{{ $key }}</a></h3>
+            <p class="summary__subtitle">
+              {{ len $category.Pages }}
+              {{ if eq (len $category.Pages) 1 }}
+              article
+              {{ else }}
+              articles
+              {{ end }}
+            </p>
+            {{ with (index (where $.Site.Data.categories.categories "name" $key) 0) }}
+            <p class="summary__body">
+              {{ index . "description" }}
+            </p>
+            {{ end }}
+          </article>
+        </li>
+        {{ end }}
+      </ul>
     </section>
 
 {{ end }}

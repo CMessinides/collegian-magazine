@@ -1,16 +1,17 @@
 {{ define "content" }}
+  <h1 class="hidden">Search</h1>
   <form id="search" class="form card page__section" action="" role="search">
     <div class="form__group">
       <label class="hidden" for="main-search">Search</label>
-      <input aria-controls="search-results" id="search-field" class="search__field search__field--main wid-12" type="text" name="q" placeholder="Search">
-      <button aria-controls="search-results" id="search-submit" class="search__btn" type="submit">
+      <input disabled aria-controls="search-results" id="search-field" class="search__field search__field--main wid-12" type="text" name="q" placeholder="Search">
+      <button disabled aria-controls="search-results" id="search-submit" class="search__btn" type="submit">
         <span class="hidden">Search</span>
         {{ partial "icon/magnify.svg" . }}
       </button>
     </div>
     <div class="form__group">
     </div>
-    <fieldset class="form__fieldset" id="search-filters">
+    <fieldset disabled class="form__fieldset" id="search-filters">
       <legend class="form__legend">Include:</legend>
       <ul class="form__group form__group--list">
         <li class="form__list-item">
@@ -33,27 +34,29 @@
     </fieldset>
   </form>
 
-  <div id="search-results" class="page__section grid" role="region" aria-labelledby="results-header" aria-live="polite">
-    <!-- TODO: Add the results header -->
+  <div id="search-results" class="page__section grid search__results-wrap" role="region" aria-labelledby="results-header" aria-live="polite">
+    <h2 class="hidden">Results</h2>
     <noscript>
-      <p class="search__status search__status--nojs show">
-
-      </p>
+      <div class="search__status search__status--error show">
+        <h3>Javascript disabled</h3>
+        <p>You'll need to enable Javascript to use search.</p>
+      </div>
     </noscript>
-    <p id="search-loading" class="search__status search__status--loading">
+    <div id="search-loading" class="search__status search__status--loading">
       <span class="hidden">Searching...</span>
-      <span class="search__loader">
+      <div class="search__loader">
         <span class="loader__dot"></span>
         <span class="loader__dot"></span>
         <span class="loader__dot"></span>
-      </span>
-    </p>
-    <p id="search-no-results" class="search__status search__status--no-results">
-      No results!
-    </p>
-    <p id="search-error" class="search__status search__status--error">
-      Error!
-    </p>
+      </div>
+    </div>
+    <div id="search-no-results" class="search__status search__status--no-results">
+      <h3>No Results</h3>
+    </div>
+    <div id="search-error" class="search__status search__status--error">
+      <h3>Error</h3>
+      <p>Something went wrong. Reloading the page might help.</p>
+    </div>
     <ul id="results-list" class="list search__results wid-12"></ul>
   </div>
 {{ end }}

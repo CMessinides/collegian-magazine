@@ -13,14 +13,14 @@ menu:
     url: "/"
     weight: 0
   - name: Blog
-    url: "/announcement/"
+    url: "/post/"
     weight: 4
   - name: Articles
     url: "/article/"
     weight: 2
   main:
   - name: Blog
-    url: "/announcement/"
+    url: "/post/"
     weight: 3
   - name: Articles
     url: "/article/"

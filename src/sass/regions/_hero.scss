@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.hero--bold {
+  background-color: $c-brand;
+}
+
 .hero__image {
   box-shadow: inset 0px -2px 8px -2px $c-shad;
   height: 240px;
@@ -19,6 +23,8 @@
 
 .hero__inner {
   @include global-max-width;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .hero__insert {
@@ -35,19 +41,6 @@
     position: absolute;
     bottom: 0;
   }
-
-  .summary__title {
-    @extend %fs-0;
-    margin-bottom: $vsp-xxs;
-  }
-
-  .summary__subtitle {
-    @extend %fs-ui;
-  }
-
-  .summary__body {
-    @extend %fs-base;
-  }
 }
 
 .hero__caption {
@@ -58,7 +51,57 @@
   color: $c-grey-60;
   margin: 0;
 
-  @media #{$brkpt-md} {
-    padding: $vsp-sm $hsp-md 0;
+  @media #{$brkpt-sm} {
+    padding: $vsp-xs $hsp-md 0;
   }
+
+  @media #{$brkpt-md} {
+    padding: $vsp-xs $hsp-lg 0;
+  }
+}
+
+.hero__title {
+  @extend %fs-0;
+  @include text-stack;
+  color: $c-acc1-tint;
+  padding: $vsp-xl 0 $vsp-md;
+  flex: 1 64px;
+  .sub {
+    display: flex;
+    align-items: center;
+
+    &::after {
+      content: '';
+      margin-left: $hsp-xxs;
+      height: 1px;
+      border-radius: 1px;
+      background-color: $c-brand-tint;
+      flex: 1 auto;
+    }
+  }
+}
+
+.hero__thumb {
+  width: 64px;
+  flex: 0 auto;
+  margin: auto $hsp-md $vsp-md 0;
+
+  .staff__image {
+    display: block;
+  }
+}
+
+.hero__extra {
+  width: 100%;
+  flex: 1 0 auto;
+  margin: 0 0 $vsp-md;
+}
+
+.hero__body {
+  @extend %fs-small;
+  margin: 0;
+  max-width: 36em;
+  font-family: $ff-serif;
+  font-style: italic;
+  color: $c-brand-tint3;
 }

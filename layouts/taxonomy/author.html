@@ -1,0 +1,33 @@
+{{ define "head-title" }}
+Articles by {{ .Title }} &mdash; {{ .Site.Params.site_name }}
+{{ end }}
+
+{{ define "hero" }}
+<div class="hero hero--bold">
+  <div class="hero__inner">
+    {{ $on_staff := where (where .Site.Pages "Section" "staff") "Title" .Title }}
+    {{ if $on_staff }}
+    <div class="hero__thumb">
+      {{ partial "staff-image" (index $on_staff 0) }}
+    </div>
+    {{ end }}
+    <h1 class="hero__title">
+      <span class="sub">{{ .Data.Singular | title }}</span>
+      {{ .Title }}
+    </h1>
+    {{ if $on_staff }}
+    <div class="hero__extra">
+      <a href="{{ (index $on_staff 0).Permalink | absURL }}" class="link link--ui-light">Read more about {{ (index $on_staff 0).Title }}&hellip;</a>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+{{ define "content" }}
+  <ul class="list">
+    {{ range .Data.Pages }}
+      {{ .Render "card" }}
+    {{ end }}
+  </ul>
+{{ end }}

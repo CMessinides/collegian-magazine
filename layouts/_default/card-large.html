@@ -1,8 +1,5 @@
 <li class="card card--alpha">
   <article class="card__inner">
-    {{ with .Params.featured }}
-      <span class="summary__meta summary__meta--featured">Featured</span>
-    {{ end }}
     {{ if .Params.cover_image }}
     <div class="card__thumb" role="presentation">
       <a href="{{ .Permalink | absURL }}" class="card__image-link">
@@ -18,6 +15,8 @@
       <h3 class="summary__title"><a href="{{ .Permalink | absURL }}" class="link">{{ .Title }}</a></h3>
       {{ if .Params.authors }}
         {{ partial "byline" . }}
+      {{ else }}
+        <p class="summary__subtitle">{{ .Date | dateFormat "January 2, 2006" }}</p>
       {{ end }}
       {{ with .Params.teaser }}
         <p class="summary__body">{{ . }}</p>

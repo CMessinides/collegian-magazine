@@ -41,21 +41,42 @@
   }
 }
 
+.search__results-wrap {
+  justify-content: center;
+}
+
 .search__status,
 .search__results {
   display: none;
 }
 
 .search__status {
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  @extend %fs-2;
+  font-family: $ff-disp;
+  font-style: italic;
+  color: $c-grey-60;
+  text-align: center;
   align-self: stretch;
   margin: 0;
+  padding: $vsp-sm $hsp-sm;
+  border-radius: 4px;
+
+  p {
+    @extend %fs-ui;
+    font-family: $ff-sans;
+    font-style: normal;
+    margin: $vsp-sm 0 0;
+  }
 }
 
 .search__status.show {
-  display: flex;
+  display:  block;
+}
+
+.search__status--error {
+  background-color: $c-acc1-tint;
+  border: 2px $c-acc1 solid;
+  color: $c-black;
 }
 
 .search__loader {

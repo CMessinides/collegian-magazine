@@ -1,14 +1,12 @@
 {{ $icon_safe := (slice "facebook" "twitter" "instagram" "issuu") }}
 
-<ul class="list list--social">
-  {{ range .Site.Data.social_links.social_links }}
-    {{ if in $icon_safe ( lower .name ) }}
-      {{ $icon := printf "icon/%s.svg" ( lower .name ) }}
-      <li class="list__item list__item--social">
-        <a class="icon link link--ui-beta" href="{{ .link }}" target="_blank" title="{{ $.Site.Data.branding.site_name | default $.Site.Title }} on {{ .name }}">
-            {{ partial $icon . }}
-        </a>
-      </li>
-    {{ end }}
+{{ range .Site.Data.social_links.social_links }}
+  {{ if in $icon_safe ( lower .name ) }}
+    {{ $icon := printf "icon/%s.svg" ( lower .name ) }}
+    <li class="list__item list__item--social">
+      <a class="icon link link--ui-beta" href="{{ .link }}" target="_blank" title="{{ $.Site.Data.branding.site_name | default $.Site.Title }} on {{ .name }}">
+          {{ partial $icon . }}
+      </a>
+    </li>
   {{ end }}
-</ul>
+{{ end }}

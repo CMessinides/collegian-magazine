@@ -1,0 +1,16 @@
+@mixin text-stack {
+  font-weight: bold;
+  font-style: italic;
+  font-family: $ff-disp;
+  display: block;
+
+  .sub {
+    @extend %fs-small;
+    font-family: $ff-sans;
+    font-style: normal;
+    font-weight: 600;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+}
