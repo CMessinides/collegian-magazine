@@ -16,7 +16,6 @@ tags:
 - knox county
 - kasich
 - schools
-- funding
 issues:
 - Spring 2016
 featured: true
