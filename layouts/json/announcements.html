@@ -1,5 +1,5 @@
 [
-  {{- range $index, $page := ( where .Site.Pages "Section" "announcement" ) -}}
+  {{- range $index, $page := ( where .Site.RegularPages "Section" "announcement" ) -}}
   {{ if $index }},{{ end }}
   {{ (dict "id" $index "url" ($page.Permalink | absURL) "title" $page.Title "date" ($page.Date | dateFormat "Jan. 2, 2006") "teaser" $page.Params.teaser "description" $page.Description "content" $page.Plain "tags" $page.Params.tags ) | jsonify }}
   {{- end -}}
