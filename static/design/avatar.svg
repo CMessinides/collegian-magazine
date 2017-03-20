@@ -7,13 +7,13 @@
 </mask>
 <g id="Frame" style="mix-blend-mode:normal;" mask="url(#mask0_alpha)" figma:type="frame">
 <g id="Ellipse" style="mix-blend-mode:normal;" figma:type="ellipse">
-<use xlink:href="#path0_fill" fill="#f7e9ba" style="mix-blend-mode:normal;"/>
+<use xlink:href="#path0_fill" fill="#1956be" style="mix-blend-mode:normal;"/>
 </g>
 <g id="Ellipse 2" style="mix-blend-mode:normal;" figma:type="ellipse">
-<use xlink:href="#path1_fill" transform="translate(34 12)" fill="#f9b405" style="mix-blend-mode:normal;"/>
+<use xlink:href="#path1_fill" transform="translate(34 12)" fill="#618cdc" style="mix-blend-mode:normal;"/>
 </g>
 <g id="Intersect" style="mix-blend-mode:normal;" figma:type="vector-operation">
-<use xlink:href="#path2_fill" transform="translate(10.6718 83.9761)" fill="#f9b405" style="mix-blend-mode:normal;"/>
+<use xlink:href="#path2_fill" transform="translate(10.6718 83.9761)" fill="#618cdc" style="mix-blend-mode:normal;"/>
 </g>
 </g>
 </g>

@@ -22,3 +22,32 @@
   color: $c-grey-60;
   font-weight: 400;
 }
+
+.description-block {
+  @extend %fs-small;
+  max-width: 28em;
+  font-family: $ff-serif;
+  margin: 0;
+  font-style: italic;
+
+  strong {
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+}
+
+.page__section-heading {
+  @extend %fs-4;
+  color: $c-grey-75;
+  font-family: $ff-sans;
+  margin-bottom: $vsp-md;
+
+  &::before {
+    content: '';
+    display: block;
+    margin-bottom: $vsp-xs;
+    width: $hsp-xl;
+    border-bottom: 4px $c-brand-tint solid;
+  }
+}

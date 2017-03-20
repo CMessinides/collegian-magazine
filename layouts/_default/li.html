@@ -1,10 +1,8 @@
-<li class="list__item list__item--summary">
-  <article class="summary">
-    <h3 class="summary__title"><a href="{{ .Permalink | absURL }}" class="link">{{ .Title }}</a></h3>
-    {{ if .Params.authors }}
-    {{ partial "byline" . }}
-    {{ else }}
-    <p class="summary__subtitle">{{ .Date | dateFormat "Jan. 2, 2006" }}</p>
-    {{ end }}
-  </article>
-</li>
+<article class="summary--small">
+  <h3 class="summary__title"><a href="{{ .Permalink | absURL }}" class="link">{{ .Title }}</a></h3>
+  {{ if .Params.authors }}
+  {{ partial "byline" . }}
+  {{ else }}
+  <p class="summary__subtitle">{{ .Date | dateFormat "Jan. 2, 2006" }}</p>
+  {{ end }}
+</article>

@@ -74,4 +74,24 @@
   font-family: $ff-serif;
   margin-top: $vsp-md;
   max-width: 38em;
+  &:last-child {
+    margin-bottom: $vsp-md;
+  }
+}
+
+.summary--small {
+  .summary__title {
+    @extend %fs-6;
+    margin-bottom: 0;
+  }
+
+  .summary__subtitle {
+    @extend %fs-small;
+  }
+
+  .summary__body {
+    @extend %fs-small;
+    font-style: italic;
+    margin-top: $vsp-xs;
+  }
 }

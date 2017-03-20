@@ -1,27 +1,25 @@
-<li class="card card--beta">
-  <article class="card__inner">
-    {{ if .Params.cover_image }}
-    <div class="card__thumb">
-      <a href="{{ .Permalink | absURL }}" class="card__image-link"><span class="hidden">Read more from {{ .Title }}</span></a>
-      {{ partial "card-image" . }}
-    </div>
+<article class="card card--beta">
+  {{ if .Params.cover_image }}
+  <div class="card__thumb">
+    <a href="{{ .Permalink | absURL }}" class="card__image-link"><span class="hidden">Read more from {{ .Title }}</span></a>
+    {{ partial "card-image" . }}
+  </div>
+  {{ end }}
+  <header class="card__region card__header">
+    {{ if .Params.categories }}
+    {{ partial "category-link" . }}
     {{ end }}
-    <header class="card__region card__header">
-      {{ if .Params.categories }}
-      {{ partial "category-link" . }}
-      {{ end }}
-      <h3 class="summary__title"><a href="{{ .Permalink | absURL }}" class="link">{{ .Title }}</a></h3>
-      {{ if .Params.authors }}
-      {{ partial "byline" . }}
-      {{ end }}
-      {{ with .Params.teaser }}
-      <p class="summary__body">{{ . }}</p>
-      {{ else }}
-      <p class="summary__body">{{ .Summary }}{{ if .Truncated }}&hellip;{{ end }}</p>
-      {{ end }}
-      <p class="card__read-more">
-        <a href="{{ .Permalink | absURL }}" class="link link--ui-beta">Read More<span class="hidden">from {{ .Title }}</span>&hellip;</a>
-      </p>
-    </header>
-  </article>
-</li>
+    <h3 class="summary__title"><a href="{{ .Permalink | absURL }}" class="link">{{ .Title }}</a></h3>
+    {{ if .Params.authors }}
+    {{ partial "byline" . }}
+    {{ end }}
+    {{ with .Params.teaser }}
+    <p class="summary__body">{{ . }}</p>
+    {{ else }}
+    <p class="summary__body">{{ .Summary }}{{ if .Truncated }}&hellip;{{ end }}</p>
+    {{ end }}
+    <p class="card__read-more">
+      <a href="{{ .Permalink | absURL }}" class="link link--ui-beta">Read More<span class="hidden">from {{ .Title }}</span></a>
+    </p>
+  </header>
+</article>

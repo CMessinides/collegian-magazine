@@ -1,0 +1,94 @@
+{{ define "head-title" }}
+{{ .Data.Singular | title }}: {{ .Title }} &mdash; {{ .Site.Params.site_name }}
+{{ end }}
+
+{{ define "hero" }}
+<div class="hero hero--bold">
+  <div class="hero__inner">
+    {{ $issue := index (where .Site.Data.issues.issues "season" .Title) 0 }}
+    <h1 class="hero__title">
+      <span class="sub">{{ .Data.Singular | title }}</span>
+      {{ .Title }}
+    </h1>
+    {{ if or $issue.volume $issue.number $issue.description }}
+    <div class="hero__extra">
+      <p class="hero__body">
+        {{ if or $issue.volume $issue.number }}
+        <strong>{{ with $issue.volume }}Volume {{ . }} {{ end }}{{ if and $issue.volume $issue.number }}&bull;{{ end }}{{ with $issue.number }} Issue {{ . }}&emsp;{{ end }}</strong>
+        {{ end }}
+        {{ with $issue.description }}{{ . }}{{ end }}
+      </p>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+{{ define "content" }}
+  {{ $issue := index (where .Site.Data.issues.issues "season" .Title) 0 }}
+  <section class="page__section md-grid">
+    {{ if $issue.cover_image }}
+    <figure class="issue__cover md-wid-4">
+      {{ $size1x := $issue.cover_image | replaceRE "(/img)" "$1/320" | replaceRE "(png|jpeg|gif|tiff|bmp)$" "jpg" | absURL }}
+      {{ $size2x := $issue.cover_image | replaceRE "(/img)" "$1/540" | replaceRE "(png|jpeg|gif|tiff|bmp)$" "jpg" | absURL }}
+      <img srcset="{{ $size1x  }} 1x, {{ $size2x }} 2x" src="{{ $size2x }}" alt="Cover for the {{ .Title }} issue">
+    </figure>
+    {{ end }}
+    <div class="md-wid-8 grid__block">
+      <h2 class="page__section-heading">Articles</h2>
+      <ul class="list ns-grid grid--wrap">
+        {{ range $index, $article := .Data.Pages }}
+        <li class="list__item--summary {{ if eq (mod $index 5) 0 }}ns-wid-12{{ else }}ns-wid-6{{ end }}">
+          <article class="summary{{ if ne (mod $index 5) 0 }}--small{{ end }}">
+            <h3 class="summary__title"><a href="{{ .Permalink | absURL }}" class="link">{{ .Title }}</a></h3>
+            <p class="summary__subtitle">
+              {{ if .Params.authors }}
+              {{ partial "byline" . }}
+              {{ else }}
+              {{ .Date | dateFormat "Jan. 2, 2006" }}
+              {{ end }}
+            </p>
+            {{ if and (eq (mod $index 5) 0) (isset .Params "teaser") }}
+            <p class="summary__body">
+              {{ .Params.teaser }}
+            </p>
+            {{ end }}
+          </article>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </section>
+  {{ with $issue.masthead }}
+  <section class="page__section">
+    <h2 class="page__section-heading">Masthead</h2>
+    <ul class="list ns-grid grid--wrap">
+      {{ range $index, $staff := . }}
+      {{ $in_staff := first 1 (where (where $.Site.Pages "Section" "staff") "Title" $staff.name) }}
+      {{ $is_eic := eq .role "Editor-in-Chief" }}
+      <li class="list__item--summary {{ if $is_eic }}ns-wid-12{{ else }}ns-wid-6{{ end }}">
+      <a href="{{ if $in_staff }}{{ (index $in_staff 0).Permalink | absURL }}{{ end }}" class="link staff__avatar {{ if not $is_eic }}staff__avatar--small{{ end }}"><span class="hidden">Read more about {{ $staff.name }}</span>
+        {{ if $in_staff }}
+        {{ partial "staff-image" (index $in_staff 0) }}
+        {{ else }}
+        {{ partial "staff-image" . }}
+        {{ end }}
+      </a>
+      <article class="summary{{ if not $is_eic }}--small{{ end }}">
+        <h3 class="summary__title">
+          {{ if $in_staff }}
+            <a href="{{ (index $in_staff 0).Permalink | absURL }}" class="link">{{ $staff.name }}</a>
+          {{ else }}
+            {{ $staff.name }}
+          {{ end }}
+        </h3>
+        {{ with $staff.role }}
+        <p class="summary__subtitle">{{ . }}</p>
+        {{ end }}
+      </article>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+{{ end }}

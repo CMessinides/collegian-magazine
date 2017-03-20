@@ -10,7 +10,7 @@ categories:
 tags: []
 issues:
 - Spring 2016
-featured: true
+featured: false
 cover_image: ''
 
 ---

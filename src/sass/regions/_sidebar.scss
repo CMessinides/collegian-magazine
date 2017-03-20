@@ -17,15 +17,6 @@
   flex: 1 auto;
 }
 
-.sidebar__label {
-  @extend %fs-5;
-  font-family: $ff-disp;
-  font-style: italic;
-  font-weight: 400;
-  color: $c-black;
-  margin-bottom: $vsp-md;
-}
-
 .sidebar__description {
   @extend %fs-ui;
   font-family: $ff-serif;

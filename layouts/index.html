@@ -43,7 +43,7 @@
 
 {{ define "content" }}
     <section class="page__section">
-      <h2 class="h2">In the Latest Issue</h2>
+      <h2 class="hidden">In the Latest Issue</h2>
       <ul class="list">
         {{ range first 3 (where (where .Site.Pages "Section" "article") "Params.featured" false) }}
           {{ .Render "card" }}
@@ -59,7 +59,7 @@
 
     <section class="page__section">
       {{ $posts := where .Site.Pages "Section" "post" }}
-      <h2 class="h2">From the Blog</h2>
+      <h2 class="page__section-heading">From the Blog</h2>
       <ul class="list">
         {{ range (first 1 $posts) }}
         {{ .Render "card-large" }}
@@ -79,11 +79,11 @@
     </section>
 
     <section class="page__section">
-      <h2 class="h2">Browse by Category</h2>
+      <h2 class="page__section-heading">Browse by Category</h2>
       <ul class="list grid--wrap ns-grid">
         {{ range $key, $category := .Site.Taxonomies.categories }}
         <li class="list__item--summary md-wid-4 ns-wid-6">
-          <article class="summary">
+          <article class="summary summary--small">
             <h3 class="summary__title"><a href="{{ $key | urlize | printf "/categories/%s" | absURL }}" class="link">{{ $key }}</a></h3>
             <p class="summary__subtitle">
               {{ len $category.Pages }}

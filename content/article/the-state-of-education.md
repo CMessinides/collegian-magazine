@@ -18,7 +18,7 @@ tags:
 - schools
 issues:
 - Spring 2016
-featured: false
+featured: true
 cover_image: ''
 
 ---

@@ -1,8 +1,8 @@
 {{ if or (eq .Section "article") (eq .Section "post") }}
-<section class="sidebar__section">
+<section class="sidebar__section sidebar__section--share">
   <div class="card">
     <div class="card__region">
-      <h2 class="h6">Share</h2>
+      <h2 class="h6">Share this {{ .Section | title }}</h2>
       <ul class="list list--social list--social-left">
         <li class="list__item--social">
           <a href="https://facebook.com/sharer.php?u={{ .Permalink | absURL }}" rel="nofollow" target="_blank" title="Share on Facebook" class="icon icon--large icon--facebook link link--ui-beta ">
@@ -53,7 +53,7 @@
 </section>
 
 
-<section class="sidebar__section">
+<section class="sidebar__section wid-12">
   <h2 class="h6">The Staff</h2>
   <ul class="list list--stack">
     {{ range first 3 (where .Site.Pages "Section" "staff") }}
@@ -66,9 +66,11 @@
 {{ if $featured }}
 <section class="sidebar__section wid-12">
   <h2 class="h6">Featured</h2>
-  <ul class="list list--stack">
+  <ul class="list ns-grid lg-no-grid grid--wrap">
   {{ range $featured }}
+  <li class="list__item--summary ns-wid-6 md-wid-4 lg-wid-auto">
     {{ .Render "li" }}
+  </li>
   {{ end }}
   </ul>
 </section>

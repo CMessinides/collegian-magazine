@@ -11,7 +11,7 @@ categories:
 tags: []
 issues:
 - Fall 2016
-featured: true
+featured: false
 cover_image: "/assets/img/road.jpg"
 focal_point: Center Right
 caption: A test caption

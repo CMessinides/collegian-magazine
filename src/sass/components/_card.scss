@@ -4,8 +4,10 @@
   background-color: $c-white;
   overflow: hidden;
   position: relative;
+}
 
-  &:last-child {
+li:last-child {
+  .card {
     margin-bottom: 0;
   }
 }
@@ -22,10 +24,6 @@
     border-radius: 0 0 2px 2px;
     border: 0;
   }
-}
-
-.card__inner {
-  position: relative;
 }
 
 .card__region {
@@ -53,7 +51,7 @@
   &:hover,
   &:focus,
   &:active {
-    background-color: transparentize($c-white, 0.7);
+    background-color: transparentize($c-white, 0.66);
   }
 }
 
@@ -68,7 +66,11 @@
 }
 
 .card__read-more {
-  margin: $vsp-sm 0 0;
+  margin: $vsp-xs 0 0;
+
+  .link {
+    color: $c-brand;
+  }
 }
 
 .card--alpha,
@@ -124,18 +126,10 @@
 }
 
 .card--beta {
-  margin-bottom: $hsp-md;
+  margin-bottom: $vsp-md;
 
   @media #{$brkpt-sm} {
-    .card__inner {
-      display: flex;
-    }
-  }
-
-  &:nth-of-type(2n) {
-    .card__inner {
-      flex-direction: row-reverse;
-    }
+    display: flex;
   }
 
   .card__thumb {
@@ -153,17 +147,6 @@
   .card__header {
     @include width(12, 7);
     flex: 1 auto;
-  }
-}
-
-.card--gamma {
-
-  .summary__title {
-    @extend %fs-5;
-  }
-
-  .summary__subtitle {
-    @extend %fs-ui;
   }
 }
 
@@ -190,17 +173,5 @@
 
   .card__footer {
     border-top: 2px $c-grey-5 solid;
-
-    .list__item--summary {
-      @include width(12, $from-md: 4);
-      flex: 0 auto;
-      order: 2;
-    }
-
-    .list__item--staff {
-      @include width(12, $from-md: 6);
-      flex: 1 auto;
-      order: 1;
-    }
   }
 }

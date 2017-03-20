@@ -34,9 +34,9 @@ issues:
 - season: Fall 2016
   volume: 3
   number: 1
-  cover_image: "/assets/img/fall2016_cover.png"
-  description: ''
-  issuu_link: ''
+  cover_image: assets/img/fall2016_cover.png
+  description: A brief description of this issue
+  issuu_link: https://issuu.com/thecollegianmagazine/docs/collegian_fall_2016
   masthead:
   - name: Julia Waldow
     role: Editor-in-Chief

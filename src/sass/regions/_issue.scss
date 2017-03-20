@@ -1,0 +1,16 @@
+.issue__cover {
+  padding: 0;
+  margin: 0;
+  @media #{$brkpt-md} {
+    padding-right: $hsp-xl;
+  }
+
+  img {
+    max-width: 50%;
+    height: auto;
+
+    @media #{$brkpt-md} {
+      max-width: 100%;
+    }
+  }
+}
