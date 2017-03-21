@@ -10,7 +10,7 @@
 }
 
 .logo--header {
-  @extend %fs-4;
+  @include fs-4;
 
   &:hover {
     background-color: $c-acc1-tint;

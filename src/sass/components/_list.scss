@@ -20,10 +20,6 @@
   }
 }
 
-.list--cards {
-  @include grid;
-}
-
 .list__item--social {
   padding: 0 $hsp-xs;
 }

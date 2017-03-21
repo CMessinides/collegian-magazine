@@ -112,7 +112,7 @@
 }
 
 .nav__link {
-  @extend %fs-small;
+  @include fs-small;
   color: $c-black;
   flex: 1 auto;
   text-align: right;

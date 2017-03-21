@@ -1,5 +1,5 @@
 .header {
-  @extend %fs-base;
+  @include fs-body;
   background: $c-white;
   box-shadow: 0px 0px 4px 4px $c-shad-wk;
   flex: none;

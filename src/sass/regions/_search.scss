@@ -51,7 +51,7 @@
 }
 
 .search__status {
-  @extend %fs-2;
+  @include fs-2;
   font-family: $ff-disp;
   font-style: italic;
   color: $c-grey-60;
@@ -62,7 +62,7 @@
   border-radius: 4px;
 
   p {
-    @extend %fs-ui;
+    @include fs-ui;
     font-family: $ff-sans;
     font-style: normal;
     margin: $vsp-sm 0 0;

@@ -1,18 +1,12 @@
-{{ define "hero" }}
-<div class="hero hero--bold">
-  <div class="hero__inner">
-    <h1 class="hero__title">
-      <span class="sub">Page</span>
-      {{ .Title }}
-    </h1>
-  </div>
-</div>
-{{ end }}
-
 {{ define "content" }}
-<div class="card card--full-length">
+<div class="Article">
   <div class="markdown card__region">
     {{ .Content }}
   </div>
+</div>
+{{ partial "about-block" . }}
+<div class="Sidebar Sidebar--right">
+  <h1 class="Sidebar-heading">Featured</h1>
+  
 </div>
 {{ end }}

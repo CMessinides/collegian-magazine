@@ -1,0 +1,61 @@
+.Sidebar {
+  @include grid-column(12);
+}
+
+.Sidebar--left {
+  @media #{$brkpt-lg} {
+    @include grid-column(2);
+    @include grid-shift(-10);
+  }
+}
+
+.Sidebar--right {
+  @media #{$brkpt-lg} {
+    @include grid-column(2);
+  }
+}
+
+.Sidebar-block {
+  @include grid-container;
+  padding: $vsp-lg $hsp-xs $vsp-xs;
+  font-family: $ff-sans;
+}
+
+.Sidebar-heading {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: $vsp-xs $hsp-xs;
+}
+
+.Sidebar-body {
+  padding: $vsp-xs $hsp-xs;
+}
+
+.Sidebar-cta {
+  color: $c-white;
+  display: block;
+  font-weight: 700;
+  text-align: right;
+  text-decoration: none;
+  margin: $vsp-sm (-$hsp-sm) (-$vsp-sm);
+  padding: $vsp-sm $hsp-sm;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: $c-brand-tint;
+  }
+}
+
+.Sidebar-block--info {
+  background-color: $c-brand-shade2;
+
+  .Sidebar-heading {
+    color: $c-white;
+  }
+
+  .Sidebar-body {
+    color: $c-brand-tint2;
+  }
+}

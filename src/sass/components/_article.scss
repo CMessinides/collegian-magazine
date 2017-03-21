@@ -8,10 +8,20 @@
 }
 
 .article__title {
-  @extend %fs-0;
+  @include fs-0;
   font-family: $ff-disp;
   font-style: italic;
   color: $c-black;
   margin: $vsp-md 0 $vsp-sm;
   order: 3;
+}
+
+.Article {
+  @include grid-column(12);
+  margin-right: 0;
+
+  @media #{$brkpt-lg} {
+    @include grid-column(8);
+    @include grid-push(2);
+  }
 }

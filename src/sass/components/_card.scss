@@ -78,20 +78,20 @@ li:last-child {
 .hero__insert {
 
   .summary__title {
-    @extend %fs-0;
+    @include fs-0;
     margin-bottom: $vsp-xs;
   }
 
   .summary__subtitle {
-    @extend %fs-5;
+    @include fs-5;
   }
 
   .summary__meta {
-    @extend %fs-ui;
+    @include fs-ui;
   }
 
   .summary__body {
-    @extend %fs-base;
+    @include fs-body;
   }
 }
 
@@ -117,7 +117,7 @@ li:last-child {
   }
 
   .summary__body {
-    @extend %fs-base;
+    @include fs-body;
   }
 
   .card__thumb {
@@ -133,7 +133,6 @@ li:last-child {
   }
 
   .card__thumb {
-    @include width(12, 5);
     display: flex;
     align-items: center;
     margin: 0;
@@ -145,7 +144,6 @@ li:last-child {
   }
 
   .card__header {
-    @include width(12, 7);
     flex: 1 auto;
   }
 }

@@ -60,7 +60,7 @@
 }
 
 .footer__copyright {
-  @extend %fs-small;
+  @include fs-small;
   color: $c-grey-20;
   font-family: $ff-sans;
   margin-bottom: 0;

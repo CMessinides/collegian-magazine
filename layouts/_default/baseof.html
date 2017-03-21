@@ -23,7 +23,7 @@
     {{ end }}
 
     <!-- Stylesheets -->
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600|Playfair+Display:700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Playfair+Display:700,700i" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/screen.css">
     {{ with .Params.authors }}
       <link rel="author" href="{{ index . 0 | urlize | printf "/authors/%s/" | absURL }}">
@@ -104,13 +104,8 @@
 
       {{ block "hero" . }}{{ end }}
 
-      <div class="page__content lg-grid">
-        <main id="main" role="main" class="page__main lg-wid-8">
-          {{ block "content" . }}{{ end }}
-        </main>
-        <aside class="page__sidebar ns-grid lg-no-grid lg-wid-4">
-          {{ partial "site/sidebar.html" . }}
-        </aside>
+      <div class="Page-content">
+        {{ block "content" . }}{{ end }}
       </div>
 
       {{ partial "site/footer.html" . }}

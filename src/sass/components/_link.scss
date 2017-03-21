@@ -36,7 +36,7 @@
 .link--ui-beta,
 .link--ui-light,
 .link--banner {
-  @extend %fs-ui;
+  @include fs-ui;
   text-decoration: none;
   font-family: $ff-sans;
 }

@@ -46,7 +46,7 @@
 }
 
 .hero__caption {
-  @extend %fs-small;
+  @include fs-small;
   padding: $vsp-xs 0 $vsp-sm;
   font-family: $ff-serif;
   font-style: italic;
@@ -63,7 +63,7 @@
 }
 
 .hero__title {
-  @extend %fs-0;
+  @include fs-0;
   @include text-stack;
   color: $c-acc1-tint;
   line-height: 1;
@@ -122,7 +122,7 @@
 }
 
 .hero__body {
-  @extend %fs-small;
+  @include fs-small;
   margin: $vsp-sm 0 0;
   max-width: 36em;
   font-family: $ff-serif;

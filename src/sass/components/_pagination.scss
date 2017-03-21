@@ -3,8 +3,7 @@
 }
 
 .paginator__link {
-  @extend %fs-2;
-  @include width(12);
+  @include fs-2;
   @include text-stack;
   flex: 0 1 auto;
   color: $c-grey-60;

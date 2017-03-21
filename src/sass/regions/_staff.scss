@@ -15,13 +15,13 @@
 }
 
 .staff__name {
-  @extend %fs-1;
+  @include fs-1;
   font-family: $ff-disp;
   font-style: italic;
   margin-bottom: $vsp-xs;
 
   &::after {
-    @extend %fs-2;
+    @include fs-2;
     content: '\2019'attr(data-class-year);
     color: $c-brand-tint;
     font-weight: 400;
@@ -57,7 +57,7 @@
 }
 
 .staff__roles {
-  @extend %fs-4;
+  @include fs-4;
   font-family: $ff-serif;
   font-style: italic;
   color: $c-grey-60;
@@ -71,7 +71,7 @@
 }
 
 .staff__bio {
-  @extend %fs-base;
+  @include fs-body;
   font-family: $ff-serif;
   color: $c-grey-75;
   margin-bottom: 0;

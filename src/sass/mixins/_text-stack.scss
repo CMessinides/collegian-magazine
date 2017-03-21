@@ -5,7 +5,7 @@
   display: block;
 
   .sub {
-    @extend %fs-small;
+    @include fs-small;
     font-family: $ff-sans;
     font-style: normal;
     font-weight: 600;

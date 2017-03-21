@@ -1,5 +1,5 @@
 .form {
-  @extend %fs-ui;
+  @include fs-ui;
   color: $c-grey-75;
   font-family: $ff-sans;
   overflow: hidden;
@@ -35,7 +35,7 @@
 }
 
 .form__legend {
-  @extend %fs-small;
+  @include fs-small;
   padding-top: $vsp-md;
   font-weight: 700;
   text-transform: uppercase;

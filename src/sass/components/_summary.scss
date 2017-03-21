@@ -16,7 +16,7 @@
 }
 
 .summary__title {
-  @extend %fs-2;
+  @include fs-2;
   font-family: $ff-disp;
   margin-bottom: $vsp-xxs;
   color: $c-black;
@@ -31,7 +31,7 @@
 }
 
 .summary__subtitle {
-  @extend %fs-ui;
+  @include fs-ui;
   font-family: $ff-sans;
   font-weight: 400;
   color: $c-grey-60;
@@ -49,7 +49,7 @@
 }
 
 .summary__meta {
-  @extend %fs-small;
+  @include fs-small;
   color: $c-grey-60;
   font-weight: 600;
   text-transform: uppercase;
@@ -69,7 +69,7 @@
 }
 
 .summary__body {
-  @extend %fs-ui;
+  @include fs-ui;
   color: $c-grey-75;
   font-family: $ff-serif;
   margin-top: $vsp-md;
@@ -81,16 +81,16 @@
 
 .summary--small {
   .summary__title {
-    @extend %fs-6;
+    @include fs-6;
     margin-bottom: 0;
   }
 
   .summary__subtitle {
-    @extend %fs-small;
+    @include fs-small;
   }
 
   .summary__body {
-    @extend %fs-small;
+    @include fs-small;
     font-style: italic;
     margin-top: $vsp-xs;
   }

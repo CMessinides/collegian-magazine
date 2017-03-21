@@ -7,17 +7,16 @@ html {
   }
 }
 
-@import "vendor/normalize";
+@import "vendor/reset";
 @import "base/variables";
 @import "base/typescale";
 @import "base/markdown";
-@import "base/layout";
 @import "neat";
 @import "base/util";
 @import "mixins/aspect_ratio";
-@import "mixins/grid";
 @import "mixins/text-stack";
-@import "mixins/width";
+@import "components/Page";
+@import "components/Sidebar";
 @import "components/link";
 @import "components/headings";
 @import "components/list";
@@ -31,7 +30,6 @@ html {
 @import "components/article";
 @import "components/nav";
 @import "components/pagination";
-@import "regions/page";
 @import "regions/search";
 @import "regions/hero";
 @import "regions/header";

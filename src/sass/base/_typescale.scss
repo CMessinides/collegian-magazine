@@ -6,7 +6,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-%fs-0 {
+@mixin fs-0 {
   font-size: 2.25rem;
   line-height: 1.125;
 
@@ -15,8 +15,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-%fs-1,
-.markdown h1 {
+@mixin fs-1 {
   font-size: 2rem;
   line-height: 1.125;
 
@@ -25,9 +24,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-%fs-2,
-.markdown h2,
-.markdown blockquote {
+@mixin fs-2 {
   font-size: 1.625rem;
   line-height: 1.25;
 
@@ -36,8 +33,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-%fs-3,
-.markdown h3 {
+@mixin fs-3 {
   font-size: 1.375rem;
   line-height: 1.25;
 
@@ -46,8 +42,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-%fs-4,
-.markdown h4 {
+@mixin fs-4 {
   font-size: 1.25rem;
   line-height: 1.25;
 
@@ -56,8 +51,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-%fs-5,
-.markdown h5 {
+@mixin fs-5 {
   font-size: 1.125rem;
   line-height: 1.375;
 
@@ -66,8 +60,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-%fs-6,
-.markdown h6 {
+@mixin fs-6 {
   font-size: 1rem;
   line-height: 1.375;
 
@@ -76,8 +69,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-%fs-base,
-.markdown {
+@mixin fs-body {
   font-size: 1.125rem;
   line-height: 1.5;
 
@@ -90,13 +82,12 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-%fs-small,
-.markdown small {
+@mixin fs-small {
   font-size: 0.875rem;
   line-height: 1.375;
 }
 
-%fs-ui {
+@mixin fs-ui {
   line-height: 1.5;
   font-size: 1rem;
 }
