@@ -10,6 +10,7 @@
   "license": "ISC",
   "repository": "https://bitbucket.org/thecollegianmagazine/collegian-magazine",
   "dependencies": {
+    "bourbon-neat": "^2.0.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",

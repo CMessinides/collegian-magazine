@@ -19,7 +19,8 @@ const hugo_env = process.env.HUGO_ENV;
 gulp.task('sass', function() {
   return gulp.src('src/sass/**/*.scss')
     .pipe(sass({
-      outputStyle: 'compressed'
+      outputStyle: 'compressed',
+      includePaths: ['node_modules/bourbon-neat/core']
     }).on('error', sass.logError))
     .pipe(autoprefix({
       browsers: ['last 2 versions', '> 5% in US']
