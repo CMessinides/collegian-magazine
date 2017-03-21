@@ -12,12 +12,14 @@
 .Sidebar--right {
   @media #{$brkpt-lg} {
     @include grid-column(2);
+    @include grid-push(-2);
   }
 }
 
 .Sidebar-block {
   @include grid-container;
-  padding: $vsp-lg $hsp-xs $vsp-xs;
+  @include fs-small;
+  padding: $vsp-xs $hsp-xs;
   font-family: $ff-sans;
 }
 
@@ -50,10 +52,6 @@
 
 .Sidebar-block--info {
   background-color: $c-brand-shade2;
-
-  .Sidebar-heading {
-    color: $c-white;
-  }
 
   .Sidebar-body {
     color: $c-brand-tint2;
