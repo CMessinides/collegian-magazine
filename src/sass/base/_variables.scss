@@ -26,7 +26,7 @@ $columns: 12;
 $site-max-width: 80rem;
 
 // # Color
-$c-brand:        rgb(25, 86, 190);
+$c-brand:        rgb(75, 119, 166);
 $c-brand-shade2: adjust-color($c-brand, $lightness: -25%, $saturation: 30%, $hue: -3deg);
 $c-brand-shade:  adjust-color($c-brand, $lightness: -17%, $saturation: 15%, $hue: -2deg);
 $c-brand-tint:   adjust-color($c-brand, $lightness: 20%, $saturation: -13%, $hue: 1deg);
@@ -60,3 +60,13 @@ $ff-sans: "acumin-pro", $ff-base;
 $ff-serif: Georgia, Times, serif;
 $ff-mono: Inconsolata, "Courier New", Courier, monospace;
 $ff-disp: "kepler-std-semicondensed-dis", $ff-serif;
+
+$neat-grid: (
+  columns: 12,
+  gutter: $hsp-sm
+);
+
+$neat-wide-grid: (
+  columns: 12,
+  gutter: $hsp-lg
+);

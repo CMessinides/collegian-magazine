@@ -52,3 +52,81 @@
   margin-right: auto;
   max-width: $site-max-width;
 }
+
+.u-markdown {
+  @include fs-body;
+  color: $c-grey-75;
+  font-family: $ff-sans;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: $vsp-md;
+    color: $c-black;
+    font-family: $ff-sans;
+    font-weight: 700;
+  }
+
+  h1 {
+    @include fs-1;
+  }
+
+  h2 {
+    @include fs-2;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  h3 {
+    @include fs-3;
+  }
+
+  h4 {
+    @include fs-4;
+    padding-bottom: $vsp-xxs;
+    border-bottom: 1px $c-grey-20 solid;
+  }
+
+  h5 {
+    @include fs-5;
+  }
+
+  h6 {
+    @include fs-6;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  p,
+  ol,
+  ul,
+  dl {
+
+    & + h1,
+    & + h2 {
+      margin-top: $vsp-xl;
+    }
+
+    & + h3,
+    & + h4 {
+      margin-top: $vsp-lg;
+    }
+
+    & + h5,
+    & + h6 {
+      margin-top: $vsp-lg;
+      margin-bottom: $vsp-xs;
+    }
+  }
+}

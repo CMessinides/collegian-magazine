@@ -1,33 +1,21 @@
-.Sidebar {
-  @include grid-column(12);
-}
-
-.Sidebar--left {
-  @media #{$brkpt-lg} {
-    @include grid-column(2);
-    @include grid-shift(-10);
-  }
-}
-
-.Sidebar--right {
-  @media #{$brkpt-lg} {
-    @include grid-column(2);
-    @include grid-push(-2);
-  }
-}
-
 .Sidebar-block {
   @include grid-container;
   @include fs-small;
-  padding: $vsp-xs $hsp-xs;
   font-family: $ff-sans;
+  margin-bottom: $vsp-md;
+}
+
+.Sidebar-block--inset {
+  padding: $vsp-xs $hsp-xs;
+
+  > * {
+    padding: $vsp-xs $hsp-xs;
+  }
 }
 
 .Sidebar-heading {
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  padding: $vsp-xs $hsp-xs;
+  letter-spacing: -0.02em;
 }
 
 .Sidebar-body {
@@ -35,25 +23,24 @@
 }
 
 .Sidebar-cta {
-  color: $c-white;
+  color: inherit;
+  background-color: $c-brand-tint2;
   display: block;
   font-weight: 700;
   text-align: right;
   text-decoration: none;
   margin: $vsp-sm (-$hsp-sm) (-$vsp-sm);
   padding: $vsp-sm $hsp-sm;
+  transition: 200ms background-color ease;
 
   &:hover,
   &:focus,
   &:active {
-    background: $c-brand-tint;
+    background-color: $c-acc1;
   }
 }
 
 .Sidebar-block--info {
-  background-color: $c-brand-shade2;
-
-  .Sidebar-body {
-    color: $c-brand-tint2;
-  }
+  background-color: $c-brand-tint;
+  color: $c-brand-shade2;
 }

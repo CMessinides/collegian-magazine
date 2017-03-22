@@ -16,12 +16,26 @@
   order: 3;
 }
 
-.Article {
-  @include grid-column(12);
-  margin-right: 0;
+.Article-header {
+  margin-bottom: $vsp-lg;
+}
 
-  @media #{$brkpt-lg} {
-    @include grid-column(8);
-    @include grid-push(2);
+.Article-title {
+  @include fs-0;
+  font-family: $ff-disp;
+  color: $c-black;
+
+  &::after {
+    content: '';
+    display: block;
+    margin: $vsp-xs 0;
+    border-top: 2px $c-brand solid;
+    width: $vsp-md;
   }
+}
+
+.Article-subtitle {
+  @include fs-3;
+  font-family: $ff-sans;
+  color: $c-grey-60;
 }

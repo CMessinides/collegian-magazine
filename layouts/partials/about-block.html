@@ -1,8 +1,9 @@
-<aside class="Sidebar Sidebar--left">
-  <div class="Sidebar-block Sidebar-block--info">
-    <p class="Sidebar-body">
-      {{ .Site.Params.description }}
-      <a href="{{ "/about" | absURL }}" class="Sidebar-cta">Read More</a>
-    </p>
-  </div>
-</aside>
+<div class="Sidebar-block Sidebar-block--inset Sidebar-block--info">
+  <h2 class="Sidebar-heading">About {{ .Site.Params.site_name | default .Site.Title }}</h1>
+  <p class="Sidebar-body">
+    {{ .Site.Params.description }}
+    {{ if ne .Title "About" }}
+    <a href="{{ "/about/" | absURL }}" class="Sidebar-cta">Read More</a>
+    {{ end }}
+  </p>
+</div>

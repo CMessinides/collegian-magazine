@@ -7,11 +7,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @mixin fs-0 {
-  font-size: 2.25rem;
-  line-height: 1.125;
+  font-size: 2.75rem;
+  line-height: 1.05;
 
   @media #{$brkpt-md} {
     font-size: 3.125rem;
+  }
+
+  @media #{$brkpt-lg} {
+    font-size: 3.875rem;
   }
 }
 
@@ -25,24 +29,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @mixin fs-2 {
-  font-size: 1.625rem;
+  font-size: 1.5rem;
   line-height: 1.25;
 
   @media #{$brkpt-md} {
-    font-size: 2rem;
+    font-size: 1.625rem;
   }
 }
 
 @mixin fs-3 {
-  font-size: 1.375rem;
-  line-height: 1.25;
-
-  @media #{$brkpt-md} {
-    font-size: 1.5rem;
-  }
-}
-
-@mixin fs-4 {
   font-size: 1.25rem;
   line-height: 1.25;
 
@@ -51,21 +46,30 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-@mixin fs-5 {
+@mixin fs-4 {
   font-size: 1.125rem;
-  line-height: 1.375;
+  line-height: 1.25;
 
   @media #{$brkpt-md} {
     font-size: 1.25rem;
   }
 }
 
-@mixin fs-6 {
+@mixin fs-5 {
   font-size: 1rem;
   line-height: 1.375;
 
   @media #{$brkpt-md} {
     font-size: 1.125rem;
+  }
+}
+
+@mixin fs-6 {
+  font-size: 0.875rem;
+  line-height: 1.375;
+
+  @media #{$brkpt-md} {
+    font-size: 1rem;
   }
 }
 
@@ -75,10 +79,6 @@ h1, h2, h3, h4, h5, h6 {
 
   @media #{$brkpt-sm} {
     font-size: 1.25rem;
-  }
-
-  @media #{$brkpt-md} {
-    font-size: 1.375rem;
   }
 }
 
