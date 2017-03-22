@@ -13,10 +13,11 @@ html {
 @import "base/markdown";
 @import "neat";
 @import "base/util";
+@import "base/columns";
 @import "mixins/aspect_ratio";
 @import "mixins/text-stack";
+@import "components/Article";
 @import "components/Page";
-@import "components/Columns";
 @import "components/Sidebar";
 @import "components/link";
 @import "components/headings";
@@ -28,7 +29,6 @@ html {
 @import "components/logo";
 @import "components/summary";
 @import "components/card";
-@import "components/article";
 @import "components/nav";
 @import "components/pagination";
 @import "regions/search";

@@ -1,7 +1,8 @@
 .u-columns {
   @include grid-container;
 
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 
   @media #{$brkpt-sm} {
     width: 36rem;
@@ -49,7 +50,7 @@
   // and/or visual information that could be skipped if, for example, the user
   // relies on a screenreader.
 
-  // if the left sidebar is second
+  // if the left sidebar is second, push it some
   .u-leftSidebar {
     @include grid-column(3, $neat-wide-grid);
     @include grid-push(-10, $neat-wide-grid);
