@@ -9,44 +9,6 @@
   width: 1px;
 }
 
-.no-grid {
-  display: block;
-}
-
-.wid-auto {
-  width: auto;
-}
-
-@media #{$brkpt-sm} {
-  .ns-no-grid {
-    display: block;
-  }
-
-  .ns-wid-auto {
-    width: auto;
-  }
-}
-
-@media #{$brkpt-md} {
-  .md-no-grid {
-    display: block;
-  }
-
-  .md-wid-auto {
-    width: auto;
-  }
-}
-
-@media #{$brkpt-lg} {
-  .lg-no-grid {
-    display: block;
-  }
-
-  .lg-wid-auto {
-    width: auto;
-  }
-}
-
 @mixin global-max-width {
   margin-left: auto;
   margin-right: auto;
@@ -54,16 +16,18 @@
 }
 
 .u-markdown {
-  @include fs-body;
-  color: $c-grey-75;
+  @include fs-3;
+  color: $c-grey-60;
   font-family: $ff-sans;
 
   > *:last-child {
     margin-bottom: 0;
   }
 
-  > *:first-child {
-    margin-top: 0;
+  > p {
+    @include fs-body;
+    color: $c-grey-75;
+    margin-top: $vsp-sm;
   }
 
   h1,
@@ -129,4 +93,81 @@
       margin-bottom: $vsp-xs;
     }
   }
+
+  ol,
+  ul,
+  dl {
+    margin: $vsp-md 0;
+    padding-left: $hsp-lg;
+  }
+
+  a {
+    color: $c-brand;
+
+
+    &:focus,
+    &:hover,
+    &:active {
+      color: $c-brand-shade2;
+    }
+
+    &:visited {
+      color: $c-acc2;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: $c-acc2-shade;
+      }
+    }
+  }
+
+  > blockquote {
+    color: $c-black;
+    font-family: $ff-sans;
+    font-weight: 600;
+    margin: $vsp-xl 0;
+
+    p {
+      margin: 0;
+    }
+
+    &::before,
+    &::after {
+      border-top: 8px $c-acc1 solid;
+      content: '';
+      display: block;
+      width: $hsp-xl;
+    }
+
+    &::before {
+      margin-bottom: $vsp-lg;
+    }
+
+    &::after {
+      margin-top: $vsp-lg;
+    }
+  }
+
+  img {
+    width: 100%;
+    display: block;
+
+    @supports (width: calc(100% + 2 * 16px)) {
+      width: calc(100% + 2 * 24px);
+      margin: $vsp-lg (-$hsp-md);
+
+      @media #{$brkpt-md} {
+        width: calc(100% + 2 * 48px);
+        margin-left: -$hsp-lg;
+        margin-right: -$hsp-lg;
+      }
+    }
+  }
+
+  mark {
+    background-color: $c-acc1-tint;
+    color: inherit;
+  }
+
 }

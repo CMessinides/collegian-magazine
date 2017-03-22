@@ -1,21 +1,3 @@
-.article {
-  margin-left: -$hsp-md;
-  margin-right: -$hsp-md;
-
-  @media #{$brkpt-sm} {
-    margin: 0;
-  }
-}
-
-.article__title {
-  @include fs-0;
-  font-family: $ff-disp;
-  font-style: italic;
-  color: $c-black;
-  margin: $vsp-md 0 $vsp-sm;
-  order: 3;
-}
-
 .Article-header {
   margin-bottom: $vsp-lg;
 }
@@ -38,4 +20,8 @@
   @include fs-3;
   font-family: $ff-sans;
   color: $c-grey-60;
+}
+
+.Article-body {
+  margin-bottom: $vsp-xl;
 }

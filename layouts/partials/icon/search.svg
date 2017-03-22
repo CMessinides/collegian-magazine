@@ -12,11 +12,11 @@
 <use xlink:href="#path0_fill" fill="black" transform="translate(17 -29)"/>
 </mask>
 <g mask="url(#mask1_outline_out)">
-<use xlink:href="#path1_stroke_2x" transform="translate(17 -29)" fill="#F2F2F2" style="mix-blend-mode:normal;"/>
+<use xlink:href="#path1_stroke_2x" transform="translate(17 -29)"  style="mix-blend-mode:normal;"/>
 </g>
 </g>
 <g id="Line" style="mix-blend-mode:normal;" figma:type="vector">
-<use xlink:href="#path2_stroke" transform="matrix(-0.6 0.8 -0.8 -0.6 15 -20)" fill="#F2F2F2" style="mix-blend-mode:normal;"/>
+<use xlink:href="#path2_stroke" transform="matrix(-0.6 0.8 -0.8 -0.6 15 -20)" style="mix-blend-mode:normal;"/>
 </g>
 </g>
 </g>

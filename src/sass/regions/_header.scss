@@ -1,20 +1,117 @@
-.header {
-  @include fs-body;
-  background: $c-white;
-  box-shadow: 0px 0px 4px 4px $c-shad-wk;
-  flex: none;
-  z-index: 4;
-  width: 100%;
+.Header {
+  background-color: $c-white;
+  position: relative;
+  color: $c-black;
 }
 
-
-.header__wrap {
+.Header-masthead {
   @include global-max-width;
-  padding: 0 $hsp-sm;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  text-align: center;
+  margin: $hsp-sm auto;
+  position: relative;
+
+  @media #{$brkpt-lg} {
+    margin: $hsp-sm auto;
+  }
+}
+
+.Header-logoLink {
+  border-bottom: 2px transparent solid;
+  display: inline-block;
+  font-size: 1.5rem;
+  line-height: 1;
+  font-family: $ff-disp;
+  font-weight: 700;
+  color: $c-brand;
+  transition: 250ms border-color ease;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: $c-acc1;
+  }
+}
+
+.Header-logo {
+  max-height: 48px;
+  max-width: 100%;
+}
+
+.Header-socialLinks {
+  position: absolute;
+  left: $hsp-sm;
+  top: 0;
+
+  @media #{$brkpt-lg} {
+    left: $hsp-lg;
+  }
+}
+
+.Header-searchLink {
+  position: absolute;
+  color: $c-grey-75;
+  transition: 200ms color ease;
+  top: 8px;
+  right: $hsp-sm;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $c-brand-tint;
+  }
+
+  @media #{$brkpt-lg} {
+    right: $hsp-lg;
+  }
+}
+
+.Header-socialLinks,
+.Header-searchLink {
+  display: none;
+
   @media #{$brkpt-md} {
-    padding: 0 $hsp-md;
+    display: block;
+  }
+}
+
+.Header-subheader {
+  @include fs-small;
+  line-height: 1;
+  font-family: $ff-sans;
+  background-color: $c-black;
+  border-top: 1px $c-grey-10 solid;
+  border-bottom: 1px $c-grey-10 solid;
+  color: $c-grey-20;
+  width: 100%;
+  padding: 0 $hsp-sm;
+
+  @media #{$brkpt-lg} {
+    padding: 0 $hsp-lg;
+  }
+}
+
+.Header-sectionList {
+  display: table;
+  table-layout: fixed;
+  margin: 0 auto;
+}
+
+.Header-sectionItem {
+  display: table-cell;
+}
+
+.Header-sectionLink {
+  color: inherit;
+  display: block;
+  padding: $hsp-sm;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: 200ms background-color ease;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $c-acc1;
   }
 }

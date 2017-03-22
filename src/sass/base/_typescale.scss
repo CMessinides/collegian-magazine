@@ -39,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @mixin fs-3 {
   font-size: 1.25rem;
-  line-height: 1.25;
+  line-height: 1.375;
 
   @media #{$brkpt-md} {
     font-size: 1.375rem;

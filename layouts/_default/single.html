@@ -1,84 +1,26 @@
 {{ define "title" }}
   {{ .Title }} &ndash; {{ .Site.Title }}
 {{ end }}
-{{ define "hero" }}
-  {{ if .Params.cover_image }}
-  <div class="hero">
-      {{ partial "hero-image" . }}
-      {{ with .Params.caption }}
-      <div class="hero__inner">
-        <p class="hero__caption">
-          {{ . }}
-        </p>
-      </div>
-      {{ end }}
-  </div>
-  {{ end }}
-{{ end }}
 {{ define "content" }}
-  <article class="card card--full-length">
-    <header class="card__header card__region">
-      {{ if .Params.categories }}
-      {{ partial "category-link" . }}
-      {{ end  }}
-      <h1 class="summary__title">{{ .Title | default "Untitled" }}</h1>
-      {{ if .Params.authors }}
-      {{ partial "byline" . }}
-      {{ else }}
-      <p class="summary__subtitle">{{ .Date | dateFormat "January 2, 2006" }}</p>
+<article class="Article">
+  <header class="Article-header u-columns">
+    <div class="Article-headerInsert u-mainColumn">
+      <h1 class="Article-title">{{ .Title }}</h1>
+      {{ with .Params.subtitle }}
+      <p class="Article-subtitle">{{ . | markdownify }}</p>
       {{ end }}
-    </header>
-    <div class="markdown card__region">
+    </div>
+  </header>
+  <div class="Article-columns u-columns">
+    <div class="Article-body u-markdown u-mainColumn">
       {{ .Content | markdownify }}
     </div>
-    <footer class="card__region card__footer">
-      <h2 class="hidden">About this {{ .Section }}</h2>
-      {{ with .Params.issues }}
-        <p class="card__info">Originally published in the <a href="{{ index . 0 | urlize | printf "issues/%s" | absURL }}" class="link link--muted">{{ index . 0 }}</a> issue</p>
-      {{ end }}
-      <p class="card__info">Published {{ if eq .Section "article" }}online{{ end }} on {{ .Date | dateFormat "January" }} {{ .Date | dateFormat "2" | humanize }}, {{ .Date | dateFormat "2006" }}</p>
-      {{ if .Params.tags }}
-        <h3 class="h6">Tags</h3>
-        <ul class="list list--tags">
-          {{ range .Params.tags }}
-          <li class="tag"><a href="{{ . | urlize | printf "tags/%s" | absURL }}" class="link link--ui-beta">{{ . }}</a></li>
-          {{ end }}
-        </ul>
-      {{ end }}
-      {{ if .Params.authors }}
-        <h3 class="h6">About the Author{{ if gt (len .Params.authors) 1}}s{{ end }}</h3>
-        <ul class="list grid--wrap grid">
-          {{ range .Params.authors }}
-          {{ $on_staff := where (where $.Site.Pages "Section" "staff") "Title" . }}
-          {{ if $on_staff }}
-          {{ range (first 1 $on_staff) }}
-          {{ .Render "li" }}
-          {{ end }}
-          {{ else }}
-          <li class="list__item--summary">
-            <article class="summary">
-              <h4 class="summary__title"><a href="{{ . | urlize | printf "/authors/%s" | absURL }}" class="link">{{ . }}</a></h4>
-              <p class="summary__subtitle">Author</p>
-            </article>
-          </li>
-          {{ end }}
-          {{ end }}
-        </ul>
-      {{ end }}
-    </footer>
-  </article>
-  <nav class="paginator" role="navigation" aria-label="Related Articles">
-    {{ with .PrevInSection }}
-    <a href="{{ .Permalink | absURL }}" class="paginator__link paginator__link--back">
-      <span class="sub">Previously</span>
-      {{ .Title }}
-    </a>
-    {{ end }}
-    {{ with .NextInSection }}
-    <a href="{{ .Permalink | absURL }}" class="paginator__link paginator__link--more">
-      <span class="sub">Up Next</span>
-      {{ .Title }}
-    </a>
-    {{ end }}
-  </nav>
+    <!-- <footer class="Sidebar u-rightSidebar">
+      <h1>Stuff</h1>
+    </footer> -->
+    <aside class="Sidebar u-leftSidebar">
+      {{ partial "about-block" . }}
+    </aside>
+  </div>
+</div>
 {{ end }}

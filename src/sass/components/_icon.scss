@@ -1,32 +1,18 @@
-.icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  svg,
-  .badge {
-    align-self: center;
-  }
-
-  svg {
-    fill: currentColor;
-    height: 1rem;
-    width: 1rem;
-    margin: 0.25rem;
-  }
-}
-
-.icon--large {
-  svg {
-    height: 1.5rem;
-    width: 1.5rem;
-  }
-}
-
 .icon--facebook {
   color: rgb(59,89,152);
 }
 
 .icon--twitter {
   color: rgb(29, 161, 242);
+}
+
+.Icon {
+  padding: $hsp-xs;
+
+  svg {
+    fill: currentColor;
+    height: $hsp-sm;
+    width: $hsp-sm;
+    display: block;
+  }
 }

@@ -1,24 +1,27 @@
-{{ $site_title := .Site.Data.branding.site_name | default .Site.Title }}
-<header class="header" role="banner">
-  <div class="header__wrap">
-    <a class="logo logo--header link" href="{{ .Site.BaseURL }}">
-      {{ with .Site.Params.logo }}
-      <img class="logo__img" srcset="{{ "logos/masthead@2x.png" | absURL }} 1x, {{ "logos/masthead@4x.png" | absURL }} 2x" src="{{ "/logos/masthead@2x.png" | absURL }}" alt="{{ $site_title }}">
-      {{ end }}
+<header class="Header">
+  <div class="Header-mobileMenu"></div>
+  <div class="Header-masthead">
+    <a href="{{ absURL "" }}" class="Header-logoLink">
+      <img src="{{ "/logos/masthead@2x.png" | absURL }}" srcset="{{ "/logos/masthead@2x.png" | absURL }} 1x, {{ "/logos/masthead@4x.png" | absURL }} 2x" alt="{{ .Site.Params.site_name | default .Site.Title }}" class="Header-logo">
     </a>
-    <a aria-hidden="true" class="header__toggle" href="#footer-nav" id="nav-toggle"></a>
-    <nav id="header-nav" tabindex="-1" class="header__nav" role="navigation">
-      <ul id="header-menu" class="list header__nav-list">
-        {{ range .Site.Menus.main }}
-        <li class="header__nav-item">
-          <a class="link link--ui-beta nav__link js-nav-link" href="{{ .URL | absURL }}">{{ .Name }}</a>
-        </li>
-        {{ end }}
-      </ul>
-      <ul class="list list--social list--social-right">
+    <nav class="Header-socialLinks">
+      <ul class="SocialList SocialList--left">
         {{ partial "social-list" . }}
       </ul>
     </nav>
-    <div aria-hidden="true" class="header__nav-shadow"></div>
+    <a href="{{ "/search" | absURL }}" class="Header-searchLink Icon">
+      {{ partial "icon/search.svg" . }}
+    </a>
   </div>
+  <nav class="Header-subheader">
+    <ul class="Header-sectionList">
+      {{ range (first 5 .Site.Data.categories.categories) }}
+        <li class="Header-sectionItem">
+          <a href="{{ urlize (index . "name") | printf "/categories/%s/" | absURL }}" class="Header-sectionLink">
+            {{ index . "name" }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </nav>
 </header>

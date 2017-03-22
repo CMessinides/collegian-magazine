@@ -1,0 +1,38 @@
+.SocialList {
+  color: $c-grey-75;
+  line-height: 1;
+  padding: $hsp-xs 0;
+}
+
+.SocialList--left {
+  text-align: left;
+
+  .SocialList-item {
+    padding-right: $hsp-xxs;
+  }
+}
+
+.SocialList--right {
+  text-align: right;
+
+  .SocialList-item {
+    padding-left: $hsp-xxs;
+  }
+}
+
+.SocialList-item {
+  display: inline-block;
+}
+
+.SocialList-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: 200ms color ease;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $c-brand-tint;
+  }
+}

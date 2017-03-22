@@ -3,7 +3,7 @@ title: The Collegian Magazine
 baseurl: http://dev-colmag.netlify.com
 languageCode: en-us
 metaDataFormat: yaml
-preserveTaxonomyNames: true
+preserveTaxonomyNames: false
 menu:
   footer:
   - name: Staff
@@ -32,6 +32,7 @@ permalinks:
   article: "/article/:year/:month/:slug/"
   announcement: "/announcement/:year/:month/:day/:slug/"
   page: "/:slug/"
+  category: "/:slug/"
 taxonomies:
   tag: tags
   category: categories

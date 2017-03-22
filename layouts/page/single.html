@@ -3,18 +3,12 @@
   <header class="Article-header u-columns">
     <div class="Article-headerInsert u-mainColumn">
       <h1 class="Article-title">{{ .Title }}</h1>
-      {{ with .Params.subtitle }}
-      <p class="Article-subtitle">{{ . | markdownify }}</p>
-      {{ end }}
     </div>
   </header>
   <div class="Article-columns u-columns">
     <div class="Article-body u-markdown u-mainColumn">
       {{ .Content | markdownify }}
     </div>
-    <!-- <footer class="Sidebar u-rightSidebar">
-      <h1>Stuff</h1>
-    </footer> -->
     <aside class="Sidebar u-leftSidebar">
       {{ partial "about-block" . }}
     </aside>

@@ -29,9 +29,9 @@ $site-max-width: 80rem;
 $c-brand:        rgb(75, 119, 166);
 $c-brand-shade2: adjust-color($c-brand, $lightness: -25%, $saturation: 30%, $hue: -3deg);
 $c-brand-shade:  adjust-color($c-brand, $lightness: -17%, $saturation: 15%, $hue: -2deg);
-$c-brand-tint:   adjust-color($c-brand, $lightness: 20%, $saturation: -13%, $hue: 1deg);
-$c-brand-tint2:  adjust-color($c-brand, $lightness: 35%, $saturation: -21%, $hue: 2deg);
-$c-brand-tint3:  adjust-color($c-brand, $lightness: 50%, $saturation: -33%, $hue: 3deg);
+$c-brand-tint:   adjust-color($c-brand, $lightness: 20%, $saturation: -11%, $hue: 1deg);
+$c-brand-tint2:  adjust-color($c-brand, $lightness: 35%, $saturation: -18%, $hue: 2deg);
+$c-brand-tint3:  adjust-color($c-brand, $lightness: 45%, $saturation: -21%, $hue: 3deg);
 
 $c-acc1:       rgb(246, 212, 110);
 $c-acc1-tint:  adjust-color($c-acc1, $lightness: 15%, $saturation: -10%, $hue: 2deg);
