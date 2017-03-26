@@ -4,7 +4,7 @@
 {{ define "content" }}
 <article class="Article">
   <header class="Article-header u-columns">
-    <div class="Article-headerInsert u-mainColumn">
+    <div class="Article-headerInsert u-mainColumn u-push-3">
       <h1 class="Article-title">{{ .Title }}</h1>
       <p class="Article-subtitle">
         {{ if .Params.authors }}
@@ -19,18 +19,64 @@
     <figure class="Article-cover u-columns">
       <img class="Article-coverImage" src="{{ .Params.cover_image.src | absURL }}" alt="">
       {{ with .Params.cover_image.caption }}
-      <figcaption class="Article-caption u-mainColumn">{{ . }}</figcaption>
+      <figcaption class="Article-caption u-mainColumn u-push-3">{{ . }}</figcaption>
       {{ end }}
     </figure>
   {{ end }}
   <div class="Article-columns u-columns">
-    <div class="Article-body u-markdown u-mainColumn">
+    <div class="Article-body u-markdown u-mainColumn u-push-3">
       {{ .Content | markdownify }}
     </div>
-    <!-- <footer class="Sidebar u-rightSidebar">
-      <h1>Stuff</h1>
-    </footer> -->
-    <aside class="Sidebar u-leftSidebar">
+    <footer class="Metadata u-rightSidebar">
+      {{ with .Params.categories }}
+      <section class="Metadata-section">
+        <h1 class="Metadata-heading">Section</h1>
+        <a class="Metadata-link" href="{{ index . 0 | urlize | printf "/categories/%s" | absURL }}">
+          <span class="u-forSR">Section:</span> {{ index . 0 | title }}
+        </a>
+      </section>
+      {{ end }}
+      {{ with .Params.issues }}
+      <section class="Metadata-section">
+        <h1 class="Metadata-heading">Issue</h1>
+        <a href="{{ index . 0 | urlize | printf "/issues/%s" | absURL }}" class="Metadata-link">
+          <span class="u-forSR">Issue:</span> {{ index . 0 | title }}
+        </a>
+      </section>
+      {{ end }}
+      {{ with .Params.tags }}
+      <section class="Metadata-section">
+        <h1 class="Metadata-heading">Tags</h1>
+        <ul class="Metadata-tags">
+          {{ range . }}
+          <li class="Metadata-tag">
+            <a href="{{ . | urlize | printf "/tags/%s" | absURL }}" class="Metadata-link">
+              {{ . | lower }}
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </section>
+      {{ end }}
+      <section class="Metadata-section Metadata-section--share">
+        <h1 class="Metadata-heading">Share</h1>
+        <div class="Metadata-shareWidget">
+          <a href="https://facebook.com/sharer.php?u={{ .Permalink | absURL }}" rel="nofollow" target="_blank" title="Share on Facebook" class="Metadata-link Metadata-link--share">
+            <span class="u-forSR">Share on Facebook</span>
+            <span class="Icon Icon--facebook">
+              {{ partial "icon/facebook.svg" . }}
+            </span>
+          </a>
+          <a href="https://twitter.com/intent/tweet?text={{ .Title }}&url={{ .Permalink | absURL }}" rel="nofollow" target="_blank" title="Share on Twitter" class="Metadata-link Metadata-link--share">
+            <span class="u-forSR">Share on Twitter</span>
+            <span class="Icon Icon--twitter">
+              {{ partial "icon/twitter.svg" . }}
+            </span>
+          </a>
+        </div>
+      </section>
+    </footer>
+    <aside class="Sidebar u-leftSidebar u-pull-12">
       {{ partial "about-block" . }}
     </aside>
   </div>

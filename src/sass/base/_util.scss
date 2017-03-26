@@ -31,15 +31,13 @@
 
 .u-markdown {
   @include fs-body;
-  color: $c-grey-60;
-  font-family: $ff-sans;
+  color: $c-grey-85;
 
   > *:last-child {
     margin-bottom: 0;
   }
 
   > p {
-    color: $c-grey-75;
     margin-top: $vsp-sm;
   }
 
@@ -196,6 +194,7 @@
     &::after {
       border-bottom: 8px $c-acc1 solid;
       margin-top: $vsp-lg;
+      margin-left: auto;
     }
   }
 

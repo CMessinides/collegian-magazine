@@ -1,3 +1,8 @@
+.Article {
+  font-family: $ff-sans;
+  margin-bottom: $vsp-xl;
+}
+
 .Article-header {
   margin-bottom: $vsp-lg;
 }
@@ -21,7 +26,6 @@
 }
 
 .Article-coverImage {
-  @include mock-grid-gutters;
   width: 100%;
 }
 
@@ -29,13 +33,11 @@
   @include fs-small;
   color: $c-grey-60;
   margin-top: $vsp-xs;
-  font-family: $ff-sans;
   font-style: italic;
 }
 
 .Article-subtitle {
   @include fs-4;
-  font-family: $ff-sans;
   color: $c-grey-60;
 }
 
@@ -52,5 +54,5 @@
 }
 
 .Article-body {
-  margin-bottom: $vsp-xl;
+  margin-bottom: $vsp-lg;
 }

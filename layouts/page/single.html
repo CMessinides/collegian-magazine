@@ -1,15 +1,15 @@
 {{ define "content" }}
 <article class="Article">
   <header class="Article-header u-columns">
-    <div class="Article-headerInsert u-mainColumn">
+    <div class="Article-headerInsert u-mainColumn u-push-3">
       <h1 class="Article-title">{{ .Title }}</h1>
     </div>
   </header>
   <div class="Article-columns u-columns">
-    <div class="Article-body u-markdown u-mainColumn">
+    <div class="Article-body u-markdown u-mainColumn u-push-3">
       {{ .Content | markdownify }}
     </div>
-    <aside class="Sidebar u-leftSidebar">
+    <aside class="Sidebar u-leftSidebar u-pull-10">
       {{ partial "about-block" . }}
     </aside>
   </div>

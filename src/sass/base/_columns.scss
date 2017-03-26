@@ -26,38 +26,27 @@
 // the magic happens above the large breakpoint
 @media #{$brkpt-lg} {
 
-  // Source order is critical to making the layout work
-
-  // .u-mainColumn must be the first child of the .u-columns container.
-  // This is because the content of the main column should be the most important
-  // content of its container, and it can exist without one or both sidebars.
   .u-mainColumn {
     @include grid-column(7, $neat-wide-grid);
-    @include grid-push(3, $neat-wide-grid);
   }
 
-  // .u-rightSidebar must be the second child of the .u-columns container.
-  // This is because the right sidebar is reserved for textual information
-  // that directly describes the content of the main column (ex. tags for an
-  // article). Therefore, it should directly follow the main column.
   .u-rightSidebar {
     @include grid-column(2, $neat-wide-grid);
   }
 
-  // .u-leftSidebar must be the last child of the .u-columns container. However,
-  // it can be the second or third child so long as it is last.
-  // This is because the left sidebar is reserved for nonessential, sitewide,
-  // and/or visual information that could be skipped if, for example, the user
-  // relies on a screenreader.
-
-  // if the left sidebar is second, push it some
   .u-leftSidebar {
     @include grid-column(3, $neat-wide-grid);
+  }
+
+  .u-push-3 {
+    @include grid-push(3, $neat-wide-grid);
+  }
+
+  .u-pull-10 {
     @include grid-push(-10, $neat-wide-grid);
   }
 
-  // push the left sidebar farther if it is the third child
-  .u-rightSidebar + .u-leftSidebar {
+  .u-pull-12 {
     @include grid-push(-12, $neat-wide-grid);
   }
 }
