@@ -29,6 +29,14 @@
   }
 }
 
+@mixin cardStyle {
+  background: $c-white;
+  border: 1px $c-grey-10 solid;
+  box-shadow: 0px 1px 3px $c-shad-wk;
+  border-radius: 2px;
+}
+
+
 .u-markdown {
   @include fs-body;
   color: $c-grey-85;

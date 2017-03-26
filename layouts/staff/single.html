@@ -1,25 +1,62 @@
 {{ define "content" }}
-  <article class="staff">
-    <header class="staff__header card">
-      <div class="staff__avatar">
-        {{ partial "staff-image" . }}
+  <article class="Article">
+    <header class="Article-header u-columns">
+      <div class="Article-headerInsert u-mainColumn u-push-3">
+        <h1 class="Article-title">{{ .Title }}</h1>
+        {{ with .Params.roles }}
+        <p class="Article-subtitle">
+          {{ $len := len . }}
+          {{- range $index, $role :=  . -}}
+          {{ if and (gt $len 1) (eq $index (sub $len 1))}} and{{ end }}
+          {{ . }}
+          {{ if and (gt $len 2) (ne $index (sub $len 1))}},{{ end }}
+          {{- end -}}
+        <p>
+        {{ end }}
       </div>
-      <div class="staff__meta">
-        <h1 class="staff__name" data-class-year="{{- with .Params.class_year -}}{{ if eq (len .) 2 }}{{ . }}{{ else if eq (len .) 4 }}{{ substr . 2 }}{{ end }}{{ end }}">{{ .Title }}</h1>
-        <h2 class="hidden">Roles:</h2>
-        <ul class="staff__roles">
-          {{ with .Params.roles }}
-          {{ range . }}
-          <li class="staff__role">{{ . }}</li>
-          {{ end }}
-          {{ else }}
-          <li class="staff__role">Contributor</li>
-          {{ end }}
-        </ul>
-      </div>
-      {{ with .Params.bio }}
-        <p class="staff__bio wid-12">{{ . }}</p>
-      {{ end }}
     </header>
-  </article>
+  <div class="u-columns">
+    <aside class="Sidebar u-leftSidebar">
+      <div class="Profile">
+        {{ with .Params.profile_picture }}
+        <img class="Profile-picture" src="{{ . | absURL }}" alt="{{ $.Title }}">
+        {{ end }}
+        <div class="Profile-info">
+          {{ with .Params.class_year }}
+          <p class="Profile-year">Class of {{ . }}</p>
+          {{ end }}
+          <ul class="Profile-socialLinks">
+            {{ with .Params.social.facebook_username }}
+            <li role="presentation" class="Profile-socialLink">
+              <a target="_blank" href="https://facebook.com/{{ . }}" class="Icon Icon--lockup" title="{{ $.Title }} on Facebook">
+                {{ partial "icon/facebook.svg" . }}
+                <span class="Icon-text">Facebook</span>
+              </a>
+            </li>
+            {{ end }}
+            {{ with .Params.social.twitter_username }}
+            <li role="presentation" class="Profile-socialLink">
+              <a target="_blank" href="https://twitter.com/{{ . }}" class="Icon Icon--lockup" role="{{ $.Title }} on Twitter">
+                {{ partial "icon/twitter.svg" . }}
+                <span class="Icon-text">Twitter</span>
+              </a>
+            </li>
+            {{ end }}
+            {{ with .Params.social.instagram_username }}
+            <li role="presentation" class="Profile-socialLink">
+              <a target="_blank" href="https://instagram.com/{{ . }}/" class="Icon Icon--lockup" role="{{ $.Title }} on Instagram">
+                {{ partial "icon/instagram.svg" . }}
+                <span class="Icon-text">Instagram</span>
+              </a>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    </aside>
+    <div class="u-mainColumn">
+
+    </div>
+  </div>
+</article>
 {{ end }}

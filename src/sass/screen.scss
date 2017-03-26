@@ -20,6 +20,7 @@ html {
 @import "components/Page";
 @import "components/Sidebar";
 @import "components/Metadata";
+@import "components/Profile";
 @import "components/link";
 @import "components/headings";
 @import "components/list";
@@ -34,9 +35,6 @@ html {
 @import "components/SocialList";
 @import "components/pagination";
 @import "regions/search";
-@import "regions/hero";
-@import "regions/header";
 @import "regions/footer";
-@import "regions/sidebar";
-@import "regions/staff";
 @import "regions/issue";
+@import "regions/header";

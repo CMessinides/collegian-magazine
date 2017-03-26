@@ -26,11 +26,13 @@
   display: inline-block;
   color: inherit;
   text-decoration: none;
+  border-bottom: 1px $c-brand-tint dotted;
+  padding-bottom: $vsp-xxs / 2;
 
   &:hover,
   &:focus,
   &:active {
-    text-decoration: underline;
+    border-color: currentColor;
     color: $c-brand;
   }
 }
@@ -38,7 +40,9 @@
 .Metadata-link--share {
   border: 1px currentColor solid;
   border-radius: 2px;
+  color: $c-brand-tint;
   margin-right: $vsp-xs;
+  line-height: 0;
   transition: 175ms color, 175ms background-color;
 
   &:hover,

@@ -32,6 +32,11 @@
   padding-right: $hsp-xs;
 }
 
+svg + .Icon-text {
+  padding-right: 0;
+  padding-left: $hsp-xs;
+}
+
 .Icon--small {
   padding: $hsp-xxs;
   svg {

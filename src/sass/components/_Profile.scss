@@ -1,0 +1,21 @@
+.Profile {
+  @include cardStyle;
+  font-family: $ff-sans;
+
+}
+
+.Profile-picture {
+  width: 100%;
+}
+
+.Profile-info {
+  padding: $hsp-xs;
+}
+
+.Profile-year {
+  @include fs-5;
+  margin-bottom: $vsp-sm;
+  padding-left: $hsp-xs;
+  font-weight: 700;
+  font-style: italic;
+}
