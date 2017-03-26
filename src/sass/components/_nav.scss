@@ -229,9 +229,7 @@
     &:hover,
     &:focus,
     &:active {
-      &::before {
-        content: '\02192\00A0'
-      }
+      color: $c-brand-tint;
     }
 
     &::before {

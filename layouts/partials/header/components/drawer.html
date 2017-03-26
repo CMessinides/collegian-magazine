@@ -11,7 +11,7 @@
         {{ end }}
         <header class="Card-info">
           <h1 class="Card-title">
-            <a tabindex="-1" href="{{ $post.Permalink | absURL }}">{{ $post.Title }}</a>
+            <a aria-hidden tabindex="-1" href="{{ $post.Permalink | absURL }}">{{ $post.Title }}</a>
           </h1>
           {{ with $post.Params.teaser }}
           <p class="Card-teaser">
@@ -19,7 +19,7 @@
           </p>
           {{ end }}
         </header>
-        <a aria-hidden="true" href="{{ $post.Permalink | absURL }}" class="Card-link"></a>
+        <a href="{{ $post.Permalink | absURL }}" class="Card-link"><span class="u-forSR">{{ $post.Title }}</span></a>
       </article>
     </div>
     <div class="Drawer-section Drawer-section--taxonomies">
