@@ -1,12 +1,15 @@
 ---
 title: The Website is Live!
 date: '2017-01-01T23:18:13-05:00'
-tags: []
-teaser: The Collegian Magazine website has arrived! Here's what you'll want to see
-  first.
-cover_image: "/assets/img/website-launch-banner.jpg"
-caption: ""
-focal_point: ""
+teaser: The Collegian Magazine website has arrived! Here's what you'll want to see first.
+description: ''
+authors:
+- Cameron Messinides
+tags: ["launch", "design", "website", "update"]
+cover_image:
+  src: "/assets/img/website-launch-banner.jpg"
+  caption: "An illustration of the new website"
+  focal_point: ""
 
 ---
 <h1>Cum audissem Antiochum, Brute, ut solebam, cum M.</h1>
@@ -51,7 +54,14 @@ focal_point: ""
 
 <ul>
 	<li>Sed ad haec, nisi molestum est, habeo quae velim.</li>
-	<li>Est tamen ea secundum naturam multoque nos ad se expetendam magis hortatur quam superiora omnia.</li>
+	<li>
+    Whoa now woha fkda taag
+    <ul>
+      <li>
+        Est tamen ea secundum naturam multoque nos ad se expetendam magis hortatur quam superiora omnia.
+      </li>
+    </ul>
+  </li>
 	<li>Non igitur de improbo, sed de callido improbo quaerimus, qualis Q.</li>
 	<li>Avaritiamne minuis?</li>
 	<li>Bonum patria: miserum exilium.</li>

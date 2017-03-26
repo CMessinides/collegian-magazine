@@ -42,3 +42,17 @@
   height: $hsp-xl;
   width: $hsp-xl;
 }
+
+.Logo {
+  display: inline-block;
+}
+
+.Logo--small {
+  .Logo-image {
+    max-height: 19px;
+  }
+}
+
+.Logo-image {
+  max-width: 100%;
+}

@@ -1,20 +1,22 @@
 ---
 title: Head in the Game
 date: '2016-11-28T15:45:22-05:00'
+description: ""
+teaser: On campus and across the U.S., more students suffer from concussions. Here's
+  why, and what we can do.
 authors:
 - Ben Hunkler
 - Julia Waldow
-teaser: On campus and across the U.S., more students suffer from concussions. Here's
-  why, and what we can do.
 categories:
 - Analysis
 tags: []
 issues:
 - Fall 2016
 featured: false
-cover_image: "/assets/img/road.jpg"
-focal_point: Center Right
-caption: A test caption
+cover_image:
+  src: "/assets/img/road.jpg"
+  focal_point: Center Right
+  caption: A test caption
 
 ---
 Here's an intro paragraph. Will this work?

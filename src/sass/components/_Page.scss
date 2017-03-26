@@ -1,4 +1,4 @@
-.page {
+.Page {
   background: $c-white;
 }
 
@@ -30,7 +30,7 @@
   }
 }
 
-.page__wrap {
+.Page-wrap {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -40,26 +40,9 @@
 .Page-content {
   @include global-max-width;
   width: 100%;
-  margin-top: $vsp-xl;
-}
+  padding-top: 4rem;
 
-
-.page__main {
-  flex: 1 0 auto;
-}
-
-.page__sidebar {
-  flex: 1 0 auto;
-  flex-wrap: wrap;
-  margin-top: $vsp-xl;
-
-
-  @media #{$brkpt-lg} {
-    padding-left: $hsp-xl;
-    margin-top: 0;
+  @media #{$brkpt-md} {
+    padding-top: 8rem;
   }
-}
-
-.page__section:not(:last-child) {
-  margin-bottom: $vsp-xl;
 }

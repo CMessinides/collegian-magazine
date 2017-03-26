@@ -1,5 +1,7 @@
 ---
 description: ""
-cover_image: ""
-caption: ""
+cover_image:
+  src: ""
+  caption: ""
+  focal_point: ""
 ---

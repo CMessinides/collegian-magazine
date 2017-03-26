@@ -1,0 +1,19 @@
+<svg width="16" height="16" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma/ns">
+<title>Close</title>
+<g id="Canvas" transform="translate(-68 30)" figma:type="canvas">
+<mask id="close_mask0" mask-type="alpha">
+<path d="M 68 -30L 84 -30L 84 -14L 68 -14L 68 -30Z" fill="#FFFFFF"/>
+</mask>
+<g id="Close" mask="url(#close_mask0)" figma:type="frame">
+<g id="Vector 5" figma:type="vector">
+<use xlink:href="#close_stroke0" transform="translate(71 -27)"/>
+</g>
+<g id="Vector 5" figma:type="vector">
+<use xlink:href="#close_stroke0" transform="matrix(-1 0 0 1 81 -27)"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="close_stroke0" d="M 0.707107 -0.707107C 0.316582 -1.09763 -0.316582 -1.09763 -0.707107 -0.707107C -1.09763 -0.316582 -1.09763 0.316582 -0.707107 0.707107L 0.707107 -0.707107ZM 9.29289 10.7071C 9.68342 11.0976 10.3166 11.0976 10.7071 10.7071C 11.0976 10.3166 11.0976 9.68342 10.7071 9.29289L 9.29289 10.7071ZM -0.707107 0.707107L 9.29289 10.7071L 10.7071 9.29289L 0.707107 -0.707107L -0.707107 0.707107Z"/>
+</defs>
+</svg>

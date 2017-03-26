@@ -1,3 +1,3 @@
-{{ $size1x := .Params.cover_image | replaceRE "(/img)" "$1/540" | replaceRE "(png|jpeg|gif|tiff|bmp)$" "jpg" | absURL }}
-{{ $size2x := .Params.cover_image | replaceRE "(/img)" "$1/1200" | replaceRE "(png|jpeg|gif|tiff|bmp)$" "jpg" | absURL }}
-<img class="card__image" srcset="{{ $size1x }} 1x, {{ $size2x }} 2x" src="{{ $size2x }}" alt="{{ .Params.caption | default .Title }}" {{ with .Params.focal_point }}style="object-position: {{ lower . }}"{{ end }}>
+{{ $size1x := .Params.cover_image.src | replaceRE "(/img)" "$1/540" | replaceRE "(png|jpeg|gif|tiff|bmp)$" "jpg" | absURL }}
+{{ $size2x := .Params.cover_image.src | replaceRE "(/img)" "$1/1200" | replaceRE "(png|jpeg|gif|tiff|bmp)$" "jpg" | absURL }}
+<img class="card__image" srcset="{{ $size1x }} 1x, {{ $size2x }} 2x" src="{{ $size2x }}" alt="{{ .Params.cover_image.caption | default .Title }}" {{ with .Params.cover_image.focal_point }}style="object-position: {{ lower . }}"{{ end }}>

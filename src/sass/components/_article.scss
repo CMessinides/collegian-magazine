@@ -16,10 +16,39 @@
   }
 }
 
+.Article-cover {
+  margin-bottom: $vsp-xl;
+}
+
+.Article-coverImage {
+  @include mock-grid-gutters;
+  width: 100%;
+}
+
+.Article-caption {
+  @include fs-small;
+  color: $c-grey-60;
+  margin-top: $vsp-xs;
+  font-family: $ff-sans;
+  font-style: italic;
+}
+
 .Article-subtitle {
-  @include fs-3;
+  @include fs-4;
   font-family: $ff-sans;
   color: $c-grey-60;
+}
+
+.Article-subtitleLink {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $c-brand;
+  }
 }
 
 .Article-body {

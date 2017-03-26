@@ -6,11 +6,23 @@
   <header class="Article-header u-columns">
     <div class="Article-headerInsert u-mainColumn">
       <h1 class="Article-title">{{ .Title }}</h1>
-      {{ with .Params.subtitle }}
-      <p class="Article-subtitle">{{ . | markdownify }}</p>
-      {{ end }}
+      <p class="Article-subtitle">
+        {{ if .Params.authors }}
+        {{ partial "byline.html" . }}
+        on
+        {{ end }}
+        <time>{{ .Date | dateFormat "January 2, 2006"}}</time>
+      </p>
     </div>
   </header>
+  {{ if .Params.cover_image.src }}
+    <figure class="Article-cover u-columns">
+      <img class="Article-coverImage" src="{{ .Params.cover_image.src | absURL }}" alt="">
+      {{ with .Params.cover_image.caption }}
+      <figcaption class="Article-caption u-mainColumn">{{ . }}</figcaption>
+      {{ end }}
+    </figure>
+  {{ end }}
   <div class="Article-columns u-columns">
     <div class="Article-body u-markdown u-mainColumn">
       {{ .Content | markdownify }}

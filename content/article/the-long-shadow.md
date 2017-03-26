@@ -1,17 +1,21 @@
 ---
 title: The Long Shadow
 date: '2016-04-05T00:39:30-05:00'
+teaser: "The assassination of Swedish Prime Minister Olof Palme '48 one snowy night
+in Stockholm remains one of the country's greatest unsolved mysteries."
+description: ''
 authors:
 - Henry Burbank
-teaser: The assassination of Swedish Prime Minister Olof Palme '48 one snowy night
-  in Stockholm remains one of the country's greatest unsolved mysteries.
 categories:
 - Literary Nonfiction
 tags: []
 issues:
 - Spring 2016
 featured: false
-cover_image: ''
+cover_image:
+  src: ''
+  caption: ''
+  cover_image: ''
 
 ---
 <h1>Negat esse eam, inquit, propter se expetendam.</h1>

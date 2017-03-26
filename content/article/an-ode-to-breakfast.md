@@ -1,17 +1,21 @@
 ---
 title: An Ode to Breakfast
 date: '2016-04-05T00:39:48-05:00'
-authors:
-- Peter Granville
+description: ""
 teaser: Breakfast is the most important meal of the day, but not for reasons you might
   think.
+authors:
+- Peter Granville
 categories:
 - Commentary
 tags: []
 issues:
 - Spring 2016
 featured: false
-cover_image: ''
+cover_image:
+  src: ""
+  caption: ""
+  focal_point: ""
 
 ---
 <h1>Sed tamen enitar et, si minus multa mihi occurrent, non fugiam ista popularia.</h1>

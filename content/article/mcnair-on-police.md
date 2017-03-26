@@ -11,7 +11,10 @@ tags: []
 issues:
 - Fall 2016
 featured: false
-cover_image: ''
+cover_image:
+  src: ""
+  caption: ""
+  tags: ""
 
 ---
 <h1>Occultum facinus esse potuerit, gaudebit;</h1>

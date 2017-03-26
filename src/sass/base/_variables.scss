@@ -33,26 +33,30 @@ $c-brand-tint:   adjust-color($c-brand, $lightness: 20%, $saturation: -11%, $hue
 $c-brand-tint2:  adjust-color($c-brand, $lightness: 35%, $saturation: -18%, $hue: 2deg);
 $c-brand-tint3:  adjust-color($c-brand, $lightness: 45%, $saturation: -21%, $hue: 3deg);
 
-$c-acc1:       rgb(246, 212, 110);
-$c-acc1-tint:  adjust-color($c-acc1, $lightness: 15%, $saturation: -10%, $hue: 2deg);
-$c-acc1-shade: adjust-color($c-acc1, $lightness: -20%, $saturation: 8%, $hue: -2deg);
-$c-acc1-shade2: adjust-color($c-acc1, $lightness: -52%, $saturation: 30%, $hue: -5deg);
+$c-acc1:         rgb(246, 212, 110);
+$c-acc1-tint:    adjust-color($c-acc1, $lightness: 15%, $saturation: -10%, $hue: 2deg);
+$c-acc1-shade:   adjust-color($c-acc1, $lightness: -20%, $saturation: 8%, $hue: -2deg);
+$c-acc1-shade2:  adjust-color($c-acc1, $lightness: -52%, $saturation: 30%, $hue: -5deg);
 
-$c-acc2:       rgb(114, 45, 131);
-$c-acc2-shade: adjust-color($c-acc2, $lightness: -16%, $saturation: 15%, $hue: -1deg);
-$c-acc2-tint:  adjust-color($c-acc2, $lightness: 30%, $saturation: -21%, $hue: 2deg);
+$c-error:        rgb(194, 48, 44);
+$c-error-tint:   adjust-color($c-error, $lightness: 37%, $saturation: -15%, $hue: 2deg);
+$c-error-shade:  adjust-color($c-error, $lightness: -25%, $saturation: 18%, $hue: -2deg);
 
-$c-white: rgb(255, 255, 255);
-$c-off-white: rgb(251, 251, 252);
-$c-grey-5: darken($c-off-white, 5);
-$c-grey-10: darken($c-off-white, 10);
-$c-grey-20: darken($c-off-white, 20);
-$c-grey-60: darken($c-off-white, 60);
-$c-grey-75: darken($c-off-white, 75);
-$c-black: darken($c-off-white, 95);
+$c-acc2:         rgb(114, 45, 131);
+$c-acc2-shade:   adjust-color($c-acc2, $lightness: -16%, $saturation: 15%, $hue: -1deg);
+$c-acc2-tint:    adjust-color($c-acc2, $lightness: 30%, $saturation: -21%, $hue: 2deg);
 
-$c-shad: transparentize($c-black, 0.75);
-$c-shad-wk: transparentize($c-black, 0.92);
+$c-white:        rgb(255, 255, 255);
+$c-off-white:    rgb(251, 251, 252);
+$c-grey-5:       darken($c-off-white, 5);
+$c-grey-10:      darken($c-off-white, 10);
+$c-grey-20:      darken($c-off-white, 20);
+$c-grey-60:      darken($c-off-white, 60);
+$c-grey-75:      darken($c-off-white, 75);
+$c-black:        darken($c-off-white, 95);
+
+$c-shad:         transparentize($c-black, 0.75);
+$c-shad-wk:      transparentize($c-black, 0.92);
 
 // # Typography
 $ff-base: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;

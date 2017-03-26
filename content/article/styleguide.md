@@ -1,21 +1,24 @@
 ---
 title: Styleguide
 date: '2017-01-11T22:59:04-05:00'
+teaser: ''
+description: ''
 authors:
 - Foo Bar
 - Test Author
 categories:
 - Test
-cover_image: "/assets/img/mtns.jpg"
-focal_point: Center Left
-featured: false
-issues:
-- Spring 2017
 tags:
 - test
 - styling
 - to be deleted
-teaser: ''
+issues:
+- Spring 2017
+featured: false
+cover_image:
+  src: "/assets/img/mtns.jpg"
+  caption: ''
+  focal_point: Center Left
 
 ---
 # Four drunk quails gather blue vats lazily

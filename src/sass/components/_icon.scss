@@ -7,12 +7,55 @@
 }
 
 .Icon {
+  font-family: $ff-sans;
+  text-transform: uppercase;
   padding: $hsp-xs;
+  line-height: 0;
+  display: block;
 
   svg {
     fill: currentColor;
     height: $hsp-sm;
     width: $hsp-sm;
-    display: block;
   }
+}
+
+.Icon--flipped {
+  svg {
+    transform: rotateY(180deg);
+  }
+}
+
+.Icon-text {
+  font-size: 14px;
+  font-weight: 700;
+  padding-right: $hsp-xs;
+}
+
+.Icon--small {
+  padding: $hsp-xxs;
+  svg {
+    height: 8px;
+    width: 8px;
+  }
+
+  .Icon-text {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
+
+.Icon--lockup {
+  display: inline-block;
+  font-size: 0;
+
+  svg,
+  .Icon-text {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.Icon--lockup.Icon--small {
+  padding: $hsp-xs;
 }

@@ -1,117 +1,115 @@
 .Header {
-  background-color: $c-white;
   position: relative;
-  color: $c-black;
+  width: 100%;
+  box-shadow: 0px 0px 4px 0px rgba(8,8,11,0.35);
+}
+
+.Header-masthead,
+.Header-subhead {
+  position: relative;
+  z-index: 3;
+}
+
+.Header-mastheadInner,
+.Header-subheadInner {
+  @include global-max-width;
+  width: 100%;
+  display: table;
 }
 
 .Header-masthead {
-  @include global-max-width;
-  text-align: center;
-  margin: $hsp-sm auto;
-  position: relative;
+  color: $c-white;
+  background-color: $c-black;
+}
+
+.Header-mastheadInner {
+  padding: $hsp-xs $hsp-sm;
+
+  @media #{$brkpt-sm} {
+    padding: $hsp-sm;
+  }
 
   @media #{$brkpt-lg} {
-    margin: $hsp-sm auto;
+    padding: $hsp-md $hsp-lg;
+  }
+}
+
+.Header-block {
+  display: table-cell;
+  vertical-align: middle;
+  line-height: 0;
+}
+
+.Header-block--logo {
+  text-align: center;
+
+  @media #{$brkpt-sm} {
+    text-align: left;
   }
 }
 
 .Header-logoLink {
-  border-bottom: 2px transparent solid;
   display: inline-block;
-  font-size: 1.5rem;
-  line-height: 1;
-  font-family: $ff-disp;
-  font-weight: 700;
-  color: $c-brand;
-  transition: 250ms border-color ease;
+  position: relative;
+  text-decoration: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 1%;
+    width: 97%;
+    border-top: 2px transparent solid;
+  }
 
   &:hover,
   &:focus,
   &:active {
-    border-color: $c-acc1;
+    &::after {
+      border-color: $c-acc1;
+    }
   }
 }
 
 .Header-logo {
-  max-height: 48px;
+  max-height: 32px;
   max-width: 100%;
 }
 
-.Header-socialLinks {
-  position: absolute;
-  left: $hsp-sm;
-  top: 0;
-
-  @media #{$brkpt-lg} {
-    left: $hsp-lg;
-  }
-}
-
-.Header-searchLink {
-  position: absolute;
+.Header-subhead {
   color: $c-grey-75;
-  transition: 200ms color ease;
-  top: 8px;
-  right: $hsp-sm;
+  background-color: $c-white;
+}
 
-  &:hover,
-  &:focus,
-  &:active {
-    color: $c-brand-tint;
-  }
+.Header-subheadInner {
+  @include grid-container;
+  padding: $hsp-xs $hsp-sm;
 
   @media #{$brkpt-lg} {
-    right: $hsp-lg;
+    padding: $hsp-xs $hsp-lg;
   }
 }
 
-.Header-socialLinks,
-.Header-searchLink {
-  display: none;
+.Header-subheadBlock {
+  height: 32px;
+  float: left;
 
-  @media #{$brkpt-md} {
-    display: block;
+  &:last-child {
+    float: right;
   }
 }
 
-.Header-subheader {
-  @include fs-small;
-  line-height: 1;
-  font-family: $ff-sans;
-  background-color: $c-black;
-  border-top: 1px $c-grey-10 solid;
-  border-bottom: 1px $c-grey-10 solid;
-  color: $c-grey-20;
-  width: 100%;
-  padding: 0 $hsp-sm;
-
-  @media #{$brkpt-lg} {
-    padding: 0 $hsp-lg;
-  }
+.Header-subheadBlock--nav {
+  width: calc(100% - 64px);
 }
 
-.Header-sectionList {
-  display: table;
-  table-layout: fixed;
-  margin: 0 auto;
-}
-
-.Header-sectionItem {
-  display: table-cell;
-}
-
-.Header-sectionLink {
-  color: inherit;
+.Header-subheadBlock--icon {
   display: block;
-  padding: $hsp-sm;
+  width: 32px;
+  color: inherit;
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: 200ms background-color ease;
 
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: $c-acc1;
+  &:hover {
+    background-color: $c-grey-5;
   }
 }

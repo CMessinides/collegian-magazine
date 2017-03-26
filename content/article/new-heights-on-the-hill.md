@@ -1,17 +1,21 @@
 ---
 title: New Heights on the Hill
 date: '2016-11-28T15:45:37-05:00'
-authors:
-- Grant Miner
 teaser: Kenyon's Flying Club and School of Aeronautics helped prepare young men for
   careers in aviation.
+description: ''
+authors:
+- Grant Miner
 categories:
 - Out of Reach
 tags: []
 issues:
 - Fall 2016
 featured: false
-cover_image: "/assets/img/mtns.jpg"
+cover_image:
+  src: "/assets/img/mtns.jpg"
+  caption: ''
+  focal_point: ''
 
 ---
 <h1>Ut in voluptate sit, qui epuletur, in dolore, qui torqueatur.</h1>

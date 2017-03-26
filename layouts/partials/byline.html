@@ -1,8 +1,6 @@
-<p class="summary__subtitle">
-  by
-  {{ $len := len .Params.authors }}
-  {{- range $index, $author := .Params.authors -}}
-    {{ if and (gt $len 1) (eq $index (sub $len 1))}} and{{ end }}
-    <a href="{{ $author | urlize | printf "/authors/%s" | absURL }}" class="link">{{ . }}</a>{{ if and (gt $len 2) (ne $index (sub $len 1))}},{{ end }}
-  {{- end -}}
-</p>
+by
+{{ $len := len .Params.authors }}
+{{- range $index, $author := .Params.authors -}}
+  {{ if and (gt $len 1) (eq $index (sub $len 1))}} and{{ end }}
+  <a rel="author" href="{{ $author | urlize | printf "/authors/%s" | absURL }}" class="Article-subtitleLink">{{ . }}</a>{{ if and (gt $len 2) (ne $index (sub $len 1))}},{{ end }}
+{{- end -}}

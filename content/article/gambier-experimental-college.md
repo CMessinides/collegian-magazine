@@ -11,7 +11,10 @@ tags: []
 issues:
 - Spring 2016
 featured: false
-cover_image: ''
+cover_image:
+  src: ""
+  caption: ""
+  focal_point: ""
 
 ---
 <h1>Quare ad ea primum, si videtur;</h1>

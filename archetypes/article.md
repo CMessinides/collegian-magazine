@@ -1,12 +1,13 @@
 ---
-description: ""
 teaser: ""
+description: ""
 authors: []
-tags: []
 categories: []
+tags: []
 issues: []
 featured: false
-cover_image: ""
-caption: ""
-focal_point: ""
+cover_image:
+  src: ""
+  caption: ""
+  focal_point: ""
 ---

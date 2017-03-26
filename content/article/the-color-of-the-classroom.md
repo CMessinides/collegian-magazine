@@ -1,18 +1,22 @@
 ---
 title: The Color of the Classroom
 date: '2016-04-05T00:39:17-05:00'
+teaser: "A lack of black faculty on tenure track and difficulties recruiting professors
+of color complicate Kenyon's efforts to increase diversity on campus."
+description: ''
 authors:
 - Griffin Burrough
 - Julia Waldow
-teaser: A lack of black faculty on tenure track and difficulties recruiting professors
-  of color complicate Kenyon's efforts to increase diversity on campus.
 categories:
 - Analysis
 tags: []
 issues:
 - Spring 2016
 featured: true
-cover_image: ''
+cover_image:
+  src: ''
+  caption: ''
+  focal_point: ''
 
 ---
 <h1>Quasi vero, inquit, perpetua oratio rhetorum solum, non etiam philosophorum sit.</h1>

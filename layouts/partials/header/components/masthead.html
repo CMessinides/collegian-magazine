@@ -1,0 +1,20 @@
+<div class="Header-masthead">
+  <div class="Header-mastheadInner">
+    <div class="Header-block Header-block--logo">
+      <a href="{{ absURL "" }}" class="Header-logoLink">
+        <img src="{{ "/logos/masthead-light@1x.png" | absURL }}" srcset="{{ "/logos/masthead-light@1x.png" | absURL }} 1x, {{ "/logos/masthead-light@2x.png" | absURL }} 2x" alt="{{ .Site.Params.site_name | default .Site.Title }}" class="Header-logo">
+      </a>
+    </div>
+    <div class="Header-block Header-block--nav">
+      <nav class="NavBar NavBar--main" role="navigation">
+        <ul class="NavBar-list">
+          {{ range (first 4 .Site.Menus.main) }}
+          <li class="NavBar-item">
+            <a href="{{ .URL | absURL }}" class="NavBar-link">{{ .Name }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

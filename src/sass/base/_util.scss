@@ -1,4 +1,4 @@
-.hidden {
+@mixin forSR {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -9,14 +9,28 @@
   width: 1px;
 }
 
+.u-forSR {
+  @include forSR;
+}
+
 @mixin global-max-width {
   margin-left: auto;
   margin-right: auto;
   max-width: $site-max-width;
 }
 
+@mixin mock-grid-gutters {
+  padding-left: $hsp-sm;
+  padding-right: $hsp-sm;
+
+  @media #{$brkpt-lg} {
+    padding-left: $hsp-lg;
+    padding-right: $hsp-lg;
+  }
+}
+
 .u-markdown {
-  @include fs-3;
+  @include fs-body;
   color: $c-grey-60;
   font-family: $ff-sans;
 
@@ -25,7 +39,6 @@
   }
 
   > p {
-    @include fs-body;
     color: $c-grey-75;
     margin-top: $vsp-sm;
   }
@@ -99,6 +112,40 @@
   dl {
     margin: $vsp-md 0;
     padding-left: $hsp-lg;
+    position: relative;
+  }
+
+  ul {
+    list-style: disc;
+
+    > ul {
+      list-style: circle;
+
+      > ul {
+        list-style: square;
+      }
+    }
+  }
+
+  ol {
+    list-style: decimal;
+
+    > ol {
+      list-style: upper-alpha;
+
+      > ol {
+        list-style: lower-alpha;
+      }
+    }
+  }
+
+  ul,
+  ol {
+    ul,
+    ol {
+      margin: $vsp-xs 0 $vsp-sm;
+      padding-left: $hsp-md;
+    }
   }
 
   a {
@@ -123,9 +170,11 @@
   }
 
   > blockquote {
+    @include fs-2;
     color: $c-black;
     font-family: $ff-sans;
-    font-weight: 600;
+    font-weight: 700;
+    font-style: italic;
     margin: $vsp-xl 0;
 
     p {
@@ -134,17 +183,18 @@
 
     &::before,
     &::after {
-      border-top: 8px $c-acc1 solid;
       content: '';
       display: block;
       width: $hsp-xl;
     }
 
     &::before {
+      border-top: 8px $c-acc1 solid;
       margin-bottom: $vsp-lg;
     }
 
     &::after {
+      border-bottom: 8px $c-acc1 solid;
       margin-top: $vsp-lg;
     }
   }
@@ -170,4 +220,14 @@
     color: inherit;
   }
 
+}
+
+.u-hidden {
+  display: none;
+}
+
+.sm-u-hidden {
+  @media #{$brkpt-sm} {
+    display: none;
+  }
 }

@@ -1,0 +1,37 @@
+<div class="Header-subhead">
+  <div class="Header-subheadInner">
+    <a href="{{ "/search/" | absURL }}" class="Header-subheadBlock Header-subheadBlock--icon">
+      <span class="Icon" aria-hidden="true">
+        {{ partial "icon/search.svg" . }}
+      </span>
+      <span class="u-forSR">Search</span>
+    </a>
+    <div class="Header-subheadBlock Header-subheadBlock--nav">
+      <nav role="navigation" aria-label="Sections Menu" class="NavBar NavBar--secondary">
+        <ul class="NavBar-list">
+          {{ range (first 8 .Site.Data.categories.categories) }}
+          {{ if (index $.Site.Taxonomies.categories (urlize .name)) }}
+          <li class="NavBar-item">
+            <a href="{{ .name | urlize | printf "/categories/%s/" | absURL }}" class="NavBar-link">
+              <span class="u-forSR">Section:</span> {{ .name }}
+            </a>
+          </li>
+          {{ end }}
+          {{ end }}
+        </ul>
+      </nav>
+    </div>
+    <a id="drawerOpener" href="#header" class="Header-subheadBlock Header-subheadBlock--icon" aria-expanded="false">
+      <span class="Icon" aria-hidden="true">
+        {{ partial "icon/menu.svg" . }}
+      </span>
+      <span class="u-forSR">Open Menu</span>
+    </a>
+    <a class="Header-subheadBlock Header-subheadBlock--icon" href="#" aria-expanded="true" id="drawerCloser">
+      <span class="Icon" aria-hidden="true">
+        {{ partial "icon/close.svg" . }}
+      </span>
+      <span class="u-forSR">Close Menu</span>
+    </a>
+  </div>
+</div>

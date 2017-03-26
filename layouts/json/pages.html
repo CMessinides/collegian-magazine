@@ -1,6 +1,6 @@
 [
   {{- range $index, $page := where (where .Site.RegularPages "Section" "page") "Type" "ne" "search" -}}
   {{ if $index }},{{ end }}
-  {{ ( dict "id" $index "url" ($page.Permalink | absURL) "title" $page.Title "description" $page.Description "coverImage" $page.Params.cover_image "content" $page.Plain ) | jsonify }}
+  {{ ( dict "id" $index "url" ($page.Permalink | absURL) "title" $page.Title "description" $page.Description "coverImage" $page.Params.cover_image.src "content" $page.Plain ) | jsonify }}
   {{- end -}}
 ]

@@ -1,1 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+<svg width="16" height="16" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma/ns">
+<title>Menu</title>
+<g id="Canvas" transform="translate(-28 31)" figma:type="canvas">
+<mask id="menu_mask0" mask-type="alpha">
+<path d="M 28 -31L 44 -31L 44 -15L 28 -15L 28 -31Z" fill="#FFFFFF"/>
+</mask>
+<g id="Menu" mask="url(#menu_mask0)" figma:type="frame">
+<g id="Vector 3" figma:type="vector">
+<use xlink:href="#menu_stroke0" transform="translate(29 -27)"/>
+</g>
+<g id="Vector 3" figma:type="vector">
+<use xlink:href="#menu_stroke1" transform="matrix(1 -2.44929e-16 2.44929e-16 1 33 -23)"/>
+</g>
+<g id="Vector 3" figma:type="vector">
+<use xlink:href="#menu_stroke2" transform="matrix(1 -2.44929e-16 2.44929e-16 1 31 -19)"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="menu_stroke0" d="M 0 -1C -0.552285 -1 -1 -0.552285 -1 0C -1 0.552285 -0.552285 1 0 1L 0 -1ZM 14 1C 14.5523 1 15 0.552285 15 0C 15 -0.552285 14.5523 -1 14 -1L 14 1ZM 0 1L 14 1L 14 -1L 0 -1L 0 1Z"/>
+<path id="menu_stroke1" d="M 0 -1C -0.552285 -1 -1 -0.552285 -1 0C -1 0.552285 -0.552285 1 0 1L 0 -1ZM 10 1C 10.5523 1 11 0.552285 11 0C 11 -0.552285 10.5523 -1 10 -1L 10 1ZM 0 1L 10 1L 10 -1L 0 -1L 0 1Z"/>
+<path id="menu_stroke2" d="M 0 -1C -0.552285 -1 -1 -0.552285 -1 0C -1 0.552285 -0.552285 1 0 1L 0 -1ZM 12 1C 12.5523 1 13 0.552285 13 0C 13 -0.552285 12.5523 -1 12 -1L 12 1ZM 0 1L 12 1L 12 -1L 0 -1L 0 1Z"/>
+</defs>
+</svg>

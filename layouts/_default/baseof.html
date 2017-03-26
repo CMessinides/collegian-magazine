@@ -99,12 +99,12 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 
   </head>
-  <body class="page" id="top">
-    <div class="page__wrap">
+  <body class="Page" id="top">
+    <div class="Page-wrap">
       <a class="page__skip-to-content" href="#main">Skip to Content</a>
-      {{ partial "site/header.html" . }}
+      {{ partial "header/header.html" . }}
 
-      <div class="Page-content">
+      <div class="Page-content" id="page">
         {{ block "content" . }}{{ end }}
       </div>
 

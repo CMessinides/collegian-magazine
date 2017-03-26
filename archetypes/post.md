@@ -1,8 +1,10 @@
 ---
-description: ""
 teaser: ""
+description: ""
+authors: []
 tags: []
-cover_image: ""
-caption: ""
-focal_point: ""
+cover_image:
+  src: ""
+  caption: ""
+  focal_point: ""
 ---
