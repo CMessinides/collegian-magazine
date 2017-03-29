@@ -16,12 +16,16 @@
     </div>
   </header>
   {{ if .Params.cover_image.src }}
-    <figure class="Article-cover u-columns">
-      <img class="Article-coverImage" src="{{ .Params.cover_image.src | absURL }}" alt="">
+  <div class="Article-hero">
+    <div class="Article-cover">
+      <img class="Article-coverImage" src="{{ .Params.cover_image.src | absURL }}" style="object-position:{{ with .Params.cover_image.focal_point }}{{ lower . }}{{ else }}center{{ end }}" alt="{{ .Params.cover_image.caption | default .Title }}" {{ if .Params.cover_image.caption }}aria-labelledby="coverCaption"{{ end }}>
+    </div>
       {{ with .Params.cover_image.caption }}
-      <figcaption class="Article-caption u-mainColumn u-push-3">{{ . }}</figcaption>
+      <div class="u-columns">
+        <p id="coverCaption" class="Article-caption u-mainColumn u-push-3">{{ . }}</p>
+      </div>
       {{ end }}
-    </figure>
+  </div>
   {{ end }}
   <div class="Article-columns u-columns">
     <div class="Article-body u-markdown u-mainColumn u-push-3">
@@ -58,16 +62,16 @@
         </ul>
       </section>
       {{ end }}
-      <section class="Metadata-section Metadata-section--share">
+      <section class="Metadata-section Metadata-section--social">
         <h1 class="Metadata-heading">Share</h1>
-        <div class="Metadata-shareWidget">
-          <a href="https://facebook.com/sharer.php?u={{ .Permalink | absURL }}" rel="nofollow" target="_blank" title="Share on Facebook" class="Metadata-link Metadata-link--share">
+        <div class="Metadata-socialWidget">
+          <a href="https://facebook.com/sharer.php?u={{ .Permalink | absURL }}" rel="nofollow" target="_blank" title="Share on Facebook" class="Metadata-link Metadata-link--social">
             <span class="u-forSR">Share on Facebook</span>
             <span class="Icon Icon--facebook">
               {{ partial "icon/facebook.svg" . }}
             </span>
           </a>
-          <a href="https://twitter.com/intent/tweet?text={{ .Title }}&url={{ .Permalink | absURL }}" rel="nofollow" target="_blank" title="Share on Twitter" class="Metadata-link Metadata-link--share">
+          <a href="https://twitter.com/intent/tweet?text={{ .Title }}&url={{ .Permalink | absURL }}" rel="nofollow" target="_blank" title="Share on Twitter" class="Metadata-link Metadata-link--social">
             <span class="u-forSR">Share on Twitter</span>
             <span class="Icon Icon--twitter">
               {{ partial "icon/twitter.svg" . }}
@@ -79,6 +83,8 @@
     <aside class="Sidebar u-leftSidebar u-pull-12">
       {{ partial "about-block" . }}
     </aside>
+  </div>
+  {{ partial "disqus" . }}
   </div>
 </div>
 {{ end }}
