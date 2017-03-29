@@ -63,4 +63,14 @@
 
 .Article-comments {
   margin-top: $vsp-lg;
+
+  &::before {
+    content: '\00D7';
+    display: block;
+    text-align: center;
+    color: $c-grey-20;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: $vsp-lg;
+  }
 }
