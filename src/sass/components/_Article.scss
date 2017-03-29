@@ -9,24 +9,28 @@
 
 .Article-title {
   @include fs-0;
+  @include accentBar($color: $c-brand);
   font-family: $ff-disp;
   color: $c-black;
+}
 
-  &::after {
-    content: '';
-    display: block;
-    margin: $vsp-xs 0;
-    border-top: 2px $c-brand solid;
-    width: $vsp-md;
-  }
+.Article-hero {
+  margin-bottom: $vsp-xl;
 }
 
 .Article-cover {
-  margin-bottom: $vsp-xl;
+  @include aspect-ratio(24,9);
+  background-color: $c-grey-5;
+  max-height: 800px;
 }
 
 .Article-coverImage {
   width: 100%;
+
+  @supports(object-fit: cover) {
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .Article-caption {
@@ -49,10 +53,14 @@
   &:hover,
   &:focus,
   &:active {
-    color: $c-brand;
+    color: $c-brand--bright;
   }
 }
 
 .Article-body {
   margin-bottom: $vsp-lg;
+}
+
+.Article-comments {
+  margin-top: $vsp-lg;
 }
