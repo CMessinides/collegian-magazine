@@ -1,21 +1,69 @@
 .Profile {
-  @include cardStyle;
+  @include cardStyle($bordered: true);
   font-family: $ff-sans;
+  font-size: 0;
+  line-height: 0;
+  text-align: right;
+}
 
+.Profile--sidebar {
+  margin-bottom: $vsp-lg;
 }
 
 .Profile-picture {
+  display: inline-block;
+  vertical-align: top;
   width: 100%;
+
+  @media #{$brkpt-xs} {
+    width: 40%;
+  }
+
+  @media #{$brkpt-lg} {
+    width: 100%;
+  }
+}
+
+.Profile-socialWidget {
+  margin-bottom: $vsp-sm;
+}
+
+.Profile-socialLink {
+  display: inline-block;
+  border-radius: 2px;
+  color: inherit;
+  transition: 175ms background-color;
+
+  &:hover {
+    background-color: $c-grey-5;
+  }
 }
 
 .Profile-info {
-  padding: $hsp-xs;
+  @include fs-ui;
+  padding: $hsp-sm $vsp-sm;
+  display: inline-block;
+  vertical-align: bottom;
+  font-style: italic;
+  font-weight: 700;
+  text-align: right;
+  color: $c-grey-75;
+  width: 100%;
+
+  @media #{$brkpt-xs} {
+    width: 60%;
+  }
+
+  @media #{$brkpt-lg} {
+    width: 100%;
+  }
 }
 
-.Profile-year {
-  @include fs-5;
-  margin-bottom: $vsp-sm;
-  padding-left: $hsp-xs;
-  font-weight: 700;
-  font-style: italic;
+.Profile-text:first-of-type {
+}
+
+.Profile-text--small {
+  @include fs-small;
+  color: $c-brand-tint;
+  font-weight: 400;
 }

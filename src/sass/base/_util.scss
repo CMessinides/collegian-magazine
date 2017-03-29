@@ -29,13 +29,129 @@
   }
 }
 
-@mixin cardStyle {
+@mixin cardStyle($bordered: false, $clickable: false) {
   background: $c-white;
-  border: 1px $c-grey-10 solid;
   box-shadow: 0px 1px 3px $c-shad-wk;
   border-radius: 2px;
+  overflow: hidden;
+
+  @if ($bordered) {
+    border: 1px $c-grey-10 solid;
+  }
+
+  @if ($clickable) {
+    position: relative;
+    transition: 175ms box-shadow, 175ms transform;
+
+    &:hover,
+    &:active,
+    &:focus {
+      box-shadow: 0px 2px 5px $c-shad-wk;
+      transform: translateY(-4px);
+    }
+  }
+
 }
 
+@mixin accentBar($position: after, $color: currentColor) {
+  &::#{$position} {
+    content: '';
+    display: block;
+    margin: $vsp-xs 0;
+    border-top: 2px $color solid;
+    width: $vsp-md;
+  }
+}
+
+// WIDTHS
+
+.u-full {
+  width: 100%;
+}
+
+.u-half {
+  width: 50%;
+}
+
+.u-third {
+  width: 33.333%;
+}
+
+.u-quarter {
+  width: 25%;
+}
+
+@media #{$brkpt-xs} {
+  .xs-u-full {
+    width: 100%;
+  }
+
+  .xs-u-half {
+    width: 50%;
+  }
+
+  .xs-u-third {
+    width: 33.333%;
+  }
+
+  .xs-u-quarter {
+    width: 25%;
+  }
+}
+
+@media #{$brkpt-sm} {
+  .sm-u-full {
+    width: 100%;
+  }
+
+  .sm-u-half {
+    width: 50%;
+  }
+
+  .sm-u-third {
+    width: 33.333%;
+  }
+
+  .sm-u-quarter {
+    width: 25%;
+  }
+}
+
+@media #{$brkpt-md} {
+  .md-u-full {
+    width: 100%;
+  }
+
+  .md-u-half {
+    width: 50%;
+  }
+
+  .md-u-third {
+    width: 33.333%;
+  }
+
+  .md-u-quarter {
+    width: 25%;
+  }
+}
+
+@media #{$brkpt-lg} {
+  .lg-u-full {
+    width: 100%;
+  }
+
+  .lg-u-half {
+    width: 50%;
+  }
+
+  .lg-u-third {
+    width: 33.333%;
+  }
+
+  .lg-u-quarter {
+    width: 25%;
+  }
+}
 
 .u-markdown {
   @include fs-body;
@@ -155,13 +271,13 @@
   }
 
   a {
-    color: $c-brand;
+    color: $c-brand--bright;
 
 
     &:focus,
     &:hover,
     &:active {
-      color: $c-brand-shade2;
+      color: $c-brand-tint;
     }
 
     &:visited {
@@ -170,7 +286,7 @@
       &:hover,
       &:focus,
       &:active {
-        color: $c-acc2-shade;
+        color: $c-acc2-tint;
       }
     }
   }

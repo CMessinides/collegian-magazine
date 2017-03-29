@@ -1,8 +1,7 @@
 // # Breakpoints
 $brkpt-xs: screen and (min-width: 24em);
-$brkpt-sm: screen and (min-width: 38em);
-$brkpt-md: screen and (min-width: 48em);
-$brkpt-md-only: "screen and (min-width: 38em) and (max-width: 63.975em)";
+$brkpt-sm: screen and (min-width: 35em);
+$brkpt-md: screen and (min-width: 46em);
 $brkpt-lg: screen and (min-width: 64em);
 $brkpt-xl: screen and (min-width: 80em);
 
@@ -27,6 +26,7 @@ $site-max-width: 80rem;
 
 // # Color
 $c-brand:        rgb(75, 119, 166);
+$c-brand--bright: adjust-color($c-brand, $lightness: 6%, $saturation: 12%);
 $c-brand-shade2: adjust-color($c-brand, $lightness: -25%, $saturation: 30%, $hue: -3deg);
 $c-brand-shade:  adjust-color($c-brand, $lightness: -17%, $saturation: 15%, $hue: -2deg);
 $c-brand-tint:   adjust-color($c-brand, $lightness: 20%, $saturation: -11%, $hue: 1deg);
@@ -35,7 +35,7 @@ $c-brand-tint3:  adjust-color($c-brand, $lightness: 45%, $saturation: -21%, $hue
 
 $c-acc1:         rgb(246, 212, 110);
 $c-acc1-tint:    adjust-color($c-acc1, $lightness: 15%, $saturation: -10%, $hue: 2deg);
-$c-acc1-shade:   adjust-color($c-acc1, $lightness: -20%, $saturation: 8%, $hue: -2deg);
+$c-acc1-shade:   adjust-color($c-acc1, $lightness: -13%, $saturation: 4%, $hue: -1deg);
 $c-acc1-shade2:  adjust-color($c-acc1, $lightness: -52%, $saturation: 30%, $hue: -5deg);
 
 $c-error:        rgb(194, 48, 44);

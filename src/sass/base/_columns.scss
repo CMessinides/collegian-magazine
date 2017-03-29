@@ -1,4 +1,5 @@
 .u-columns {
+  @include global-max-width;
   @include grid-container;
 
   margin-left: auto;
@@ -9,7 +10,7 @@
   }
 
   @media #{$brkpt-md} {
-    width: 44rem;
+    width: 40rem;
   }
 
   @media #{$brkpt-lg} {
@@ -24,6 +25,15 @@
 }
 
 // the magic happens above the large breakpoint
+@media #{$brkpt-sm} {
+  .sm-u-leftSidebar {
+    @include grid-column(3);
+  }
+
+  .sm-u-mainColumn {
+    @include grid-column(7);
+  }
+}
 @media #{$brkpt-lg} {
 
   .u-mainColumn {

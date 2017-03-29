@@ -20,3 +20,27 @@
     background: $c-brand-shade;
   }
 }
+
+.Button {
+  @include fs-small;
+  line-height: 1;
+  display: inline-block;
+  font-family: $ff-sans;
+  font-weight: 700;
+  border-radius: 2px;
+  padding: $vsp-sm $hsp-md;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-decoration: none;
+  transition: 175ms background-color, 175ms color;
+}
+
+.Button--cta {
+  color: $c-black;
+  background-color: $c-acc1;
+
+  &:hover {
+    background-color: $c-acc1-shade;
+  }
+}

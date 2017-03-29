@@ -1,7 +1,8 @@
 {{ define "content" }}
+  {{ $needsSidebar := or .Params.profile_picture .Params.social.facebook_username .Params.social.twitter_username .Params.social.instagram_username }}
   <article class="Article">
     <header class="Article-header u-columns">
-      <div class="Article-headerInsert u-mainColumn u-push-3">
+      <div class="Article-headerInsert u-push-3 u-mainColumn">
         <h1 class="Article-title">{{ .Title }}</h1>
         {{ with .Params.roles }}
         <p class="Article-subtitle">
@@ -16,47 +17,98 @@
       </div>
     </header>
   <div class="u-columns">
+    {{ if $needsSidebar }}
     <aside class="Sidebar u-leftSidebar">
-      <div class="Profile">
+      <div class="Profile Profile--sidebar">
         {{ with .Params.profile_picture }}
-        <img class="Profile-picture" src="{{ . | absURL }}" alt="{{ $.Title }}">
+        <img class="Profile-picture" src="{{ . | absURL }}" alt="Profile picture of {{ $.Title }}">
         {{ end }}
         <div class="Profile-info">
-          {{ with .Params.class_year }}
-          <p class="Profile-year">Class of {{ . }}</p>
-          {{ end }}
-          <ul class="Profile-socialLinks">
+          {{ if or .Params.social.facebook_username .Params.social.twitter_username .Params.social.instagram_username }}
+          <div class="Profile-socialWidget">
             {{ with .Params.social.facebook_username }}
-            <li role="presentation" class="Profile-socialLink">
-              <a target="_blank" href="https://facebook.com/{{ . }}" class="Icon Icon--lockup" title="{{ $.Title }} on Facebook">
+            <a target="_blank" href="https://facebook.com/{{ . }}" class="Profile-socialLink" title="{{ $.Title }} on Facebook">
+              <span class="Icon">
                 {{ partial "icon/facebook.svg" . }}
-                <span class="Icon-text">Facebook</span>
-              </a>
-            </li>
+              </span>
+              <span class="u-forSR">{{ $.Title }} on Facebook</span>
+            </a>
             {{ end }}
             {{ with .Params.social.twitter_username }}
-            <li role="presentation" class="Profile-socialLink">
-              <a target="_blank" href="https://twitter.com/{{ . }}" class="Icon Icon--lockup" role="{{ $.Title }} on Twitter">
+            <a target="_blank" href="https://twitter.com/{{ . }}" class="Profile-socialLink" role="{{ $.Title }} on Twitter">
+              <span class="Icon">
                 {{ partial "icon/twitter.svg" . }}
-                <span class="Icon-text">Twitter</span>
-              </a>
-            </li>
+              </span>
+              <span class="u-forSR">{{ $.Title }} on Twitter</span>
+            </a>
             {{ end }}
             {{ with .Params.social.instagram_username }}
-            <li role="presentation" class="Profile-socialLink">
-              <a target="_blank" href="https://instagram.com/{{ . }}/" class="Icon Icon--lockup" role="{{ $.Title }} on Instagram">
+            <a target="_blank" href="https://instagram.com/{{ . }}/" class="Profile-socialLink" role="{{ $.Title }} on Instagram">
+              <span class="Icon">
                 {{ partial "icon/instagram.svg" . }}
-                <span class="Icon-text">Instagram</span>
-              </a>
-            </li>
+              </span>
+              <span class="u-forSR">{{ $.Title }} on Instagram</span>
+            </a>
             {{ end }}
-          </ul>
+          </div>
+          {{ end }}
+          {{ with .Params.class_year }}
+          <p class="Profile-text">
+            Class of {{ . }}
+          </p>
+          {{ end }}
+          <p class="Profile-text--small">
+            Staff member since {{ .Date | dateFormat "2006" }}
+          </p>
         </div>
       </div>
     </aside>
-    <div class="u-mainColumn">
-
+    {{ end }}
+    <div class="Article-body u-markdown u-mainColumn {{ if not $needsSidebar }}u-push-3{{ end }}">
+      {{ .Params.bio | markdownify }}
     </div>
   </div>
+  {{ $articles := where (index .Site.Taxonomies.authors (urlize .Title)).Pages "Section" "article" }}
+  {{ if $articles }}
+  <section class="Section Section--black">
+    <div class="CardGrid">
+      <div class="CardGrid-aside">
+        <h2 class="CardGrid-heading">Articles by {{ .Title }}</h2>
+        {{ if gt (len $articles) 1 }}
+        <a href="{{ urlize .Title | printf "/authors/%s/" | absURL }}" class="CardGrid-link">
+          See all from {{ .Title }}
+        </a>
+        {{ end }}
+      </div>
+      <div class="CardGrid-main">
+        <ul class="CardGrid-list">
+          {{ range first 3 $articles }}
+          <li class="CardGrid-block u-full sm-u-half md-u-third">
+            <article class="Card Card--small">
+              <div class="Card-thumb">
+                {{ if .Params.cover_image.src }}
+                <img src="{{ .Params.cover_image.src | absURL }}" alt="{{ .Params.caption | default .Title }}" class="Card-image">
+                {{ end }}
+              </div>
+              <header class="Card-info">
+                <h3 class="Card-title">
+                  <a aria-hidden href="{{ .Permalink | absURL }}">{{ .Title }}</a>
+                </h3>
+                {{ with .Params.teaser }}
+                <p class="Card-teaser">{{ . }}</p>
+                {{ end }}
+              </header>
+              <a href="{{ .Permalink | absURL }}" class="Card-link">
+                <span class="u-forSR">Read more from {{ .Title }}</span>
+              </a>
+            </article>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+  <p>All good?</p>
 </article>
 {{ end }}

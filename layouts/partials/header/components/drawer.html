@@ -1,14 +1,26 @@
 <div id="drawer" class="Drawer">
   <div class="Drawer-content">
+    <nav role="navigation" aria-label="Full Menu" class="Drawer-section Drawer-section--pages">
+      <p class="Drawer-sectionHeading">Go to</p>
+      <ul class="Drawer-list">
+        {{ range .Site.Menus.main }}
+        <li class="Drawer-listItem">
+          <a href="{{ .URL | absURL }}" class="Drawer-listLink">
+            {{ .Name }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+    </nav>
     <div class="Drawer-section Drawer-section--blog">
       {{ $post := index (where .Site.RegularPages "Section" "post") 0 }}
       <p class="Drawer-sectionHeading">From the Blog</p>
-      <article class="Card Card--blogPost Card--small">
-        {{ with $post.Params.cover_image }}
-        <figure class="Card-thumb">
-          <img style="width:100%;" src="{{ .src }}" alt="{{ .caption | default $post.Title }}" class="Card-image">
-        </figure>
-        {{ end }}
+      <article class="Card Card--blogPost Card--small Card--bordered">
+        <div class="Card-thumb">
+          {{ with $post.Params.cover_image }}
+          <img src="{{ .src }}" alt="{{ .caption | default $post.Title }}" class="Card-image">
+          {{ end }}
+        </div>
         <header class="Card-info">
           <h1 class="Card-title">
             <a aria-hidden tabindex="-1" href="{{ $post.Permalink | absURL }}">{{ $post.Title }}</a>
@@ -26,8 +38,8 @@
       <nav role="navigation" aria-labelledby="drawerSectionsHeader">
         <p class="Drawer-sectionHeading" id="drawerSectionsHeader">Sections</p>
         <ul class="Drawer-list">
-          {{ range (first 12 .Site.Data.categories.categories) }}
-          <li class="Drawer-listItem">
+          {{ range (first 9 .Site.Data.categories.categories) }}
+          <li class="Drawer-listItem u-full xs-u-half md-u-third">
             <a href="{{ .name | urlize | printf "/categories/%s/" | absURL }}" class="Drawer-listLink Drawer-listLink--category">{{ .name }}</a>
           </li>
           {{ end }}
@@ -36,28 +48,13 @@
       <nav role="navigation" aria-labellyedby="drawerTagsHeader">
         <p id="drawerTagsHeader" class="Drawer-sectionHeading">Tags</p>
         <ul class="Drawer-list">
-          {{ range (first 20 .Site.Taxonomies.tags.ByCount) }}
-          <li class="Drawer-listItem">
+          {{ range (first 12 .Site.Taxonomies.tags.ByCount) }}
+          <li class="Drawer-listItem lg-u-quarter">
             <a href="{{ printf "/tags/%s/" .Name | absURL }}" class="Drawer-listLink Drawer-listLink--tag">{{ .Name | humanize | lower }}</a>
           </li>
           {{ end }}
         </ul>
       </nav>
     </div>
-    <nav role="navigation" aria-label="Full Menu" class="Drawer-section Drawer-section--pages">
-      <p class="u-forSR">More</p>
-      <ul class="Drawer-list">
-        {{ range .Site.Menus.main }}
-        <li class="Drawer-listItem">
-          <a href="{{ .URL | absURL }}" class="Drawer-listLink">
-            {{ .Name }}
-          </a>
-        </li>
-        {{ end }}
-      </ul>
-      <div class="Logo Logo--small">
-        <img src="{{ "/logos/masthead-shade@1x.png" | absURL }}" alt="{{ .Site.Params.site_name | default .Site.Title }}" class="Logo-image">
-      </div>
-    </nav>
   </div>
 </div>

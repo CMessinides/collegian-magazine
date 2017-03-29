@@ -1,6 +1,9 @@
 .Metadata {
   font-size: 0;
   color: $c-grey-60;
+  border-top: 1px $c-grey-20 solid;
+  border-bottom: 1px $c-grey-20 solid;
+  padding-bottom: $vsp-lg;
 }
 
 .Metadata-section {
@@ -8,7 +11,6 @@
   vertical-align: top;
   display: inline-block;
   width: 50%;
-  border-top: 1px $c-grey-20 solid;
   margin-bottom: $vsp-sm;
   padding-top: $vsp-xxs;
 
@@ -24,32 +26,31 @@
 
 .Metadata-link {
   display: inline-block;
-  color: inherit;
+  color: $c-brand--bright;
   text-decoration: none;
-  border-bottom: 1px $c-brand-tint dotted;
-  padding-bottom: $vsp-xxs / 2;
+  border-bottom: 1px currentColor dotted;
+  transition: 175ms color;
 
   &:hover,
   &:focus,
   &:active {
-    border-color: currentColor;
-    color: $c-brand;
+    color: $c-brand-tint;
   }
 }
 
-.Metadata-link--share {
+.Metadata-link--social {
   border: 1px currentColor solid;
   border-radius: 2px;
   color: $c-brand-tint;
   margin-right: $vsp-xs;
-  line-height: 0;
+  margin-bottom: $vsp-xs;
   transition: 175ms color, 175ms background-color;
 
   &:hover,
   &:focus,
   &:active {
     color: $c-white;
-    background-color: $c-brand;
+    background-color: $c-brand--bright;
   }
 
   &:last-child {
@@ -57,7 +58,7 @@
   }
 }
 
-.Metadata-shareWidget {
+.Metadata-socialWidget {
   font-size: 0;
   margin-top: $vsp-xs;
 }
@@ -69,6 +70,6 @@
 .Metadata-tag {
   &::before {
     content: '#';
-    color: $c-grey-20;
+    color: $c-brand--bright;
   }
 }

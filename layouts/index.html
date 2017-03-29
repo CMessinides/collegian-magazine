@@ -104,4 +104,27 @@
       </ul>
     </section>
 
+    <section class="Section Section--black">
+      <div class="Section-inner">
+        <div class="Section-block Section-block--major">
+          <div class="IssueStack">
+            {{ range first 3 (where .Site.Data.issues.issues "cover_image" "ne" "")}}
+            <div class="IssueCover">
+              <img src="{{ .cover_image | absURL }}" alt="Cover of the {{ .season }} issue" class="IssueCover-image">
+            </div>
+            {{ end }}
+          </div>
+        </div>
+        <div class="Section-block Section-block--minor">
+          <h1 class="Section-heading">Keep your friends close and <em>{{ .Site.Params.site_name | default .Site.Title }}</em> closer</h1>
+          <p class="Section-copy">
+            Subscribe today to get beautiful print issues of <em>{{ .Site.Params.site_name | default .Site.Title }}</em> delivered to your mailbox twice a year.
+          </p>
+          <p class="Section-cta">
+            <a href="{{ "/subscribe/" | absURL }}" class="Button Button--cta">Subscribe Now</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
 {{ end }}

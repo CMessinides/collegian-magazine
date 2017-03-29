@@ -1,0 +1,79 @@
+.Section {
+  font-family: $ff-sans;
+  padding: $vsp-sm 0 $vsp-md;
+
+  @media #{$brkpt-lg} {
+    padding: $vsp-md 0 $vsp-lg;
+  }
+}
+
+.Section--bold {
+  background-color: $c-acc1-tint;
+  color: $c-black;
+}
+
+.Section--black {
+  background-color: $c-black;
+  color: $c-grey-5;
+}
+
+.Section--subtle {
+  background-color: $c-brand-tint2;
+  color: $c-grey-75;
+}
+
+.Section-inner {
+  @include global-max-width;
+  @include grid-container;
+}
+
+.Section-block {
+  @include grid-column(12);
+
+  @media #{$brkpt-md} {
+    @include grid-column(6);
+  }
+}
+
+.Section-block:first-of-type {
+  margin-bottom: $vsp-lg;
+
+  @media #{$brkpt-md} {
+    margin-bottom: 0;
+  }
+}
+
+.Section-block--minor {
+  @media #{$brkpt-lg} {
+    @include grid-column(5, $neat-wide-grid);
+  }
+}
+
+.Section-block--major {
+  @media #{$brkpt-lg} {
+    @include grid-column(7, $neat-wide-grid);
+  }
+}
+
+.Section-heading {
+  @include fs-2;
+  @include accentBar($position: before);
+  font-family: $ff-sans;
+  font-weight: 700;
+  margin-bottom: $vsp-xs;
+  max-width: 18em;
+}
+
+.Section-copy {
+  @include fs-ui;
+  max-width: 30em;
+  margin-top: $vsp-sm;
+}
+
+.Section-heading + .Section-copy {
+  margin-top: $vsp-md;
+}
+
+.Section-cta {
+  margin-top: $vsp-xl;
+}

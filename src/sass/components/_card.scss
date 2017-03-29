@@ -1,19 +1,28 @@
-@mixin cardStyle {
-  background: $c-white;
-  border: 1px $c-grey-10 solid;
-  box-shadow: 0px 1px 3px $c-shad-wk;
-  border-radius: 2px;
+.Card {
+  @include cardStyle($clickable: true);
 }
 
-.Card {
-  @include cardStyle;
-  cursor: pointer;
-  position: relative;
-  transition: 185ms box-shadow;
+.Card--bordered {
+  border: 1px $c-grey-10 solid;
+}
 
-  &:hover {
-    box-shadow: 0px 2px 5px $c-shad-wk;
+.Card-thumb {
+  @include aspect-ratio(16,9);
+  background-color: $c-grey-10;
+  box-shadow: inset 0 -2px 4px $c-shad-wk;
+}
+
+.Card-image {
+  width: 100%;
+
+  @supports (object-fit: cover) {
+    height: 100%;
+    object-fit: cover;
   }
+}
+
+.Card-info {
+
 }
 
 .Card-title {
@@ -30,7 +39,7 @@
     &:hover,
     &:focus,
     &:active {
-      color: $c-brand;
+      color: $c-brand--bright;
     }
   }
 }
@@ -52,7 +61,7 @@
 
 .Card--small {
   .Card-info {
-    padding: $vsp-xs $hsp-xs $vsp-sm
+    padding: $vsp-sm $hsp-sm $vsp-md;
   }
 
   .Card-title {

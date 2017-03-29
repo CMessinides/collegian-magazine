@@ -1,0 +1,11 @@
+.IssueCover {
+  @include aspect-ratio(8.5,11);
+  @include cardStyle;
+  max-width: 256px;
+}
+
+.IssueCover-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}

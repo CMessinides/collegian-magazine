@@ -8,15 +8,14 @@
 
 .NavBar-item {
   font-size: 14px;
-  font-family: $ff-sans;
   display: inline-block;
   vertical-align: middle;
-
 }
 
 .NavBar-link {
   color: inherit;
   text-decoration: none;
+  transition: 225ms color, 225ms background-color;
 }
 
 .NavBar--main {
@@ -34,8 +33,9 @@
       padding-right: 0;
     }
 
-    &:nth-child(1n + 3) {
+    &:nth-child(n + 3) {
       display: none;
+
       @media #{$brkpt-md} {
         display: inline-block;
       }
@@ -58,7 +58,6 @@
 
 .NavBar--secondary {
   display: none;
-  overflow-y: hidden;
   transition: 250ms transform, 150ms opacity;
 
 
@@ -67,8 +66,16 @@
   }
 
   .NavBar-item {
-    &:nth-child(n + 5) {
+    border-radius: 2px;
+    overflow: hidden;
+    &:nth-child(n + 4) {
       display: none;
+    }
+
+    &:nth-child(-n + 5) {
+      @media #{$brkpt-md} {
+        display: inline-block;
+      }
     }
 
     &:nth-child(-n + 6) {
@@ -107,7 +114,7 @@
   transform: translateY(-100%);
   opacity: 0;
   transition: visibility 0s linear 250ms, 300ms transform cubic-bezier(0.445, 0.050, 0.550, 0.950), 250ms opacity 200ms;
-  z-index: 1;
+  z-index: 5;
 }
 
 #drawerCloser {
@@ -157,6 +164,7 @@
 
   @media #{$brkpt-lg} {
     @include grid-column(6, $neat-wide-grid);
+    @include grid-push(-9, $neat-wide-grid);
   }
 }
 
@@ -171,6 +179,7 @@
 
   @media #{$brkpt-lg} {
     @include grid-column(3, $neat-wide-grid);
+    @include grid-push(9, $neat-wide-grid);
   }
 }
 
@@ -184,12 +193,7 @@
 
   @media #{$brkpt-lg} {
     @include grid-column(3, $neat-wide-grid);
-  }
-}
-
-.Drawer-section--pages {
-  .Drawer-list {
-    border-top: 1px $c-grey-20 solid;
+    @include grid-push(-12, $neat-wide-grid);
   }
 }
 
@@ -199,47 +203,70 @@
   color: $c-grey-60;
   border-top: 1px $c-grey-20 solid;
   padding-top: $vsp-xxs;
-  font-family: $ff-sans;
   margin-bottom: $vsp-xs;
+}
+
+.Drawer-list {
+  font-size: 0;
 }
 
 .Drawer-listLink {
   color: inherit;
   text-decoration: none;
+  transition: 175ms color;
 }
 
 .Drawer-section--taxonomies {
   .Drawer-list {
-    font-size: 0;
     margin-bottom: $vsp-md;
   }
 
   .Drawer-listItem {
-    margin-bottom: $vsp-xxs;
-    font-family: $ff-sans;
-    font-weight: 700;
+    padding-bottom: $vsp-xxs;
     color: $c-black;
     display: inline-block;
-    margin-right: $hsp-sm;
+    padding-right: $hsp-sm;
+    vertical-align: top;
   }
 
   .Drawer-listLink {
-    display: block;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $c-brand--bright;
+    }
+
+    &::before {
+      color: $c-brand--bright;
+    }
+  }
+}
+
+.Drawer-section--pages {
+  color: $c-grey-75;
+  .Drawer-listItem {
+    @include fs-small;
+    display: inline-block;
+    margin-bottom: $vsp-xs;
+    margin-right: $vsp-sm;
+  }
+
+  .Drawer-listLink {
+    &::after {
+      content: '\203A';
+      font-weight: 700;
+    }
 
     &:hover,
     &:focus,
     &:active {
-      color: $c-brand-tint;
-    }
-
-    &::before {
-      color: $c-brand-tint;
+      color: $c-brand--bright;
     }
   }
 }
 
 .Drawer-listLink--category {
-  @include fs-5;
+  @include fs-ui;
   &::before {
     content: "\000A7\00A0";
   }
@@ -247,7 +274,6 @@
 
 .Drawer-listLink--tag {
   @include fs-small;
-  font-style: italic;
   &::before {
     content: "#\00A0";
   }

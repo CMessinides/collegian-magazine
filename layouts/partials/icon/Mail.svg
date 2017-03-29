@@ -2,27 +2,27 @@
 <title>Mail</title>
 <desc>Created using Figma</desc>
 <g id="Canvas" transform="translate(-88 30)" figma:type="canvas">
-<mask id="mask0_alpha" mask-type="alpha">
+<mask id="mail_mask0" mask-type="alpha">
 <path d="M 88 -30L 104 -30L 104 -14L 88 -14L 88 -30Z" fill="#FFFFFF"/>
 </mask>
-<g id="Mail" mask="url(#mask0_alpha)" figma:type="frame">
+<g id="Mail" mask="url(#mail_mask0)" figma:type="frame">
 <g id="Vector 7" figma:type="vector">
-<use xlink:href="#path0_stroke" transform="translate(92 -24)"/>
+<use xlink:href="#mail_path0" transform="translate(92 -24)"/>
 </g>
 <g id="Vector 6" figma:type="vector">
-<mask id="mask1_outline_out">
-<rect id="mask1_outline_inv" fill="white" x="-2" y="-2" width="16" height="12" transform="translate(90 -26)"/>
-<use xlink:href="#path1_fill" fill="black" transform="translate(90 -26)"/>
+<mask id="mail_mask1">
+<rect id="mail_mask2" fill="white" x="-2" y="-2" width="16" height="12" transform="translate(90 -26)"/>
+<use xlink:href="#mail_path1" fill="black" transform="translate(90 -26)"/>
 </mask>
-<g mask="url(#mask1_outline_out)">
-<use xlink:href="#path2_stroke_2x" transform="translate(90 -26)"/>
+<g mask="url(#mail_mask1)">
+<use xlink:href="#mail_path2" transform="translate(90 -26)"/>
 </g>
 </g>
 </g>
 </g>
 <defs>
-<path id="path0_stroke" d="M 0.447214 -0.894427C -0.0467649 -1.14142 -0.647438 -0.941192 -0.894427 -0.447214C -1.14142 0.0467649 -0.941192 0.647438 -0.447214 0.894427L 0.447214 -0.894427ZM 4 2L 3.55279 2.89443C 3.83431 3.03519 4.16569 3.03519 4.44721 2.89443L 4 2ZM 8.44721 0.894427C 8.94119 0.647438 9.14142 0.0467649 8.89443 -0.447214C 8.64744 -0.941192 8.04676 -1.14142 7.55279 -0.894427L 8.44721 0.894427ZM -0.447214 0.894427L 3.55279 2.89443L 4.44721 1.10557L 0.447214 -0.894427L -0.447214 0.894427ZM 4.44721 2.89443L 8.44721 0.894427L 7.55279 -0.894427L 3.55279 1.10557L 4.44721 2.89443Z"/>
-<path id="path1_fill" d="M 11 0L 1 0C 0.447715 0 0 0.447715 0 1L 0 7C 0 7.55228 0.447715 8 1 8L 11 8C 11.5523 8 12 7.55228 12 7L 12 1C 12 0.447715 11.5523 0 11 0Z"/>
-<path id="path2_stroke_2x" d="M 1 2L 11 2L 11 -2L 1 -2L 1 2ZM 10 1L 10 7L 14 7L 14 1L 10 1ZM 11 6L 1 6L 1 10L 11 10L 11 6ZM 2 7L 2 1L -2 1L -2 7L 2 7ZM 1 -2C -0.656854 -2 -2 -0.656854 -2 1L 2 1C 2 1.55228 1.55228 2 1 2L 1 -2ZM 11 2C 10.4477 2 10 1.55228 10 1L 14 1C 14 -0.656854 12.6569 -2 11 -2L 11 2ZM 10 7C 10 6.44772 10.4477 6 11 6L 11 10C 12.6569 10 14 8.65685 14 7L 10 7ZM 1 6C 1.55228 6 2 6.44772 2 7L -2 7C -2 8.65685 -0.656854 10 1 10L 1 6Z"/>
+<path id="mail_path0" d="M 0.447214 -0.894427C -0.0467649 -1.14142 -0.647438 -0.941192 -0.894427 -0.447214C -1.14142 0.0467649 -0.941192 0.647438 -0.447214 0.894427L 0.447214 -0.894427ZM 4 2L 3.55279 2.89443C 3.83431 3.03519 4.16569 3.03519 4.44721 2.89443L 4 2ZM 8.44721 0.894427C 8.94119 0.647438 9.14142 0.0467649 8.89443 -0.447214C 8.64744 -0.941192 8.04676 -1.14142 7.55279 -0.894427L 8.44721 0.894427ZM -0.447214 0.894427L 3.55279 2.89443L 4.44721 1.10557L 0.447214 -0.894427L -0.447214 0.894427ZM 4.44721 2.89443L 8.44721 0.894427L 7.55279 -0.894427L 3.55279 1.10557L 4.44721 2.89443Z"/>
+<path id="mail_path1" d="M 11 0L 1 0C 0.447715 0 0 0.447715 0 1L 0 7C 0 7.55228 0.447715 8 1 8L 11 8C 11.5523 8 12 7.55228 12 7L 12 1C 12 0.447715 11.5523 0 11 0Z"/>
+<path id="mail_path2" d="M 1 2L 11 2L 11 -2L 1 -2L 1 2ZM 10 1L 10 7L 14 7L 14 1L 10 1ZM 11 6L 1 6L 1 10L 11 10L 11 6ZM 2 7L 2 1L -2 1L -2 7L 2 7ZM 1 -2C -0.656854 -2 -2 -0.656854 -2 1L 2 1C 2 1.55228 1.55228 2 1 2L 1 -2ZM 11 2C 10.4477 2 10 1.55228 10 1L 14 1C 14 -0.656854 12.6569 -2 11 -2L 11 2ZM 10 7C 10 6.44772 10.4477 6 11 6L 11 10C 12.6569 10 14 8.65685 14 7L 10 7ZM 1 6C 1.55228 6 2 6.44772 2 7L -2 7C -2 8.65685 -0.656854 10 1 10L 1 6Z"/>
 </defs>
 </svg>

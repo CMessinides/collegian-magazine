@@ -1,12 +1,6 @@
-.icon--facebook {
-  color: rgb(59,89,152);
-}
-
-.icon--twitter {
-  color: rgb(29, 161, 242);
-}
 
 .Icon {
+  color: inherit;
   font-family: $ff-sans;
   text-transform: uppercase;
   padding: $hsp-xs;
@@ -17,6 +11,21 @@
     fill: currentColor;
     height: $hsp-sm;
     width: $hsp-sm;
+  }
+}
+
+.icon--facebook {
+  color: rgb(59,89,152);
+}
+
+.icon--twitter {
+  color: rgb(29, 161, 242);
+}
+
+.Icon--large {
+  svg {
+    height: $hsp-md;
+    width: $hsp-md;
   }
 }
 
