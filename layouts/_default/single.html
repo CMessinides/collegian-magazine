@@ -30,6 +30,9 @@
   <div class="Article-columns u-columns">
     <div class="Article-body u-markdown u-mainColumn u-push-3">
       {{ .Content | markdownify }}
+      <div class="Article-comments">
+        {{ partial "disqus" . }}
+      </div>
     </div>
     <footer class="Metadata u-rightSidebar">
       {{ with .Params.categories }}
@@ -84,7 +87,6 @@
       {{ partial "about-block" . }}
     </aside>
   </div>
-  {{ partial "disqus" . }}
   </div>
 </div>
 {{ end }}
