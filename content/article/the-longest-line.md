@@ -1,8 +1,8 @@
 ---
 title: The Longest Line
 date: '2016-11-28T07:45:37-05:00'
-teaser: "In the 2004 election, Gambier residents waited 11 hours to vote. Today, we
-remember their legacy."
+teaser: In the 2004 election, Gambier residents waited 11 hours to vote. Today, we
+  remember their legacy.
 description: ''
 authors:
 - Lauren Eller
@@ -17,9 +17,9 @@ issues:
 - Fall 2016
 featured: false
 cover_image:
-  src: "/assets/img/supplies.jpg"
-  caption: ''
-  focal_point: Center
+  src: "/assets/img/2017/03/26/pexels-photo-67468.jpeg"
+  caption: A nice setting
+  focal_point: Bottom Left
 
 ---
 <h1>Ergo adhuc, quantum equidem intellego, causa non videtur fuisse mutandi nominis.</h1>
