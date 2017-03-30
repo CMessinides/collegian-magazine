@@ -35,7 +35,7 @@
     <!-- Social -->
     {{- block "head-social" . -}}
       {{ $title := .Title }}
-      {{ $description := .Description }}
+      {{ $description := .Description | default .Summary | truncate 120 }}
       {{ $image := .Params.cover_image.src | default .Params.profile_picture | default "" | replaceRE "(png|jpeg|gif|tiff|bmp)$" "jpg" }}
       {{ $site_name := .Site.Params.site_name | default .Site.Title }}
 
