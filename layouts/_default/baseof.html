@@ -36,7 +36,7 @@
     {{- block "head-social" . -}}
       {{ $title := .Title }}
       {{ $description := .Description }}
-      {{ $image := .Params.cover_image.src | default .Params.profile_picture }}
+      {{ $image := .Params.cover_image.src | default .Params.profile_picture | default "" | replaceRE "(png|jpeg|gif|tiff|bmp)$" "jpg" }}
       {{ $site_name := .Site.Params.site_name | default .Site.Title }}
 
       <!-- Google -->
@@ -57,7 +57,11 @@
       <meta property="og:type" content="article" />
       <meta property="og:url" content="{{ .Permalink | absURL }}" />
       {{ with $image }}
+
+      {{ $config := imageConfig (printf "static/%s" .) }}
       <meta property="og:image" content="{{ . | absURL }}" />
+      <meta property="og:image:width" content="{{ $config.Width }}">
+      <meta property="og:image:height" content="{{ $config.Height }}">
       {{ end }}
       {{ with $description }}
       <meta property="og:description" content="{{ . }}" />
