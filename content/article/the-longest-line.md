@@ -17,7 +17,7 @@ issues:
 - Fall 2016
 featured: false
 cover_image:
-  src: "/assets/img/2017/03/26/pexels-photo-67468.jpeg"
+  src: "/assets/img/pexels-photo-67468.jpeg"
   caption: A nice setting
   focal_point: Bottom Left
 

@@ -36,7 +36,7 @@
     {{- block "head-social" . -}}
       {{ $title := .Title }}
       {{ $description := .Description }}
-      {{ $image := .Params.cover_image | default .Params.profile_picture }}
+      {{ $image := .Params.cover_image.src | default .Params.profile_picture }}
       {{ $site_name := .Site.Params.site_name | default .Site.Title }}
 
       <!-- Google -->
