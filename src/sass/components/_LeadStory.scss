@@ -1,0 +1,33 @@
+.LeadStory {
+  @include cardStyle($bordered: true, $clickable: true);
+  @include fs-5;
+  @include aspect-ratio(16,9);
+  background-size: cover;
+
+  @media #{$brkpt-lg} {
+    @include change-aspect-ratio(20,9);
+  }
+
+  @media #{$brkpt-xl} {
+    @include change-aspect-ratio(24,9);
+  }
+}
+
+.LeadStory-card {
+  padding: $vsp-md;
+  background-color: transparentize($c-white, 0.12);
+  border-top: 16px $c-acc1 solid;
+  box-shadow: 0 1px 3px $c-shad-wk;
+
+  @media #{$brkpt-md} {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top-right-radius: 4px;
+    max-width: 32rem;
+  }
+
+  .Copy {
+    margin-top: $vsp-sm;
+  }
+}

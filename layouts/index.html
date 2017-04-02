@@ -2,129 +2,117 @@
 
 {{ define "head-description" }}{{ .Site.Data.branding.description | printf "%.150s" }}{{ end }}
 
-{{ define "head-social" }}
 
-{{ end }}
+{{ define "content" }}
+<h1 class="u-forSR">Home</h1>
+{{ $featured := index (where (where (where .Site.RegularPages "Section" "article") "Params.featured" true) "Params.cover_image.src" "ne" nil) 0 }}
 
-{{ define "hero" }}
-  <h1 class="hidden">Home</h1>
-  {{ $featured := index (where (where (where .Site.Pages "Section" "article") "Params.featured" true) "Params.cover_image" "ne" nil) 0 }}
-
-  {{ if $featured }}
-  <div class="hero">
-    {{ partial "hero-image" $featured }}
-    <div class="hero__inner">
-      <h2 class="hidden">Featured</h2>
-      <article class="hero__insert">
-        <header class="card__header card__region">
-          {{ partial "category-link" $featured }}
-          <h3 class="summary__title"><a href="{{ $featured.Permalink | absURL }}" class="link">{{ $featured.Title }}</a></h3>
-          {{ partial "byline" $featured }}
-          <p class="summary__body">
+{{ if $featured }}
+  <div class="Article-hero" >
+    <div class="Hero-inner">
+      <article class="LeadStory" style="background-image:url({{ $featured.Params.cover_image.src | absURL }});background-position:{{ with $featured.Params.cover_image.focal_point }}{{ lower . }}{{ else }}center{{ end }}">
+        <header class="LeadStory-card">
+          <h3 class="Title"><a href="{{ $featured.Permalink | absURL }}" class="link">{{ $featured.Title }}</a></h3>
+          <p class="Subtitle">
+            {{ partial "byline" $featured }}
+          </p>
+          <p class="Copy">
             {{ with $featured.Params.teaser }}
             {{ . }}
             {{ else }}
             {{ $featured.Summary }}{{ if $featured.Truncated }}&hellip;{{ end }}
             {{ end }}
           </p>
-          <p class="card__read-more">
-            <a href="{{ $featured.Permalink | absURL }}" class="link link--ui-beta">Read More<span class="hidden">from{{ $featured.Title }}</span>&hellip;</a>
-          </p>
         </header>
-        <a href="{{ $featured.Permalink | absURL }}" class="card__link">
-          <span class="hidden">Read More from {{ $featured.Title }}</span>
-        </a>
+        <a href="{{ $featured.Permalink | absURL }}" class="Link--cover"><span class="u-forSR">Read more from {{ $featured.Title }}</span></a>
       </article>
     </div>
   </div>
   {{ end }}
 
-{{ end }}
-
-{{ define "content" }}
-    <section class="page__section">
-      <h2 class="hidden">In the Latest Issue</h2>
-      <ul class="list">
-        {{ range first 3 (where (where .Site.Pages "Section" "article") "Params.featured" false) }}
-          {{ .Render "card" }}
-        {{ end }}
-      </ul>
-      <div class="paginator">
-        <a href="{{ "/article/" | absURL }}" class="paginator__link paginator__link--more">
-          <span class="sub">More</span>
-          Articles
-        </a>
-      </div>
-    </section>
-
-    <section class="page__section">
-      {{ $posts := where .Site.Pages "Section" "post" }}
-      <h2 class="page__section-heading">From the Blog</h2>
-      <ul class="list">
-        {{ range (first 1 $posts) }}
-        {{ .Render "card-large" }}
-        {{ end }}
-        {{ if gt (len $posts) 1 }}
-        {{ range (first 2 (after 1 $posts)) }}
+  <section class="page__section">
+    <h2 class="hidden">In the Latest Issue</h2>
+    <ul class="list">
+      {{ range first 3 (where (where .Site.Pages "Section" "article") "Params.featured" false) }}
         {{ .Render "card" }}
-        {{ end }}
-        {{ end }}
-      </ul>
-      <div class="paginator">
-        <a href="{{ "/post/" | absURL }}" class="paginator__link paginator__link--more">
-          <span class="sub">More</span>
-          Posts
-        </a>
-      </div>
-    </section>
+      {{ end }}
+    </ul>
+    <div class="paginator">
+      <a href="{{ "/article/" | absURL }}" class="paginator__link paginator__link--more">
+        <span class="sub">More</span>
+        Articles
+      </a>
+    </div>
+  </section>
 
-    <section class="page__section">
-      <h2 class="page__section-heading">Browse by Category</h2>
-      <ul class="list grid--wrap ns-grid">
-        {{ range $key, $category := .Site.Taxonomies.categories }}
-        <li class="list__item--summary md-wid-4 ns-wid-6">
-          <article class="summary summary--small">
-            <h3 class="summary__title"><a href="{{ $key | urlize | printf "/categories/%s" | absURL }}" class="link">{{ $key }}</a></h3>
-            <p class="summary__subtitle">
-              {{ len $category.Pages }}
-              {{ if eq (len $category.Pages) 1 }}
-              article
-              {{ else }}
-              articles
-              {{ end }}
-            </p>
-            {{ with (index (where $.Site.Data.categories.categories "name" $key) 0) }}
-            <p class="summary__body">
-              {{ index . "description" }}
-            </p>
-            {{ end }}
-          </article>
-        </li>
-        {{ end }}
-      </ul>
-    </section>
+  <section class="page__section">
+    {{ $posts := where .Site.Pages "Section" "post" }}
+    <h2 class="page__section-heading">From the Blog</h2>
+    <ul class="list">
+      {{ range (first 1 $posts) }}
+      {{ .Render "card-large" }}
+      {{ end }}
+      {{ if gt (len $posts) 1 }}
+      {{ range (first 2 (after 1 $posts)) }}
+      {{ .Render "card" }}
+      {{ end }}
+      {{ end }}
+    </ul>
+    <div class="paginator">
+      <a href="{{ "/post/" | absURL }}" class="paginator__link paginator__link--more">
+        <span class="sub">More</span>
+        Posts
+      </a>
+    </div>
+  </section>
 
-    <section class="Section Section--black">
-      <div class="Section-inner">
-        <div class="Section-block Section-block--major">
-          <div class="IssueStack">
-            {{ range first 3 (where .Site.Data.issues.issues "cover_image" "ne" "")}}
-            <div class="IssueCover">
-              <img src="{{ .cover_image | absURL }}" alt="Cover of the {{ .season }} issue" class="IssueCover-image">
-            </div>
+  <section class="page__section">
+    <h2 class="page__section-heading">Browse by Category</h2>
+    <ul class="list grid--wrap ns-grid">
+      {{ range $key, $category := .Site.Taxonomies.categories }}
+      <li class="list__item--summary md-wid-4 ns-wid-6">
+        <article class="summary summary--small">
+          <h3 class="summary__title"><a href="{{ $key | urlize | printf "/categories/%s" | absURL }}" class="link">{{ $key }}</a></h3>
+          <p class="summary__subtitle">
+            {{ len $category.Pages }}
+            {{ if eq (len $category.Pages) 1 }}
+            article
+            {{ else }}
+            articles
             {{ end }}
+          </p>
+          {{ with (index (where $.Site.Data.categories.categories "name" $key) 0) }}
+          <p class="summary__body">
+            {{ index . "description" }}
+          </p>
+          {{ end }}
+        </article>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+
+  <section class="Section Section--black">
+    <div class="Section-inner">
+      <div class="Section-block Section-block--major">
+        <div class="IssueStack">
+          {{ range first 3 (where .Site.Data.issues.issues "cover_image" "ne" "")}}
+          <div class="IssueCover">
+            <img src="{{ .cover_image | absURL }}" alt="Cover of the {{ .season }} issue" class="IssueCover-image">
           </div>
-        </div>
-        <div class="Section-block Section-block--minor">
-          <h1 class="Section-heading">Keep your friends close and <em>{{ .Site.Params.site_name | default .Site.Title }}</em> closer</h1>
-          <p class="Section-copy">
-            Subscribe today to get beautiful print issues of <em>{{ .Site.Params.site_name | default .Site.Title }}</em> delivered to your mailbox twice a year.
-          </p>
-          <p class="Section-cta">
-            <a href="{{ "/subscribe/" | absURL }}" class="Button Button--cta">Subscribe Now</a>
-          </p>
+          {{ end }}
         </div>
       </div>
-    </section>
+      <div class="Section-block Section-block--minor">
+        <h1 class="Section-heading">Keep your friends close and <em>{{ .Site.Params.site_name | default .Site.Title }}</em> closer</h1>
+        <p class="Section-copy">
+          Subscribe today to get beautiful print issues of <em>{{ .Site.Params.site_name | default .Site.Title }}</em> delivered to your mailbox twice a year.
+        </p>
+        <p class="Section-cta">
+          <a href="{{ "/subscribe/" | absURL }}" class="Button Button--cta">Subscribe Now</a>
+        </p>
+      </div>
+    </div>
+  </section>
 
 {{ end }}

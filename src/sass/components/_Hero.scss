@@ -1,0 +1,27 @@
+.Hero {
+  margin-bottom: $vsp-xl;
+}
+
+.Hero-inner {
+  @include global-max-width;
+  @include mock-grid-gutters;
+}
+
+.Article-cover {
+  @include aspect-ratio(24,9);
+  background-color: $c-grey-5;
+  max-height: 800px;
+}
+
+.Article-cover--tall {
+  @include change-aspect-ratio(20,9);
+}
+
+.Article-coverImage {
+  width: 100%;
+
+  @supports(object-fit: cover) {
+    height: 100%;
+    object-fit: cover;
+  }
+}

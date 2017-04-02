@@ -14,25 +14,6 @@
   color: $c-black;
 }
 
-.Article-hero {
-  margin-bottom: $vsp-xl;
-}
-
-.Article-cover {
-  @include aspect-ratio(24,9);
-  background-color: $c-grey-5;
-  max-height: 800px;
-}
-
-.Article-coverImage {
-  width: 100%;
-
-  @supports(object-fit: cover) {
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
 .Article-caption {
   @include fs-small;
   color: $c-grey-60;

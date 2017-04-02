@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html itemscope itemtype="http://schema.org/{{ block "itemtype" . }}Article{{ end }}">
   <head>
 
     <meta charset="utf-8">
@@ -23,7 +23,6 @@
     {{ end }}
 
     <!-- Stylesheets -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Playfair+Display:700,700i" rel="stylesheet"> -->
     <script src="https://use.typekit.net/dkx7pkf.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
     <link rel="stylesheet" href="/assets/css/screen.css">
@@ -108,9 +107,9 @@
       <a class="page__skip-to-content" href="#main">Skip to Content</a>
       {{ partial "header/header.html" . }}
 
-      <div class="Page-content" id="page">
+      <main class="Page-content" id="main">
         {{ block "content" . }}{{ end }}
-      </div>
+      </main>
 
       {{ partial "site/footer.html" . }}
     </div>

@@ -1,0 +1,72 @@
+body {
+  font-family: $ff-sans;
+}
+
+a {
+  transition: 175ms color, 175ms opacity, 175ms border-color;
+}
+
+.Link {
+  text-decoration: none;
+
+}
+
+.Link--body {
+  color: $c-brand--bright;
+  border-bottom: 1px currentColor solid;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $c-brand-tint;
+  }
+}
+
+.Link--strong {
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 700;
+}
+
+.Link--cover {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.Title {
+  @include accentBar(after);
+  font-size: 4em;
+  line-height: 1;
+  font-family: $ff-disp;
+}
+
+.Subtitle {
+  font-size: 1.2em;
+}
+
+.Title,
+.Subtitle {
+  position: relative;
+  z-index: 3;
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $c-brand--bright;
+    }
+  }
+}
+
+.Subtitle--clickable a {
+  font-weight: 700;
+}
+
+.Copy {
+  max-width: 30em;
+}
