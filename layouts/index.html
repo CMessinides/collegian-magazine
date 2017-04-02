@@ -8,30 +8,30 @@
 {{ $featured := index (where (where (where .Site.RegularPages "Section" "article") "Params.featured" true) "Params.cover_image.src" "ne" nil) 0 }}
 
 {{ if $featured }}
-  <div class="Article-hero" >
-    <div class="Hero-inner">
-      <article class="LeadStory" style="background-image:url({{ $featured.Params.cover_image.src | absURL }});background-position:{{ with $featured.Params.cover_image.focal_point }}{{ lower . }}{{ else }}center{{ end }}">
-        <header class="LeadStory-card">
-          <h3 class="Title"><a href="{{ $featured.Permalink | absURL }}" class="link">{{ $featured.Title }}</a></h3>
-          <p class="Subtitle">
-            {{ partial "byline" $featured }}
-          </p>
-          <p class="Copy">
-            {{ with $featured.Params.teaser }}
-            {{ . }}
-            {{ else }}
-            {{ $featured.Summary }}{{ if $featured.Truncated }}&hellip;{{ end }}
-            {{ end }}
-          </p>
-        </header>
-        <a href="{{ $featured.Permalink | absURL }}" class="Link--cover"><span class="u-forSR">Read more from {{ $featured.Title }}</span></a>
-      </article>
-    </div>
+  <div class="Hero">
+    <article class="LeadStory">
+      <div class="LeadStory-imageContainer">
+        <img class="LeadStory-image" src="{{ $featured.Params.cover_image.src | absURL }}" alt="{{ $featured.Params.cover_image.caption | default $featured.Title }}">
+      </div>
+      <header class="LeadStory-info">
+        <h3 class="Title"><a href="{{ $featured.Permalink | absURL }}" class="link">{{ $featured.Title }}</a></h3>
+        <p class="Subtitle">
+          {{ partial "byline" $featured }}
+        </p>
+        <p class="Copy">
+          {{ with $featured.Params.teaser }}
+          {{ . }}
+          {{ else }}
+          {{ $featured.Summary }}{{ if $featured.Truncated }}&hellip;{{ end }}
+          {{ end }}
+        </p>
+      </header>
+    </article>
   </div>
   {{ end }}
 
-  <section class="page__section">
-    <h2 class="hidden">In the Latest Issue</h2>
+  <section class="Section">
+    <h2 class="Section-heading">In the Latest Issue</h2>
     <ul class="list">
       {{ range first 3 (where (where .Site.Pages "Section" "article") "Params.featured" false) }}
         {{ .Render "card" }}

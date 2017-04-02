@@ -2,12 +2,11 @@
 {{ .Data.Singular | title }}: {{ .Title }} &mdash; {{ .Site.Params.site_name }}
 {{ end }}
 
-{{ define "hero" }}
-<div class="hero hero--bold">
-  <div class="hero__inner">
+{{ define "content" }}
+<div class="Hero">
+  <div class="Hero-inner">
     <h1 class="hero__title">
-      <span class="sub">{{ .Data.Singular | title }}</span>
-      {{ .Title }}
+      {{ .Data.Singular | title }}: {{ .Title }}
     </h1>
     {{ with (where (index (index .Site.Data .Data.Plural) .Data.Plural) "name" .Title) }}
     <div class="hero__extra">
@@ -16,9 +15,6 @@
     {{ end }}
   </div>
 </div>
-{{ end }}
-
-{{ define "content" }}
   <ul class="list">
     {{ range .Data.Pages }}
       {{ .Render "card" }}
