@@ -2,9 +2,14 @@
   margin-bottom: $vsp-xl;
 }
 
+.Hero--bold {
+  background-color: $c-acc1;
+}
+
 .Hero-inner {
   @include global-max-width;
   @include mock-grid-gutters;
+  position: relative;
 }
 
 .Article-cover {

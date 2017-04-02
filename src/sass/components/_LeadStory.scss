@@ -1,33 +1,55 @@
 .LeadStory {
-  @include cardStyle($bordered: true, $clickable: true);
-  @include fs-5;
-  @include aspect-ratio(16,9);
-  background-size: cover;
-
-  @media #{$brkpt-lg} {
-    @include change-aspect-ratio(20,9);
-  }
-
-  @media #{$brkpt-xl} {
-    @include change-aspect-ratio(24,9);
-  }
-}
-
-.LeadStory-card {
-  padding: $vsp-md;
-  background-color: transparentize($c-white, 0.12);
-  border-top: 16px $c-acc1 solid;
-  box-shadow: 0 1px 3px $c-shad-wk;
+  @include global-max-width;
+  background-color: $c-white;
+  width: 100%;
+  color: $c-grey-60;
 
   @media #{$brkpt-md} {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    border-top-right-radius: 4px;
-    max-width: 32rem;
+    display: table;
+  }
+
+  .Title {
+    @include fs-0;
+    color: $c-black;
+  }
+
+  .Subtitle {
+    @include fs-3;
   }
 
   .Copy {
-    margin-top: $vsp-sm;
+    @include fs-body;
+    margin-top: $vsp-md;
+  }
+}
+
+.LeadStory-imageContainer,
+.LeadStory-info {
+  @media #{$brkpt-md} {
+    display: table-cell;
+    vertical-align: top;
+    width: 50%
+  }
+}
+
+.LeadStory-imageContainer {
+  @media #{$brkpt-lg} {
+    width: 66.67%;
+  }
+}
+
+.LeadStory-image {
+  width: 100%;
+  display: block;
+}
+
+.LeadStory-info {
+  @include mock-grid-gutters;
+  border-top: 32px $c-acc1 solid;
+  padding-top: $vsp-md;
+  padding-bottom: $vsp-md;
+
+  @media #{$brkpt-lg} {
+    width: 33.33%;
   }
 }

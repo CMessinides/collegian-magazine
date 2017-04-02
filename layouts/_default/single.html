@@ -2,8 +2,13 @@
 <article class="Article">
   <header class="Article-header u-columns">
     <div class="Article-headerInsert u-mainColumn u-push-3">
-      <h1 class="Article-title">{{ .Title }}</h1>
-      <p class="Article-subtitle">
+      <h1 class="Title">{{ .Title }}</h1>
+      {{ with .Params.teaser }}
+      <p class="Article-teaser">
+        {{ . }}
+      </p>
+      {{ end }}
+      <p class="Article-dateline">
         {{ if .Params.authors }}
         {{ partial "byline.html" . }}
         on
