@@ -48,6 +48,11 @@
 .LeadStory-image {
   width: 100%;
   display: block;
+
+  @supports (object-fit: cover) {
+    object-fit: cover;
+    height: 100%;
+  }
 }
 
 .LeadStory-info {

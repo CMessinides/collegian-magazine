@@ -12,7 +12,7 @@ categories:
 tags: []
 issues:
 - Fall 2016
-featured: false
+featured: true
 cover_image:
   src: "/assets/img/road.jpg"
   focal_point: Center Right

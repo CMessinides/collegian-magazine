@@ -1,0 +1,35 @@
+@mixin column($base: null, $xs: null, $sm: null, $md: null, $lg: null, $xl: null) {
+  @if $base != null {
+    @include grid-column($base);
+  }
+
+  @if $xs != null {
+    @media #{$brkpt-xs} {
+      @include grid-column($xs);
+    }
+  }
+
+  @if $sm != null {
+    @media #{$brkpt-sm} {
+      @include grid-column($sm);
+    }
+  }
+
+  @if $md != null {
+    @media #{$brkpt-md} {
+      @include grid-column($md);
+    }
+  }
+
+  @if $lg != null {
+    @media #{$brkpt-lg} {
+      @include grid-column($lg, $neat-wide-grid);
+    }
+  }
+
+  @if $xl != null {
+    @media #{$brkpt-xl} {
+      @include grid-column($xl, $neat-wide-grid);
+    }
+  }
+}

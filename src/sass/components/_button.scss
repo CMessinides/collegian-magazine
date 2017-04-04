@@ -1,6 +1,5 @@
 .button {
   @include fs-ui;
-  font-family: $ff-sans;
   font-weight: bold;
   border-radius: 8px;
   box-shadow: 0 1px 3px 1px $c-shad;

@@ -14,9 +14,9 @@ issues:
 - Spring 2016
 featured: true
 cover_image:
-  src: ''
-  caption: ''
-  focal_point: ''
+  src: ""
+  caption: ""
+  focal_point: ""
 
 ---
 <h1>Quasi vero, inquit, perpetua oratio rhetorum solum, non etiam philosophorum sit.</h1>

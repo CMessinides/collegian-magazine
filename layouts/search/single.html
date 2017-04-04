@@ -1,66 +1,40 @@
 {{ define "content" }}
-  <h1 class="hidden">Search</h1>
-  <form id="search" class="form card page__section" action="" role="search">
-    <div class="form__group">
-      <label class="hidden" for="main-search">Search</label>
-      <input disabled aria-controls="search-results" id="search-field" class="search__field search__field--main wid-12" type="text" name="q" placeholder="Search">
-      <button disabled aria-controls="search-results" id="search-submit" class="search__btn" type="submit">
-        <span class="hidden">Search</span>
-        {{ partial "icon/magnify.svg" . }}
-      </button>
-    </div>
-    <div class="form__group">
-    </div>
-    <fieldset disabled class="form__fieldset" id="search-filters">
-      <legend class="form__legend">Include:</legend>
-      <ul class="form__group form__group--list">
-        <li class="form__list-item">
-          <input aria-controls="search-results" id="filter-articles" class="form__checkbox" type="checkbox" name="include" checked value="articles">
-          <label for="search-articles">Articles</label>
-        </li>
-        <li class="form__list-item">
-          <input aria-controls="search-results" id="filter-announcements" class="form__checkbox" type="checkbox" name="include" checked value="announcements">
-          <label for="search-announcements">Announcements</label>
-        </li>
-        <li class="form__list-item">
-          <input aria-controls="search-results" id="filter-pages" class="form__checkbox" type="checkbox" name="include" checked value="pages">
-          <label for="search-pages">Pages</label>
-        </li>
-        <li class="form__list-item">
-          <input aria-controls="search-results" id="filter-staff" class="form__checkbox" type="checkbox" name="include" checked value="staff">
-          <label for="search-staff">Staff</label>
+  <h1 class="u-forSR">Search</h1>
+  <div class="Search">
+    <form id="search" class="Search-form" action="" role="search">
+      <div class="Search-field">
+        <label class="u-forSR" for="searchInput">Search</label>
+        <input  aria-controls="searchResults" id="searchInput" class="Search-input" type="text" name="q" placeholder="Search">
+        <button  aria-controls="searchResults" id="searchSubmit" class="Search-btn" type="submit">
+          <span class="u-forSR">Search</span>
+          <span class="Icon Icon--large">
+            {{ partial "icon/search.svg" . }}
+          </span>
+        </button>
+      </div>
+    </form>
+    <h2 id="resultsHeader" class="u-forSR">Results</h2>
+    <div class="Search-results" id="searchResults" role="region" aria-labelledby="resultsHeader" aria-live="polite">
+      <div class="Search-info">
+        <div class="Search-alert Search-alert--success">
+          0 results found for 'woooooooo'
+        </div>
+        <div class="Search-alert Search-alert--busy"></div>
+        <div class="Search-alert Search-alert--error"></div>
+      </div>
+      <ul class="Search-resultsList">
+        <li class="Search-result">
+          <article class="Card Card--bordered Card--small">
+            <header class="Card-info">
+              <h3 class="Card-title">Whooooooa</h3>
+            </header>
+          </article>
         </li>
       </ul>
-    </fieldset>
-  </form>
-
-  <div id="search-results" class="page__section grid search__results-wrap" role="region" aria-labelledby="results-header" aria-live="polite">
-    <h2 class="hidden">Results</h2>
-    <noscript>
-      <div class="search__status search__status--error show">
-        <h3>Javascript disabled</h3>
-        <p>You'll need to enable Javascript to use search.</p>
-      </div>
-    </noscript>
-    <div id="search-loading" class="search__status search__status--loading">
-      <span class="hidden">Searching...</span>
-      <div class="search__loader">
-        <span class="loader__dot"></span>
-        <span class="loader__dot"></span>
-        <span class="loader__dot"></span>
-      </div>
     </div>
-    <div id="search-no-results" class="search__status search__status--no-results">
-      <h3>No Results</h3>
-    </div>
-    <div id="search-error" class="search__status search__status--error">
-      <h3>Error</h3>
-      <p>Something went wrong. Reloading the page might help.</p>
-    </div>
-    <ul id="results-list" class="list search__results wid-12"></ul>
   </div>
 {{ end }}
 
 {{ define "scripts" }}
-  <script src="{{ "/assets/js/search.js" | absURL }}" charset="utf-8"></script>
+  <!-- <script src="{{ "/assets/js/search.js" | absURL }}" charset="utf-8"></script> -->
 {{ end }}

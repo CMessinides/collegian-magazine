@@ -15,7 +15,8 @@ html {
 @import "base/util";
 @import "base/columns";
 @import "base/primitives";
-@import "mixins/aspect_ratio";
+@import "tools/aspect_ratio";
+@import "tools/layout";
 @import "components/Section";
 @import "components/Article";
 @import "components/Page";
@@ -24,6 +25,7 @@ html {
 @import "components/Metadata";
 @import "components/Profile";
 @import "components/LeadStory";
+@import "components/LeadDeck";
 @import "components/Hero";
 @import "components/Issue";
 @import "components/list";

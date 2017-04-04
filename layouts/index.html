@@ -5,17 +5,20 @@
 
 {{ define "content" }}
 <h1 class="u-forSR">Home</h1>
-{{ $featured := first 1 (where (where (where .Site.RegularPages "Section" "article") "Params.featured" true) "Params.cover_image.src" "ne" nil) }}
+{{ $featured := first 4 (where (where .Site.RegularPages "Section" "article") "Params.featured" true) }}
 
-{{ range $featured }}
-  <div class="Hero Hero--lead">
+{{ range first 1 $featured }}
+  <section class="Hero Hero--lead">
+    <h2 class="u-forSR">Lead Story</h2>
     <article class="LeadStory">
         <div class="LeadStory-cover">
+          {{ if .Params.cover_image.src }}
           <img class="LeadStory-image" src="{{ .Params.cover_image.src | absURL }}" alt="{{ .Params.cover_image.caption | default .Title }}" style="object-position:{{ with .Params.cover_image.focal_point }}{{ . | lower }}{{ else }}center{{ end }};">
           <a href="{{ .Permalink | absURL }}" class="Link--cover"><span class="u-forSR">Read more from {{ .Title }}</span></a>
+          {{ end  }}
         </div>
         <header class="LeadStory-info">
-          <div class="Summary">
+          <div class="Summary Summary--mega">
             <p class="Summary-metadata">
               {{ with .Params.categories }}
               {{ $cat := index . 0 }}
@@ -23,7 +26,7 @@
               {{ end }}
               Featured
             </p>
-            <h3 class="Summary-title"><a href="{{ .Permalink | absURL }}" class="link">{{ .Title }}</a></h3>
+            <h3 class="Summary-title"><a href="{{ .Permalink | absURL }}" class="Link">{{ .Title }}</a></h3>
             <p class="Summary-metadata">
               {{ partial "byline" . }}
             </p>
@@ -37,15 +40,37 @@
           </div>
         </header>
     </article>
-  </div>
+  </section>
   {{ end }}
+  <section class="LeadDeck">
+    <h2 class="u-forSR">More Featured</h2>
+    <ol class="LeadDeck-inner">
+      {{ range after 1 $featured }}
+      <li class="LeadDeck-story">
+        <article class="Summary">
+          <div class="Summary-thumbnail">
+            {{ if .Params.cover_image.src }}
+            <img src="{{ .Params.cover_image.src | absURL }}" alt="{{ .Params.cover_image.caption | default .Title }}" class="Summary-image" style="object-position:{{ with .Params.cover_image.focal_point }}{{ . | lower }}{{ else }}center{{ end }}">
+            {{ end }}
+            <a href="{{ .Permalink | absURL }}" class="Link--cover">
+              <span class="u-forSR">Read more from {{ .Title }}</span>
+            </a>
+          </div>
+          <header class="Summary-info">
+            <h3 class="Summary-title">
+              <a href="{{ .Permalink | absURL }}" class="Link">{{ .Title }}</a>
+            </h3>
+
+          </header>
+        </article>
+      </li>
+      {{ end }}
+    </ol>
+  </section>
 
   <section class="Section">
     <h2 class="Section-heading">In the Latest Issue</h2>
     <ul class="list">
-      {{ range first 3 (where (where .Site.Pages "Section" "article") "Params.featured" false) }}
-        {{ .Render "card" }}
-      {{ end }}
     </ul>
     <div class="paginator">
       <a href="{{ "/article/" | absURL }}" class="paginator__link paginator__link--more">
@@ -59,14 +84,6 @@
     {{ $posts := where .Site.Pages "Section" "post" }}
     <h2 class="page__section-heading">From the Blog</h2>
     <ul class="list">
-      {{ range (first 1 $posts) }}
-      {{ .Render "card-large" }}
-      {{ end }}
-      {{ if gt (len $posts) 1 }}
-      {{ range (first 2 (after 1 $posts)) }}
-      {{ .Render "card" }}
-      {{ end }}
-      {{ end }}
     </ul>
     <div class="paginator">
       <a href="{{ "/post/" | absURL }}" class="paginator__link paginator__link--more">
@@ -74,32 +91,6 @@
         Posts
       </a>
     </div>
-  </section>
-
-  <section class="page__section">
-    <h2 class="page__section-heading">Browse by Category</h2>
-    <ul class="list grid--wrap ns-grid">
-      {{ range $key, $category := .Site.Taxonomies.categories }}
-      <li class="list__item--summary md-wid-4 ns-wid-6">
-        <article class="summary summary--small">
-          <h3 class="summary__title"><a href="{{ $key | urlize | printf "/categories/%s" | absURL }}" class="link">{{ $key }}</a></h3>
-          <p class="summary__subtitle">
-            {{ len $category.Pages }}
-            {{ if eq (len $category.Pages) 1 }}
-            article
-            {{ else }}
-            articles
-            {{ end }}
-          </p>
-          {{ with (index (where $.Site.Data.categories.categories "name" $key) 0) }}
-          <p class="summary__body">
-            {{ index . "description" }}
-          </p>
-          {{ end }}
-        </article>
-      </li>
-      {{ end }}
-    </ul>
   </section>
 
   <section class="Section Section--black">
