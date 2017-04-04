@@ -1,0 +1,68 @@
+.Summary {
+  color: $c-grey-75;
+}
+
+.Summary-metadata {
+  color: $c-grey-60;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.Summary-title {
+  color: $c-black;
+  font-family: $ff-disp;
+  margin-bottom: $vsp-sm;
+}
+
+.Summary-metadata a,
+.Summary-title a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 150ms color;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $c-brand--bright;
+  }
+}
+
+.Summary-thumbnail {
+  position: relative;
+  margin-bottom: $vsp-xs;
+  overflow: hidden;
+  background-color: $c-grey-10;
+}
+
+.Summary-image {
+  width: 100%;
+  @supports (object-fit: cover) {
+    object-fit: cover;
+    height: 100%;
+  }
+}
+
+.Summary-copy {
+  max-width: 24em;
+  margin-top: $vsp-sm;
+}
+
+.Summary--mega {
+  .Summary-metadata {
+    @include fs-summary;
+  }
+
+  .Summary-title {
+    @include fs-0;
+  }
+
+  .Summary-metadata + .Summary-title {
+    margin-top: $vsp-md;
+  }
+
+  .Summary-copy {
+    @include fs-5;
+  }
+
+}
