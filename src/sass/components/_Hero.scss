@@ -6,6 +6,15 @@
   background-color: $c-acc1;
 }
 
+.Hero--black {
+  background-color: $c-black;
+}
+
+.Hero--lead {
+  border-bottom: 1px $c-grey-10 solid;
+  padding-bottom: $vsp-lg;
+}
+
 .Hero-inner {
   @include global-max-width;
   @include mock-grid-gutters;

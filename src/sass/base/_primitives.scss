@@ -29,11 +29,20 @@ a {
 }
 
 .Link--cover {
+  background-color: $c-white;
   position: absolute;
   bottom: 0;
   top: 0;
   right: 0;
   left: 0;
+  transition: 150ms opacity;
+  opacity: 0;
+
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 0.3;
+  }
 }
 
 .Title {

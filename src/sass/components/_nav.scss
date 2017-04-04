@@ -7,7 +7,7 @@
 }
 
 .NavBar-item {
-  font-size: 14px;
+  @include fs-summary;
   display: inline-block;
   vertical-align: middle;
 }
@@ -90,7 +90,7 @@
   }
 
   .NavBar-link {
-    font-size: 12px;
+    @include fs-small;
     font-weight: 700;
     line-height: 32px;
     letter-spacing: 0.02em;

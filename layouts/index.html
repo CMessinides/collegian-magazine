@@ -5,27 +5,37 @@
 
 {{ define "content" }}
 <h1 class="u-forSR">Home</h1>
-{{ $featured := index (where (where (where .Site.RegularPages "Section" "article") "Params.featured" true) "Params.cover_image.src" "ne" nil) 0 }}
+{{ $featured := first 1 (where (where (where .Site.RegularPages "Section" "article") "Params.featured" true) "Params.cover_image.src" "ne" nil) }}
 
-{{ if $featured }}
-  <div class="Hero">
+{{ range $featured }}
+  <div class="Hero Hero--lead">
     <article class="LeadStory">
-      <div class="LeadStory-imageContainer">
-        <img class="LeadStory-image" src="{{ $featured.Params.cover_image.src | absURL }}" alt="{{ $featured.Params.cover_image.caption | default $featured.Title }}">
-      </div>
-      <header class="LeadStory-info">
-        <h3 class="Title"><a href="{{ $featured.Permalink | absURL }}" class="link">{{ $featured.Title }}</a></h3>
-        <p class="Subtitle">
-          {{ partial "byline" $featured }}
-        </p>
-        <p class="Copy">
-          {{ with $featured.Params.teaser }}
-          {{ . }}
-          {{ else }}
-          {{ $featured.Summary }}{{ if $featured.Truncated }}&hellip;{{ end }}
-          {{ end }}
-        </p>
-      </header>
+        <div class="LeadStory-cover">
+          <img class="LeadStory-image" src="{{ .Params.cover_image.src | absURL }}" alt="{{ .Params.cover_image.caption | default .Title }}" style="object-position:{{ with .Params.cover_image.focal_point }}{{ . | lower }}{{ else }}center{{ end }};">
+          <a href="{{ .Permalink | absURL }}" class="Link--cover"><span class="u-forSR">Read more from {{ .Title }}</span></a>
+        </div>
+        <header class="LeadStory-info">
+          <div class="Summary">
+            <p class="Summary-metadata">
+              {{ with .Params.categories }}
+              {{ $cat := index . 0 }}
+              <a href="{{ printf "/categories/%s" (urlize $cat) | absURL }}" class="Link Link--meta"><span class="u-forSR">Category:</span> {{ $cat | humanize }}</a> &mdash;
+              {{ end }}
+              Featured
+            </p>
+            <h3 class="Summary-title"><a href="{{ .Permalink | absURL }}" class="link">{{ .Title }}</a></h3>
+            <p class="Summary-metadata">
+              {{ partial "byline" . }}
+            </p>
+            <p class="Summary-copy">
+              {{ with .Params.teaser }}
+              {{ . }}
+              {{ else }}
+              {{ .Summary }}{{ if .Truncated }}&hellip;{{ end }}
+              {{ end }}
+            </p>
+          </div>
+        </header>
     </article>
   </div>
   {{ end }}

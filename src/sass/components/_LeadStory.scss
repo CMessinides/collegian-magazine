@@ -1,40 +1,47 @@
 .LeadStory {
   @include global-max-width;
-  background-color: $c-white;
-  width: 100%;
+  @include grid-container;
+  margin-top: $vsp-sm;
   color: $c-grey-60;
+  font-size: 1rem;
+  line-height: 1.35;
 
-  @media #{$brkpt-md} {
-    display: table;
-  }
-
-  .Title {
-    @include fs-0;
-    color: $c-black;
-  }
-
-  .Subtitle {
-    @include fs-3;
-  }
-
-  .Copy {
-    @include fs-body;
-    margin-top: $vsp-md;
-  }
-}
-
-.LeadStory-imageContainer,
-.LeadStory-info {
-  @media #{$brkpt-md} {
-    display: table-cell;
-    vertical-align: top;
-    width: 50%
-  }
-}
-
-.LeadStory-imageContainer {
   @media #{$brkpt-lg} {
-    width: 66.67%;
+    margin-top: $vsp-xl;
+  }
+}
+
+.LeadStory-cover,
+.LeadStory-info {
+  @include grid-column(12);
+
+  @media #{$brkpt-md} {
+    @include grid-column(6);
+  }
+}
+
+.LeadStory-cover {
+  @include aspect-ratio(16,9);
+  margin-bottom: $vsp-xs;
+
+  @media #{$brkpt-md} {
+    margin-bottom: 0;
+  }
+
+  @media #{$brkpt-lg} {
+    @include grid-column(8, $neat-wide-grid);
+  }
+
+  .Link--cover {
+    background-color: $c-white;
+    opacity: 0;
+    transition: 175ms opacity;
+  }
+
+  .Link--cover:hover,
+  .Link--cover:focus,
+  .Link--cover:active {
+    opacity: 0.35;
   }
 }
 
@@ -44,12 +51,10 @@
 }
 
 .LeadStory-info {
-  @include mock-grid-gutters;
-  border-top: 32px $c-acc1 solid;
-  padding-top: $vsp-md;
-  padding-bottom: $vsp-md;
+  border-top: $hsp-xs $c-acc1 solid;
+  padding: $vsp-md 0;
 
   @media #{$brkpt-lg} {
-    width: 33.33%;
+    @include grid-column(4, $neat-wide-grid);
   }
 }
