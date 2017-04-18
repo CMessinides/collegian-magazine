@@ -9,7 +9,7 @@
 
 {{ range first 1 $featured }}
   <section class="Hero Hero--lead">
-    <h2 class="u-forSR">Lead Story</h2>
+    <h2 class="u-forSR">Featured</h2>
     <article class="LeadStory">
         <div class="LeadStory-cover">
           {{ if .Params.cover_image.src }}
@@ -47,17 +47,17 @@
     <ol class="LeadDeck-inner">
       {{ range after 1 $featured }}
       <li class="LeadDeck-story">
-        <article class="Summary">
-          <div class="Summary-thumbnail">
+        <article class="Media Media--stack">
+          <div class="Media-imageContainer">
             {{ if .Params.cover_image.src }}
-            <img src="{{ .Params.cover_image.src | absURL }}" alt="{{ .Params.cover_image.caption | default .Title }}" class="Summary-image" style="object-position:{{ with .Params.cover_image.focal_point }}{{ . | lower }}{{ else }}center{{ end }}">
+            <img src="{{ .Params.cover_image.src | absURL }}" alt="{{ .Params.cover_image.caption | default .Title }}" class="Media-image" style="object-position:{{ with .Params.cover_image.focal_point }}{{ . | lower }}{{ else }}center{{ end }}">
             {{ end }}
-            <a href="{{ .Permalink | absURL }}" class="Link--cover">
+            <a href="{{ .Permalink | absURL }}" class="Media-imageLink">
               <span class="u-forSR">Read more from {{ .Title }}</span>
             </a>
           </div>
-          <header class="Summary-info">
-            <h3 class="Summary-title">
+          <header class="Media-info">
+            <h3 class="Media-title">
               <a href="{{ .Permalink | absURL }}" class="Link">{{ .Title }}</a>
             </h3>
 

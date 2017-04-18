@@ -1,0 +1,79 @@
+.Media {
+  display: flex;
+}
+
+.Media-imageContainer {
+  @include aspect-ratio(16,9);
+  flex: 0 auto;
+  background-color: $c-grey-10;
+}
+
+.Media-image {
+  width: 100%;
+
+  @supports (object-fit: cover) {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.Media-imageLink {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: $c-white;
+  opacity: 0;
+  transition: 180ms opacity ease;
+
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 0.25;
+  }
+}
+
+.Media-title {
+  font-family: $ff-disp;
+  color: $c-black;
+  font-weight: 700;
+
+  a {
+    z-index: 3;
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $c-brand--bright;
+    }
+  }
+}
+
+.Media--basic {
+  .Media-imageContainer {
+    @include column(3, $md: 4);
+  }
+}
+
+.Media--stack {
+  display: block;
+}
+
+.Media--profile {
+
+  .Media-imageContainer {
+    @include change-aspect-ratio(1,1);
+    align-self: center;
+    width: 48px;
+
+    @media #{$brkpt-md} {
+      width: 64px;
+    }
+  }
+}

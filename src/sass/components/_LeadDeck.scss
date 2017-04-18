@@ -1,7 +1,5 @@
 .LeadDeck {
   padding: $vsp-lg 0;
-  background-color: $c-grey-5;
-  border-bottom: 1px $c-grey-20 solid;
 }
 
 .LeadDeck-inner {
@@ -10,8 +8,6 @@
 }
 
 .LeadDeck-story {
-  padding-top: $vsp-xs;
-  border-top: 2px $c-brand-tint solid;
   border-radius: 2px;
   margin-bottom: $vsp-md;
 
@@ -20,26 +16,5 @@
     @media #{$brkpt-lg} {
       height: 128px;
     }
-  }
-}
-
-.LeadDeck-story:nth-child(6n),
-.LeadDeck-story:nth-child(6n + 1),
-.LeadDeck-story:nth-child(6n + 2),
-.LeadDeck-story:nth-child(6n + 5),
-.LeadDeck-story:nth-child(6n + 6) {
-  @include column($base: 12, $sm: 6, $lg: 3);
-
-  .Summary-title {
-    @include fs-2;
-  }
-}
-
-.LeadDeck-story:nth-child(6n + 3),
-.LeadDeck-story:nth-child(6n + 4) {
-  @include column($base: 12, $lg: 6);
-
-  .Summary-title {
-    @include fs-1;
   }
 }
