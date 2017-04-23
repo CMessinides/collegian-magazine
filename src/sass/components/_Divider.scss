@@ -1,0 +1,12 @@
+.Divider {
+  @include mock-grid-gutters;
+  @include global-max-width;
+  padding-top: $vsp-md;
+  padding-bottom: $vsp-md;
+
+  &::before {
+    content: '';
+    display: block;
+    border: 1px $c-grey-20 solid;
+  }
+}

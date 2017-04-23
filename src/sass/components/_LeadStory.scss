@@ -1,65 +1,55 @@
 .LeadStory {
   @include global-max-width;
-  @include grid-container;
-  margin-top: $vsp-sm;
-  color: $c-grey-60;
-  font-size: 1rem;
-  line-height: 1.35;
-
-  @media #{$brkpt-lg} {
-    margin-top: $vsp-xl;
-  }
-}
-
-.LeadStory-cover,
-.LeadStory-info {
-  @include grid-column(12);
-
-  @media #{$brkpt-md} {
-    @include grid-column(6);
-  }
-}
-
-.LeadStory-cover {
-  @include aspect-ratio(16,9);
-  margin-bottom: $vsp-xs;
-
-  @media #{$brkpt-md} {
-    margin-bottom: 0;
-  }
-
-  @media #{$brkpt-lg} {
-    @include grid-column(8, $neat-wide-grid);
-  }
-
-  .Link--cover {
-    background-color: $c-white;
-    opacity: 0;
-    transition: 175ms opacity;
-  }
-
-  .Link--cover:hover,
-  .Link--cover:focus,
-  .Link--cover:active {
-    opacity: 0.35;
-  }
-}
-
-.LeadStory-image {
-  width: 100%;
-  display: block;
-
-  @supports (object-fit: cover) {
-    object-fit: cover;
-    height: 100%;
-  }
+  position: relative;
+  background-size: cover;
+  color: $c-white;
 }
 
 .LeadStory-info {
-  border-top: $hsp-xs $c-acc1 solid;
-  padding: $vsp-md 0;
+  @include mock-grid-gutters(padding);
+  background: linear-gradient(180deg, transparent, transparentize($c-black, 0.3) 256px, transparentize($c-black, 0.1));
+  padding-top: 256px;
+  padding-bottom: $hsp-md;
 
-  @media #{$brkpt-lg} {
-    @include grid-column(4, $neat-wide-grid);
+  @media #{$brkpt-md} {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
   }
+}
+
+.LeadStory-titleBlock {
+  flex: 0 1 auto;
+}
+
+.LeadStory-copy {
+  @include fs-4;
+  flex: 1 50%;
+  max-width: 26em;
+  opacity: 0.8;
+  padding-top: $vsp-xs;
+
+  @media #{$brkpt-md} {
+    padding-left: $hsp-md;
+    padding-bottom: 0.15rem;
+  }
+}
+
+.LeadStory-title {
+  @include fs-0;
+  font-family: $ff-disp;
+  font-weight: 700;
+  margin-top: $hsp-xs;
+}
+
+.LeadStory-metadata {
+  @include fs-small;
+  display: inline-block;
+  color: $c-acc1;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-bottom: 2px currentColor solid;
+  padding-bottom: $vsp-xxs / 2;
+  margin-bottom: $vsp-xxs;
 }

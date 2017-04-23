@@ -8,43 +8,32 @@
 {{ $featured := first 4 (where (where .Site.RegularPages "Section" "article") "Params.featured" true) }}
 
 {{ range first 1 $featured }}
-  <section class="Hero Hero--lead">
+  <section class="Hero">
     <h2 class="u-forSR">Featured</h2>
-    <article class="LeadStory">
-        <div class="LeadStory-cover">
-          {{ if .Params.cover_image.src }}
-          <img class="LeadStory-image" src="{{ .Params.cover_image.src | absURL }}" alt="{{ .Params.cover_image.caption | default .Title }}" style="object-position:{{ with .Params.cover_image.focal_point }}{{ . | lower }}{{ else }}center{{ end }};">
-          <a href="{{ .Permalink | absURL }}" class="Link--cover"><span class="u-forSR">Read more from {{ .Title }}</span></a>
-          {{ end  }}
+    <article class="LeadStory" {{ if .Params.cover_image.src }}style="background-image:url({{ .Params.cover_image.src | absURL }});background-position:{{ with .Params.cover_image.focal_point }}{{ . | lower }}{{ else }}center{{ end }};"{{ end }}>
+      <a href="{{ .Permalink | absURL }}" class="Link--cover"><span class="u-forSR">Read more from {{ .Title }}</span></a>
+      <header class="LeadStory-info">
+        <div class="LeadStory-titleBlock">
+          <p class="LeadStory-metadata">
+            {{ with .Params.categories }}
+            {{ $cat := index . 0 }}
+            <span class="u-forSR">Category:</span> {{ $cat | humanize }}
+            {{ end }}
+          </p>
+          <h3 class="LeadStory-title">{{ .Title }}</h3>
         </div>
-        <header class="LeadStory-info">
-          <div class="Summary Summary--mega">
-            <p class="Summary-metadata">
-              {{ with .Params.categories }}
-              {{ $cat := index . 0 }}
-              <a href="{{ printf "/categories/%s" (urlize $cat) | absURL }}" class="Link Link--meta"><span class="u-forSR">Category:</span> {{ $cat | humanize }}</a> &mdash;
-              {{ end }}
-              Featured
-            </p>
-            <h3 class="Summary-title"><a href="{{ .Permalink | absURL }}" class="Link">{{ .Title }}</a></h3>
-            <p class="Summary-metadata">
-              {{ partial "byline" . }}
-            </p>
-            <p class="Summary-copy">
-              {{ with .Params.teaser }}
-              {{ . }}
-              {{ else }}
-              {{ .Summary }}{{ if .Truncated }}&hellip;{{ end }}
-              {{ end }}
-            </p>
-          </div>
-        </header>
+        <p class="LeadStory-copy">
+          {{ with .Params.teaser }}
+          {{ . }}
+          {{ else }}
+          {{ .Summary }}{{ if .Truncated }}&hellip;{{ end }}
+          {{ end }}
+        </p>
+      </header>
     </article>
-  </section>
-  {{ end }}
-  <section class="LeadDeck">
+    <div class="Divider"></div>
     <h2 class="u-forSR">More Featured</h2>
-    <ol class="LeadDeck-inner">
+    <ol class="MediaGrid MediaGrid--thirds">
       {{ range after 1 $featured }}
       <li class="LeadDeck-story">
         <article class="Media Media--stack">
@@ -67,6 +56,7 @@
       {{ end }}
     </ol>
   </section>
+  {{ end }}
 
   <section class="Section">
     <h2 class="Section-heading">In the Latest Issue</h2>
