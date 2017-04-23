@@ -19,7 +19,7 @@
   </header>
   {{ if .Params.cover_image.src }}
   <div class="Hero">
-    <div class="Hero-inner">
+    <div class="Hero-inner Article-cover Article-cover--tall">
       <img class="Article-coverImage" src="{{ .Params.cover_image.src | absURL }}" style="object-position:{{ with .Params.cover_image.focal_point }}{{ lower . }}{{ else }}center{{ end }}" alt="{{ .Params.cover_image.caption | default .Title }}" {{ if .Params.cover_image.caption }}aria-labelledby="coverCaption"{{ end }}>
     </div>
       {{ with .Params.cover_image.caption }}
